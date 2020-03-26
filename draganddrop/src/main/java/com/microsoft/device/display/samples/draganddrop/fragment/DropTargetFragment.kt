@@ -1,6 +1,7 @@
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
+ *
  */
 
 package com.microsoft.device.display.samples.draganddrop.fragment
@@ -24,7 +25,6 @@ import androidx.fragment.app.Fragment
 import com.microsoft.device.display.samples.draganddrop.R
 
 class DropTargetFragment : Fragment(), View.OnDragListener {
-
     private lateinit var imageDropContainer: RelativeLayout
     private lateinit var textDropContainer: RelativeLayout
     private lateinit var imageHintContainer: ConstraintLayout
@@ -63,12 +63,10 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
                 if (mimeType == "") {
                     return false
                 }
-
                 if (isImage(mimeType) || isText(mimeType)) {
                     setBackgroundColor(mimeType)
                     return true
                 }
-
                 return false
             }
 
@@ -105,8 +103,7 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
     }
 
     private fun setBackgroundColor(mimeType: String) {
-        val colorFilter = PorterDuffColorFilter(Color.GRAY,
-                PorterDuff.Mode.SRC_IN)
+        val colorFilter = PorterDuffColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN)
         if (isImage(mimeType)) {
             imageHintContainer.background.colorFilter = colorFilter
             imageHintContainer.elevation = 4f
@@ -150,29 +147,29 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
     private fun handleTextDrop(event: DragEvent) {
         val item = event.clipData.getItemAt(0)
         val dragData = item.text.toString()
-        var vw: View? = event.localState as View
+        var view: View? = event.localState as View
         // Remove the local text view, vw is null if drop from another app
-        if (vw != null) {
-            val owner = vw.parent as ViewGroup
-            owner.removeView(vw)
+        if (view != null) {
+            val owner = view.parent as ViewGroup
+            owner.removeView(view)
         } else {
             val textView = TextView(this.context)
             textView.text = dragData
-            vw = textView
+            view = textView
         }
 
         textDropContainer.removeAllViews()
-        textDropContainer.addView(vw)
-        vw.visibility = View.VISIBLE
+        textDropContainer.addView(view)
+        view.visibility = View.VISIBLE
     }
 
     private fun handleImageDrop(event: DragEvent) {
         val item = event.clipData.getItemAt(0)
-        var vw: View? = event.localState as View
+        var view: View? = event.localState as View
         // Remove the local image view, vw is null if drop from another app
-        if (vw != null) {
-            val owner = vw.parent as ViewGroup
-            owner.removeView(vw)
+        if (view != null) {
+            val owner = view.parent as ViewGroup
+            owner.removeView(view)
         } else {
             val imageView = ImageView(this.context)
             val uri = item.uri
@@ -187,11 +184,11 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
                 imageView.setImageURI(uri)
             }
 
-            vw = imageView
+            view = imageView
         }
 
         imageDropContainer.removeAllViews()
-        imageDropContainer.addView(vw)
-        vw.visibility = View.VISIBLE
+        imageDropContainer.addView(view)
+        view.visibility = View.VISIBLE
     }
 }

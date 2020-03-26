@@ -1,119 +1,77 @@
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
+ *
  */
 
 package com.microsoft.device.display.samples.complementarycontext
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Surface
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.commit
-import com.microsoft.device.display.samples.complementarycontext.fragment.BaseFragment
-import com.microsoft.device.display.samples.complementarycontext.fragment.DualLandscape
-import com.microsoft.device.display.samples.complementarycontext.fragment.DualPortrait
-import com.microsoft.device.display.samples.complementarycontext.fragment.SinglePortrait
-import com.microsoft.device.display.samples.utils.ScreenHelper
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 
-class MainActivity : AppCompatActivity(), BaseFragment.OnItemSelectedListener {
+import com.microsoft.device.display.samples.complementarycontext.adapters.NotesAdapter
+import com.microsoft.device.display.samples.complementarycontext.adapters.SlidesAdapter
+import com.microsoft.device.display.samples.complementarycontext.model.DataProvider
+import com.microsoft.device.dualscreen.layout.ScreenHelper
+import com.microsoft.device.dualscreen.layout.ScreenModeListener
 
-    private lateinit var singlePortrait: SinglePortrait
-    private lateinit var dualPortrait: DualPortrait
-    private lateinit var dualLandscape: DualLandscape
-    private lateinit var screenHelper: ScreenHelper
-    private var isDuo = false
-    private var currentPosition = 0
-
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        screenHelper = ScreenHelper().also {
-            isDuo = it.initialize(this)
-        }
+        (application as CompanionPaneApp).surfaceDuoScreenManager
+            .addScreenModeListener(object : ScreenModeListener {
+                fun setupViewPager(slidesPager: ViewPager2) {
+                    // Setup Single screen / Dual Start Screen
+                    val slidesAdapter = SlidesAdapter()
+                    slidesAdapter.submitList(DataProvider.slides)
+                    slidesPager.adapter = slidesAdapter
+                }
 
-        currentPosition = 0
-        val slides = Slide.slides
+                override fun onSwitchToSingleScreenMode() {
+                    val slidesPager = findViewById<ViewPager2>(R.id.slides_pager)
+                    setupViewPager(slidesPager)
+                }
 
-        singlePortrait = SinglePortrait.newInstance(slides).also {
-            it.registerOnItemSelectedListener(this)
-        }
+                override fun onSwitchToDualScreenMode() {
+                    val slidesPager = findViewById<ViewPager2>(R.id.slides_pager)
+                    setupViewPager(slidesPager)
 
-        dualPortrait = DualPortrait.newInstance(slides).also {
-            it.registerOnItemSelectedListener(this)
-        }
+                    // Handle DualScreenEndLayout Toolbar visibility
+                    val toolbar = findViewById<Toolbar>(R.id.dual_screen_end_toolbar)
+                    when (ScreenHelper.getCurrentRotation(this@MainActivity)) {
+                        Surface.ROTATION_0, Surface.ROTATION_180 -> toolbar.visibility = View.VISIBLE
+                        Surface.ROTATION_90, Surface.ROTATION_270 -> toolbar.visibility = View.GONE
+                    }
 
-        dualLandscape = DualLandscape.newInstance(slides).also {
-            it.registerOnItemSelectedListener(this)
-        }
+                    // Dual End Screen
+                    val notesRecyclerView = findViewById<RecyclerView>(R.id.notes_recycler_view)
+                    notesRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+                    val notesAdapter = NotesAdapter()
+                    notesAdapter.submitList(DataProvider.slides)
+                    notesRecyclerView.adapter = notesAdapter
+                    notesAdapter.setSlidesPager(slidesPager)
 
-        setupLayout()
-    }
+                    slidesPager.registerOnPageChangeCallback(
+                        object : ViewPager2.OnPageChangeCallback() {
+                            override fun onPageSelected(position: Int) {
+                                super.onPageSelected(position)
+                                notesRecyclerView.scrollToPosition(position)
 
-    private fun showFragment(fragment: Fragment) {
-        supportFragmentManager.commit {
-            val showFragment = supportFragmentManager.findFragmentById(R.id.activity_main)
-            if (showFragment == null) {
-                add(R.id.activity_main, fragment)
-            } else {
-                remove(showFragment)
-                add(R.id.activity_main, fragment)
-            }
-        }
-    }
-
-    private fun hideFragment(fragment: Fragment) {
-        supportFragmentManager.commit {
-            if (fragment.isAdded) {
-                val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-                fragmentTransaction.hide(fragment)
-            }
-        }
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        setupLayout()
-    }
-
-    private fun useDualMode(rotation: Int) {
-        if (rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270) {
-            dualLandscape.setCurrentPosition(currentPosition)
-            showFragment(dualLandscape)
-            hideFragment(dualPortrait)
-            hideFragment(singlePortrait)
-        } else {
-            dualPortrait.setCurrentPosition(currentPosition)
-            showFragment(dualPortrait)
-            hideFragment(singlePortrait)
-            hideFragment(dualLandscape)
-        }
-    }
-
-    private fun useSingleMode() {
-        singlePortrait.setCurrentPosition(currentPosition)
-        showFragment(singlePortrait)
-        hideFragment(dualLandscape)
-        hideFragment(dualPortrait)
-    }
-
-    private fun setupLayout() {
-        val rotation = ScreenHelper.getRotation(this)
-        if (isDuo) {
-            if (screenHelper.isDualMode) {
-                useDualMode(rotation)
-            } else {
-                useSingleMode()
-            }
-        } else {
-            useSingleMode()
-        }
-    }
-
-    override fun onItemSelected(position: Int) {
-        currentPosition = position
+                                NotesAdapter.oldSelectionPosition = NotesAdapter.selectionPosition
+                                NotesAdapter.selectionPosition = position
+                                notesAdapter.notifyItemChanged(NotesAdapter.oldSelectionPosition)
+                                notesAdapter.notifyItemChanged(position)
+                            }
+                    })
+                }
+            })
     }
 }

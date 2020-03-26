@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MultipleInstances</string>
+    <string name="second_activity_text">Hello Second Screen"</string>
+</resources>

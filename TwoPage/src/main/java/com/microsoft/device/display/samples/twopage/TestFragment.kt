@@ -1,6 +1,7 @@
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
+ *
  */
 package com.microsoft.device.display.samples.twopage
 
@@ -29,13 +30,11 @@ class TestFragment : Fragment() {
     }
 
     companion object {
-        private fun newInstance(text: String): TestFragment {
-            return TestFragment().apply {
-                this.arguments = Bundle().apply {
+        private fun newInstance(text: String) = TestFragment().apply {
+                arguments = Bundle().apply {
                     putString("text", text)
                 }
             }
-        }
 
         // Init fragments for ViewPager
         val fragments: SparseArray<TestFragment>

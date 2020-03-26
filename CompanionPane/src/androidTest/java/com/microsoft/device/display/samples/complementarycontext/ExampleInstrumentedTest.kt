@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
+ *
+ */
+
 package com.microsoft.device.display.samples.complementarycontext
 
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner

@@ -1,6 +1,7 @@
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
+ *
  */
 package com.microsoft.device.display.samples.twopage
 
@@ -9,7 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-internal class PagerAdapter(fm: FragmentManager?, private val fragments: SparseArray<TestFragment>) : FragmentPagerAdapter(fm!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+internal class PagerAdapter(
+    fm: FragmentManager?,
+    private val fragments: SparseArray<TestFragment>
+) : FragmentPagerAdapter(fm!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private var showTwoPages = false
     override fun getItem(position: Int): Fragment {
         return fragments.valueAt(position)

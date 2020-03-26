@@ -1,6 +1,7 @@
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
+ *
  */
 package com.microsoft.device.display.samples.twopage
 
@@ -12,7 +13,10 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 
 // VerticalViewPager can be swiped vertically
-class VerticalViewPager @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null) : ViewPager(context!!, attrs) {
+class VerticalViewPager @JvmOverloads constructor(
+    context: Context?,
+    attrs: AttributeSet? = null
+) : ViewPager(context!!, attrs) {
     override fun canScrollHorizontally(direction: Int): Boolean {
         return false
     }

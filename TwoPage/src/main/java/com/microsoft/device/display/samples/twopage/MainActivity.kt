@@ -1,6 +1,7 @@
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
+ *
  */
 package com.microsoft.device.display.samples.twopage
 
@@ -12,14 +13,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import com.microsoft.device.display.samples.utils.ScreenHelper
+import com.microsoft.device.dualscreen.layout.ScreenHelper
 
 class MainActivity : AppCompatActivity(), OnPageChangeListener {
     private lateinit var viewPager: ViewPager
     private lateinit var pagerAdapter: PagerAdapter
-    private lateinit var screenHelper: ScreenHelper
     private var position = 0
-    private var isDuo = false
     private var showTwoPages = false
     private lateinit var single: View
     private lateinit var dual: View
@@ -27,22 +26,21 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pagerAdapter = PagerAdapter(supportFragmentManager, TestFragment.fragments)
-        screenHelper = ScreenHelper().also {
-            isDuo = it.initialize(this)
-        }
         single = layoutInflater.inflate(R.layout.activity_main, null)
         dual = layoutInflater.inflate(R.layout.double_landscape_layout, null)
         setupLayout()
     }
 
-    private fun useSingleMode() {
-        // Setting layout for single portrait
-        setContentView(single)
-        showTwoPages = false
-        setupViewPager()
+    private fun setupLayout() {
+        if (ScreenHelper.isDualMode(this)) {
+            useDualMode()
+        } else {
+            useSingleMode()
+        }
     }
 
-    private fun useDualMode(rotation: Int) {
+    private fun useDualMode() {
+        val rotation = ScreenHelper.getCurrentRotation(this)
         showTwoPages = when (rotation) {
             Surface.ROTATION_90, Surface.ROTATION_270 -> {
                 // Setting layout for double landscape
@@ -58,22 +56,10 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
         setupViewPager()
     }
 
-    private fun setupLayout() {
-        val rotation = ScreenHelper.getRotation(this)
-        if (isDuo) {
-            if (screenHelper.isDualMode) {
-                useDualMode(rotation)
-            } else {
-                useSingleMode()
-            }
-        } else {
-            useSingleMode()
-        }
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        setupLayout()
+    private fun useSingleMode() { // Setting layout for single portrait
+        setContentView(single)
+        showTwoPages = false
+        setupViewPager()
     }
 
     private fun setupViewPager() {
@@ -83,18 +69,21 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
         }
         viewPager = findViewById<ViewPager>(R.id.pager).also {
             it.adapter = pagerAdapter
-            it.setCurrentItem(position)
+            it.currentItem = position
             it.addOnPageChangeListener(this)
         }
     }
 
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) { //
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        setupLayout()
     }
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
     override fun onPageSelected(position: Int) {
         this.position = position
     }
 
-    override fun onPageScrollStateChanged(state: Int) { //
-    }
+    override fun onPageScrollStateChanged(state: Int) {}
 }
