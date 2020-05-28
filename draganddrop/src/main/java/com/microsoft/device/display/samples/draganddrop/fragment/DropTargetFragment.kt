@@ -147,7 +147,7 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
     private fun handleTextDrop(event: DragEvent) {
         val item = event.clipData.getItemAt(0)
         val dragData = item.text.toString()
-        var view: View? = event.localState as View
+        var view = event.localState as? View
         // Remove the local text view, vw is null if drop from another app
         if (view != null) {
             val owner = view.parent as ViewGroup
