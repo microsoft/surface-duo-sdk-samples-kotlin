@@ -35,15 +35,17 @@ ext {
     ktxCoreVersion = "1.2.0"
     ktxFragmentVersion = "1.2.4"
     viewPager2Version = "1.0.0"
+    localBroadcastManagerVersion = "1.0.0"
 
     androidxDependencies = [
-            appCompat       : "androidx.appcompat:appcompat:$appCompatVersion",
-            constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
-            recyclerView    : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
-            cardView        : "androidx.cardview:cardview:$cardViewVersion",
-            ktxCore         : "androidx.core:core-ktx:$ktxCoreVersion",
-            ktxFragment     : "androidx.fragment:fragment-ktx:$ktxFragmentVersion",
-            viewPager2      : "androidx.viewpager2:viewpager2:$viewPager2Version",
+            appCompat           : "androidx.appcompat:appcompat:$appCompatVersion",
+            constraintLayout    : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            recyclerView        : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+            cardView            : "androidx.cardview:cardview:$cardViewVersion",
+            ktxCore             : "androidx.core:core-ktx:$ktxCoreVersion",
+            ktxFragment         : "androidx.fragment:fragment-ktx:$ktxFragmentVersion",
+            viewPager2          : "androidx.viewpager2:viewpager2:$viewPager2Version",
+            locaBroadcastManager: "androidx.localbroadcastmanager:localbroadcastmanager:$localBroadcastManagerVersion",
     ]
 
     //Google dependencies
@@ -54,10 +56,28 @@ ext {
     ]
 
     //Microsoft dependencies version
-    dualScreenLayoutVersion = "0.9.2"
+    dualScreenLayoutVersion = "1.0.0-alpha01"
 
     microsoftDependencies = [
             dualScreenLayout: "com.microsoft.device:dualscreen-layout:$dualScreenLayoutVersion"
+    ]
+
+    //Network dependencies version
+    jsoupVersion = "1.11.1"
+    retrofitVersion = "2.4.0"
+    retrofitConverterScalarsVersion = "2.3.0"
+    okhttpLoggingInterceptorVersion = "3.9.1"
+    networkDependencies = [
+            jsoup                   : "org.jsoup:jsoup:$jsoupVersion",
+            retrofit                : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverterScalars: "com.squareup.retrofit2:converter-scalars:$retrofitConverterScalarsVersion",
+            okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
+    ]
+    //Other libs version
+    glideVersion = "4.11.0"
+    otherDependencies = [
+            glide        : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler: "com.github.bumptech.glide:compiler:$glideVersion"
     ]
 
     //Test dependencies version

@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-
 import com.microsoft.device.display.samples.complementarycontext.R
 import com.microsoft.device.display.samples.complementarycontext.model.Slide
 
@@ -20,8 +19,8 @@ class SlidesAdapter : ListAdapter<Slide, SlidesAdapter.SlideViewHolder>(Comparat
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SlideViewHolder {
         val slide = LayoutInflater
-                .from(parent.context)
-                .inflate(R.layout.item_slides, parent, false)
+            .from(parent.context)
+            .inflate(R.layout.item_slides, parent, false)
 
         return SlideViewHolder(slide)
     }

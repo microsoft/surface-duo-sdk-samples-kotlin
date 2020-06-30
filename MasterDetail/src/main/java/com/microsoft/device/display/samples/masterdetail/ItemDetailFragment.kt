@@ -13,9 +13,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
-
 import androidx.fragment.app.Fragment
-
 import com.microsoft.device.display.samples.masterdetail.model.MovieMock
 
 class ItemDetailFragment : Fragment() {

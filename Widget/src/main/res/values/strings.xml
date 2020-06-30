@@ -1,0 +1,11 @@
+<!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+<resources>
+    <string name="app_name">Widget</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>\
+    <string name="widget_title">Surface Duo Blog</string>
+</resources>

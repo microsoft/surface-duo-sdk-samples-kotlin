@@ -1,14 +1,14 @@
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
- *   
+ *
  */
 
-package com.microsoft.device.display.samples.extend
+package com.microsoft.device.display.samples.extendcanvas
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import org.junit.Assert
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -22,6 +22,6 @@ class ExampleInstrumentedTest {
     @Test
     fun useAppContext() { // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        Assert.assertEquals("com.microsoft.extend", appContext.packageName)
+        assertEquals("com.microsoft.device.display.samples.extendcanvas", appContext.packageName)
     }
 }

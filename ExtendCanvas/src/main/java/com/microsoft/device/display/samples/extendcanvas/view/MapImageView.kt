@@ -14,7 +14,6 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
-
 import androidx.appcompat.widget.AppCompatImageView
 
 class MapImageView : AppCompatImageView {
@@ -57,7 +56,6 @@ class MapImageView : AppCompatImageView {
             val scale: Float
 
             when (event.action and MotionEvent.ACTION_MASK) {
-
                 MotionEvent.ACTION_DOWN -> {
                     savedMatrix.set(matrix)
                     start.set(event.x, event.y)
@@ -74,24 +72,22 @@ class MapImageView : AppCompatImageView {
                         mode = ZOOM
                     }
                 }
-
-                MotionEvent.ACTION_MOVE -> if (mode == DRAG) {
-                    matrix.set(savedMatrix)
-                    if (mImageView.left >= -392) {
-                        matrix.postTranslate(event.x - start.x, event.y - start.y)
-                    }
-                } else if (mode == ZOOM) {
-                    val newDist = spacing(event)
-                    if (newDist > 5f) {
+                MotionEvent.ACTION_MOVE ->
+                    if (mode == DRAG) {
                         matrix.set(savedMatrix)
-                        scale = newDist / oldDist
-                        matrix.postScale(scale, scale, mid.x, mid.y)
+                        if (mImageView.left >= -392) {
+                            matrix.postTranslate(event.x - start.x, event.y - start.y)
+                        }
+                    } else if (mode == ZOOM) {
+                        val newDist = spacing(event)
+                        if (newDist > 5f) {
+                            matrix.set(savedMatrix)
+                            scale = newDist / oldDist
+                            matrix.postScale(scale, scale, mid.x, mid.y)
+                        }
                     }
-                }
             }
-
             mImageView.imageMatrix = matrix
-
             return true
         }
 

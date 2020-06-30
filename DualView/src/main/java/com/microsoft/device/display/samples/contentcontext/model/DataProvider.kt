@@ -8,8 +8,6 @@ package com.microsoft.device.display.samples.contentcontext.model
 
 import com.microsoft.device.display.samples.contentcontext.R
 
-import java.util.ArrayList
-
 object DataProvider {
     val mapPoints: ArrayList<MapPoint>
         get() {
