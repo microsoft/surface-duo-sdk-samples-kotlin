@@ -31,10 +31,10 @@ class TestFragment : Fragment() {
 
     companion object {
         private fun newInstance(text: String) = TestFragment().apply {
-                arguments = Bundle().apply {
-                    putString("text", text)
-                }
+            arguments = Bundle().apply {
+                putString("text", text)
             }
+        }
 
         // Init fragments for ViewPager
         val fragments: SparseArray<TestFragment>

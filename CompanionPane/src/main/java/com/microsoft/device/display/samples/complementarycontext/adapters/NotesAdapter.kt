@@ -14,7 +14,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-
 import com.microsoft.device.display.samples.complementarycontext.R
 import com.microsoft.device.display.samples.complementarycontext.model.Slide
 
@@ -27,8 +26,8 @@ class NotesAdapter : ListAdapter<Slide, NotesAdapter.NoteViewHolder>(Comparator(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val slide = LayoutInflater
-                .from(parent.context)
-                .inflate(R.layout.item_notes, parent, false)
+            .from(parent.context)
+            .inflate(R.layout.item_notes, parent, false)
 
         return NoteViewHolder(slide)
     }

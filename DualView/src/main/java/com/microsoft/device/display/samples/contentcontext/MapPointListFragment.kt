@@ -13,13 +13,10 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
-
 import androidx.fragment.app.Fragment
-
 import com.microsoft.device.display.samples.contentcontext.model.DataProvider
 import com.microsoft.device.display.samples.contentcontext.model.MapPoint
 import com.microsoft.device.dualscreen.layout.ScreenHelper
-import com.microsoft.device.dualscreen.layout.ScreenModeListener
 
 class MapPointListFragment : Fragment() {
     private var adapterItems: ArrayAdapter<MapPoint>? = null
@@ -30,9 +27,9 @@ class MapPointListFragment : Fragment() {
         val mapPoints = DataProvider.mapPoints
         activity?.let {
             adapterItems = ArrayAdapter(
-                    it,
-                    android.R.layout.simple_list_item_activated_1,
-                    mapPoints
+                it,
+                android.R.layout.simple_list_item_activated_1,
+                mapPoints
             )
         }
     }
@@ -61,12 +58,12 @@ class MapPointListFragment : Fragment() {
                 if (ScreenHelper.isDualMode(activity)) {
                     mapPoint?.let {
                         parentFragmentManager
-                                .beginTransaction()
-                                .replace(
-                                        R.id.dual_screen_end_container_id,
-                                        MapFragment.newInstance(it), null
-                                )
-                                .commit()
+                            .beginTransaction()
+                            .replace(
+                                R.id.dual_screen_end_container_id,
+                                MapFragment.newInstance(it), null
+                            )
+                            .commit()
                     }
                 } else {
                     startDetailsFragment(mapPoint)
@@ -78,36 +75,31 @@ class MapPointListFragment : Fragment() {
     private fun startDetailsFragment(mapPoint: MapPoint?) {
         mapPoint?.let {
             parentFragmentManager.beginTransaction()
-                    .replace(
-                            R.id.activity_main,
-                            MapFragment.newInstance(mapPoint), null
-                    ).addToBackStack(null)
-                    .commit()
+                .replace(
+                    R.id.single_list,
+                    MapFragment.newInstance(mapPoint), null
+                ).addToBackStack(null)
+                .commit()
         }
     }
 
     private fun handleSpannedModeSelection() {
         activity?.let {
-            (it.application as DualViewApp).surfaceDuoScreenManager
-                    .addScreenModeListener(object : ScreenModeListener {
-                        override fun onSwitchToSingleScreenMode() {}
+            if (ScreenHelper.isDualMode(it)) {
+                val position = 0
+                lvItems.setItemChecked(position, true)
 
-                        override fun onSwitchToDualScreenMode() {
-                            val position = 0
-                            lvItems.setItemChecked(position, true)
-
-                            val mapPoint = adapterItems?.getItem(position)
-                            mapPoint?.let {
-                                parentFragmentManager
-                                        .beginTransaction()
-                                        .replace(
-                                                R.id.dual_screen_end_container_id,
-                                                MapFragment.newInstance(mapPoint), null
-                                        )
-                                        .commit()
-                            }
-                        }
-                    })
+                val mapPoint = adapterItems?.getItem(position)
+                mapPoint?.let {
+                    parentFragmentManager
+                        .beginTransaction()
+                        .replace(
+                            R.id.dual_screen_end_container_id,
+                            MapFragment.newInstance(mapPoint), null
+                        )
+                        .commit()
+                }
+            }
         }
     }
 }

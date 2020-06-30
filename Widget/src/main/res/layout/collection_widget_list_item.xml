@@ -1,0 +1,58 @@
+<!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:minHeight="20dp"
+    android:maxHeight="40dp"
+    android:id="@+id/widgetItemContainer"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/widget_item_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="8dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_launcher_background"/>
+
+    <TextView
+        android:id="@+id/widget_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toEndOf="@id/widget_item_preview"/>
+
+    <TextView
+        android:id="@+id/widget_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="8sp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="0dp"
+        android:layout_below="@id/widget_item_title"
+        android:layout_toEndOf="@id/widget_item_preview"/>
+
+    <TextView
+        android:id="@+id/widget_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="9sp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="0dp"
+        android:layout_below="@id/widget_item_date"
+        android:layout_toEndOf="@id/widget_item_preview"/>
+
+</RelativeLayout>

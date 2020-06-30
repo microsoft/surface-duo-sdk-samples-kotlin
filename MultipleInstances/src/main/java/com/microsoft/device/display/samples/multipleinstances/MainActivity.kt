@@ -5,7 +5,6 @@ import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.net.Uri
 import android.os.Bundle
-
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -34,15 +33,15 @@ class MainActivity : AppCompatActivity() {
 
         val shortcutManager = getSystemService<ShortcutManager>(ShortcutManager::class.java)
         val shortcut = ShortcutInfo.Builder(this, "id1")
-                .setShortLabel("New Instance")
-                .setLongLabel("New Instance")
-                .setIntent(intent)
-                .build()
+            .setShortLabel("New Instance")
+            .setLongLabel("New Instance")
+            .setIntent(intent)
+            .build()
         val shortcut2 = ShortcutInfo.Builder(this, "id2")
-                .setShortLabel("Second Activity")
-                .setLongLabel("Second Activity")
-                .setIntent(intent2)
-                .build()
+            .setShortLabel("Second Activity")
+            .setLongLabel("Second Activity")
+            .setIntent(intent2)
+            .build()
 
         if (shortcutManager != null) {
             shortcutManager.dynamicShortcuts = listOf(shortcut, shortcut2)

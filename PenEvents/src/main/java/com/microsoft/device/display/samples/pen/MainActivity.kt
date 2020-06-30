@@ -6,14 +6,17 @@
 package com.microsoft.device.display.samples.pen
 
 import android.annotation.SuppressLint
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
+import android.graphics.SurfaceTexture
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
 import android.view.TextureView.SurfaceTextureListener
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
     private val DEBUG_TAG = "PenEventsDebug"
@@ -55,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViews(event: MotionEvent) {
         txtInfo.text = parseToolType(event.getToolType(0))
-        txtPreasure.text = String.format("%s%s", getString(R.string.Pressure), event.pressure)
+        txtPressure.text = String.format("%s%s", getString(R.string.Pressure), event.pressure)
         txtOrientation.text = String.format("%s%s", getString(R.string.Orientation), event.orientation)
         txtButton.text = String.format("%s%d", getString(R.string.ButtonState), event.buttonState)
         txtCoords.text = String.format("%s%s, %s", getString(R.string.Location), event.rawX, event.rawY)
@@ -63,13 +66,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun parseToolType(toolType: Int): String =
-            when (toolType) {
-                MotionEvent.TOOL_TYPE_STYLUS -> "Pen "
-                MotionEvent.TOOL_TYPE_ERASER -> "Eraser "
-                MotionEvent.TOOL_TYPE_FINGER -> "Finger "
-                MotionEvent.TOOL_TYPE_MOUSE -> "Mouse "
-                else -> "UNKNOWN device $toolType"
-            }
+        when (toolType) {
+            MotionEvent.TOOL_TYPE_STYLUS -> "Pen "
+            MotionEvent.TOOL_TYPE_ERASER -> "Eraser "
+            MotionEvent.TOOL_TYPE_FINGER -> "Finger "
+            MotionEvent.TOOL_TYPE_MOUSE -> "Mouse "
+            else -> "UNKNOWN device $toolType"
+        }
 
     private fun handleEvent(event: MotionEvent): Boolean {
         return when (val action = event.actionMasked) {
@@ -165,15 +168,16 @@ class MainActivity : AppCompatActivity() {
         val MAGIC_BLUE = "#05A5EC"
 
         if (buttonPressed != 0) {
-            paint.color = Color.parseColor(BOLD_PINK) //If a button is pressed
+            paint.color = Color.parseColor(BOLD_PINK) // If a button is pressed
         } else {
             paint.color = Color.parseColor(MAGIC_BLUE)
         }
         canvas.drawCircle(
-                textureView.width / 4.0f,
-                textureView.height / 4.0f,
-                textureView.height / 4.0f * pressure,
-                paint)
+            textureView.width / 4.0f,
+            textureView.height / 4.0f,
+            textureView.height / 4.0f * pressure,
+            paint
+        )
     }
 
     private fun drawOrientationArc(eventOrientation: Float, canvas: Canvas) {
@@ -189,7 +193,13 @@ class MainActivity : AppCompatActivity() {
 
         paint.color = Color.parseColor(BOLD_RED)
         val orientation = (eventOrientation * RAD + 90) % 360
-        canvas.drawArc(oval, orientation, SWEEP_ANGLE, true, paint)
+        canvas.drawArc(
+            oval,
+            orientation,
+            SWEEP_ANGLE,
+            true,
+            paint
+        )
     }
 
     private fun drawPointUnderPenCircle(x: Float, y: Float, pressure: Float, canvas: Canvas) {
@@ -198,9 +208,11 @@ class MainActivity : AppCompatActivity() {
         paint.color = Color.parseColor(GRASS_GREEN)
         val textLocation = IntArray(2)
         textureView.getLocationOnScreen(textLocation)
-        canvas.drawCircle(x - textLocation[0],
-                y - textLocation[1],
-                100 * pressure, //The size is controlled by the pressure
-                paint)
+        canvas.drawCircle(
+            x - textLocation[0],
+            y - textLocation[1],
+            100 * pressure, // The size is controlled by the pressure
+            paint
+        )
     }
 }

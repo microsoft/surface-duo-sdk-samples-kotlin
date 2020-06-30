@@ -12,10 +12,8 @@ import android.view.LayoutInflater
 import android.view.Surface
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-
 import com.microsoft.device.display.samples.contentcontext.model.MapPoint
 import com.microsoft.device.display.samples.contentcontext.view.MapImageView
 import com.microsoft.device.dualscreen.layout.ScreenHelper
@@ -24,10 +22,10 @@ class MapFragment : Fragment() {
 
     companion object {
         internal fun newInstance(mapPoint: MapPoint) = MapFragment().apply {
-                arguments = Bundle().apply {
-                    this.putParcelable(MapPoint.KEY, mapPoint)
-                }
+            arguments = Bundle().apply {
+                this.putParcelable(MapPoint.KEY, mapPoint)
             }
+        }
     }
 
     override fun onCreateView(

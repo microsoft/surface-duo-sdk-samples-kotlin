@@ -13,14 +13,10 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
-
 import androidx.fragment.app.Fragment
-
 import com.microsoft.device.display.samples.masterdetail.model.DataProvider
 import com.microsoft.device.display.samples.masterdetail.model.MovieMock
 import com.microsoft.device.dualscreen.layout.ScreenHelper
-
-import java.util.ArrayList
 
 class ItemsListFragment : Fragment(), AdapterView.OnItemClickListener {
     private var arrayAdapter: ArrayAdapter<MovieMock>? = null
@@ -65,10 +61,10 @@ class ItemsListFragment : Fragment(), AdapterView.OnItemClickListener {
             activity?.let { activity ->
                 if (ScreenHelper.isDualMode(activity)) {
                     parentFragmentManager.beginTransaction()
-                            .replace(
-                                    R.id.dual_screen_end_container_id,
-                                    ItemDetailFragment.newInstance(movie), null
-                            ).commit()
+                        .replace(
+                            R.id.dual_screen_end_container_id,
+                            ItemDetailFragment.newInstance(movie), null
+                        ).commit()
                 } else {
                     startDetailsFragment(movie)
                 }
