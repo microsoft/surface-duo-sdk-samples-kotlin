@@ -1,5 +1,7 @@
-# Introduction 
-This repo contains the samples for Surface Duo 
+![Kotlin samples CI](https://github.com/microsoft/surface-duo-sdk-samples-kotlin/workflows/Kotlin%20samples%20CI/badge.svg)
+
+# Introduction
+This repo contains the samples for Surface Duo
 
 ## Getting Started
 To learn how to load your app on to emulator, and to use it ,see the full documentation here: [https://docs.microsoft.com/dual-screen](https://docs.microsoft.com/dual-screen)
