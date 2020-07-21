@@ -4,7 +4,7 @@
  *
  */
 
-include ':MasterDetail', ':ExtendCanvas', ':TwoPage', ':CompanionPane', ':DualView',
+include ':ListDetail', ':ExtendCanvas', ':TwoPage', ':CompanionPane', ':DualView',
         ':IntentToSecondScreen', ':DragAndDrop', ':CompanionPaneLevel2', ':MultipleInstances',
-        ':PenEvents', ':Qualifiers', ':Widget', ':HingeAngle'
+        ':PenEvents', ':Qualifiers', ':HingeAngle'
 rootProject.name = 'DuoSDKSampleApps'
