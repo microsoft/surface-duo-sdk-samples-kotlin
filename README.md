@@ -1,10 +1,33 @@
+---
+page_type: sample
+name: Surface Duo - Kotlin SDK samples
+languages:
+- kotlin
+products:
+- surface-duo
+description: "Samples showing how to use the Surface Duo SDK to achieve dual-screen user interface patterns."
+urlFragment: all
+---
+# Surface Duo SDK samples in Kotlin
+
+This repo contains samples for dual-screen Surface Duo SDK. These samples demonstrate [dual-screen controls](https://docs.microsoft.com/dual-screen/android/api-reference/dualscreen-library/) and [user interface patterns](https://docs.microsoft.com/dual-screen/introduction#dual-screen-app-patterns).
+
 ![Kotlin samples CI](https://github.com/microsoft/surface-duo-sdk-samples-kotlin/workflows/Kotlin%20samples%20CI/badge.svg)
 
-# Introduction
-This repo contains the samples for Surface Duo
+## Get Started
 
-## Getting Started
-To learn how to load your app on to emulator, and to use it ,see the full documentation here: [https://docs.microsoft.com/dual-screen](https://docs.microsoft.com/dual-screen)
+To learn how to load your app on to emulator, and to use it, see the full documentation at [docs.microsoft.com/dual-screen](https://docs.microsoft.com/dual-screen).
+
+## Related links
+
+- [SDK open-source code](https://github.com/microsoft/surface-duo-sdk)
+- [SDK samples (Java)](https://github.com/microsoft/surface-duo-sdk-samples)
+- [App samples](https://github.com/microsoft/surface-duo-app-samples)
+- [Unity samples](https://github.com/microsoft/surface-duo-sdk-unity-samples)
+- [Xamarin samples](https://github.com/microsoft/surface-duo-sdk-xamarin-samples)
+- [Flutter samples](https://github.com/microsoft/surface-duo-sdk-samples-flutter)
+- [React Native samples](https://github.com/microsoft/react-native-dualscreen)
+- Web samples are coming soon
 
 ## Contributing
 
