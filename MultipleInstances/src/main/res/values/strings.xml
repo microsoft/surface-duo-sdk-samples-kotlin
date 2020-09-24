@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MultipleInstances</string>
     <string name="second_activity_text">Hello Second Screen"</string>
+    <string name="main_shortcut_label">New Instance</string>
+    <string name="second_shortcut_label">Second Activity</string>
 </resources>

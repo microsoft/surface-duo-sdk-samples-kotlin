@@ -8,5 +8,6 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+        supportActionBar?.title = getString(R.string.second_shortcut_label)
     }
 }

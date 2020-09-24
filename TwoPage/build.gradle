@@ -33,6 +33,9 @@ dependencies {
     implementation microsoftDependencies.dualScreenLayout
 
     testImplementation testDependencies.junit
+
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
+    androidTestImplementation instrumentationTestDependencies.uiAutomator
+    androidTestImplementation instrumentationTestDependencies.testRules
 }
