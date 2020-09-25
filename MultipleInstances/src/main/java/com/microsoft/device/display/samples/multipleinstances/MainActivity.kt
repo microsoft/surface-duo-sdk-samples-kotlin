@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.title = getString(R.string.main_shortcut_label)
         addShortcuts()
     }
 
@@ -33,13 +34,13 @@ class MainActivity : AppCompatActivity() {
 
         val shortcutManager = getSystemService<ShortcutManager>(ShortcutManager::class.java)
         val shortcut = ShortcutInfo.Builder(this, "id1")
-            .setShortLabel("New Instance")
-            .setLongLabel("New Instance")
+            .setShortLabel(getString(R.string.main_shortcut_label))
+            .setLongLabel(getString(R.string.main_shortcut_label))
             .setIntent(intent)
             .build()
         val shortcut2 = ShortcutInfo.Builder(this, "id2")
-            .setShortLabel("Second Activity")
-            .setLongLabel("Second Activity")
+            .setShortLabel(getString(R.string.second_shortcut_label))
+            .setLongLabel(getString(R.string.second_shortcut_label))
             .setIntent(intent2)
             .build()
 

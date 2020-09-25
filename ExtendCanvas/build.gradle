@@ -31,7 +31,9 @@ dependencies {
     implementation androidxDependencies.ktxFragment
 
     testImplementation testDependencies.junit
+
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
-    androidTestImplementation instrumentationTestDependencies.testRunner
+    androidTestImplementation instrumentationTestDependencies.uiAutomator
+    androidTestImplementation instrumentationTestDependencies.testRules
 }

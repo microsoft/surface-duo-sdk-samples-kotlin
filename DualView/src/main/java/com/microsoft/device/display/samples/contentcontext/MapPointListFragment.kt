@@ -44,12 +44,12 @@ class MapPointListFragment : Fragment() {
         lvItems.adapter = adapterItems
         lvItems.choiceMode = ListView.CHOICE_MODE_SINGLE
 
-        setOnLickListenerForListView(lvItems)
+        setOnClickListenerForListView(lvItems)
         handleSpannedModeSelection()
         return view
     }
 
-    private fun setOnLickListenerForListView(lvItems: ListView) {
+    private fun setOnClickListenerForListView(lvItems: ListView) {
         // Handle OnListItemClick depending on screen mode
         lvItems.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             lvItems.setItemChecked(position, true)
@@ -76,7 +76,7 @@ class MapPointListFragment : Fragment() {
         mapPoint?.let {
             parentFragmentManager.beginTransaction()
                 .replace(
-                    R.id.single_list,
+                    R.id.single_screen_container_id,
                     MapFragment.newInstance(mapPoint), null
                 ).addToBackStack(null)
                 .commit()

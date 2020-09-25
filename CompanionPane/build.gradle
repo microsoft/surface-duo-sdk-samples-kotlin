@@ -13,7 +13,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.microsoft.device.display.samples.complementarycontext"
+        applicationId "com.microsoft.device.display.samples.companionpane"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -27,15 +27,15 @@ dependencies {
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
-    implementation androidxDependencies.recyclerView
-    implementation androidxDependencies.cardView
-    implementation androidxDependencies.viewPager2
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
 
     implementation microsoftDependencies.dualScreenLayout
 
     testImplementation testDependencies.junit
+
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
+    androidTestImplementation instrumentationTestDependencies.uiAutomator
+    androidTestImplementation instrumentationTestDependencies.testRules
 }
