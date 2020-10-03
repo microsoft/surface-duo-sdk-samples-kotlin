@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/small_padding"
                 android:paddingBottom="@dimen/small_padding"
-                android:text="@string/crop_amp_rotate"
+                android:text="@string/Filters"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/text_size" />

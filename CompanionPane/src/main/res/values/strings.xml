@@ -7,7 +7,12 @@
 
 <resources>
     <string name="app_name">CompanionPane</string>
-    <string name="crop_amp_rotate"><![CDATA[Crop & Rotate]]></string>
+    <string name="Filters">Filters</string>
+    <string name="Gingham">Gingham</string>
+    <string name="Original">Original</string>
+    <string name="Lark">Lark</string>
+    <string name="Juno">Juno</string>
+    <string name="Ludwig">Ludwig</string>
     <string name="straightening">Straightening</string>
     <string name="zero_degrees">0°</string>
     <string name="rotate">Rotate</string>

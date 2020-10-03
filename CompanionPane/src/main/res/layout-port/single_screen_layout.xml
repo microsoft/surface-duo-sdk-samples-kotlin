@@ -27,11 +27,15 @@
         app:titleTextColor="@android:color/white" />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/large_padding"
+        android:paddingBottom="@dimen/large_padding"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        android:layout_weight="0.45"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_photo_blue_24dp"
+        android:src="@drawable/full_image"
         tools:ignore="ContentDescription" />
 
     <include

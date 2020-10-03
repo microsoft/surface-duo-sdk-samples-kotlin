@@ -30,10 +30,10 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/small_padding"
             android:paddingBottom="@dimen/small_padding"
-            android:text="@string/crop_amp_rotate"
+            android:text="@string/Filters"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/text_size" />
+            android:textSize="@dimen/small_text_size" />
 
         <View
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                 android:layout_weight="8"
                 android:text="@string/straightening"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/text_size" />
+                android:textSize="@dimen/small_text_size" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
                 android:text="@string/zero_degrees"
                 android:textAlignment="viewEnd"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/text_size" />
+                android:textSize="@dimen/small_text_size" />
 
         </LinearLayout>
 
@@ -103,7 +103,7 @@
                     android:gravity="center"
                     android:text="@string/rotate"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size" />
+                    android:textSize="@dimen/small_text_size" />
 
             </LinearLayout>
 
@@ -136,7 +136,7 @@
                     android:gravity="center"
                     android:text="@string/flip"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size" />
+                    android:textSize="@dimen/small_text_size" />
 
             </LinearLayout>
 
@@ -172,7 +172,7 @@
                     android:gravity="center"
                     android:text="@string/aspect_ratio_custom"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size"
+                    android:textSize="@dimen/small_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -214,7 +214,7 @@
                 android:gravity="center"
                 android:text="@string/reset"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/text_size" />
+                android:textSize="@dimen/small_text_size" />
 
         </LinearLayout>
     </LinearLayout>
@@ -235,7 +235,7 @@
             android:text="@string/adjustments"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/text_size" />
+            android:textSize="@dimen/small_text_size" />
 
         <View
             android:layout_width="match_parent"
@@ -261,7 +261,7 @@
                 android:layout_marginStart="@dimen/very_small_margin"
                 android:text="@string/light"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/text_size" />
+                android:textSize="@dimen/small_text_size" />
         </LinearLayout>
 
         <ImageView
@@ -291,7 +291,7 @@
                 android:layout_marginStart="@dimen/very_small_margin"
                 android:text="@string/color"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/text_size" />
+                android:textSize="@dimen/small_text_size" />
         </LinearLayout>
 
         <ImageView
