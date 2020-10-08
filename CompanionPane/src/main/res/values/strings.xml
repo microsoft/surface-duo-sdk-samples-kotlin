@@ -28,4 +28,8 @@
     <string name="spot_fix">Spot fix</string>
     <string name="choose_a_filter">Choose a filter</string>
     <string name="reset">Reset</string>
+    <string name="magic_wand">Magic Wand</string>
+    <string name="definition">Definition</string>
+    <string name="vignette">Vignette</string>
+    <string name="brightness">Brightness</string>
 </resources>
