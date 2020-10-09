@@ -12,7 +12,6 @@
     <dimen name="icon_height">25dp</dimen>
     <dimen name="big_icon_height">30dp</dimen>
     <dimen name="very_small_margin">4dp</dimen>
-    <dimen name="small_margin">8dp</dimen>
     <dimen name="small_padding">8dp</dimen>
     <dimen name="large_padding">30dp</dimen>
     <dimen name="layout_margin_min">8dp</dimen>

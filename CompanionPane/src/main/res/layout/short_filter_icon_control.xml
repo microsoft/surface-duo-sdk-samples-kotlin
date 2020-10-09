@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scale_control"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/small_padding"
+    android:layout_marginRight="@dimen/small_padding"
+    android:weightSum="3"
+    android:orientation="horizontal"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_height"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/align_icon"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_height"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/vertical_icon"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_height"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/horizontal_icon"
+        tools:ignore="ContentDescription" />
+
+</LinearLayout>

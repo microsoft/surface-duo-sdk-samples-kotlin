@@ -1,33 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~
-  ~  Copyright (c) Microsoft Corporation. All rights reserved.
-  ~  Licensed under the MIT License.
-  ~
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:baselineAligned="false"
-    android:orientation="horizontal"
-    android:paddingStart="@dimen/small_padding"
-    android:paddingEnd="@dimen/small_padding"
-    tools:ignore="MissingDefaultResource">
-
-    <LinearLayout
-        android:layout_width="0dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/effect_control"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/small_padding"
-        android:layout_marginEnd="@dimen/small_padding"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="MissingDefaultResource">
 
-        <TextView
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/small_padding"
+            android:paddingStart="@dimen/small_padding"
             android:paddingBottom="@dimen/small_padding"
             android:text="@string/Filters"
             android:textAlignment="textStart"
@@ -40,7 +24,8 @@
             android:paddingLeft="@dimen/small_padding"
             android:paddingRight="@dimen/small_padding"
             android:paddingBottom="@dimen/small_padding"
-            android:weightSum="5">
+            android:weightSum="5"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -51,10 +36,11 @@
                 <ImageView
                     android:layout_width="@dimen/small_image_size"
                     android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/gingham" />
+                    app:srcCompat="@drawable/gingham"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/small_padding"
                     android:text="@string/Gingham"
@@ -73,7 +59,8 @@
                 <ImageView
                     android:layout_width="@dimen/small_image_size"
                     android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/original" />
+                    app:srcCompat="@drawable/original"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -95,7 +82,8 @@
                 <ImageView
                     android:layout_width="@dimen/small_image_size"
                     android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/lark" />
+                    app:srcCompat="@drawable/lark"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -117,7 +105,8 @@
                 <ImageView
                     android:layout_width="@dimen/small_image_size"
                     android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/juno" />
+                    app:srcCompat="@drawable/juno"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -139,7 +128,8 @@
                 <ImageView
                     android:layout_width="@dimen/small_image_size"
                     android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/ludwig" />
+                    app:srcCompat="@drawable/ludwig"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -153,72 +143,5 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/small_padding"
-            android:layout_marginTop="@dimen/small_margin"
-            android:layout_marginRight="@dimen/large_padding"
-            android:weightSum="7">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/icon_height"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/filter_icon" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/icon_height"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/hdr_icon" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/icon_height"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/align_icon" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/icon_height"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/vertical_icon" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/icon_height"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/horizontal_icon" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/icon_height"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/zoom_icon" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/icon_height"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/brightness_icon" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dot_height"
-            android:layout_marginTop="@dimen/small_margin"
-            android:layout_marginBottom="@dimen/very_small_margin"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/dot" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/icon_height"
-            app:srcCompat="@drawable/scale_icon" />
-
-    </LinearLayout>
 
 </LinearLayout>
