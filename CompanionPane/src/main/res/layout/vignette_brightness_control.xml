@@ -9,7 +9,7 @@
     tools:ignore="MissingDefaultResource">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
@@ -21,11 +21,11 @@
             tools:ignore="ContentDescription" />
 
         <SeekBar
-            android:layout_width="@dimen/seekBar_short_width"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_padding"
             android:max="100"
-            android:maxHeight="@dimen/seekbar_max_height"
+            android:maxHeight="@dimen/seekBar_max_height"
             android:progress="50"
             android:progressDrawable="@drawable/seek_bar_ruler_light"
             android:thumb="@drawable/seek_bar_slider_light" />
@@ -42,7 +42,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutFilter"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_padding"
         android:orientation="horizontal" >
@@ -56,11 +56,11 @@
             tools:ignore="ContentDescription" />
 
         <SeekBar
-            android:layout_width="@dimen/seekBar_short_width"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_padding"
             android:max="100"
-            android:maxHeight="@dimen/seekbar_max_height"
+            android:maxHeight="@dimen/seekBar_max_height"
             android:progress="50"
             android:progressDrawable="@drawable/seek_bar_ruler_light"
             android:thumb="@drawable/seek_bar_slider_light" />

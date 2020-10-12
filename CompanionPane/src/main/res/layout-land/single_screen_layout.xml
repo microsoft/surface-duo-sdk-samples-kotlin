@@ -44,29 +44,27 @@
             android:src="@drawable/full_image"
             tools:ignore="ContentDescription" />
 
-        <LinearLayout
-        android:id="@+id/linearLayoutRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:layout_marginTop="@dimen/large_padding"
-        android:layout_marginBottom="@dimen/large_padding"
-        android:layout_marginStart="@dimen/large_padding"
-        android:layout_marginEnd="@dimen/large_padding"
-        android:orientation="vertical">
-
-        <include
-            layout="@layout/magic_definition_control"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <include
-            layout="@layout/vignette_brightness_control"
+            <LinearLayout
+            android:layout_width="@dimen/seekBar_width"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
             android:layout_marginTop="@dimen/large_padding"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_marginBottom="@dimen/large_padding"
+            android:layout_marginStart="@dimen/large_padding"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <include
+                layout="@layout/magic_definition_control"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <include
+                layout="@layout/vignette_brightness_control"
+                android:layout_marginTop="@dimen/large_padding"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

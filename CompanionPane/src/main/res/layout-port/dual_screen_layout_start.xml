@@ -20,35 +20,15 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:minHeight="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:title="@string/app_name"
         app:titleTextColor="@color/black" />
 
-    <LinearLayout
-        android:id="@+id/linearLayoutRight"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/large_padding"
-        android:layout_marginBottom="@dimen/large_padding"
-        android:layout_marginStart="@dimen/large_padding"
-        android:layout_marginEnd="@dimen/large_padding"
-        android:weightSum="2"
-        android:orientation="horizontal">
-
-        <include
-            layout="@layout/magic_definition_control"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <include
-            layout="@layout/vignette_brightness_control"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
+        android:layout_weight="0.4"
+        android:scaleType="fitCenter"
+        android:src="@drawable/full_image"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>
