@@ -18,6 +18,7 @@
     <dimen name="seekBar_max_height">4dp</dimen>
     <dimen name="seekBar_width">350dp</dimen>
     <dimen name="seekBar_long_width">450dp</dimen>
+    <dimen name="filter_width">150dp</dimen>
     <dimen name="text_size">12sp</dimen>
     <dimen name="small_text_size">13sp</dimen>
     <dimen name="large_text_size">18sp</dimen>

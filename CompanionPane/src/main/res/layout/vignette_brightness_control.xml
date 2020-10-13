@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,13 +16,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_padding"
         android:orientation="horizontal" >
 
         <ImageView
             android:layout_width="@dimen/icon_height"
             android:layout_height="@dimen/icon_height"
             android:layout_marginStart="@dimen/small_padding"
-            app:srcCompat="@drawable/zoom_icon"
+            android:src="@drawable/zoom_icon"
             tools:ignore="ContentDescription" />
 
         <SeekBar
@@ -41,7 +47,6 @@
         android:text="@string/vignette"/>
 
     <LinearLayout
-        android:id="@+id/linearLayoutFilter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_padding"
@@ -51,8 +56,7 @@
             android:layout_width="@dimen/icon_height"
             android:layout_height="@dimen/icon_height"
             android:layout_marginStart="@dimen/small_padding"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/brightness_icon"
+            android:src="@drawable/brightness_icon"
             tools:ignore="ContentDescription" />
 
         <SeekBar

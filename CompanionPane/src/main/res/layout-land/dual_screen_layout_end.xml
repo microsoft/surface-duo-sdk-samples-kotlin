@@ -24,7 +24,6 @@
         android:layout_marginBottom="@dimen/large_padding" />
 
     <LinearLayout
-        android:id="@+id/linearLayoutRight"
         android:layout_width="@dimen/seekBar_long_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_padding"
@@ -49,10 +48,10 @@
 
         <include
             layout="@layout/short_filter_icon_control"
-            android:layout_width="180dp"
+            android:layout_width="@dimen/filter_width"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/large_padding"
-            android:layout_height="match_parent" />
+            android:layout_marginTop="@dimen/large_padding" />
 
         <include
             layout="@layout/scale_control"
