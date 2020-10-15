@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+~
+~  Copyright (c) Microsoft Corporation. All rights reserved.
+~  Licensed under the MIT License.
+~
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +16,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/small_padding"
+            android:paddingLeft="@dimen/small_padding"
             android:paddingBottom="@dimen/small_padding"
             android:text="@string/Filters"
             android:textAlignment="textStart"
@@ -40,7 +45,7 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/small_image_size"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/small_padding"
                     android:text="@string/Gingham"
@@ -63,7 +68,7 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/small_image_size"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/small_padding"
                     android:text="@string/Original"
@@ -86,7 +91,7 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/small_image_size"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/small_padding"
                     android:text="@string/Lark"
@@ -109,7 +114,7 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/small_image_size"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/small_padding"
                     android:text="@string/Juno"
@@ -132,7 +137,7 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/small_image_size"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/small_padding"
                     android:text="@string/Ludwig"

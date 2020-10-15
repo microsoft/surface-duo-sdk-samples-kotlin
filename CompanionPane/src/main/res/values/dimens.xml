@@ -16,7 +16,7 @@
     <dimen name="large_padding">30dp</dimen>
     <dimen name="layout_margin_min">8dp</dimen>
     <dimen name="seekBar_max_height">4dp</dimen>
-    <dimen name="seekBar_width">350dp</dimen>
+    <dimen name="seekBar_width">320dp</dimen>
     <dimen name="seekBar_long_width">450dp</dimen>
     <dimen name="filter_width">150dp</dimen>
     <dimen name="text_size">12sp</dimen>
