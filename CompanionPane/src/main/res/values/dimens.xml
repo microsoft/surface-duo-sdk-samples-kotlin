@@ -20,6 +20,6 @@
     <dimen name="text_size">12sp</dimen>
     <dimen name="small_text_size">13sp</dimen>
     <dimen name="large_text_size">18sp</dimen>
-    <dimen name="small_image_size">80dp</dimen>
+    <dimen name="small_image_size">90dp</dimen>
     <dimen name="dot_height">5dp</dimen>
 </resources>

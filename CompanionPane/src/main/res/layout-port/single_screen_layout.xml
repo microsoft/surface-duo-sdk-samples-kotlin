@@ -46,10 +46,14 @@
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/small_padding"
         android:layout_marginRight="@dimen/small_padding"
+        android:layout_marginBottom="@dimen/small_padding"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
         tools:ignore="MissingDefaultResource">
 
         <include
             layout="@layout/effect_control"
+            android:layout_marginLeft="@dimen/small_padding"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.4" />
@@ -57,18 +61,16 @@
         <include
             layout="@layout/full_filter_icon_control"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/large_padding"
-            android:layout_marginRight="@dimen/large_padding"
-            android:layout_weight="0.85" />
+            android:layout_marginRight="@dimen/large_padding"/>
 
         <include
             layout="@layout/scale_control"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="55dp"
             android:layout_marginLeft="@dimen/small_padding"
-            android:layout_marginRight="@dimen/small_padding"
-            android:layout_weight="0.7" />
+            android:layout_marginRight="@dimen/small_padding"/>
 
     </LinearLayout>
 
