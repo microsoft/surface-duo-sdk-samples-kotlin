@@ -11,10 +11,8 @@
     <dimen name="picture_height">40dp</dimen>
     <dimen name="icon_height">25dp</dimen>
     <dimen name="big_icon_height">30dp</dimen>
-    <dimen name="very_small_margin">4dp</dimen>
     <dimen name="small_padding">8dp</dimen>
     <dimen name="large_padding">30dp</dimen>
-    <dimen name="layout_margin_min">8dp</dimen>
     <dimen name="seekBar_max_height">4dp</dimen>
     <dimen name="seekBar_width">320dp</dimen>
     <dimen name="seekBar_long_width">450dp</dimen>
@@ -23,7 +21,5 @@
     <dimen name="small_text_size">13sp</dimen>
     <dimen name="large_text_size">18sp</dimen>
     <dimen name="small_image_size">80dp</dimen>
-    <dimen name="dropdown_width">16dp</dimen>
-    <dimen name="dropdown_height">16dp</dimen>
     <dimen name="dot_height">5dp</dimen>
 </resources>
