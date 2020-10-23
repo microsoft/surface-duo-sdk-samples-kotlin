@@ -12,32 +12,67 @@
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical"
+    android:background="@drawable/background_portrait_start"
     tools:ignore="MissingDefaultResource">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/white"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/app_name"
-        app:titleTextColor="@android:color/white" />
+        app:titleTextColor="@color/black" />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_padding"
+        android:layout_marginLeft="@dimen/large_padding"
+        android:layout_marginRight="@dimen/large_padding"
+        android:layout_marginBottom="@dimen/small_padding"
+        android:layout_weight="0.45"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_photo_blue_24dp"
+        android:src="@drawable/full_image"
         tools:ignore="ContentDescription" />
 
-    <include
-        layout="@layout/tools_single_screen"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.65" />
+        android:layout_weight="0.6"
+        android:baselineAligned="false"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/small_padding"
+        android:layout_marginRight="@dimen/small_padding"
+        android:layout_marginBottom="@dimen/small_padding"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        tools:ignore="MissingDefaultResource">
+
+        <include
+            layout="@layout/effect_control"
+            android:layout_marginLeft="@dimen/small_padding"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4" />
+
+        <include
+            layout="@layout/full_filter_icon_control"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:layout_marginRight="@dimen/large_padding"/>
+
+        <include
+            layout="@layout/scale_control"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="@dimen/small_padding"
+            android:layout_marginRight="@dimen/small_padding"/>
+
+    </LinearLayout>
 
 </LinearLayout>

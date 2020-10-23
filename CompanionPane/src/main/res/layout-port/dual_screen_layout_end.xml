@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/single_screen_layout_port"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/large_padding"
+    android:layout_marginLeft="@dimen/large_padding"
+    android:layout_marginRight="@dimen/large_padding"
+    android:layout_marginBottom="@dimen/large_padding"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:background="@drawable/background_landscape_end"
+    tools:ignore="MissingDefaultResource">
+
+    <include
+        layout="@layout/effect_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/large_padding" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginBottom="@dimen/large_padding"
+        android:orientation="horizontal">
+
+        <include
+            layout="@layout/magic_definition_control"
+            android:layout_width="@dimen/seekBar_width"
+            android:layout_height="match_parent" />
+
+        <include
+            layout="@layout/vignette_brightness_control"
+            android:layout_width="@dimen/seekBar_width"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/short_filter_icon_control"
+        android:layout_width="@dimen/filter_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginBottom="@dimen/small_padding" />
+
+    <include
+        layout="@layout/scale_control"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/large_padding" />
+
+</LinearLayout>
