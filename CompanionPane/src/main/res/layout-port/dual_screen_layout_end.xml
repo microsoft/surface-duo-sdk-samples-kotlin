@@ -15,6 +15,7 @@
     android:layout_marginBottom="@dimen/large_padding"
     android:baselineAligned="false"
     android:orientation="vertical"
+    android:background="@drawable/background_landscape_end"
     tools:ignore="MissingDefaultResource">
 
     <include

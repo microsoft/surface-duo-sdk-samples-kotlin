@@ -12,6 +12,7 @@
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical"
+    android:background="@drawable/background_portrait_start"
     tools:ignore="MissingDefaultResource">
 
     <androidx.appcompat.widget.Toolbar
