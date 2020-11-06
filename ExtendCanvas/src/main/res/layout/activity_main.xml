@@ -14,6 +14,6 @@
         android:id="@+id/img_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/new_york"
+        android:src="@drawable/full_map"
         android:scaleType="matrix"/>
 </FrameLayout>
