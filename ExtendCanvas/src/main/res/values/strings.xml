@@ -5,6 +5,7 @@
   -->
 
 <resources>
-    <string name="app_name">Extend canvas</string>
+    <string name="app_name">Extended canvas</string>
     <string name="search">Search</string>
+    <string name="share">Share</string>
 </resources>
