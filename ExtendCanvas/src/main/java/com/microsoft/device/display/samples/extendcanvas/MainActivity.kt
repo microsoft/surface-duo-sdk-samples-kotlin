@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.menu);
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.menu)
     }
 
     @SuppressLint("ClickableViewAccessibility")
