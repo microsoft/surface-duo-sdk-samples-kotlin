@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 
 internal class PagerAdapter(
     fm: FragmentManager?,
-    private val fragments: SparseArray<TestFragment>
+    private val fragments: SparseArray<Fragment>
 ) : FragmentPagerAdapter(fm!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private var showTwoPages = false
     override fun getItem(position: Int): Fragment {

@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar?.hide()
         pagerAdapter = PagerAdapter(supportFragmentManager, TestFragment.fragments)
         single = layoutInflater.inflate(R.layout.activity_main, null)
         dual = layoutInflater.inflate(R.layout.double_landscape_layout, null)
