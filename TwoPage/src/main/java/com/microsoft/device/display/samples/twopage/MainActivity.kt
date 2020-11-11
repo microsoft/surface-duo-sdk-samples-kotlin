@@ -8,11 +8,17 @@ package com.microsoft.device.display.samples.twopage
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.SparseArray
 import android.view.Surface
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.microsoft.device.display.samples.twopage.fragments.FirstPageFragment
+import com.microsoft.device.display.samples.twopage.fragments.FourthPageFragment
+import com.microsoft.device.display.samples.twopage.fragments.SecondPageFragment
+import com.microsoft.device.display.samples.twopage.fragments.ThirdPageFragment
 import com.microsoft.device.dualscreen.layout.ScreenHelper
 
 class MainActivity : AppCompatActivity(), OnPageChangeListener {
@@ -27,10 +33,20 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
         super.onCreate(savedInstanceState)
 
         supportActionBar?.hide()
-        pagerAdapter = PagerAdapter(supportFragmentManager, TestFragment.fragments)
+
+        setupPager()
         single = layoutInflater.inflate(R.layout.activity_main, null)
         dual = layoutInflater.inflate(R.layout.double_landscape_layout, null)
         setupLayout()
+    }
+
+    private fun setupPager() {
+        val fragments = SparseArray<Fragment>()
+        fragments.put(0, FirstPageFragment())
+        fragments.put(1, SecondPageFragment())
+        fragments.put(2, ThirdPageFragment())
+        fragments.put(3, FourthPageFragment())
+        pagerAdapter = PagerAdapter(supportFragmentManager, fragments)
     }
 
     private fun setupLayout() {
