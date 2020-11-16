@@ -5,12 +5,9 @@
  */
 package com.microsoft.device.display.samples.extendcanvas
 
-import android.annotation.SuppressLint
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
-import android.view.Menu
-import android.widget.SearchView
+import android.view.View
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import com.microsoft.device.display.samples.extend.R
 
@@ -21,21 +18,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu)
-    }
 
-    @SuppressLint("ClickableViewAccessibility")
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.search_bar, menu)
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = menu.findItem(R.id.action_search).actionView as SearchView
-        if (searchManager.getSearchableInfo(componentName) != null) {
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        }
-        searchView.isIconifiedByDefault = false
-        searchView.isFocusable = true
-        searchView.requestFocusFromTouch()
-        searchView.onActionViewExpanded()
-        return true
+        val webView = findViewById<View>(R.id.webView) as WebView
+        webView.settings.javaScriptEnabled = true
+        webView.settings.javaScriptCanOpenWindowsAutomatically = true
+        webView.loadUrl("https://www.google.com/maps/@?api=1&map_action=map")
     }
 }
