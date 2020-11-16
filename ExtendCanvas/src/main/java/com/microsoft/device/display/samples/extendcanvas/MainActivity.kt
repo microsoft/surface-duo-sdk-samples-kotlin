@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         val webView = findViewById<View>(R.id.webView) as WebView
         webView.settings.javaScriptEnabled = true
-        webView.settings.javaScriptCanOpenWindowsAutomatically = true
-        webView.loadUrl("https://www.google.com/maps/@?api=1&map_action=map")
+        webView.loadUrl("https://www.google.com/maps/@?api=1&map_action=map&center=47.652822, -122.134596&zoom=12")
     }
 }
