@@ -4,8 +4,7 @@
   ~  Licensed under the MIT License.
   ~
   -->
-<!-- This is the default resource folder (layout), that any device that doesn't fit on the qualifiers
-that you have defined for specific resource folders, will use -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
