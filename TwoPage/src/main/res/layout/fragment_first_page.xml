@@ -30,7 +30,7 @@ that you have defined for specific resource folders, will use -->
 
     <ImageView
         android:id="@+id/imageView"
-        android:src="@drawable/rome"
+        android:src="@drawable/rome_image"
         android:layout_width="wrap_content"
         android:layout_height="270dp"
         android:layout_marginTop="50dp"
