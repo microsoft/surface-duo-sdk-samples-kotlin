@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu)
 
-        val webView = findViewById<View>(R.id.webView) as WebView
+        val webView = findViewById<WebView>(R.id.webView)
         webView.settings.javaScriptEnabled = true
         webView.loadUrl("https://www.google.com/maps/@?api=1&map_action=map&center=47.652822, -122.134596&zoom=12")
     }
