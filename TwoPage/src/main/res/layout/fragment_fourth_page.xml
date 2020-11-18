@@ -23,10 +23,9 @@
         android:fontFamily="serif"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:text="Here is the classic lorem ipsum passage followed by Boparai's odd, yet mesmerizing version:"
+        android:text="@string/page4_title1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView1"
@@ -38,11 +37,10 @@
         android:textColor="@color/black"
         android:textStyle="italic"
         android:lineSpacingExtra="5dp"
-        android:text="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. Duis sit amet sodales felis. Duis nunc eros, mattis at dui ac, convallis semper risus. In adipiscing ultrices tellus, in suscipit massa vehicula eu.&quot;"
+        android:text="@string/page4_text1"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleView1"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/titleView1" />
 
     <TextView
         android:id="@+id/titleView2"
@@ -53,10 +51,9 @@
         android:fontFamily="serif"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:text="Boparai's version:"
+        android:text="@string/page4_title2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <TextView
         android:id="@+id/textView2"
@@ -69,22 +66,20 @@
         android:textStyle="italic"
         android:lineSpacingExtra="5dp"
         android:breakStrategy="balanced"
-        android:text="&quot;Rrow itself, let it be sorrow; let him love it; let him pursue it, ishing for its acquisitiendum. Because he will ab hold, uniess but through concer, and also of those who resist. Now a pure snore disturbeded sum dust. He ejjnoyes, in order that somewon, also with a severe one, unless of life. May a cusstums offficer somewon nothing of a poison-filled. Until, from a twho, twho chaffinch may also pursue it, not even a lump. But as twho, as a tank; a proverb, yeast; or else they tinscribe nor. Yet yet dewlap bed. Twho may be, let him love fellows of a polecat.  Now amour, the, twhose being, drunk, yet twhitch and, an enclosed valley’s always a laugh. In acquisitiendum the Furies are Earth; in (he takes up) a lump vehicles bien.&quot;"
+        android:text="@string/page4_text2"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleView2"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/titleView2" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        android:text="PAGE 4 of 4"
+        android:text="@string/page4_page_number"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

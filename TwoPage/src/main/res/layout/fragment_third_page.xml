@@ -24,10 +24,9 @@
         android:fontFamily="serif"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:text="Origins and Discovery"
+        android:text="@string/page3_title1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView1"
@@ -38,22 +37,20 @@
         android:fontFamily="serif"
         android:textColor="@color/black"
         android:lineSpacingExtra="5dp"
-        android:text="Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text. &quot;It's not Latin, though it looks like it, and it actually says nothing,&quot; Before &amp; After magazine answered a curious reader, &quot;Its ‘words’ loosely approximate the frequency with which letters occur in English, which is why at a glance it looks pretty real.&quot; \n\nAs Cicero would put it, &quot;Um, not so fast.&quot;\n\nThe placeholder text, beginning with the line &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit&quot;, looks like Latin because in its youth, centuries ago, it was Latin. \n\nRichard McClintock, a Latin scholar from Hampden-Sydney College, is credited with discovering the source behind the ubiquitous filler text. In seeing a sample of lorem ipsum, his interest was piqued by consectetur—a genuine, albeit rare, Latin word. Consulting a Latin dictionary led McClintock to a passage from De Finibus Bonorum et Malorum (&quot;On the Extremes of Good and Evil&quot;), a first-century B.C. text from the Roman philosopher Cicero. \n\nIn particular, the garbled words of lorem ipsum bear an unmistakable resemblance to sections 1.10.32–33."
+        android:text="@string/page3_text1"
         android:textSize="16sp"
         android:breakStrategy="balanced"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleView1"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/titleView1" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        android:text="PAGE 3 of 4"
+        android:text="@string/page3_page_number"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
