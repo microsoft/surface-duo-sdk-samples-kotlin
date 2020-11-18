@@ -15,7 +15,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/titleView1"
+        android:id="@+id/page2_title1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/page2_text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -42,10 +42,10 @@
         android:breakStrategy="balanced"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleView1" />
+        app:layout_constraintTop_toBottomOf="@+id/page2_title1" />
 
     <TextView
-        android:id="@+id/titleView2"
+        android:id="@+id/page2_title2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -56,10 +56,10 @@
         android:textSize="16sp"
         android:text="@string/page2_title2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toBottomOf="@+id/page2_text1" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/page2_text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -72,10 +72,10 @@
         android:breakStrategy="balanced"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleView2" />
+        app:layout_constraintTop_toBottomOf="@+id/page2_title2" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/page2_page_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
