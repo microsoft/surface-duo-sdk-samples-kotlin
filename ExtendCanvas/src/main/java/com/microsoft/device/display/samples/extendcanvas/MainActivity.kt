@@ -6,7 +6,6 @@
 package com.microsoft.device.display.samples.extendcanvas
 
 import android.os.Bundle
-import android.view.View
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import com.microsoft.device.display.samples.extend.R

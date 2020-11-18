@@ -39,12 +39,12 @@ class TwoPageModeOrientationTest {
     @Test
     fun displayLayouts_whenInSingleScreenPortrait() {
         onView(withId(R.id.single_pager_container)).check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 1")))
+        onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
             .check(matches(isDisplayed()))
 
         changePagePortrait()
 
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
     }
 
@@ -53,23 +53,23 @@ class TwoPageModeOrientationTest {
         spanApplication()
 
         onView(withId(R.id.single_pager_container)).check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 1")))
+        onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
             .check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
 
         changePagePortrait()
 
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 3")))
+        onView(allOf(withId(R.id.page3_page_number), withText("PAGE 3 of 4")))
             .check(matches(isDisplayed()))
 
         changeTwoPagesPortrait()
 
-        onView(allOf(withId(R.id.text_view), withText("Page 4")))
+        onView(allOf(withId(R.id.page3_page_number), withText("PAGE 3 of 4")))
             .check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 5")))
+        onView(allOf(withId(R.id.page4_page_number), withText("PAGE 4 of 4")))
             .check(matches(isDisplayed()))
     }
 
@@ -78,12 +78,12 @@ class TwoPageModeOrientationTest {
         rotateDevice()
 
         onView(withId(R.id.single_pager_container)).check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 1")))
+        onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
             .check(matches(isDisplayed()))
 
         changePageLandscape()
 
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
     }
 
@@ -93,12 +93,12 @@ class TwoPageModeOrientationTest {
         spanLandscapeApplication()
 
         onView(withId(R.id.dual_pager_container)).check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 1")))
+        onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
             .check(matches(isDisplayed()))
 
         changePageVertical()
 
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
     }
 
