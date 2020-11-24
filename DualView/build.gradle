@@ -30,7 +30,6 @@ dependencies {
     implementation androidxDependencies.recyclerView
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
-    implementation googleDependencies.material
 
     implementation microsoftDependencies.dualScreenLayout
 

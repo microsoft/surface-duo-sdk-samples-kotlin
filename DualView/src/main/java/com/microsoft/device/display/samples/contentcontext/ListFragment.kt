@@ -17,7 +17,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.microsoft.device.display.samples.contentcontext.model.DataProvider
 import com.microsoft.device.display.samples.contentcontext.model.Restaurant
 import com.microsoft.device.display.samples.contentcontext.view.RestaurantAdapter
@@ -83,16 +82,6 @@ class ListFragment : Fragment() {
 
     private fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
-            R.id.action_search -> {
-                view?.let {
-                    Snackbar.make(
-                        requireView().findViewById(R.id.snackbar_container),
-                        R.string.search_toast,
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
-                true
-            }
             R.id.action_map -> {
                 startDetailsFragment(null)
                 true

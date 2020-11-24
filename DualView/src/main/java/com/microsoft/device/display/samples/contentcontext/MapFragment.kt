@@ -14,7 +14,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 import com.microsoft.device.display.samples.contentcontext.model.Restaurant
 import com.microsoft.device.display.samples.contentcontext.view.MapImageView
 import com.microsoft.device.dualscreen.layout.ScreenHelper
@@ -74,16 +73,6 @@ class MapFragment : Fragment() {
 
     private fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
-            R.id.action_search -> {
-                view?.let {
-                    Snackbar.make(
-                        requireView().findViewById(R.id.snackbar_container),
-                        R.string.search_toast,
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
-                true
-            }
             R.id.action_list -> {
                 activity?.onBackPressed()
                 true

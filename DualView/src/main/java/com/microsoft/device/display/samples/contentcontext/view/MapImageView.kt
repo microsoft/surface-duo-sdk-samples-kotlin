@@ -22,8 +22,8 @@ class MapImageView : AppCompatImageView {
         internal const val NONE = 0
         internal const val DRAG = 1
         internal const val ZOOM = 2
-        internal const val DISTANCE_UNTIL_WATERMARK = 400
-        internal const val SCALE_FACTOR = 0.8f
+        internal const val DISTANCE_UNTIL_WATERMARK = 800
+        internal const val SCALE_FACTOR = 0.5f
     }
 
     internal var matrix = Matrix()
@@ -54,7 +54,8 @@ class MapImageView : AppCompatImageView {
         super.onAttachedToWindow()
 
         drawable?.let {
-            val x = (width - drawable.intrinsicWidth.toFloat() * SCALE_FACTOR) / 2
+            val x = (width - drawable.intrinsicWidth.toFloat() * SCALE_FACTOR) / 2 -
+                (DISTANCE_UNTIL_WATERMARK / 2)
             val y = (height - drawable.intrinsicHeight.toFloat() * SCALE_FACTOR) / 2 -
                 DISTANCE_UNTIL_WATERMARK
             matrix.preScale(SCALE_FACTOR, SCALE_FACTOR)

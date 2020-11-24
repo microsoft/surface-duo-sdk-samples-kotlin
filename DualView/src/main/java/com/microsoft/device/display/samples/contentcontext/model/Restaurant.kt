@@ -23,7 +23,10 @@ data class Restaurant(
     enum class Type(private val label: String) {
         American("American"),
         Italian("Italian"),
-        Thai("Thai");
+        Thai("Thai"),
+        Korean("Korean"),
+        FineDine("Fine Dine"),
+        Breakfast("Breakfast");
 
         override fun toString(): String {
             return label

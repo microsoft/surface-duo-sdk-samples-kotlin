@@ -18,7 +18,7 @@ object DataProvider {
             Restaurant.Type.Thai,
             3,
             "Wine bar with upscale small plates in a lofty modern space with a central wine tower & staircase.",
-            R.drawable.pestle_rock_map
+            R.drawable.first_map
         ),
         Restaurant(
             "Sam's Pizza",
@@ -28,7 +28,7 @@ object DataProvider {
             Restaurant.Type.American,
             2,
             "Take-out/delivery chain offering classic & specialty pizzas, wings & breadsticks, plus desserts.",
-            R.drawable.sams_pizza_map
+            R.drawable.second_map
         ),
         Restaurant(
             "Sizzle and Crunch",
@@ -38,7 +38,7 @@ object DataProvider {
             Restaurant.Type.Thai,
             2,
             "Eatery with a wood-fired oven turning out European & NW dishes in a white-&-blue cottage-like room.",
-            R.drawable.sizzle_crunch_map
+            R.drawable.third_map
         ),
         Restaurant(
             "Cantinetta",
@@ -48,7 +48,47 @@ object DataProvider {
             Restaurant.Type.Italian,
             4,
             "Gourmet Neapolitan pies served in a lofty space with casual, industrial-chic decor.",
-            R.drawable.cantinetta_map
+            R.drawable.fourth_map
+        ),
+        Restaurant(
+            "Araya's Place",
+            R.drawable.arayas_place_image,
+            4.6,
+            1322,
+            Restaurant.Type.Thai,
+            2,
+            "Araya's Place is the 1st vegan-Thai restaurant in the northwest while supporting local farms.",
+            R.drawable.fifth_map
+        ),
+        Restaurant(
+            "Kimchi Bistro",
+            R.drawable.kimchi_bistro_image,
+            3.6,
+            4565,
+            Restaurant.Type.Korean,
+            4,
+            "Small, no frills Korean restaurant with an extensive menu served in simple digs inside a mall.",
+            R.drawable.sixth_map
+        ),
+        Restaurant(
+            "Topolopompo Restaurant",
+            R.drawable.topolopompo_image,
+            4.5,
+            6001,
+            Restaurant.Type.FineDine,
+            3,
+            "Compact locale with counter service dishing up classic Mediterranean eats such as hummus & falafel.",
+            R.drawable.seventh_map
+        ),
+        Restaurant(
+            "Morsel",
+            R.drawable.morsel_image,
+            4.7,
+            787,
+            Restaurant.Type.Breakfast,
+            3,
+            "Homey cafe with sofas, board games & quiet corners for gourmet coffee & craft biscuit sandwiches.",
+            R.drawable.eighth_map
         )
     )
 }
