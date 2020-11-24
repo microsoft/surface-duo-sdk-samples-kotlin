@@ -14,23 +14,29 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.microsoft.device.display.samples.listdetail.model.DataProvider
+import com.microsoft.device.display.samples.listdetail.model.ImageAdapter
 import com.microsoft.device.display.samples.listdetail.model.MovieMock
+import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
 import com.microsoft.device.dualscreen.layout.ScreenHelper
 
 class ItemsListFragment : Fragment(), AdapterView.OnItemClickListener {
-    private var arrayAdapter: ArrayAdapter<MovieMock>? = null
+    private var imageAdapter: ImageAdapter? = null
+    private val selectionViewModel: SelectionViewModel by activityViewModels()
     private var listView: ListView? = null
-    private lateinit var movieMocks: ArrayList<MovieMock>
+    private lateinit var images: ArrayList<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        movieMocks = DataProvider.movieMocks
+        images = DataProvider.imageIDs
         activity?.let {
-            arrayAdapter = ArrayAdapter(
+            imageAdapter = ImageAdapter(
                 it,
-                android.R.layout.simple_list_item_activated_1,
-                movieMocks
+                images,
+                ::onItemClick
             )
         }
     }
@@ -41,13 +47,33 @@ class ItemsListFragment : Fragment(), AdapterView.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_items_list, container, false)
-        listView = view.findViewById(R.id.list_view)
-        listView?.let {
-            it.adapter = arrayAdapter
-            it.choiceMode = ListView.CHOICE_MODE_SINGLE
-            it.onItemClickListener = this
-        }
+        val recyclerView = view.findViewById<RecyclerView>(R.id.image_list)
+
+        val layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        layoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = imageAdapter
+
         return view
+    }
+
+    private fun onItemClick(item: Int) {
+//        activity?.let { activity ->
+//            if (ScreenHelper.isDualMode(activity)) {
+//                if (selectionViewModel.selectedPosition.value != imageAdapter?.getItemPosition(item)) {
+//                    selectionViewModel.selectedPosition.value = imageAdapter?.getItemPosition(item)
+//                    parentFragmentManager
+//                        .beginTransaction()
+//                        .replace(
+//                            R.id.dual_screen_end_container_id,
+//                            MapFragment.newInstance(item), null
+//                        )
+//                        .commit()
+//                }
+//            } else {
+//                startDetailsFragment(item)
+//            }
+//        }
     }
 
     private fun setSelectedItem(position: Int) {
@@ -55,18 +81,18 @@ class ItemsListFragment : Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(adapterView: AdapterView<*>, item: View, position: Int, rowId: Long) {
-        val movieMock = arrayAdapter?.getItem(position)
+        val image = imageAdapter?.getItem(position)
         setSelectedItem(position)
-        movieMock?.let { movie ->
+        image?.let { movie ->
             activity?.let { activity ->
                 if (ScreenHelper.isDualMode(activity)) {
                     parentFragmentManager.beginTransaction()
-                        .replace(
-                            R.id.dual_screen_end_container_id,
-                            ItemDetailFragment.newInstance(movie), null
-                        ).commit()
-                } else {
-                    startDetailsFragment(movie)
+//                        .replace(
+//                            R.id.dual_screen_end_container_id,
+//                            ItemDetailFragment.newInstance(movie), null
+//                        ).commit()
+//                } else {
+//                    startDetailsFragment(movie)
                 }
             }
         }
