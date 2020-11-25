@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
                 .beginTransaction()
                 .replace(
                     R.id.dual_screen_end_container_id,
-//                    ItemDetailFragment.newInstance(DataProvider.imageIDs[0]),
                     ItemDetailFragment()
                 ).commit()
         }

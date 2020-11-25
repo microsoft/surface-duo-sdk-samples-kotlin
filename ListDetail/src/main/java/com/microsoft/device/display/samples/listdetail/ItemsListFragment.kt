@@ -10,8 +10,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -19,11 +17,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.microsoft.device.display.samples.listdetail.model.DataProvider
 import com.microsoft.device.display.samples.listdetail.model.ImageAdapter
-import com.microsoft.device.display.samples.listdetail.model.MovieMock
 import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
 import com.microsoft.device.dualscreen.layout.ScreenHelper
 
-class ItemsListFragment : Fragment(), AdapterView.OnItemClickListener {
+class ItemsListFragment : Fragment(){
     private var imageAdapter: ImageAdapter? = null
     private val selectionViewModel: SelectionViewModel by activityViewModels()
     private var listView: ListView? = null
@@ -58,51 +55,35 @@ class ItemsListFragment : Fragment(), AdapterView.OnItemClickListener {
     }
 
     private fun onItemClick(item: Int) {
-//        activity?.let { activity ->
-//            if (ScreenHelper.isDualMode(activity)) {
-//                if (selectionViewModel.selectedPosition.value != imageAdapter?.getItemPosition(item)) {
-//                    selectionViewModel.selectedPosition.value = imageAdapter?.getItemPosition(item)
-//                    parentFragmentManager
-//                        .beginTransaction()
-//                        .replace(
-//                            R.id.dual_screen_end_container_id,
-//                            MapFragment.newInstance(item), null
-//                        )
-//                        .commit()
-//                }
-//            } else {
-//                startDetailsFragment(item)
-//            }
-//        }
+        selectionViewModel.setSelectedItemLiveData(imageAdapter?.getImage(item))
+        activity?.let { activity ->
+            if (ScreenHelper.isDualMode(activity)) {
+                if (selectionViewModel.getSelectedItemLiveData().value != imageAdapter?.getImage(item)) {
+                    parentFragmentManager
+                        .beginTransaction()
+                        .replace(
+                            R.id.dual_screen_end_container_id,
+                            ItemDetailFragment(),
+                            null
+                        )
+                        .commit()
+                }
+            } else {
+                startDetailsFragment()
+            }
+        }
     }
 
     private fun setSelectedItem(position: Int) {
         listView?.setItemChecked(position, true)
     }
 
-    override fun onItemClick(adapterView: AdapterView<*>, item: View, position: Int, rowId: Long) {
-        val image = imageAdapter?.getItem(position)
-        setSelectedItem(position)
-        image?.let { movie ->
-            activity?.let { activity ->
-                if (ScreenHelper.isDualMode(activity)) {
-                    parentFragmentManager.beginTransaction()
-//                        .replace(
-//                            R.id.dual_screen_end_container_id,
-//                            ItemDetailFragment.newInstance(movie), null
-//                        ).commit()
-//                } else {
-//                    startDetailsFragment(movie)
-                }
-            }
-        }
-    }
-
-    private fun startDetailsFragment(movieMock: MovieMock) {
+    private fun startDetailsFragment() {
         parentFragmentManager.beginTransaction()
             .replace(
                 R.id.single_screen_container_id,
-                ItemDetailFragment.newInstance(movieMock), null
+                ItemDetailFragment(),
+                null
             ).addToBackStack(null)
             .commit()
     }
