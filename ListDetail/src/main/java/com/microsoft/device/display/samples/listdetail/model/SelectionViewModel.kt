@@ -1,6 +1,5 @@
 package com.microsoft.device.display.samples.listdetail.model
 
-import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

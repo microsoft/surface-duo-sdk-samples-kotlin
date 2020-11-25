@@ -8,7 +8,6 @@ package com.microsoft.device.display.samples.listdetail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.microsoft.device.display.samples.listdetail.model.DataProvider
 import com.microsoft.device.dualscreen.layout.ScreenHelper
 
 class MainActivity : AppCompatActivity() {
