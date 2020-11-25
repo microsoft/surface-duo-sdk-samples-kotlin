@@ -12,7 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.microsoft.device.display.samples.listdetail.model.DataProvider
@@ -22,7 +22,6 @@ import com.microsoft.device.dualscreen.layout.ScreenHelper
 
 class ItemsListFragment : Fragment(){
     private var imageAdapter: ImageAdapter? = null
-    private val selectionViewModel: SelectionViewModel by activityViewModels()
     private var listView: ListView? = null
     private lateinit var images: ArrayList<Int>
 
@@ -55,10 +54,12 @@ class ItemsListFragment : Fragment(){
     }
 
     private fun onItemClick(item: Int) {
-        selectionViewModel.setSelectedItemLiveData(imageAdapter?.getImage(item))
+        val viewModel = ViewModelProvider(requireActivity()).get(SelectionViewModel::class.java)
+        viewModel.setSelectedItemLiveData(item)
+
         activity?.let { activity ->
             if (ScreenHelper.isDualMode(activity)) {
-                if (selectionViewModel.getSelectedItemLiveData().value != imageAdapter?.getImage(item)) {
+                if (viewModel.getSelectedItemLiveData().value != item) {
                     parentFragmentManager
                         .beginTransaction()
                         .replace(

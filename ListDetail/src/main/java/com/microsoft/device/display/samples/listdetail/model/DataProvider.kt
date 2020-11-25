@@ -6,8 +6,6 @@
 
 package com.microsoft.device.display.samples.listdetail.model
 
-import android.graphics.drawable.Drawable
-import android.media.Image
 import com.microsoft.device.display.samples.listdetail.R
 import java.util.ArrayList
 

@@ -32,15 +32,6 @@ class ItemDetailFragment : Fragment() {
         )
         imageView = view.findViewById(R.id.imageView)
 
-//        val viewModel = ViewModelProvider(requireActivity()).get(SelectionViewModel::class.java)
-//        viewModel.getSelectedItemLiveData().observe(
-//            viewLifecycleOwner,
-//            Observer {
-//                if (it != null) {
-//                    imageView.setImageResource(R.drawable.image_1)
-//                }
-//            }
-//        )
         return view
     }
 

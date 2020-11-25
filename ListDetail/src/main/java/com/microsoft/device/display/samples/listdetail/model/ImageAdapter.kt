@@ -28,17 +28,6 @@ class ImageAdapter(
 
     override fun getItemCount() = images.size
 
-    fun getImage(pos: Int) = images.takeIf { images.size > pos && pos >= 0 }?.get(pos)
-
-    fun getImagePosition(item: Int) = images.indexOf(item)
-
-//    fun selectItem(pos: Int) {
-//        val oldPosition = selectedPosition
-//        selectedPosition = pos
-//        notifyItemChanged(selectedPosition)
-//        notifyItemChanged(oldPosition)
-//    }
-
     class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView = itemView.image_item as ImageView
 
