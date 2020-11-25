@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -18,11 +17,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.microsoft.device.display.samples.listdetail.model.DataProvider
 import com.microsoft.device.display.samples.listdetail.model.ImageAdapter
 import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
-import com.microsoft.device.dualscreen.layout.ScreenHelper
+import com.microsoft.device.dualscreen.core.ScreenHelper
 
 class ItemsListFragment : Fragment(){
     private var imageAdapter: ImageAdapter? = null
-    private var listView: ListView? = null
     private lateinit var images: ArrayList<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,35 +55,21 @@ class ItemsListFragment : Fragment(){
         val viewModel = ViewModelProvider(requireActivity()).get(SelectionViewModel::class.java)
         viewModel.setSelectedItemLiveData(item)
 
-        activity?.let { activity ->
-            if (ScreenHelper.isDualMode(activity)) {
-                if (viewModel.getSelectedItemLiveData().value != item) {
-                    parentFragmentManager
-                        .beginTransaction()
-                        .replace(
-                            R.id.dual_screen_end_container_id,
-                            ItemDetailFragment(),
-                            null
-                        )
-                        .commit()
-                }
-            } else {
-                startDetailsFragment()
-            }
+        if (ScreenHelper.isDualMode(requireActivity()) && !MainActivity.isPortrait(requireActivity())) {
+            parentFragmentManager.beginTransaction()
+                .replace(
+                    R.id.second_container_id,
+                    ItemDetailFragment(),
+                    null
+                ).commit()
+        } else {
+            parentFragmentManager.beginTransaction()
+                .replace(
+                    R.id.first_container_id,
+                    ItemDetailFragment(),
+                    null
+                ).addToBackStack(null)
+                .commit()
         }
-    }
-
-    private fun setSelectedItem(position: Int) {
-        listView?.setItemChecked(position, true)
-    }
-
-    private fun startDetailsFragment() {
-        parentFragmentManager.beginTransaction()
-            .replace(
-                R.id.single_screen_container_id,
-                ItemDetailFragment(),
-                null
-            ).addToBackStack(null)
-            .commit()
     }
 }
