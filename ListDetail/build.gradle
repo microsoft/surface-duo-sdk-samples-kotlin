@@ -30,7 +30,8 @@ dependencies {
     implementation androidxDependencies.ktxFragment
     implementation androidxDependencies.recyclerView
 
-    implementation microsoftDependencies.dualScreenLayout
+//    implementation microsoftDependencies.dualScreenLayout
+    implementation "com.microsoft.device.dualscreen:layouts:1.0.0-alpha02"
 
     testImplementation testDependencies.junit
 
