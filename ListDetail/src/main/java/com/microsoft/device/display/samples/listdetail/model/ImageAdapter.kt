@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.layout_image_item.view.*
 class ImageAdapter(
     context: Context,
     private val images: List<Int>,
-    private val onClick: (item: Int) -> Unit
+    private val onClick: (image: Int) -> Unit
 ) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
 
     private val layoutInflater = LayoutInflater.from(context)
@@ -28,9 +28,9 @@ class ImageAdapter(
 
     override fun getItemCount() = images.size
 
-    fun getItem(pos: Int) = images.takeIf { images.size > pos && pos >= 0 }?.get(pos)
+    fun getImage(pos: Int) = images.takeIf { images.size > pos && pos >= 0 }?.get(pos)
 
-    fun getItemPosition(item: Int) = images.indexOf(item)
+    fun getImagePosition(item: Int) = images.indexOf(item)
 
 //    fun selectItem(pos: Int) {
 //        val oldPosition = selectedPosition
@@ -47,5 +47,4 @@ class ImageAdapter(
             itemView.setOnClickListener { onClick(image) }
         }
     }
-
 }

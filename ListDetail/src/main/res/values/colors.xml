@@ -11,4 +11,5 @@
     <color name="colorAccent">#008577</color>
     <color name="yellow">#FFD54F</color>
     <color name="darkGrey">#141414</color>
+    <color name="lightGrey">#878181</color>
 </resources>
