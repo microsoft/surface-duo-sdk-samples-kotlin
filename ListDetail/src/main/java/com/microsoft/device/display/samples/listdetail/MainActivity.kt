@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         // set the first image as the default selection if none is selected
         val viewModel = ViewModelProvider(this).get(SelectionViewModel::class.java)
-        if (viewModel.getSelectedItemLiveData() == null) {
+        if (viewModel.getSelectedItemLiveData().value == 0) {
             viewModel.setSelectedItemLiveData(R.drawable.image_1)
         }
     }

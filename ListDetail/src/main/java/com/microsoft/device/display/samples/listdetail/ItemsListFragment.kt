@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +21,6 @@ import com.microsoft.device.dualscreen.core.ScreenHelper
 
 class ItemsListFragment : Fragment(){
     private var imageAdapter: ImageAdapter? = null
-    private var listView: ListView? = null
     private lateinit var images: ArrayList<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,9 +71,5 @@ class ItemsListFragment : Fragment(){
                 ).addToBackStack(null)
                 .commit()
         }
-    }
-
-    private fun setSelectedItem(position: Int) {
-        listView?.setItemChecked(position, true)
     }
 }
