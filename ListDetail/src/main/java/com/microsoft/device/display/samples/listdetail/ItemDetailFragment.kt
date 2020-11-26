@@ -11,10 +11,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
+import com.microsoft.device.dualscreen.core.ScreenHelper
 
 class ItemDetailFragment : Fragment() {
 
@@ -32,6 +34,12 @@ class ItemDetailFragment : Fragment() {
         )
         imageView = view.findViewById(R.id.imageView)
 
+        if (!ScreenHelper.isDualMode(requireActivity())) {
+            val toolbar = view.findViewById<Toolbar>(R.id.detail_toolbar)
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
+            toolbar.setNavigationOnClickListener { closeFragment() }
+        }
+
         return view
     }
 
@@ -47,5 +55,15 @@ class ItemDetailFragment : Fragment() {
                 }
             }
         )
+    }
+
+    private fun closeFragment() {
+        parentFragmentManager.beginTransaction()
+            .replace(
+                R.id.first_container_id,
+                ItemsListFragment(),
+                null
+            ).addToBackStack(null)
+            .commit()
     }
 }

@@ -32,7 +32,7 @@ class ImageAdapter(
         private val imageView = itemView.image_item as ImageView
 
         fun bind(image: Int, onClick: (image: Int) -> Unit) {
-            imageView?.setImageResource(image)
+            imageView.setImageResource(image)
             itemView.setOnClickListener { onClick(image) }
         }
     }

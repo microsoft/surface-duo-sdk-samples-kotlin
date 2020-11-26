@@ -15,4 +15,5 @@
     app:show_in_dual_landscape_single_container="@layout/fragment_items_list"
     app:show_in_dual_screen_start="@layout/fragment_items_list"
     app:show_in_dual_screen_end="@layout/fragment_item_detail"
-    app:show_in_single_screen="@layout/fragment_items_list" />
+    app:show_in_single_screen="@layout/fragment_items_list"
+    app:tools_screen_mode="dual_screen" />
