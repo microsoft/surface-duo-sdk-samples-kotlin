@@ -56,10 +56,12 @@ ext {
     ]
 
     //Microsoft dependencies version
-    dualScreenLayoutVersion = "1.0.0-alpha01"
+    dualScreenLayoutsVersion = "1.0.0-alpha02"
+    coreVersion = "1.0.0-alpha01"
 
     microsoftDependencies = [
-            dualScreenLayout: "com.microsoft.device:dualscreen-layout:$dualScreenLayoutVersion"
+            dualScreenLayouts: "com.microsoft.device.dualscreen:layouts:$dualScreenLayoutsVersion",
+            core             : "com.microsoft.device.dualscreen:core:$coreVersion"
     ]
 
     //Test dependencies version

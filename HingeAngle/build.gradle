@@ -32,7 +32,7 @@ dependencies {
     implementation androidxDependencies.ktxFragment
     implementation androidxDependencies.locaBroadcastManager
 
-    implementation microsoftDependencies.dualScreenLayout
+    implementation microsoftDependencies.dualScreenLayouts
 
     testImplementation testDependencies.junit
     androidTestImplementation instrumentationTestDependencies.junit
