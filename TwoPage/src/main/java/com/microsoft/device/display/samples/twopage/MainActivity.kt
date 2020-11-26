@@ -19,7 +19,7 @@ import com.microsoft.device.display.samples.twopage.fragments.FirstPageFragment
 import com.microsoft.device.display.samples.twopage.fragments.FourthPageFragment
 import com.microsoft.device.display.samples.twopage.fragments.SecondPageFragment
 import com.microsoft.device.display.samples.twopage.fragments.ThirdPageFragment
-import com.microsoft.device.dualscreen.layout.ScreenHelper
+import com.microsoft.device.dualscreen.core.ScreenHelper
 
 class MainActivity : AppCompatActivity(), OnPageChangeListener {
     private lateinit var viewPager: ViewPager
