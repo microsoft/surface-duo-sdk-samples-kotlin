@@ -6,7 +6,7 @@
   ~  */
   -->
 
-<com.microsoft.device.dualscreen.layout.SurfaceDuoLayout
+<com.microsoft.device.dualscreen.layouts.SurfaceDuoLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"

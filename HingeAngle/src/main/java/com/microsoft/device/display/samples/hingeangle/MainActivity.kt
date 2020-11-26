@@ -10,7 +10,7 @@ package com.microsoft.device.display.samples.hingeangle
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.microsoft.device.dualscreen.layout.ScreenHelper
+import com.microsoft.device.dualscreen.core.ScreenHelper
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,14 +26,14 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager
                 .beginTransaction()
                 .replace(
-                    R.id.dual_screen_start_container_id,
+                    R.id.first_container_id,
                     SingleScreenFragment(),
                     null
                 ).commit()
             supportFragmentManager
                 .beginTransaction()
                 .replace(
-                    R.id.dual_screen_end_container_id,
+                    R.id.second_container_id,
                     DualScreenFragment(),
                     null
                 ).commit()
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager
                 .beginTransaction()
                 .replace(
-                    R.id.single_screen_container_id,
+                    R.id.first_container_id,
                     SingleScreenFragment(),
                     null
                 ).commit()
