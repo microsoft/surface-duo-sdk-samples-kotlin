@@ -27,6 +27,7 @@ dependencies {
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
+    implementation androidxDependencies.recyclerView
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
 
@@ -36,6 +37,7 @@ dependencies {
 
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
+    androidTestImplementation instrumentationTestDependencies.espressoContrib
     androidTestImplementation instrumentationTestDependencies.uiAutomator
     androidTestImplementation instrumentationTestDependencies.testRules
 }

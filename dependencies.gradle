@@ -84,6 +84,7 @@ ext {
             junit           : "androidx.test.ext:junit:$junitInstrumentationVersion",
             ktxTestCore     : "androidx.test:core-ktx:$ktxTestCoreVersion",
             espressoCore    : "androidx.test.espresso:espresso-core:$espressoCoreVersion",
+            espressoContrib : "androidx.test.espresso:espresso-contrib:$espressoCoreVersion",
             espressoIntents : "androidx.test.espresso:espresso-intents:$espressoIntentsVersion",
             testRunner      : "androidx.test:runner:$testRunnerVersion",
             testRules       : "androidx.test:rules:$testRulesVersion",
