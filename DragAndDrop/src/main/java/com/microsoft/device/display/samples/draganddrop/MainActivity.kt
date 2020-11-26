@@ -10,7 +10,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.microsoft.device.display.samples.draganddrop.fragment.DragSourceFragment
 import com.microsoft.device.display.samples.draganddrop.fragment.DropTargetFragment
-import com.microsoft.device.dualscreen.layout.ScreenHelper
+import com.microsoft.device.dualscreen.core.ScreenHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,12 +35,12 @@ class MainActivity : AppCompatActivity() {
         } else {
             supportFragmentManager.beginTransaction()
                 .replace(
-                    R.id.dual_screen_start_container_id,
+                    R.id.first_container_id,
                     DragSourceFragment.newInstance()
                 ).commit()
             supportFragmentManager.beginTransaction()
                 .replace(
-                    R.id.dual_screen_end_container_id,
+                    R.id.second_container_id,
                     DropTargetFragment.newInstance()
                 ).commit()
         }
