@@ -21,7 +21,7 @@ import com.microsoft.device.display.samples.contentcontext.model.DataProvider
 import com.microsoft.device.display.samples.contentcontext.model.Restaurant
 import com.microsoft.device.display.samples.contentcontext.view.RestaurantAdapter
 import com.microsoft.device.display.samples.contentcontext.view.SelectedViewModel
-import com.microsoft.device.dualscreen.layout.ScreenHelper
+import com.microsoft.device.dualscreen.core.ScreenHelper
 
 class ListFragment : Fragment() {
     private var adapterItems: RestaurantAdapter? = null
@@ -98,7 +98,7 @@ class ListFragment : Fragment() {
                     parentFragmentManager
                         .beginTransaction()
                         .replace(
-                            R.id.dual_screen_end_container_id,
+                            R.id.second_container_id,
                             MapFragment.newInstance(item), null
                         )
                         .commit()
@@ -112,7 +112,7 @@ class ListFragment : Fragment() {
     private fun startDetailsFragment(item: Restaurant?) {
         parentFragmentManager.beginTransaction()
             .replace(
-                R.id.single_screen_container_id,
+                R.id.first_container_id,
                 MapFragment.newInstance(item), null
             ).addToBackStack(null)
             .commit()
@@ -127,7 +127,7 @@ class ListFragment : Fragment() {
             parentFragmentManager
                 .beginTransaction()
                 .replace(
-                    R.id.dual_screen_end_container_id,
+                    R.id.second_container_id,
                     MapFragment.newInstance(selectedItem), null
                 )
                 .commit()

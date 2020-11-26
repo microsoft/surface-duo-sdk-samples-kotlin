@@ -16,7 +16,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.microsoft.device.display.samples.contentcontext.model.Restaurant
 import com.microsoft.device.display.samples.contentcontext.view.MapImageView
-import com.microsoft.device.dualscreen.layout.ScreenHelper
+import com.microsoft.device.dualscreen.core.ScreenHelper
 
 class MapFragment : Fragment() {
 
