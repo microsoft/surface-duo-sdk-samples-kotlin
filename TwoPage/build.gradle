@@ -24,13 +24,14 @@ android {
 }
 
 dependencies {
+    implementation microsoftDependencies.screenManager
+    implementation microsoftDependencies.layouts
+
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
-
-    implementation microsoftDependencies.dualScreenLayout
 
     testImplementation testDependencies.junit
 
