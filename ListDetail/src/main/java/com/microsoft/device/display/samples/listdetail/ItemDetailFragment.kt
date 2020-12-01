@@ -50,9 +50,7 @@ class ItemDetailFragment : Fragment() {
         viewModel.getSelectedItemLiveData().observe(
             viewLifecycleOwner,
             Observer {
-                if (it != null) {
-                    imageView.setImageResource(it)
-                }
+                it?.let { imageView.setImageResource(it) }
             }
         )
     }

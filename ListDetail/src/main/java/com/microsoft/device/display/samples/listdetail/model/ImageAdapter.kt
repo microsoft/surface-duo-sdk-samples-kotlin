@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.microsoft.device.display.samples.listdetail.R
-import kotlinx.android.synthetic.main.layout_image_item.view.*
 
 class ImageAdapter(
     context: Context,
@@ -29,7 +28,7 @@ class ImageAdapter(
     override fun getItemCount() = images.size
 
     class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val imageView = itemView.image_item as ImageView
+        private val imageView = itemView.findViewById(R.id.image_item) as ImageView
 
         fun bind(image: Int, onClick: (image: Int) -> Unit) {
             imageView.setImageResource(image)

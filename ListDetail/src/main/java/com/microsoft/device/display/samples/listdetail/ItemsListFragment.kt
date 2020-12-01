@@ -19,7 +19,7 @@ import com.microsoft.device.display.samples.listdetail.model.ImageAdapter
 import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
 import com.microsoft.device.dualscreen.core.ScreenHelper
 
-class ItemsListFragment : Fragment(){
+class ItemsListFragment : Fragment() {
     private var imageAdapter: ImageAdapter? = null
     private lateinit var images: ArrayList<Int>
 
