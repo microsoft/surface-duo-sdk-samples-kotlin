@@ -6,15 +6,25 @@
 
 package com.microsoft.device.display.samples.listdetail.model
 
+import com.microsoft.device.display.samples.listdetail.R
 import java.util.ArrayList
 
 object DataProvider {
-    val movieMocks: ArrayList<MovieMock>
+    val imageIDs: ArrayList<Int>
         get() {
-            val items = ArrayList<MovieMock>()
-            items.add(MovieMock("Item 1", "This is the first item"))
-            items.add(MovieMock("Item 2", "This is the second item"))
-            items.add(MovieMock("Item 3", "This is the third item"))
+            val items = ArrayList<Int>()
+            items.add(R.drawable.image_1)
+            items.add(R.drawable.image_2)
+            items.add(R.drawable.image_3)
+            items.add(R.drawable.image_4)
+            items.add(R.drawable.image_5)
+            items.add(R.drawable.image_6)
+            items.add(R.drawable.image_7)
+            items.add(R.drawable.image_8)
+            items.add(R.drawable.image_9)
+            items.add(R.drawable.image_10)
+            items.add(R.drawable.image_11)
+            items.add(R.drawable.image_12)
             return items
         }
 }

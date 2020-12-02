@@ -28,8 +28,11 @@ dependencies {
     implementation androidxDependencies.constraintLayout
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
+    implementation androidxDependencies.recyclerView
 
-    implementation microsoftDependencies.dualScreenLayout
+//    TODO: temporary change, will be updated in the next PR
+//    implementation microsoftDependencies.dualScreenLayout
+    implementation "com.microsoft.device.dualscreen:layouts:1.0.0-alpha02"
 
     testImplementation testDependencies.junit
 
