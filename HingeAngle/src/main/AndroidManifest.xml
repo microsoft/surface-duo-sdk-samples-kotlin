@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ /*
-  ~  * Copyright (c) Microsoft Corporation. All rights reserved.
-  ~  * Licensed under the MIT License.
-  ~  */
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.Licensed under the MIT License.
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,6 +9,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
+        android:name=".HingeAngleApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
