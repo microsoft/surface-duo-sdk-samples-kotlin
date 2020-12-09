@@ -18,11 +18,11 @@ import com.microsoft.device.display.samples.contentcontext.R
 import com.microsoft.device.display.samples.contentcontext.model.Restaurant
 import com.microsoft.device.display.samples.contentcontext.util.formatPriceRange
 import com.microsoft.device.display.samples.contentcontext.util.formatRating
+import com.microsoft.device.display.samples.contentcontext.view.SelectedViewModel.Companion.NO_ITEM_SELECTED
 
 class RestaurantAdapter(
     context: Context,
-    private val items: List<Restaurant>,
-    private var selectedPosition: Int = -1,
+    private val viewModel: SelectedViewModel,
     private val onClick: (item: Restaurant) -> Unit
 ) : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
 
@@ -34,20 +34,21 @@ class RestaurantAdapter(
         )
 
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
-        holder.bind(items[position], onClick, position == selectedPosition)
+        holder.bind(
+            viewModel.getItem(position)!!,
+            onClick,
+            position == viewModel.selectedPosition.value
+        )
     }
 
-    override fun getItemCount() = items.size
-
-    fun getItem(pos: Int) = items.takeIf { items.size > pos && pos >= 0 }?.get(pos)
-
-    fun getItemPosition(item: Restaurant) = items.indexOf(item)
+    override fun getItemCount() = viewModel.listItems.size
 
     fun selectItem(pos: Int) {
-        val oldPosition = selectedPosition
-        selectedPosition = pos
-        notifyItemChanged(selectedPosition)
-        notifyItemChanged(oldPosition)
+        viewModel.selectedPosition.value?.takeIf { it != NO_ITEM_SELECTED }?.let {
+            notifyItemChanged(it)
+        }
+        viewModel.setSelectedPosition(pos)
+        notifyItemChanged(pos)
     }
 
     class RestaurantViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

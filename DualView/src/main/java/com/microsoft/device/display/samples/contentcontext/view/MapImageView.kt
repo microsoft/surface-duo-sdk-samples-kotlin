@@ -22,7 +22,7 @@ class MapImageView : AppCompatImageView {
         internal const val NONE = 0
         internal const val DRAG = 1
         internal const val ZOOM = 2
-        internal const val DISTANCE_UNTIL_WATERMARK = 800
+        internal const val DISTANCE_UNTIL_WATERMARK = 1000
         internal const val SCALE_FACTOR = 0.5f
     }
 
@@ -50,14 +50,14 @@ class MapImageView : AppCompatImageView {
         setOnTouchListener(MyTouch())
     }
 
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
 
         drawable?.let {
             val x = (width - drawable.intrinsicWidth.toFloat() * SCALE_FACTOR) / 2 -
-                (DISTANCE_UNTIL_WATERMARK / 2)
-            val y = (height - drawable.intrinsicHeight.toFloat() * SCALE_FACTOR) / 2 -
                 DISTANCE_UNTIL_WATERMARK
+            val y = (height - drawable.intrinsicHeight.toFloat() * SCALE_FACTOR) / 2 -
+                DISTANCE_UNTIL_WATERMARK * 2
             matrix.preScale(SCALE_FACTOR, SCALE_FACTOR)
             matrix.preTranslate(x, y)
             this.imageMatrix = matrix

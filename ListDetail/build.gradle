@@ -23,6 +23,10 @@ android {
 }
 
 dependencies {
+    implementation microsoftDependencies.screenManager
+    implementation microsoftDependencies.layouts
+    implementation microsoftDependencies.fragmentsHandler
+
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
@@ -30,14 +34,11 @@ dependencies {
     implementation androidxDependencies.ktxFragment
     implementation androidxDependencies.recyclerView
 
-//    TODO: temporary change, will be updated in the next PR
-//    implementation microsoftDependencies.dualScreenLayout
-    implementation "com.microsoft.device.dualscreen:layouts:1.0.0-alpha02"
-
     testImplementation testDependencies.junit
 
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
+    androidTestImplementation instrumentationTestDependencies.espressoContrib
     androidTestImplementation instrumentationTestDependencies.uiAutomator
     androidTestImplementation instrumentationTestDependencies.testRules
 }
