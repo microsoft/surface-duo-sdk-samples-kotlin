@@ -29,11 +29,11 @@ class LayoutModeTest {
     private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @get:Rule
-    val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activityRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
     fun openMapFromList_whenIsSingleScreen() {
-        onView(withId(R.id.single_screen_container_id)).check(matches(isDisplayed()))
+        onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.list_items)).check(matches(isDisplayed()))
 
         onView(withId(R.id.list_items)).perform(
@@ -46,8 +46,8 @@ class LayoutModeTest {
     fun displayListAndDetailsFromList_whenIsDualScreen() {
         spanApplication()
 
-        onView(withId(R.id.dual_screen_start_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.dual_screen_end_container_id)).check(matches(isDisplayed()))
+        onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
+        onView(withId(R.id.second_container_id)).check(matches(isDisplayed()))
 
         onView(withId(R.id.list_items)).check(matches(isDisplayed()))
         onView(withId(R.id.img_view)).check(matches(isDisplayed()))
@@ -55,7 +55,7 @@ class LayoutModeTest {
 
     @Test
     fun displayListAndDetailsFromMap_whenIsDualScreen() {
-        onView(withId(R.id.single_screen_container_id)).check(matches(isDisplayed()))
+        onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.list_items)).check(matches(isDisplayed()))
 
         onView(withId(R.id.list_items)).perform(
@@ -64,8 +64,8 @@ class LayoutModeTest {
 
         spanApplication()
 
-        onView(withId(R.id.dual_screen_start_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.dual_screen_end_container_id)).check(matches(isDisplayed()))
+        onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
+        onView(withId(R.id.second_container_id)).check(matches(isDisplayed()))
 
         onView(withId(R.id.list_items)).check(matches(isDisplayed()))
         onView(withId(R.id.img_view)).check(matches(isDisplayed()))
