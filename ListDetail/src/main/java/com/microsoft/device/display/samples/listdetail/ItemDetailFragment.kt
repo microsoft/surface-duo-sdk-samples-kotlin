@@ -11,49 +11,58 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.microsoft.device.display.samples.listdetail.model.MovieMock
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
+import com.microsoft.device.dualscreen.ScreenInfo
+import com.microsoft.device.dualscreen.ScreenInfoListener
+import com.microsoft.device.dualscreen.ScreenManagerProvider
 
-class ItemDetailFragment : Fragment() {
-    private lateinit var movieMock: MovieMock
+class ItemDetailFragment : Fragment(), ScreenInfoListener {
+    private lateinit var imageView: ImageView
 
-    companion object {
-        internal fun newInstance(movieMock: MovieMock) = ItemDetailFragment().apply {
-            arguments = Bundle().apply {
-                this.putSerializable(MovieMock.KEY, movieMock)
-            }
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            movieMock = it.getSerializable(MovieMock.KEY) as MovieMock
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(
-            R.layout.fragment_item_detail,
-            container,
-            false
-        )
-        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
-        val tvBody = view.findViewById<TextView>(R.id.tvBody)
-        val ratingBar = view.findViewById<RatingBar>(R.id.rating)
-        val image = view.findViewById<ImageView>(R.id.image)
-
-        tvTitle.text = movieMock.title
-        tvBody.text = movieMock.body
-        ratingBar.rating = 2f
-        image.setImageResource(R.drawable.ic_movie_black_24dp)
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_item_detail, container, false)
+        imageView = view.findViewById(R.id.imageView)
         return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        val viewModel = ViewModelProvider(requireActivity()).get(SelectionViewModel::class.java)
+        viewModel.getSelectedItemLiveData().observe(
+            viewLifecycleOwner,
+            Observer {
+                it?.let { imageView.setImageResource(it) }
+            }
+        )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
+    }
+
+    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
+        if (!screenInfo.isDualMode()) {
+            val toolbar = requireView().findViewById<Toolbar>(R.id.detail_toolbar)
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
+            toolbar.setNavigationOnClickListener { closeFragment() }
+        }
+    }
+
+    private fun closeFragment() {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.first_container_id, ItemsListFragment(), null)
+            .addToBackStack(null)
+            .commit()
     }
 }

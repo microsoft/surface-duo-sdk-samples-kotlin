@@ -1,8 +1,5 @@
 /*
- *
- *  * Copyright (c) Microsoft Corporation. All rights reserved.
- *  * Licensed under the MIT License.
- *
+ * Copyright (c) Microsoft Corporation. All rights reserved.Licensed under the MIT License.
  */
 
 apply plugin: 'com.android.application'
@@ -25,14 +22,16 @@ android {
 }
 
 dependencies {
+    implementation microsoftDependencies.screenManager
+    implementation microsoftDependencies.layouts
+    implementation microsoftDependencies.fragmentsHandler
+
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
     implementation androidxDependencies.locaBroadcastManager
-
-    implementation microsoftDependencies.dualScreenLayout
 
     testImplementation testDependencies.junit
     androidTestImplementation instrumentationTestDependencies.junit

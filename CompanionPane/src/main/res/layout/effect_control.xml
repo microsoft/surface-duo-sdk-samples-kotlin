@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+~
+~  Copyright (c) Microsoft Corporation. All rights reserved.
+~  Licensed under the MIT License.
+~
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/effect_control"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingDefaultResource">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/small_padding"
+            android:paddingBottom="@dimen/small_padding"
+            android:text="@string/Filters"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/large_text_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/small_padding"
+            android:paddingRight="@dimen/small_padding"
+            android:paddingBottom="@dimen/small_padding"
+            android:weightSum="5"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="@dimen/small_image_size"
+                    app:srcCompat="@drawable/gingham"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:text="@string/Gingham"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/small_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="@dimen/small_image_size"
+                    app:srcCompat="@drawable/original"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:text="@string/Original"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/small_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="@dimen/small_image_size"
+                    app:srcCompat="@drawable/lark"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:text="@string/Lark"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/small_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="@dimen/small_image_size"
+                    app:srcCompat="@drawable/juno"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:text="@string/Juno"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/small_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="@dimen/small_image_size"
+                    app:srcCompat="@drawable/ludwig"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="@dimen/small_image_size"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:text="@string/Ludwig"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/small_text_size" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+</LinearLayout>

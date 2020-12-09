@@ -27,15 +27,19 @@ dependencies {
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
+    implementation androidxDependencies.recyclerView
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
 
-    implementation microsoftDependencies.dualScreenLayout
+    implementation microsoftDependencies.screenManager
+    implementation microsoftDependencies.layouts
+    implementation microsoftDependencies.fragmentsHandler
 
     testImplementation testDependencies.junit
 
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
+    androidTestImplementation instrumentationTestDependencies.espressoContrib
     androidTestImplementation instrumentationTestDependencies.uiAutomator
     androidTestImplementation instrumentationTestDependencies.testRules
 }

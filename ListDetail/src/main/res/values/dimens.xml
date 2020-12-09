@@ -7,6 +7,4 @@
   -->
 
 <resources>
-    <dimen name="list_title">16sp</dimen>
-    <dimen name="list_title_padding">16dp</dimen>
 </resources>

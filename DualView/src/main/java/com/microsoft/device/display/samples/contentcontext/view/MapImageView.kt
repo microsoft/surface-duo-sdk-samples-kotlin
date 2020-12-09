@@ -1,7 +1,6 @@
 /*
- *
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License.
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
  *
  */
 
@@ -16,12 +15,15 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
+import kotlin.math.sqrt
 
 class MapImageView : AppCompatImageView {
     companion object {
         internal const val NONE = 0
         internal const val DRAG = 1
         internal const val ZOOM = 2
+        internal const val DISTANCE_UNTIL_WATERMARK = 1000
+        internal const val SCALE_FACTOR = 0.5f
     }
 
     internal var matrix = Matrix()
@@ -46,6 +48,20 @@ class MapImageView : AppCompatImageView {
 
     private fun setupView() {
         setOnTouchListener(MyTouch())
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+
+        drawable?.let {
+            val x = (width - drawable.intrinsicWidth.toFloat() * SCALE_FACTOR) / 2 -
+                DISTANCE_UNTIL_WATERMARK
+            val y = (height - drawable.intrinsicHeight.toFloat() * SCALE_FACTOR) / 2 -
+                DISTANCE_UNTIL_WATERMARK * 2
+            matrix.preScale(SCALE_FACTOR, SCALE_FACTOR)
+            matrix.preTranslate(x, y)
+            this.imageMatrix = matrix
+        }
     }
 
     internal inner class MyTouch : OnTouchListener {
@@ -94,7 +110,7 @@ class MapImageView : AppCompatImageView {
         private fun spacing(event: MotionEvent): Float {
             val x = event.getX(0) - event.getX(1)
             val y = event.getY(0) - event.getY(1)
-            return Math.sqrt((x * x + y * y).toDouble()).toFloat()
+            return sqrt((x * x + y * y).toDouble()).toFloat()
         }
 
         private fun midPoint(point: PointF, event: MotionEvent) {

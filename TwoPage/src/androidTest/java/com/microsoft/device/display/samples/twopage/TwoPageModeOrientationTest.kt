@@ -7,6 +7,8 @@
 package com.microsoft.device.display.samples.twopage
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.action.ViewActions.swipeLeft
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -18,6 +20,7 @@ import androidx.test.rule.ActivityTestRule
 import androidx.test.uiautomator.UiDevice
 import org.hamcrest.core.AllOf.allOf
 import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,22 +32,30 @@ class TwoPageModeOrientationTest {
 
     @get:Rule
     val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    private lateinit var idlingResource: ViewPagerIdlingResource
+
+    @Before
+    fun setup() {
+        idlingResource = ViewPagerIdlingResource(activityRule.activity.findViewById(R.id.pager))
+        IdlingRegistry.getInstance().register(idlingResource)
+    }
 
     @After
     fun resetOrientation() {
+        IdlingRegistry.getInstance().unregister(idlingResource)
         device.setOrientationNatural()
         device.unfreezeRotation()
     }
 
     @Test
     fun displayLayouts_whenInSingleScreenPortrait() {
-        onView(withId(R.id.single_pager_container)).check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 1")))
+        onView(withId(R.id.pager)).check(matches(isDisplayed()))
+        onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
             .check(matches(isDisplayed()))
 
-        changePagePortrait()
+        onView(withId(R.id.pager)).perform(swipeLeft())
 
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
     }
 
@@ -52,24 +63,24 @@ class TwoPageModeOrientationTest {
     fun displayLayouts_whenInDualScreenPortrait() {
         spanApplication()
 
-        onView(withId(R.id.single_pager_container)).check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 1")))
+        onView(withId(R.id.pager)).check(matches(isDisplayed()))
+        onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
             .check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
-            .check(matches(isDisplayed()))
-
-        changePagePortrait()
-
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
-            .check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 3")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
 
-        changeTwoPagesPortrait()
+        onView(withId(R.id.pager)).perform(swipeLeft())
 
-        onView(allOf(withId(R.id.text_view), withText("Page 4")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 5")))
+        onView(allOf(withId(R.id.page3_page_number), withText("PAGE 3 of 4")))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.pager)).perform(swipeLeft())
+
+        onView(allOf(withId(R.id.page3_page_number), withText("PAGE 3 of 4")))
+            .check(matches(isDisplayed()))
+        onView(allOf(withId(R.id.page4_page_number), withText("PAGE 4 of 4")))
             .check(matches(isDisplayed()))
     }
 
@@ -77,13 +88,13 @@ class TwoPageModeOrientationTest {
     fun displayLayouts_whenInSingleScreenLandscape() {
         rotateDevice()
 
-        onView(withId(R.id.single_pager_container)).check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 1")))
+        onView(withId(R.id.pager)).check(matches(isDisplayed()))
+        onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
             .check(matches(isDisplayed()))
 
         changePageLandscape()
 
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
     }
 
@@ -92,13 +103,13 @@ class TwoPageModeOrientationTest {
         rotateDevice()
         spanLandscapeApplication()
 
-        onView(withId(R.id.dual_pager_container)).check(matches(isDisplayed()))
-        onView(allOf(withId(R.id.text_view), withText("Page 1")))
+        onView(withId(R.id.pager)).check(matches(isDisplayed()))
+        onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
             .check(matches(isDisplayed()))
 
         changePageVertical()
 
-        onView(allOf(withId(R.id.text_view), withText("Page 2")))
+        onView(allOf(withId(R.id.page2_page_number), withText("PAGE 2 of 4")))
             .check(matches(isDisplayed()))
     }
 
@@ -112,14 +123,6 @@ class TwoPageModeOrientationTest {
 
     private fun rotateDevice() {
         device.setOrientationLeft()
-    }
-
-    private fun changePagePortrait() {
-        device.swipe(1000, 1000, 200, 1000, 10)
-    }
-
-    private fun changeTwoPagesPortrait() {
-        device.swipe(2500, 1000, 200, 1000, 10)
     }
 
     private fun changePageLandscape() {
