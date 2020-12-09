@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.microsoft.device.display.samples.contentcontext.view.MapImageView
 import com.microsoft.device.display.samples.contentcontext.view.SelectedViewModel
+import com.microsoft.device.display.samples.contentcontext.view.SelectedViewModel.Companion.NO_ITEM_SELECTED
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
@@ -36,7 +37,7 @@ class MapFragment : Fragment(), ScreenInfoListener {
         selectedViewModel.selectedPosition.observe(
             viewLifecycleOwner,
             {
-                if (it != -1) {
+                if (it != NO_ITEM_SELECTED) {
                     val item = selectedViewModel.getItem(it)
                     if (item != null && item.mapImageResourceId != 0) {
                         mapView?.setImageResource(item.mapImageResourceId)

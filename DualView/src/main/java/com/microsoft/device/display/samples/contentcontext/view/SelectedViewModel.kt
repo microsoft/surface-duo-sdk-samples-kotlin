@@ -13,7 +13,7 @@ import com.microsoft.device.display.samples.contentcontext.model.Restaurant
 
 class SelectedViewModel : ViewModel() {
     val listItems = DataProvider.restaurants
-    val selectedPosition: MutableLiveData<Int> = MutableLiveData(-1)
+    val selectedPosition: MutableLiveData<Int> = MutableLiveData(NO_ITEM_SELECTED)
 
     fun getItem(pos: Int) = listItems.takeIf { it.size > pos && pos >= 0 }?.get(pos)
 
@@ -23,5 +23,9 @@ class SelectedViewModel : ViewModel() {
         if (pos != selectedPosition.value) {
             selectedPosition.value = pos
         }
+    }
+
+    companion object {
+        const val NO_ITEM_SELECTED = -1
     }
 }

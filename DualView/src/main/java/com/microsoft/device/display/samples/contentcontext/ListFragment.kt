@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.microsoft.device.display.samples.contentcontext.model.Restaurant
 import com.microsoft.device.display.samples.contentcontext.view.RestaurantAdapter
 import com.microsoft.device.display.samples.contentcontext.view.SelectedViewModel
+import com.microsoft.device.display.samples.contentcontext.view.SelectedViewModel.Companion.NO_ITEM_SELECTED
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenInfoProvider
@@ -65,7 +66,7 @@ class ListFragment : Fragment(), ScreenInfoListener {
 
     override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
         if (!screenInfo.isDualMode()) {
-            adapterItems?.selectItem(-1)
+            adapterItems?.selectItem(NO_ITEM_SELECTED)
         }
 
         if (screenInfo.isDualMode()) {
@@ -86,7 +87,7 @@ class ListFragment : Fragment(), ScreenInfoListener {
     private fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.action_map -> {
-                startDetailsFragment(-1)
+                startDetailsFragment(NO_ITEM_SELECTED)
                 true
             }
             else -> false

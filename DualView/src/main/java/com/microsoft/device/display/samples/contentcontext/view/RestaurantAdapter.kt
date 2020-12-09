@@ -18,6 +18,7 @@ import com.microsoft.device.display.samples.contentcontext.R
 import com.microsoft.device.display.samples.contentcontext.model.Restaurant
 import com.microsoft.device.display.samples.contentcontext.util.formatPriceRange
 import com.microsoft.device.display.samples.contentcontext.util.formatRating
+import com.microsoft.device.display.samples.contentcontext.view.SelectedViewModel.Companion.NO_ITEM_SELECTED
 
 class RestaurantAdapter(
     context: Context,
@@ -43,7 +44,7 @@ class RestaurantAdapter(
     override fun getItemCount() = viewModel.listItems.size
 
     fun selectItem(pos: Int) {
-        viewModel.selectedPosition.value?.takeIf { it != -1 }?.let {
+        viewModel.selectedPosition.value?.takeIf { it != NO_ITEM_SELECTED }?.let {
             notifyItemChanged(it)
         }
         viewModel.setSelectedPosition(pos)
