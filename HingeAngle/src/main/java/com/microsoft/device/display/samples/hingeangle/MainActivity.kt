@@ -54,29 +54,29 @@ class MainActivity : AppCompatActivity(), ScreenInfoListener {
     private fun useDualMode(screenInfo: ScreenInfo) {
         Log.d(DEBUG_TAG, "########### dual mode")
         supportFragmentManager
-                .beginTransaction()
-                .replace(
-                        R.id.first_container_id,
-                        SingleScreenFragment(),
-                        null
-                ).commit()
+            .beginTransaction()
+            .replace(
+                R.id.first_container_id,
+                SingleScreenFragment(),
+                null
+            ).commit()
         supportFragmentManager
-                .beginTransaction()
-                .replace(
-                        R.id.second_container_id,
-                        DualScreenFragment(),
-                        null
-                ).commit()
+            .beginTransaction()
+            .replace(
+                R.id.second_container_id,
+                DualScreenFragment(),
+                null
+            ).commit()
     }
 
     private fun useSingleMode() { // Setting layout for single portrait
         Log.d(DEBUG_TAG, "########### single mode")
         supportFragmentManager
-                .beginTransaction()
-                .replace(
-                        R.id.first_container_id,
-                        SingleScreenFragment(),
-                        null
-                ).commit()
+            .beginTransaction()
+            .replace(
+                R.id.first_container_id,
+                SingleScreenFragment(),
+                null
+            ).commit()
     }
 }
