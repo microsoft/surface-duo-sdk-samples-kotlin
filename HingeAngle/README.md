@@ -2,7 +2,7 @@
 
 This sample contains code that [accompanies this blog post](https://devblogs.microsoft.com/surface-duo/hinge-angle-on-surface-duo/), and demonstrates how to listen and react to changes in the hinge angle.
 
-![](Screenshots/)
+![Hinge sample spanned](Screenshots/hinge-500.png) ![Hinge sample on single screen](Screenshots/hinge-250.png)
 
 ```kotlin
 private val hingeAngleSensorListener = object : SensorEventListener {
