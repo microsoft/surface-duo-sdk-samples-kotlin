@@ -30,7 +30,7 @@ import org.junit.runner.RunWith
 @LargeTest
 class ListDetailsInDualScreenModeTest {
     @get:Rule
-    val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activityRule = ActivityTestRule<ListDetailsActivity>(ListDetailsActivity::class.java)
 
     @After
     fun tearDown() {
@@ -42,9 +42,9 @@ class ListDetailsInDualScreenModeTest {
         switchFromSingleToDualScreen()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.image_list)).check(matches(isDisplayed()))
+        onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
-        onView(withId(R.id.image_list)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, forceClick()))
+        onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, forceClick()))
         onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.image_3)))
     }
 

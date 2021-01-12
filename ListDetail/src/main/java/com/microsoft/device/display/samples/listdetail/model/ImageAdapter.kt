@@ -14,6 +14,9 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.microsoft.device.display.samples.listdetail.R
 
+/**
+ * RecyclerViewAdapter for the image gallery
+ */
 class ImageAdapter(
     context: Context,
     private val images: List<Int>,

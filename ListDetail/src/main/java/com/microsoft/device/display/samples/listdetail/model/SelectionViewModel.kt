@@ -5,18 +5,13 @@
  */
 package com.microsoft.device.display.samples.listdetail.model
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.microsoft.device.display.samples.listdetail.R
 
+/**
+ * ViewModel used to store the current selected image
+ */
 class SelectionViewModel : ViewModel() {
-    private val selectedItemLiveData: MutableLiveData<Int?> = MutableLiveData(0)
-
-    fun getSelectedItemLiveData(): LiveData<Int?> {
-        return this.selectedItemLiveData
-    }
-
-    fun setSelectedItemLiveData(selectedItem: Int?) {
-        selectedItemLiveData.value = selectedItem
-    }
+    val selectedItem = MutableLiveData(R.drawable.image_1)
 }

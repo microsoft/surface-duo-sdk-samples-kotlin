@@ -28,7 +28,7 @@ import org.junit.runner.RunWith
 @LargeTest
 class ListDetailsInSingleScreenModeTest {
     @get:Rule
-    val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activityRule = ActivityTestRule<ListDetailsActivity>(ListDetailsActivity::class.java)
 
     @After
     fun tearDown() {
@@ -38,9 +38,9 @@ class ListDetailsInSingleScreenModeTest {
     @Test
     fun openDetailsFromList() {
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.image_list)).check(matches(isDisplayed()))
+        onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
-        onView(withId(R.id.image_list)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
+        onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
         onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.image_2)))
     }
 
