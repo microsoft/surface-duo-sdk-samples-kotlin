@@ -11,67 +11,86 @@
     android:id="@+id/layout_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    android:padding="@dimen/page_padding"
+    tools:context=".TwoPageActivity">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/app_name_text"
+        style="@style/Text.Title.AppName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textStyle="bold"
-        android:fontFamily="serif"
-        android:textColor="@color/black"
+        android:layout_margin="@dimen/medium_margin"
         android:text="@string/app_name"
-        android:textSize="36sp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/page1_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:src="@drawable/rome_image"
-        android:layout_width="wrap_content"
-        android:layout_height="270dp"
-        android:layout_marginTop="50dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name_text"
-        tools:ignore="ContentDescription" />
+    <ScrollView
+        android:id="@+id/page1_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/page1_page_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_name_text">
 
-    <TextView
-        android:id="@+id/captionView"
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/image_caption"
-        android:textAlignment="center"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/page1_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:fontFamily="serif"
-        android:textColor="@color/black"
-        android:lineSpacingExtra="5dp"
-        android:text="@string/page1_text"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/captionView" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="270dp"
+                android:layout_marginTop="40dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/rome_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
-    <TextView
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/captionView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/image_caption"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="@id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/page1_text"
+                style="@style/Text.Content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_marginRight="@dimen/medium_margin"
+                android:text="@string/page1_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/captionView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/page1_page_number"
+        style="@style/Text.PageNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
         android:text="@string/page1_page_number"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/page1_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

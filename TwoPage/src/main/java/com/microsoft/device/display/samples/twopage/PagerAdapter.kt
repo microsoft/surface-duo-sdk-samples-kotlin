@@ -3,20 +3,31 @@
  * Licensed under the MIT License.
  *
  */
+
 package com.microsoft.device.display.samples.twopage
 
 import android.util.SparseArray
+import androidx.core.util.forEach
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.microsoft.device.display.samples.twopage.fragments.ScrollingContent
 
 internal class PagerAdapter(
-    fm: FragmentManager?,
+    fragmentManager: FragmentManager,
     private val fragments: SparseArray<Fragment>
-) : FragmentPagerAdapter(fm!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-    private var showTwoPages = false
+) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    var showTwoPages = false
+    var pageContentScrollEnabled = true
+        set(value) {
+            field = value
+            enableScroll(value)
+        }
+
     override fun getItem(position: Int): Fragment {
-        return fragments.valueAt(position)
+        return fragments.valueAt(position).apply {
+            enableScroll(this, pageContentScrollEnabled)
+        }
     }
 
     override fun getCount(): Int {
@@ -29,7 +40,11 @@ internal class PagerAdapter(
         return if (showTwoPages) 0.5f else 1.0f
     }
 
-    fun showTwoPages(showTwoPages: Boolean) {
-        this.showTwoPages = showTwoPages
+    private fun enableScroll(enabled: Boolean) {
+        fragments.forEach { _, fragment -> enableScroll(fragment, enabled) }
+    }
+
+    private fun enableScroll(fragment: Fragment, enabled: Boolean) {
+        (fragment as? ScrollingContent)?.enableScroll(enabled)
     }
 }

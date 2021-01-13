@@ -6,4 +6,10 @@
 
 <resources>
     <dimen name="text_size">28sp</dimen>
+    <dimen name="title_text_size">16sp</dimen>
+    <dimen name="page_padding">20dp</dimen>
+    <dimen name="app_name_text_size">36dp</dimen>
+    <dimen name="small_margin">5dp</dimen>
+    <dimen name="medium_margin">10dp</dimen>
+    <dimen name="page_number_text_size">14sp</dimen>
 </resources>

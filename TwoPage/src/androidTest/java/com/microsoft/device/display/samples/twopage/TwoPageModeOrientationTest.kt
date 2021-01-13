@@ -31,7 +31,7 @@ class TwoPageModeOrientationTest {
     private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @get:Rule
-    val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activityRule = ActivityTestRule<TwoPageActivity>(TwoPageActivity::class.java)
     private lateinit var idlingResource: ViewPagerIdlingResource
 
     @Before

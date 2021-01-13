@@ -11,78 +11,84 @@
     android:id="@+id/layout_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    android:padding="@dimen/page_padding"
+    tools:context=".TwoPageActivity">
 
-    <TextView
-        android:id="@+id/page2_title1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:fontFamily="serif"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:text="@string/page2_title1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:id="@+id/page2_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/page2_page_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/page2_text1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:fontFamily="serif"
-        android:textColor="@color/black"
-        android:lineSpacingExtra="5dp"
-        android:text="@string/page2_text1"
-        android:textSize="16sp"
-        android:breakStrategy="balanced"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/page2_title1" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/page2_title2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:fontFamily="serif"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:text="@string/page2_title2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/page2_text1" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/page2_title1"
+                style="@style/Text.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:text="@string/page2_title1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/page2_text2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:fontFamily="serif"
-        android:textColor="@color/black"
-        android:lineSpacingExtra="5dp"
-        android:text="@string/page2_text2"
-        android:textSize="16sp"
-        android:breakStrategy="balanced"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/page2_title2" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/page2_text1"
+                style="@style/Text.Content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:text="@string/page2_text1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/page2_title1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/page2_title2"
+                style="@style/Text.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:text="@string/page2_title2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/page2_text1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/page2_text2"
+                style="@style/Text.Content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:text="@string/page2_text2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/page2_title2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/page2_page_number"
-        android:layout_width="match_parent"
+        style="@style/Text.PageNumber"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
         android:text="@string/page2_page_number"
-        android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/page2_content" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

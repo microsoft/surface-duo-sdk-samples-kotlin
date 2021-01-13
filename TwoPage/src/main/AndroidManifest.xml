@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".MainActivity"
+            android:name=".TwoPageActivity"
             android:configChanges="screenSize|screenLayout|orientation|smallestScreenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

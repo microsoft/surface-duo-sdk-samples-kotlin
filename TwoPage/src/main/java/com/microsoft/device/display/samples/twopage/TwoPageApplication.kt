@@ -3,6 +3,7 @@
  * Licensed under the MIT License.
  *
  */
+
 package com.microsoft.device.display.samples.twopage
 
 import android.app.Application

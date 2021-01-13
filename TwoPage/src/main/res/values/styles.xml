@@ -7,7 +7,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -16,6 +16,38 @@
 
     <style name="DarkerGrayTheme" parent="AppTheme">
         <item name="android:background">@android:color/darker_gray</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Title.AppName">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/app_name_text_size</item>
+    </style>
+
+    <style name="Text.Content">
+        <item name="android:lineSpacingExtra">5dp</item>
+        <item name="android:breakStrategy">balanced</item>
+    </style>
+
+    <style name="Text.Content.Italic">
+        <item name="android:lineSpacingExtra">5dp</item>
+        <item name="android:breakStrategy">balanced</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="Text.PageNumber">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">@dimen/page_number_text_size</item>
+        <item name="android:textColor">@color/lightGrey</item>
     </style>
 
 </resources>
