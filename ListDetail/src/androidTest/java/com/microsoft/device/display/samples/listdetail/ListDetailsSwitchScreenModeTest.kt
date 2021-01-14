@@ -12,9 +12,9 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.rule.ActivityTestRule
 import com.microsoft.device.display.samples.listdetail.utils.forceClick
 import com.microsoft.device.display.samples.listdetail.utils.hasDrawable
 import com.microsoft.device.display.samples.listdetail.utils.setOrientationLeft
@@ -31,7 +31,7 @@ import org.junit.runner.RunWith
 @LargeTest
 class ListDetailsSwitchScreenModeTest {
     @get:Rule
-    val activityRule = ActivityTestRule<ListDetailsActivity>(ListDetailsActivity::class.java)
+    val activityScenarioRule = activityScenarioRule<ListDetailsActivity>()
 
     @After
     fun tearDown() {
