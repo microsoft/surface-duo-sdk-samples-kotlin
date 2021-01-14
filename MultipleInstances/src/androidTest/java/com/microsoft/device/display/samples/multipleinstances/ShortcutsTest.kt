@@ -9,7 +9,7 @@ package com.microsoft.device.display.samples.multipleinstances
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.platform.app.InstrumentationRegistry
@@ -41,7 +41,7 @@ class ShortcutsTest {
         }
 
         device.findObject(UiSelector().text(NEW_INSTANCE_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
-        onView(withId(R.id.main_text)).check(matches(isDisplayed()))
+        onView(withText(R.string.main_activity_text)).check(matches(isDisplayed()))
 
         longClick(getRightAppIcon())
 
@@ -50,7 +50,7 @@ class ShortcutsTest {
         }
 
         device.findObject(UiSelector().text(SECOND_ACTIVITY_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
-        onView(withId(R.id.second_text)).check(matches(isDisplayed()))
+        onView(withText(R.string.second_activity_text)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -62,7 +62,7 @@ class ShortcutsTest {
         }
 
         device.findObject(UiSelector().text(SECOND_ACTIVITY_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
-        onView(withId(R.id.second_text)).check(matches(isDisplayed()))
+        onView(withText(R.string.second_activity_text)).check(matches(isDisplayed()))
 
         longClick(getRightAppIcon())
 
@@ -71,7 +71,7 @@ class ShortcutsTest {
         }
 
         device.findObject(UiSelector().text(NEW_INSTANCE_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
-        onView(withId(R.id.main_text)).check(matches(isDisplayed()))
+        onView(withText(R.string.main_activity_text)).check(matches(isDisplayed()))
     }
 
     private fun longClick(target: UiObject) {
