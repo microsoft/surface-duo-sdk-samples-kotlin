@@ -3,7 +3,8 @@
  * Licensed under the MIT License.
  *
  */
-package com.microsoft.device.display.samples.twopage
+
+package com.microsoft.device.display.samples.twopage.view
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -12,22 +13,24 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.viewpager.widget.ViewPager
 
-// VerticalViewPager can be swiped vertically
+/**
+ *  [ViewPager] that can be swiped vertically
+ */
 class VerticalViewPager @JvmOverloads constructor(
-    context: Context?,
+    context: Context,
     attrs: AttributeSet? = null
-) : ViewPager(context!!, attrs) {
+) : ViewPager(context, attrs) {
+    init {
+        setPageTransformer(true, VerticalPageTransformer())
+        overScrollMode = View.OVER_SCROLL_NEVER
+    }
+
     override fun canScrollHorizontally(direction: Int): Boolean {
         return false
     }
 
     override fun canScrollVertically(direction: Int): Boolean {
         return super.canScrollHorizontally(direction)
-    }
-
-    private fun init() {
-        setPageTransformer(true, VerticalPageTransformer())
-        overScrollMode = View.OVER_SCROLL_NEVER
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
@@ -56,20 +59,21 @@ class VerticalViewPager @JvmOverloads constructor(
         override fun transformPage(view: View, position: Float) {
             val pageWidth = view.width
             val pageHeight = view.height
-            if (position < -1) {
-                view.alpha = 0f
-            } else if (position <= 1) {
-                view.alpha = 1f
-                view.translationX = pageWidth * -position
-                val yPosition = position * pageHeight
-                view.translationY = yPosition
-            } else {
-                view.alpha = 0f
+
+            when {
+                position < -1 -> {
+                    view.alpha = 0f
+                }
+                position <= 1 -> {
+                    view.alpha = 1f
+                    view.translationX = pageWidth * -position
+                    val yPosition = position * pageHeight
+                    view.translationY = yPosition
+                }
+                else -> {
+                    view.alpha = 0f
+                }
             }
         }
-    }
-
-    init {
-        init()
     }
 }

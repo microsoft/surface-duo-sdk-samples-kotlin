@@ -8,9 +8,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:is_dual_landscape_single_container="true"
-    app:is_dual_portrait_single_container="true"
+    android:background="@color/white"
     app:dual_landscape_single_layout_id="@layout/double_landscape_layout"
     app:dual_portrait_single_layout_id="@layout/single_screen_layout"
+    app:is_dual_landscape_single_container="true"
+    app:is_dual_portrait_single_container="true"
     app:single_screen_layout_id="@layout/single_screen_layout"
     app:tools_screen_mode="dual_screen" />

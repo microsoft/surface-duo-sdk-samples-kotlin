@@ -20,6 +20,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner config.testInstrumentationRunner
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
 }
 
@@ -35,8 +40,10 @@ dependencies {
 
     testImplementation testDependencies.junit
 
-    androidTestImplementation instrumentationTestDependencies.junit
+    androidTestImplementation instrumentationTestDependencies.junitKtx
     androidTestImplementation instrumentationTestDependencies.espressoCore
     androidTestImplementation instrumentationTestDependencies.uiAutomator
     androidTestImplementation instrumentationTestDependencies.testRules
+    androidTestImplementation instrumentationTestDependencies.testRunner
+    androidTestUtil instrumentationTestDependencies.testOrchestrator
 }
