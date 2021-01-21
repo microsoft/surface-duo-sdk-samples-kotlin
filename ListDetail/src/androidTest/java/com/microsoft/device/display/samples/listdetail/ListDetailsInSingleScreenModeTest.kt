@@ -12,9 +12,9 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.rule.ActivityTestRule
 import com.microsoft.device.display.samples.listdetail.utils.forceClick
 import com.microsoft.device.display.samples.listdetail.utils.hasDrawable
 import com.microsoft.device.display.samples.listdetail.utils.setOrientationLeft
@@ -28,7 +28,7 @@ import org.junit.runner.RunWith
 @LargeTest
 class ListDetailsInSingleScreenModeTest {
     @get:Rule
-    val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activityScenarioRule = activityScenarioRule<ListDetailsActivity>()
 
     @After
     fun tearDown() {
@@ -38,9 +38,9 @@ class ListDetailsInSingleScreenModeTest {
     @Test
     fun openDetailsFromList() {
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.image_list)).check(matches(isDisplayed()))
+        onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
-        onView(withId(R.id.image_list)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
+        onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
         onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.image_2)))
     }
 

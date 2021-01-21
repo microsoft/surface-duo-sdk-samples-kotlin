@@ -9,6 +9,9 @@ package com.microsoft.device.display.samples.listdetail.model
 import com.microsoft.device.display.samples.listdetail.R
 import java.util.ArrayList
 
+/**
+ * Contains all image resources
+ */
 object DataProvider {
     val imageIDs: ArrayList<Int>
         get() {
