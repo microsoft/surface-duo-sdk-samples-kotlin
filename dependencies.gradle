@@ -32,6 +32,7 @@ ext {
     ktxFragmentVersion = "1.2.4"
     viewPager2Version = "1.0.0"
     localBroadcastManagerVersion = "1.0.0"
+    lifecycleExtensionsVersion = "2.2.0"
 
     androidxDependencies = [
             appCompat           : "androidx.appcompat:appcompat:$appCompatVersion",
@@ -42,6 +43,7 @@ ext {
             ktxFragment         : "androidx.fragment:fragment-ktx:$ktxFragmentVersion",
             viewPager2          : "androidx.viewpager2:viewpager2:$viewPager2Version",
             locaBroadcastManager: "androidx.localbroadcastmanager:localbroadcastmanager:$localBroadcastManagerVersion",
+            lifecycleExtensions : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion"
     ]
 
     //Google dependencies

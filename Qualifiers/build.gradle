@@ -14,6 +14,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner config.testInstrumentationRunner
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
 }
 
@@ -21,13 +26,13 @@ dependencies {
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
-    implementation androidxDependencies.ktxCore
-    implementation androidxDependencies.ktxFragment
+    implementation androidxDependencies.lifecycleExtensions
 
     testImplementation testDependencies.junit
 
-    androidTestImplementation instrumentationTestDependencies.junit
+    androidTestImplementation instrumentationTestDependencies.junitKtx
     androidTestImplementation instrumentationTestDependencies.espressoCore
     androidTestImplementation instrumentationTestDependencies.uiAutomator
-    androidTestImplementation instrumentationTestDependencies.testRules
+    androidTestImplementation instrumentationTestDependencies.testRunner
+    androidTestUtil instrumentationTestDependencies.testOrchestrator
 }

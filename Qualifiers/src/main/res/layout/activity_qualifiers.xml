@@ -4,50 +4,44 @@
   ~  Licensed under the MIT License.
   ~
   -->
-
-<!-- This is the a specific resource folder (layout-sw720dp) that any device that fits with this configuration
- will use. E.g: Pixel C tablet emulator-->
+<!-- This is the default resource folder (layout), that any device that doesn't fit on the qualifiers
+that you have defined for specific resource folders, will use -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    android:padding="@dimen/view_margin"
+    tools:context=".QualifiersActivity">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/sticker_image_content_description"
         android:src="@drawable/sticker"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/message"
+        style="@style/Text.Message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin"
         android:text="@string/hello_world"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="@id/image"
-        app:layout_constraintRight_toRightOf="@id/image"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image" />
 
     <TextView
-        android:id="@+id/resource_folder_text"
+        android:id="@+id/resource_folder"
+        style="@style/Text.ResourceFolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginTop="@dimen/view_margin"
         android:text="@string/resource_folder"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="@id/text"
-        app:layout_constraintRight_toRightOf="@id/text"
-        app:layout_constraintTop_toBottomOf="@id/text" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/message" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

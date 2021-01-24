@@ -6,23 +6,20 @@
 
 package com.microsoft.device.display.samples.qualifiers
 
-import android.graphics.drawable.ColorDrawable
-import android.view.View
 import androidx.annotation.ColorInt
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.rule.ActivityTestRule
-import androidx.test.uiautomator.UiDevice
-import org.hamcrest.Description
-import org.hamcrest.Matcher
+import com.microsoft.device.display.samples.qualifiers.utils.hasBackgroundColor
+import com.microsoft.device.display.samples.qualifiers.utils.setOrientationLeft
+import com.microsoft.device.display.samples.qualifiers.utils.switchFromSingleToDualScreen
+import com.microsoft.device.display.samples.qualifiers.utils.unfreezeRotation
+import org.junit.After
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -30,63 +27,42 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4ClassRunner::class)
 @LargeTest
 class QualifiersTest {
-
-    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-
     @get:Rule
-    val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activityScenarioRule = activityScenarioRule<QualifiersActivity>()
 
-    @Test
-    fun displaySingleLayout_inSingleMode() {
-        onView(withId(R.id.layout_container))
-            .check(matches(withBackgroundColor(null)))
-        onView(withId(R.id.image))
-            .check(matches(withContentDescription("Single screen image")))
-        onView(withId(R.id.text))
-            .check(matches(withText("Hello World! \nSingle screen mode")))
-        onView(withId(R.id.resource_folder_text))
-            .check(matches(withText("sw540dp-1350x1800")))
+    @After
+    fun tearDown() {
+        unfreezeRotation()
     }
 
     @Test
-    fun displayDualLayout_inDualMode() {
-        spanApplication()
-
-        onView(withId(R.id.layout_container))
-            .check(matches(withBackgroundColor(R.color.colorAccent)))
-        onView(withId(R.id.image))
-            .check(matches(withContentDescription("Dual screen image")))
-        onView(withId(R.id.text))
-            .check(matches(withText("Hello World! \nSpanned mode!")))
-        onView(withId(R.id.resource_folder_text))
-            .check(matches(withText("sw720dp-2784x1800")))
+    fun singleScreenModeInPortrait() {
+        checkContent(null)
     }
 
-    private fun spanApplication() {
-        device.swipe(675, 1780, 1350, 900, 400)
+    @Test
+    fun dualScreenModeInPortrait() {
+        switchFromSingleToDualScreen()
+        checkContent(R.color.colorAccent)
     }
 
-    companion object {
-        fun withBackgroundColor(@ColorInt expectedColor: Int?): Matcher<View> =
-            object : BoundedMatcher<View, ConstraintLayout>(ConstraintLayout::class.java) {
-                override fun describeTo(description: Description?) {
-                    description?.appendText(
-                        "Check for item to have color with id $expectedColor"
-                    )
-                }
+    @Test
+    fun singleScreenModeInLandscape() {
+        setOrientationLeft()
+        checkContent(null)
+    }
 
-                override fun matchesSafely(view: ConstraintLayout?): Boolean {
-                    view?.let {
-                        if (expectedColor == null) {
-                            return view.background == null
-                        }
-                        if (view.background is ColorDrawable) {
-                            val actualColor = (view.background as ColorDrawable).color
-                            return actualColor == view.context.getColor(expectedColor)
-                        }
-                    }
-                    return false
-                }
-            }
+    @Test
+    fun dualScreenModeInLandscape() {
+        switchFromSingleToDualScreen()
+        setOrientationLeft()
+        checkContent(R.color.colorAccent)
+    }
+
+    private fun checkContent(@ColorInt backgroundColor: Int?) {
+        onView(withId(R.id.layout_container)).check(matches(hasBackgroundColor(backgroundColor)))
+        onView(withId(R.id.image)).check(matches(withContentDescription(R.string.sticker_image_content_description)))
+        onView(withId(R.id.message)).check(matches(withText(R.string.hello_world)))
+        onView(withId(R.id.resource_folder)).check(matches(withText(R.string.resource_folder)))
     }
 }
