@@ -15,6 +15,12 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_IMAGE_DESCRIPTION
+import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_MESSAGE
+import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_RESOURCE_FOLDER
+import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_IMAGE_DESCRIPTION
+import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_MESSAGE
+import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_RESOURCE_FOLDER
 import com.microsoft.device.display.samples.qualifiers.utils.hasBackgroundColor
 import com.microsoft.device.display.samples.qualifiers.utils.setOrientationLeft
 import com.microsoft.device.display.samples.qualifiers.utils.switchFromSingleToDualScreen
@@ -37,32 +43,57 @@ class QualifiersTest {
 
     @Test
     fun singleScreenModeInPortrait() {
-        checkContent(null)
+        checkContent(
+            null,
+            SINGLE_SCREEN_IMAGE_DESCRIPTION,
+            SINGLE_SCREEN_MESSAGE,
+            SINGLE_SCREEN_RESOURCE_FOLDER
+        )
     }
 
     @Test
     fun dualScreenModeInPortrait() {
         switchFromSingleToDualScreen()
-        checkContent(R.color.colorAccent)
+        checkContent(
+            R.color.colorAccent,
+            DUAL_SCREEN_IMAGE_DESCRIPTION,
+            DUAL_SCREEN_MESSAGE,
+            DUAL_SCREEN_RESOURCE_FOLDER
+        )
     }
 
     @Test
     fun singleScreenModeInLandscape() {
         setOrientationLeft()
-        checkContent(null)
+        checkContent(
+            null,
+            SINGLE_SCREEN_IMAGE_DESCRIPTION,
+            SINGLE_SCREEN_MESSAGE,
+            SINGLE_SCREEN_RESOURCE_FOLDER
+        )
     }
 
     @Test
     fun dualScreenModeInLandscape() {
         switchFromSingleToDualScreen()
         setOrientationLeft()
-        checkContent(R.color.colorAccent)
+        checkContent(
+            R.color.colorAccent,
+            DUAL_SCREEN_IMAGE_DESCRIPTION,
+            DUAL_SCREEN_MESSAGE,
+            DUAL_SCREEN_RESOURCE_FOLDER
+        )
     }
 
-    private fun checkContent(@ColorInt backgroundColor: Int?) {
-        onView(withId(R.id.layout_container)).check(matches(hasBackgroundColor(backgroundColor)))
-        onView(withId(R.id.image)).check(matches(withContentDescription(R.string.sticker_image_content_description)))
-        onView(withId(R.id.message)).check(matches(withText(R.string.hello_world)))
-        onView(withId(R.id.resource_folder)).check(matches(withText(R.string.resource_folder)))
+    private fun checkContent(
+        @ColorInt expectedBackgroundColor: Int?,
+        expectedImageContentDescription: String,
+        expectedMessage: String,
+        expectedResourceFolder: String
+    ) {
+        onView(withId(R.id.layout_container)).check(matches(hasBackgroundColor(expectedBackgroundColor)))
+        onView(withId(R.id.image)).check(matches(withContentDescription(expectedImageContentDescription)))
+        onView(withId(R.id.message)).check(matches(withText(expectedMessage)))
+        onView(withId(R.id.resource_folder)).check(matches(withText(expectedResourceFolder)))
     }
 }
