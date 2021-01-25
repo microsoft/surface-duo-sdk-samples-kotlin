@@ -20,13 +20,7 @@ class ExtendedCanvasActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extended_canvas)
-        setupActionBar()
         setupWebView()
-    }
-
-    private fun setupActionBar() {
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.menu)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
