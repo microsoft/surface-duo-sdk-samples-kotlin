@@ -4,78 +4,81 @@
   ~  Licensed under the MIT License.
   ~
   -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/effect_control"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
-    <LinearLayout
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_1_icon"
+        android:layout_width="@dimen/icon_height"
+        android:layout_height="@dimen/icon_height"
+        android:src="@drawable/zoom_icon"
+        app:layout_constraintBottom_toTopOf="@id/filter_1_text"
+        app:layout_constraintEnd_toStartOf="@id/filter_1_seekbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/filter_1_seekbar"
+        style="@style/SeekBar.Filter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_padding"
+        app:layout_constraintBottom_toBottomOf="@id/filter_1_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filter_1_icon"
+        app:layout_constraintTop_toTopOf="@id/filter_1_icon" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_1_text"
+        style="@style/Text.Filter.Subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_padding"
-        android:orientation="horizontal" >
+        android:text="@string/vignette"
+        app:layout_constraintBottom_toTopOf="@id/filter_2_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/filter_1_icon"
+        app:layout_constraintTop_toBottomOf="@id/filter_1_icon" />
 
-        <ImageView
-            android:layout_width="@dimen/icon_height"
-            android:layout_height="@dimen/icon_height"
-            android:layout_marginStart="@dimen/small_padding"
-            android:src="@drawable/zoom_icon"
-            tools:ignore="ContentDescription" />
-
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_padding"
-            android:max="100"
-            android:maxHeight="@dimen/seekBar_max_height"
-            android:progress="50"
-            android:progressDrawable="@drawable/seek_bar_ruler_light"
-            android:thumb="@drawable/seek_bar_slider_light" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_padding"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/small_text_size"
-        android:text="@string/vignette"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_2_icon"
+        android:layout_width="@dimen/icon_height"
+        android:layout_height="@dimen/icon_height"
         android:layout_marginTop="@dimen/large_padding"
-        android:orientation="horizontal" >
+        android:src="@drawable/brightness_icon"
+        app:layout_constraintBottom_toTopOf="@id/filter_2_text"
+        app:layout_constraintEnd_toStartOf="@id/filter_2_seekbar"
+        app:layout_constraintStart_toStartOf="@id/filter_1_text"
+        app:layout_constraintTop_toBottomOf="@id/filter_1_text"
+        tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:layout_width="@dimen/icon_height"
-            android:layout_height="@dimen/icon_height"
-            android:layout_marginStart="@dimen/small_padding"
-            android:src="@drawable/brightness_icon"
-            tools:ignore="ContentDescription" />
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/filter_2_seekbar"
+        style="@style/SeekBar.Filter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_padding"
+        app:layout_constraintBottom_toBottomOf="@id/filter_2_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filter_2_icon"
+        app:layout_constraintTop_toTopOf="@id/filter_2_icon" />
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_padding"
-            android:max="100"
-            android:maxHeight="@dimen/seekBar_max_height"
-            android:progress="50"
-            android:progressDrawable="@drawable/seek_bar_ruler_light"
-            android:thumb="@drawable/seek_bar_slider_light" />
-    </LinearLayout>
-
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_2_text"
+        style="@style/Text.Filter.Subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_padding"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/small_text_size"
-        android:text="@string/brightness" />
-
-</LinearLayout>
+        android:text="@string/brightness"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/filter_2_icon"
+        app:layout_constraintTop_toBottomOf="@id/filter_2_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

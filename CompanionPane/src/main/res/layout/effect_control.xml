@@ -4,149 +4,135 @@
 ~  Licensed under the MIT License.
 ~
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/effect_control"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/effect_control"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filters_title"
+        style="@style/Text.Filter.Title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="MissingDefaultResource">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_padding"
+        android:text="@string/filters"
+        app:layout_constraintBottom_toTopOf="@id/filter_1_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/small_padding"
-            android:paddingBottom="@dimen/small_padding"
-            android:text="@string/Filters"
-            android:textAlignment="textStart"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/large_text_size" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_1_image"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="@dimen/small_image_size"
+        app:layout_constraintBottom_toTopOf="@+id/filter_1_text"
+        app:layout_constraintEnd_toStartOf="@id/filter_2_image"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filters_title"
+        app:srcCompat="@drawable/gingham"
+        tools:ignore="ContentDescription" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/small_padding"
-            android:paddingRight="@dimen/small_padding"
-            android:paddingBottom="@dimen/small_padding"
-            android:weightSum="5"
-            android:baselineAligned="false">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_1_text"
+        style="@style/Text.Filter"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/gingham"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filter_1_image"
+        app:layout_constraintStart_toStartOf="@id/filter_1_image"
+        app:layout_constraintTop_toBottomOf="@id/filter_1_image" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_2_image"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="@dimen/small_image_size"
+        app:layout_constraintBottom_toTopOf="@id/filter_2_text"
+        app:layout_constraintEnd_toStartOf="@id/filter_3_image"
+        app:layout_constraintStart_toEndOf="@id/filter_1_image"
+        app:layout_constraintTop_toTopOf="@id/filter_1_image"
+        app:srcCompat="@drawable/original"
+        tools:ignore="ContentDescription" />
 
-                <ImageView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/gingham"
-                    tools:ignore="ContentDescription" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_2_text"
+        style="@style/Text.Filter"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/original"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filter_2_image"
+        app:layout_constraintStart_toStartOf="@id/filter_2_image"
+        app:layout_constraintTop_toBottomOf="@id/filter_2_image" />
 
-                <TextView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/small_padding"
-                    android:text="@string/Gingham"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/small_text_size" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_3_image"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="@dimen/small_image_size"
+        app:layout_constraintBottom_toTopOf="@id/filter_3_text"
+        app:layout_constraintEnd_toStartOf="@id/filter_4_image"
+        app:layout_constraintStart_toEndOf="@id/filter_2_image"
+        app:layout_constraintTop_toTopOf="@id/filter_1_image"
+        app:srcCompat="@drawable/lark"
+        tools:ignore="ContentDescription" />
 
-            </LinearLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_3_text"
+        style="@style/Text.Filter"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/lark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filter_3_image"
+        app:layout_constraintStart_toStartOf="@id/filter_3_image"
+        app:layout_constraintTop_toBottomOf="@id/filter_3_image" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_4_image"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="@dimen/small_image_size"
+        app:layout_constraintBottom_toTopOf="@id/filter_4_text"
+        app:layout_constraintEnd_toStartOf="@+id/filter_5_image"
+        app:layout_constraintStart_toEndOf="@id/filter_3_image"
+        app:layout_constraintTop_toTopOf="@id/filter_1_image"
+        app:srcCompat="@drawable/juno"
+        tools:ignore="ContentDescription" />
 
-                <ImageView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/original"
-                    tools:ignore="ContentDescription" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_4_text"
+        style="@style/Text.Filter"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/juno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filter_4_image"
+        app:layout_constraintStart_toStartOf="@id/filter_4_image"
+        app:layout_constraintTop_toBottomOf="@id/filter_4_image" />
 
-                <TextView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/small_padding"
-                    android:text="@string/Original"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/small_text_size" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_5_image"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="@dimen/small_image_size"
+        app:layout_constraintBottom_toTopOf="@id/filter_5_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filter_4_image"
+        app:layout_constraintTop_toTopOf="@id/filter_1_image"
+        app:srcCompat="@drawable/ludwig"
+        tools:ignore="ContentDescription" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/lark"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/small_padding"
-                    android:text="@string/Lark"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/small_text_size" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/juno"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/small_padding"
-                    android:text="@string/Juno"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/small_text_size" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="@dimen/small_image_size"
-                    app:srcCompat="@drawable/ludwig"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:layout_width="@dimen/small_image_size"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/small_padding"
-                    android:text="@string/Ludwig"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/small_text_size" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-</LinearLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_5_text"
+        style="@style/Text.Filter"
+        android:layout_width="@dimen/small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/ludwig"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/filter_5_image"
+        app:layout_constraintStart_toStartOf="@+id/filter_5_image"
+        app:layout_constraintTop_toBottomOf="@+id/filter_5_image" />
+</androidx.constraintlayout.widget.ConstraintLayout>
