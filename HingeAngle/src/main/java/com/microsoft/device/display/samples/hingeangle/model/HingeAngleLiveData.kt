@@ -15,12 +15,18 @@ import androidx.lifecycle.LiveData
 import com.microsoft.device.display.samples.hingeangle.extensions.hingeAngleSensor
 import java.lang.IllegalStateException
 
+private const val DEFAULT_HINGE_ANGLE = 180
+
 /**
  * LiveData that exposes the hinge angle values from sensor
  */
 class HingeAngleLiveData(context: Context) : LiveData<Int>() {
     private val sensorManager = context.getSystemService(Service.SENSOR_SERVICE) as? SensorManager
     private val hingeAngleSensor = sensorManager?.hingeAngleSensor
+
+    init {
+        value = DEFAULT_HINGE_ANGLE
+    }
 
     private val hingeAngleSensorListener = object : SensorEventListenerAdapter() {
         override fun onSensorChanged(event: SensorEvent?) {
