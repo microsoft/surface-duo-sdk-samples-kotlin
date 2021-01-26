@@ -4,63 +4,89 @@
 ~  Licensed under the MIT License.
 ~
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scale_control"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:weightSum="7"
-    android:orientation="horizontal"
     tools:ignore="MissingDefaultResource">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_1_icon"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/icon_height"
-        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/filter_2_icon"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/filter_icon"
         tools:ignore="ContentDescription" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_2_icon"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/icon_height"
-        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/filter_1_icon"
+        app:layout_constraintEnd_toStartOf="@id/filter_3_icon"
+        app:layout_constraintStart_toEndOf="@id/filter_1_icon"
+        app:layout_constraintTop_toTopOf="@id/filter_1_icon"
         app:srcCompat="@drawable/hdr_icon"
         tools:ignore="ContentDescription" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_3_icon"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/icon_height"
-        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/filter_1_icon"
+        app:layout_constraintEnd_toStartOf="@id/filter_4_icon"
+        app:layout_constraintStart_toEndOf="@id/filter_2_icon"
+        app:layout_constraintTop_toTopOf="@id/filter_1_icon"
         app:srcCompat="@drawable/align_icon"
         tools:ignore="ContentDescription" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_4_icon"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/icon_height"
-        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/filter_1_icon"
+        app:layout_constraintEnd_toStartOf="@id/filter_5_icon"
+        app:layout_constraintStart_toEndOf="@id/filter_3_icon"
+        app:layout_constraintTop_toTopOf="@id/filter_1_icon"
         app:srcCompat="@drawable/vertical_icon"
         tools:ignore="ContentDescription" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_5_icon"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/icon_height"
-        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/filter_1_icon"
+        app:layout_constraintEnd_toStartOf="@id/filter_6_icon"
+        app:layout_constraintStart_toEndOf="@id/filter_4_icon"
+        app:layout_constraintTop_toTopOf="@id/filter_1_icon"
         app:srcCompat="@drawable/horizontal_icon"
         tools:ignore="ContentDescription" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_6_icon"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/icon_height"
-        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/filter_1_icon"
+        app:layout_constraintEnd_toStartOf="@id/filter_7_icon"
+        app:layout_constraintStart_toEndOf="@id/filter_5_icon"
+        app:layout_constraintTop_toTopOf="@id/filter_1_icon"
         app:srcCompat="@drawable/zoom_icon"
         tools:ignore="ContentDescription" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_7_icon"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/icon_height"
-        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/filter_1_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/filter_1_icon"
         app:srcCompat="@drawable/brightness_icon"
         tools:ignore="ContentDescription" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

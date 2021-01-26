@@ -4,26 +4,35 @@
 ~  Licensed under the MIT License.
 ~
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scale_control"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     tools:ignore="MissingDefaultResource">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/scale_control_dot"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dot_height"
         android:layout_marginTop="@dimen/small_padding"
         android:layout_marginBottom="@dimen/small_padding"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@id/scale_control_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dot" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/scale_control_icon"
         android:layout_width="match_parent"
         android:layout_height="@dimen/icon_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scale_control_dot"
         app:srcCompat="@drawable/scale_icon" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

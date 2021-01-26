@@ -4,75 +4,59 @@
   ~  Licensed under the MIT License.
   ~
   -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/single_screen_layout_port"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:baselineAligned="false"
-    android:orientation="vertical"
     android:background="@drawable/background_portrait_start"
+    android:padding="@dimen/large_padding"
     tools:ignore="MissingDefaultResource">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:minHeight="?attr/actionBarSize"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/original_image"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/full_image"
+        app:layout_constraintBottom_toTopOf="@id/effect_control"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/app_name"
-        app:titleTextColor="@color/black" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/large_padding"
-        android:layout_marginLeft="@dimen/large_padding"
-        android:layout_marginRight="@dimen/large_padding"
-        android:layout_marginBottom="@dimen/small_padding"
-        android:layout_weight="0.45"
-        android:scaleType="fitCenter"
-        android:src="@drawable/full_image"
         tools:ignore="ContentDescription" />
 
-    <LinearLayout
+    <include
+        android:id="@+id/effect_control"
+        layout="@layout/effect_control"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.6"
-        android:baselineAligned="false"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/small_padding"
-        android:layout_marginRight="@dimen/small_padding"
-        android:layout_marginBottom="@dimen/small_padding"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        tools:ignore="MissingDefaultResource">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_padding"
+        app:layout_constraintBottom_toTopOf="@id/full_filter_icon_control"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/original_image" />
 
-        <include
-            layout="@layout/effect_control"
-            android:layout_marginLeft="@dimen/small_padding"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.4" />
+    <include
+        android:id="@+id/full_filter_icon_control"
+        layout="@layout/full_filter_icon_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_padding"
+        app:layout_constraintBottom_toTopOf="@id/scale_control"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/effect_control" />
 
-        <include
-            layout="@layout/full_filter_icon_control"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/large_padding"
-            android:layout_marginRight="@dimen/large_padding"/>
+    <include
+        android:id="@+id/scale_control"
+        layout="@layout/scale_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/full_filter_icon_control" />
 
-        <include
-            layout="@layout/scale_control"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="@dimen/small_padding"
-            android:layout_marginRight="@dimen/small_padding"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
