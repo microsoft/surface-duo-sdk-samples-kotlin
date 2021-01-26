@@ -16,7 +16,7 @@ on:
         required: false
 
 jobs:
-  buuild-test-and-check:
+  build-test-and-check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
