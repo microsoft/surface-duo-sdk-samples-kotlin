@@ -8,7 +8,6 @@ package com.microsoft.device.display.samples.intentsecondscreen
 
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
@@ -72,10 +71,10 @@ class OpenSecondActivityTest {
 
     private fun checkIntentForTheSecondScreen() {
         intended(
-                allOf(
-                        hasComponent(SecondActivity::class.java.name),
-                        hasFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                )
+            allOf(
+                hasComponent(SecondActivity::class.java.name),
+                hasFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
         )
     }
 
