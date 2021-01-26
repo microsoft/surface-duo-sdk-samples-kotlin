@@ -8,45 +8,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".FirstActivity">
 
     <Button
-        android:id="@+id/second_activity_button"
+        android:id="@+id/open_second_screen"
         style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/buttons_margin"
         android:text="@string/button_text"
-        app:layout_constraintBottom_toTopOf="@+id/link_button"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@+id/open_browser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/link_button"
+        android:id="@+id/open_browser"
         style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/buttons_margin"
         android:text="@string/link_access_tag"
-        app:layout_constraintBottom_toTopOf="@+id/map_button"
+        app:layout_constraintBottom_toTopOf="@+id/open_map"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second_activity_button" />
+        app:layout_constraintTop_toBottomOf="@+id/open_second_screen" />
 
     <Button
-        android:id="@+id/map_button"
+        android:id="@+id/open_map"
         style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/buttons_margin"
         android:text="@string/map_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/link_button" />
+        app:layout_constraintTop_toBottomOf="@+id/open_browser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
