@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+<resources>
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="view_margin">10dp</dimen>
+    <dimen name="screen_padding">20dp</dimen>
+</resources>

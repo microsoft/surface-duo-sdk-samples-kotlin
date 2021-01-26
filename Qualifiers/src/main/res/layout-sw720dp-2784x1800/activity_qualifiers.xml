@@ -4,44 +4,47 @@
   ~  Licensed under the MIT License.
   ~
   -->
-<!-- This is the default resource folder (layout), that any device that doesn't fit on the qualifiers
-that you have defined for specific resource folders, will use -->
+
+<!-- When your app is spanned, Surface Duo will take the resources you have put on this folder
+(layout-sw720dp-2784x1800) for both dual-portrait and dual-landscape, so you can add here
+specific layouts for Surface Duo. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    android:background="@color/colorAccent"
+    android:padding="@dimen/screen_padding"
+    tools:context=".QualifiersActivity">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:contentDescription="@string/sticker_image_content_description"
         android:src="@drawable/sticker"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/message"
+        style="@style/Text.Message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin"
         android:text="@string/hello_world"
-        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image" />
 
-    <TextView
-        android:id="@+id/resource_folder_text"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/resource_folder"
+        style="@style/Text.ResourceFolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin"
         android:text="@string/resource_folder"
-        android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text" />
+        app:layout_constraintTop_toBottomOf="@id/message" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
