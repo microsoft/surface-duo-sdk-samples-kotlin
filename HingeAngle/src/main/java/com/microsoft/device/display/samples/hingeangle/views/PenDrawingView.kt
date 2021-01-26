@@ -115,9 +115,7 @@ class PenDrawingView @JvmOverloads constructor(
         }
     }
 
-    private fun setStrokeWithPressure(pressure: Float): Float {
-        return pressure * 100
-    }
+    private fun setStrokeWithPressure(pressure: Float): Float = pressure * 100
 
     fun clearDrawingSurface() {
         currentPath = Path()

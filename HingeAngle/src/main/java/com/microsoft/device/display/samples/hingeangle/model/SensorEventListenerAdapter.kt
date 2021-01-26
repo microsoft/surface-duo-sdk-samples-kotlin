@@ -10,6 +10,9 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 
+/**
+ * Adapter class for [SensorEventListener] interface.
+ */
 open class SensorEventListenerAdapter : SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
     }
