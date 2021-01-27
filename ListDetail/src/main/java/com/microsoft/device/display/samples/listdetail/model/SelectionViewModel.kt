@@ -13,5 +13,5 @@ import com.microsoft.device.display.samples.listdetail.R
  * ViewModel used to store the current selected image
  */
 class SelectionViewModel : ViewModel() {
-    val selectedItem = MutableLiveData(R.drawable.image_1)
+    val selectedItem = MutableLiveData(R.drawable.list_details_image_1)
 }

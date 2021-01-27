@@ -27,6 +27,17 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            credentials {
+                username "$USERNAME"
+                password "$PASSWORD"
+            }
+            url config.duoSdkUrl
+            name 'SurfaceDuo-libraries'
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
     }
     apply from: "$rootDir/ktlint.gradle"
 

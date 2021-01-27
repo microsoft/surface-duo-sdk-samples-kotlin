@@ -52,7 +52,7 @@ class RestaurantsFragment : Fragment(), ScreenInfoListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_map -> {
+            R.id.dual_view_action_map -> {
                 markSelectedRestaurant(NO_ITEM_SELECTED)
                 showMapFragment(R.id.first_container_id)
                 true

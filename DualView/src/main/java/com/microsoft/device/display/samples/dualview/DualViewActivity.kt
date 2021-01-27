@@ -13,7 +13,6 @@ import com.microsoft.device.display.samples.dualview.fragments.RestaurantsFragme
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.activity_dual_view.*
 
 /**
  * [AppCompatActivity] implementation that contains the restaurants screen and the map screen
@@ -27,15 +26,20 @@ class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dual_view)
+        setContentView(R.layout.dual_view_activity)
         setupToolbar()
     }
 
-    /**
-     * Setup the toolbar
-     */
     private fun setupToolbar() {
-        setSupportActionBar(toolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onStart() {

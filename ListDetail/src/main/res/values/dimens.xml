@@ -6,6 +6,6 @@
   -->
 
 <resources>
-    <dimen name="content_margin">16dp</dimen>
-    <dimen name="photo_camera_details_top_margin">42dp</dimen>
+    <dimen name="list_details_content_margin">16dp</dimen>
+    <dimen name="list_details_photo_camera_details_top_margin">42dp</dimen>
 </resources>

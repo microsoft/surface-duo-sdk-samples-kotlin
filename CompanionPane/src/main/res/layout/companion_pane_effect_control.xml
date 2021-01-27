@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+~
+~  Copyright (c) Microsoft Corporation. All rights reserved.
+~  Licensed under the MIT License.
+~
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/effect_control"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filters_title"
+        style="@style/CompanionPaneText.Filter.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/companion_pane_small_padding"
+        android:text="@string/companion_pane_filters"
+        app:layout_constraintBottom_toTopOf="@id/filter_1_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_1_image"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="@dimen/companion_pane_small_image_size"
+        app:layout_constraintBottom_toTopOf="@+id/filter_1_text"
+        app:layout_constraintEnd_toStartOf="@id/filter_2_image"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filters_title"
+        app:srcCompat="@drawable/companion_pane_gingham"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_1_text"
+        style="@style/CompanionPaneText.Filter"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/companion_pane_gingham"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filter_1_image"
+        app:layout_constraintStart_toStartOf="@id/filter_1_image"
+        app:layout_constraintTop_toBottomOf="@id/filter_1_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_2_image"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="@dimen/companion_pane_small_image_size"
+        app:layout_constraintBottom_toTopOf="@id/filter_2_text"
+        app:layout_constraintEnd_toStartOf="@id/filter_3_image"
+        app:layout_constraintStart_toEndOf="@id/filter_1_image"
+        app:layout_constraintTop_toTopOf="@id/filter_1_image"
+        app:srcCompat="@drawable/companion_pane_original"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_2_text"
+        style="@style/CompanionPaneText.Filter"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/companion_pane_original"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filter_2_image"
+        app:layout_constraintStart_toStartOf="@id/filter_2_image"
+        app:layout_constraintTop_toBottomOf="@id/filter_2_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_3_image"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="@dimen/companion_pane_small_image_size"
+        app:layout_constraintBottom_toTopOf="@id/filter_3_text"
+        app:layout_constraintEnd_toStartOf="@id/filter_4_image"
+        app:layout_constraintStart_toEndOf="@id/filter_2_image"
+        app:layout_constraintTop_toTopOf="@id/filter_1_image"
+        app:srcCompat="@drawable/companion_pane_lark"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_3_text"
+        style="@style/CompanionPaneText.Filter"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/companion_pane_lark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filter_3_image"
+        app:layout_constraintStart_toStartOf="@id/filter_3_image"
+        app:layout_constraintTop_toBottomOf="@id/filter_3_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_4_image"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="@dimen/companion_pane_small_image_size"
+        app:layout_constraintBottom_toTopOf="@id/filter_4_text"
+        app:layout_constraintEnd_toStartOf="@+id/filter_5_image"
+        app:layout_constraintStart_toEndOf="@id/filter_3_image"
+        app:layout_constraintTop_toTopOf="@id/filter_1_image"
+        app:srcCompat="@drawable/companion_pane_juno"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_4_text"
+        style="@style/CompanionPaneText.Filter"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/companion_pane_juno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filter_4_image"
+        app:layout_constraintStart_toStartOf="@id/filter_4_image"
+        app:layout_constraintTop_toBottomOf="@id/filter_4_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/filter_5_image"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="@dimen/companion_pane_small_image_size"
+        app:layout_constraintBottom_toTopOf="@id/filter_5_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filter_4_image"
+        app:layout_constraintTop_toTopOf="@id/filter_1_image"
+        app:srcCompat="@drawable/companion_pane_ludwig"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_5_text"
+        style="@style/CompanionPaneText.Filter"
+        android:layout_width="@dimen/companion_pane_small_image_size"
+        android:layout_height="wrap_content"
+        android:text="@string/companion_pane_ludwig"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/filter_5_image"
+        app:layout_constraintStart_toStartOf="@+id/filter_5_image"
+        app:layout_constraintTop_toBottomOf="@+id/filter_5_image" />
+</androidx.constraintlayout.widget.ConstraintLayout>

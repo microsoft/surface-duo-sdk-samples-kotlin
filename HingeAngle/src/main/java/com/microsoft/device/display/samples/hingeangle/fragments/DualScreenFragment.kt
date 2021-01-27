@@ -24,7 +24,7 @@ class DualScreenFragment : Fragment() {
     private lateinit var imageView: ImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_dual_screen, container, false)
+        return inflater.inflate(R.layout.hinge_angle_fragment_dual_screen, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

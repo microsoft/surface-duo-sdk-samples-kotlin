@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MapsFragment">
     <item
-        android:id="@+id/action_list"
+        android:id="@+id/dual_view_action_list"
+        android:icon="@drawable/dual_view_ic_list"
         android:orderInCategory="200"
-        android:title="List"
-        android:icon="@drawable/ic_list"
+        android:title="@string/dual_view_menu_item_list"
         app:showAsAction="ifRoom" />
 </menu>

@@ -6,5 +6,5 @@
   -->
 
 <resources>
-    <dimen name="margin_big">20dp</dimen>
+    <dimen name="pen_events_margin_big">20dp</dimen>
 </resources>

@@ -13,11 +13,11 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/list_title"
-        style="@style/Text.Title"
+        style="@style/DualViewText.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_big"
-        android:text="@string/list_title"
+        android:layout_margin="@dimen/dual_view_margin_big"
+        android:text="@string/dual_view_list_title"
         app:layout_constraintBottom_toTopOf="@id/restaurants_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,13 +27,13 @@
         android:id="@+id/restaurants_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginStart="@dimen/dual_view_margin_big"
+        android:layout_marginEnd="@dimen/dual_view_margin_big"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/list_title"
-        tools:listitem="@layout/restaurant_item" />
+        tools:listitem="@layout/dual_view_restaurant_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

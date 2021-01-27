@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.Licensed under the MIT License.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.microsoft.device.display.samples.duosamples">
+
+    <application
+        android:name="DuoSamplesApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/surface_duo_samples_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/DuoSampleAppTheme">
+
+        <activity
+            android:name=".DuoSamplesMainActivity"
+            android:label="@string/surface_duo_samples_app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

@@ -8,7 +8,7 @@ package com.microsoft.device.display.samples.pen
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_pen_events.*
+import kotlinx.android.synthetic.main.pen_events_activity_main.*
 
 /**
  * Activity containing the drawing surface and some additional info like tool type, location, pressure, etc.
@@ -19,9 +19,22 @@ class PenEventsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pen_events)
+        setContentView(R.layout.pen_events_activity_main)
+        setupToolbar()
         penEventDrawer = PenEventDrawer(textureView)
         penEventsHandler = PenEventsHandler()
+    }
+
+    private fun setupToolbar() {
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -36,10 +49,10 @@ class PenEventsActivity : AppCompatActivity() {
 
     private fun displayValues(event: MotionEvent) {
         device_info.text = parseToolType(event.getToolType(0))
-        pressure_value.text = getString(R.string.pressure_value, event.pressure.toString())
-        orientation_value.text = getString(R.string.orientation_value, event.orientation.toString())
-        button_state_value.text = getString(R.string.button_state_value, event.buttonState)
-        location_value.text = getString(R.string.location_value, event.rawX.toString(), event.rawY.toString())
-        tilt_value.text = getString(R.string.tilt_value, event.getAxisValue(MotionEvent.AXIS_TILT).toString())
+        pressure_value.text = getString(R.string.pen_events_pressure_value, event.pressure.toString())
+        orientation_value.text = getString(R.string.pen_events_orientation_value, event.orientation.toString())
+        button_state_value.text = getString(R.string.pen_events_button_state_value, event.buttonState)
+        location_value.text = getString(R.string.pen_events_location_value, event.rawX.toString(), event.rawY.toString())
+        tilt_value.text = getString(R.string.pen_events_tilt_value, event.getAxisValue(MotionEvent.AXIS_TILT).toString())
     }
 }

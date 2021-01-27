@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.Licensed under the MIT License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".DuoSamplesListFragment">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/duo_sample_small_margin"
+        android:layout_marginEnd="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/duo_sample_medium_margin"
+                android:layout_marginBottom="25dp"
+                android:text="@string/hello_to_the_app"
+                android:textColor="@color/dual_view_black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/drag_and_drop_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/drag_and_drop_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_1_drag_and_drop_try"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_1_dear_and_drop"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/dual_view_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/dual_view_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_2_dual_view"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_2_dual_view"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/hinge_angle_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/hinge_angle_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_3_hinge_angle"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_3_hinge_angle"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/list_details_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/list_details_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_4_list_details"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_4_list_details"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/pen_events_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/pen_events_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_5_pen_events"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_5_pen_events"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/two_page_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/two_page_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_6_two_page"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_6_two_page"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/companion_pane_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/companion_pane_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_7_companion_pane"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_7_companion_pane"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/extend_canvas_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/extend_canvas_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_8_extended_canvas"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_8_extended_canvas"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/intent_to_second_scree_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/intent_to_second_screen_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_9_intent_to_second_screen"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_9_intent_to_second_screen"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/qualifiers_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/qualifiers_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_10_qualifiers"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_10_qualifiers"
+                            style="@style/ImageViewLinkToGit" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+                <LinearLayout style="@style/DuoSampleInfoLayout">
+
+                    <TextView
+                        android:id="@+id/multiple_instances_info"
+                        style="@style/DuoSampleTextView.Info"
+                        android:text="@string/multiple_instances_info" />
+
+                    <LinearLayout style="@style/ButtonsLayout">
+
+                        <Button
+                            android:id="@+id/button_11_multiple_instances"
+                            style="@style/DuoSampleButton.GitHub"
+                            android:text="@string/try_it_out" />
+
+                        <Button
+                            android:id="@+id/link_11_multiple_instances"
+                            style="@style/ImageViewLinkToGit" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

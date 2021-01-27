@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.RestaurantsFragment">
     <item
-        android:id="@+id/action_map"
+        android:id="@+id/dual_view_action_map"
         android:orderInCategory="200"
-        android:title="Map"
-        android:icon="@drawable/ic_map"
+        android:title="@string/dual_view_menu_item_map"
+        android:icon="@drawable/dual_view_ic_map"
         app:showAsAction="ifRoom" />
 </menu>

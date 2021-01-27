@@ -3,6 +3,7 @@
  * Licensed under the MIT License.
  *
  */
+include ':SurfaceDuoSamples'
 
 include ':ListDetail', ':ExtendCanvas', ':TwoPage', ':DualView',
         ':IntentToSecondScreen', ':DragAndDrop', ':CompanionPane', ':MultipleInstances',

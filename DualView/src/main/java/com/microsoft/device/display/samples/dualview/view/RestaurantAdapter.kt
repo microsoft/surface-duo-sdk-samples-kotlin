@@ -31,7 +31,7 @@ class RestaurantAdapter(
     private val layoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        RestaurantViewHolder(layoutInflater.inflate(R.layout.restaurant_item, parent, false))
+        RestaurantViewHolder(layoutInflater.inflate(R.layout.dual_view_restaurant_item, parent, false))
 
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
         holder.bind(
@@ -69,7 +69,7 @@ class RestaurantAdapter(
             imageView.setImageResource(item.imageResourceId)
             titleView.text = item.title
             ratingView.text = formatRating(item.rating, item.voteCount)
-            typeView.text = itemView.resources.getString(R.string.restaurant_type, item.type.toString())
+            typeView.text = itemView.resources.getString(R.string.dual_view_restaurant_type, item.type.toString())
             priceView.text = formatPriceRange(item.priceRange)
             descriptionView.text = item.description
 
@@ -83,9 +83,9 @@ class RestaurantAdapter(
          */
         private fun markViewSelection(isSelected: Boolean) {
             val colorResId = if (isSelected) {
-                R.color.black
+                R.color.dual_view_black
             } else {
-                R.color.gray_500
+                R.color.dual_view_gray_500
             }
             val color = ContextCompat.getColor(itemView.context, colorResId)
 

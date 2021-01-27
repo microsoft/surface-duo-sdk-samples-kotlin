@@ -18,7 +18,20 @@ class HingeAngleActivity : AppCompatActivity(), ScreenInfoListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hinge_angle)
+        setContentView(R.layout.hinge_angle_activity_main)
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onResume() {

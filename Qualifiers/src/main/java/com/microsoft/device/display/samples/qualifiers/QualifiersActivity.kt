@@ -11,6 +11,19 @@ import androidx.appcompat.app.AppCompatActivity
 class QualifiersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_qualifiers)
+        setContentView(R.layout.qualifiers_activity_main)
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

@@ -16,14 +16,14 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.microsoft.device.display.samples.listdetail.model.DataProvider
 import com.microsoft.device.display.samples.listdetail.model.ImageAdapter
 import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
-import kotlinx.android.synthetic.main.fragment_images.*
+import kotlinx.android.synthetic.main.list_details_fragment_images.*
 
 /**
  * Contains the image gallery
  */
 class ImagesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_images, container, false)
+        return inflater.inflate(R.layout.list_details_fragment_images, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

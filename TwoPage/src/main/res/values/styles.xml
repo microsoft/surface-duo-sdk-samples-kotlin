@@ -5,47 +5,34 @@
   -->
 
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="DarkerGrayTheme" parent="AppTheme">
-        <item name="android:background">@android:color/darker_gray</item>
-    </style>
-
-    <style name="Text">
-        <item name="android:textSize">@dimen/title_text_size</item>
+    <style name="TwoPageText">
+        <item name="android:textSize">@dimen/two_page_title_text_size</item>
         <item name="android:fontFamily">serif</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/two_page_black</item>
     </style>
 
-    <style name="Text.Title">
+    <style name="TwoPageText.Title">
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Text.Title.AppName">
+    <style name="TwoPageText.Title.AppName">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/app_name_text_size</item>
+        <item name="android:textSize">@dimen/two_page_app_name_text_size</item>
     </style>
 
-    <style name="Text.Content">
+    <style name="TwoPageText.Content">
         <item name="android:lineSpacingExtra">5dp</item>
     </style>
 
-    <style name="Text.Content.Italic">
+    <style name="TwoPageText.Content.Italic">
         <item name="android:lineSpacingExtra">5dp</item>
         <item name="android:textStyle">italic</item>
     </style>
 
-    <style name="Text.PageNumber">
+    <style name="TwoPageText.PageNumber">
         <item name="android:textAlignment">textEnd</item>
-        <item name="android:textSize">@dimen/page_number_text_size</item>
-        <item name="android:textColor">@color/lightGrey</item>
+        <item name="android:textSize">@dimen/two_page_page_number_text_size</item>
+        <item name="android:textColor">@color/two_page_lightGrey</item>
     </style>
 
 </resources>

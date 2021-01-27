@@ -99,9 +99,9 @@ class PenEventDrawer(private val textureView: TextureView) {
      */
     private fun drawPressureCircle(buttonPressed: Int, pressure: Float, canvas: Canvas) {
         val colorResId = if (buttonPressed != 0) {
-            R.color.bold_pink // If a button is pressed
+            R.color.pen_events_bold_pink // If a button is pressed
         } else {
-            R.color.magic_blue
+            R.color.pen_events_magic_blue
         }
         paint.color = getColor(colorResId)
 
@@ -126,7 +126,7 @@ class PenEventDrawer(private val textureView: TextureView) {
         oval.left = 0f
         oval.right = 2 * (textureView.width / 4.0f)
 
-        paint.color = getColor(R.color.bold_red)
+        paint.color = getColor(R.color.pen_events_bold_red)
         val orientation = (eventOrientation * RADIUS + 90) % 360
         canvas.drawArc(oval, orientation, SWEEP_ANGLE, true, paint)
     }
@@ -140,7 +140,7 @@ class PenEventDrawer(private val textureView: TextureView) {
      * @param canvas The [Canvas] used to draw the location indicator
      */
     private fun drawPointUnderPenCircle(x: Float, y: Float, pressure: Float, canvas: Canvas) {
-        paint.color = getColor(R.color.grass_green)
+        paint.color = getColor(R.color.pen_events_grass_green)
         val textLocation = IntArray(2)
         textureView.getLocationOnScreen(textLocation)
         canvas.drawCircle(

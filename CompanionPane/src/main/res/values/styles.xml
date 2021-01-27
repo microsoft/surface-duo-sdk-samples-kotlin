@@ -7,42 +7,33 @@
 
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/dark_grey</item>
-    </style>
+    <style name="CompanionPaneText" parent="@style/Widget.AppCompat.TextView" />
 
-    <style name="Text" parent="@style/Widget.AppCompat.TextView" />
-
-    <style name="Text.Filter">
-        <item name="android:textSize">@dimen/small_text_size</item>
+    <style name="CompanionPaneText.Filter">
+        <item name="android:textSize">@dimen/companion_pane_small_text_size</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textAlignment">center</item>
     </style>
 
-    <style name="Text.Filter.Title">
-        <item name="android:textSize">@dimen/large_text_size</item>
+    <style name="CompanionPaneText.Filter.Title">
+        <item name="android:textSize">@dimen/companion_pane_large_text_size</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textAlignment">textStart</item>
     </style>
 
-    <style name="Text.Filter.Subtitle">
-        <item name="android:textSize">@dimen/small_text_size</item>
+    <style name="CompanionPaneText.Filter.Subtitle">
+        <item name="android:textSize">@dimen/companion_pane_small_text_size</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textAlignment">textStart</item>
     </style>
 
-    <style name="SeekBar" parent="@style/Widget.AppCompat.SeekBar" />
+    <style name="CompanionPaneSeekBar" parent="@style/Widget.AppCompat.SeekBar" />
 
-    <style name="SeekBar.Filter">
+    <style name="CompanionPaneSeekBar.Filter">
         <item name="android:max">100</item>
         <item name="android:progress">50</item>
-        <item name="android:maxHeight">@dimen/seekBar_max_height</item>
-        <item name="android:progressDrawable">@drawable/seek_bar_ruler_light</item>
-        <item name="android:thumb">@drawable/seek_bar_slider_light</item>
+        <item name="android:maxHeight">@dimen/companion_pane_seekBar_max_height</item>
+        <item name="android:progressDrawable">@drawable/companion_pane_seek_bar_ruler_light</item>
+        <item name="android:thumb">@drawable/companion_pane_seek_bar_slider_light</item>
     </style>
 </resources>

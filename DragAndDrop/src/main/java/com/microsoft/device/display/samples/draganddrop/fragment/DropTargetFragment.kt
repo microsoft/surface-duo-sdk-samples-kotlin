@@ -18,15 +18,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.microsoft.device.display.samples.draganddrop.R
-import com.microsoft.device.display.samples.draganddrop.utils.MimeType
-import com.microsoft.device.display.samples.draganddrop.utils.fromValue
-import com.microsoft.device.display.samples.draganddrop.utils.remove
-import com.microsoft.device.display.samples.draganddrop.utils.removeViews
-import com.microsoft.device.display.samples.draganddrop.utils.replaceWith
-import com.microsoft.device.display.samples.draganddrop.utils.setDragAndDropImageURI
-import com.microsoft.device.display.samples.draganddrop.utils.setElevation
-import com.microsoft.device.display.samples.draganddrop.utils.updateColorAndElevation
-import kotlinx.android.synthetic.main.drop_target_layout.*
+import com.microsoft.device.display.samples.draganddrop.utils.*
+import kotlinx.android.synthetic.main.drag_and_drop_target_layout.*
 
 /**
  * The Fragment implementation containing the drop zone
@@ -39,7 +32,7 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.drop_target_layout, container, false)
+        return inflater.inflate(R.layout.drag_and_drop_target_layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

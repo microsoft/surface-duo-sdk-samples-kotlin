@@ -5,8 +5,8 @@
   -->
 
 <resources>
-    <dimen name="color_size">50dp</dimen>
-    <dimen name="margin_medium">10dp</dimen>
-    <dimen name="margin_extra_large">40dp</dimen>
-    <dimen name="text_size">20sp</dimen>
+    <dimen name="hinge_angle_color_size">50dp</dimen>
+    <dimen name="hinge_angle_margin_medium">10dp</dimen>
+    <dimen name="hinge_angle_margin_extra_large">40dp</dimen>
+    <dimen name="hinge_angle_text_size">20sp</dimen>
 </resources>

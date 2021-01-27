@@ -6,15 +6,15 @@
   -->
 
 <resources>
-    <string name="app_name">Companion Pane</string>
-    <string name="filters">Filters</string>
-    <string name="gingham">Gingham</string>
-    <string name="original">Original</string>
-    <string name="lark">Lark</string>
-    <string name="juno">Juno</string>
-    <string name="ludwig">Ludwig</string>
-    <string name="magic_wand">Magic Wand</string>
-    <string name="definition">Definition</string>
-    <string name="vignette">Vignette</string>
-    <string name="brightness">Brightness</string>
+    <string name="companion_pane_app_name">Companion Pane</string>
+    <string name="companion_pane_filters">Filters</string>
+    <string name="companion_pane_gingham">Gingham</string>
+    <string name="companion_pane_original">Original</string>
+    <string name="companion_pane_lark">Lark</string>
+    <string name="companion_pane_juno">Juno</string>
+    <string name="companion_pane_ludwig">Ludwig</string>
+    <string name="companion_pane_magic_wand">Magic Wand</string>
+    <string name="companion_pane_definition">Definition</string>
+    <string name="companion_pane_vignette">Vignette</string>
+    <string name="companion_pane_brightness">Brightness</string>
 </resources>

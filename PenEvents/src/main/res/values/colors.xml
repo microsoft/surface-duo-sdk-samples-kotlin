@@ -6,11 +6,8 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="grass_green">#AA00BB55</color>
-    <color name="bold_red">#CD5C5C</color>
-    <color name="bold_pink">#EE00FF</color>
-    <color name="magic_blue">#05A5EC</color>
+    <color name="pen_events_grass_green">#AA00BB55</color>
+    <color name="pen_events_bold_red">#CD5C5C</color>
+    <color name="pen_events_bold_pink">#EE00FF</color>
+    <color name="pen_events_magic_blue">#05A5EC</color>
 </resources>

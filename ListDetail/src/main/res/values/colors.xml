@@ -5,8 +5,5 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#141414</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#008577</color>
-    <color name="lightGrey">#878181</color>
+    <color name="list_details_lightGrey">#878181</color>
 </resources>

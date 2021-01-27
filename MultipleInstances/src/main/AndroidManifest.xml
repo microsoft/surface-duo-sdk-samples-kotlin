@@ -4,27 +4,21 @@
     package="com.microsoft.device.display.samples.multipleinstances"
     tools:ignore="GoogleAppIndexingWarning">
 
-    <application
-        android:name=".MultipleInstancesApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_launcher_background"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+    <application>
         <activity
-            android:name=".SecondActivity"
+            android:name=".MultipleInstancesSecondActivity"
+            android:label="@string/multiple_instances_app_name"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MultipleInstancesMainActivity"
+            android:label="@string/multiple_instances_app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

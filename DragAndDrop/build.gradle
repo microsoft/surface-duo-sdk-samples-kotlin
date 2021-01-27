@@ -4,7 +4,7 @@
  *
  */
 
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -13,8 +13,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.microsoft.device.display.samples.draganddrop"
-        minSdkVersion 24
+        minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -29,16 +28,16 @@ android {
 }
 
 dependencies {
-    implementation microsoftDependencies.screenManager
-    implementation microsoftDependencies.layouts
-    implementation microsoftDependencies.fragmentsHandler
-
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
     implementation googleDependencies.material
+
+    implementation microsoftDependencies.screenManager
+    implementation microsoftDependencies.layouts
+    api microsoftDependencies.fragmentsHandler
 
     testImplementation testDependencies.junit
 

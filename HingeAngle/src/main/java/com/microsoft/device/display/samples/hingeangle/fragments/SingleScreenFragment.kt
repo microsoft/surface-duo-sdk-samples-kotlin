@@ -31,7 +31,7 @@ class SingleScreenFragment : Fragment() {
     private var currentAngle: Int = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_single_screen, container, false)
+        return inflater.inflate(R.layout.hinge_angle_fragment_single_screen, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -7,12 +7,7 @@
 package com.microsoft.device.display.samples.dualview.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.microsoft.device.display.samples.dualview.R
@@ -21,7 +16,7 @@ import com.microsoft.device.display.samples.dualview.view.SelectedViewModel.Comp
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.fragment_map.*
+import kotlinx.android.synthetic.main.dual_view_fragment_map.*
 
 /**
  * [Fragment] implementation that contains the fake map view
@@ -45,7 +40,7 @@ class MapFragment : Fragment(), ScreenInfoListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_list -> {
+            R.id.dual_view_action_list -> {
                 activity?.onBackPressed()
                 true
             }
@@ -54,7 +49,7 @@ class MapFragment : Fragment(), ScreenInfoListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_map, container, false)
+        return inflater.inflate(R.layout.dual_view_fragment_map, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

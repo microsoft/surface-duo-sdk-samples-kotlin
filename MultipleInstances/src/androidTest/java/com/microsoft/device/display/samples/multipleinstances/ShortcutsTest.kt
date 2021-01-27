@@ -28,9 +28,9 @@ class ShortcutsTest {
     private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
     private val context = InstrumentationRegistry.getInstrumentation().targetContext
 
-    private val APP_NAME = context.getString(R.string.app_name)
-    private val NEW_INSTANCE_SHORTCUT_LABEL = context.getString(R.string.main_shortcut_label)
-    private val SECOND_ACTIVITY_SHORTCUT_LABEL = context.getString(R.string.second_shortcut_label)
+    private val APP_NAME = context.getString(R.string.multiple_instances_app_name)
+    private val NEW_INSTANCE_SHORTCUT_LABEL = context.getString(R.string.multiple_instances_main_shortcut_label)
+    private val SECOND_ACTIVITY_SHORTCUT_LABEL = context.getString(R.string.multiple_instances_second_shortcut_label)
 
     @Test
     fun openSecondShortcutOnRightScreen_whenMainActivityIsVisibleOnLeft() {
@@ -41,7 +41,7 @@ class ShortcutsTest {
         }
 
         device.findObject(UiSelector().text(NEW_INSTANCE_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
-        onView(withText(R.string.main_activity_text)).check(matches(isDisplayed()))
+        onView(withText(R.string.multiple_instances_main_activity_text)).check(matches(isDisplayed()))
 
         longClick(getRightAppIcon())
 
@@ -50,7 +50,7 @@ class ShortcutsTest {
         }
 
         device.findObject(UiSelector().text(SECOND_ACTIVITY_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
-        onView(withText(R.string.second_activity_text)).check(matches(isDisplayed()))
+        onView(withText(R.string.multiple_instances_second_activity_text)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -62,7 +62,7 @@ class ShortcutsTest {
         }
 
         device.findObject(UiSelector().text(SECOND_ACTIVITY_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
-        onView(withText(R.string.second_activity_text)).check(matches(isDisplayed()))
+        onView(withText(R.string.multiple_instances_second_activity_text)).check(matches(isDisplayed()))
 
         longClick(getRightAppIcon())
 
@@ -71,7 +71,7 @@ class ShortcutsTest {
         }
 
         device.findObject(UiSelector().text(NEW_INSTANCE_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
-        onView(withText(R.string.main_activity_text)).check(matches(isDisplayed()))
+        onView(withText(R.string.multiple_instances_main_activity_text)).check(matches(isDisplayed()))
     }
 
     private fun longClick(target: UiObject) {

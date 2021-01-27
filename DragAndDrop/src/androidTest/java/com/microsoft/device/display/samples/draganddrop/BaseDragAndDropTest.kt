@@ -51,7 +51,7 @@ open class BaseDragAndDropTest {
             matches(
                 allOf(
                     isDisplayed(),
-                    withText(R.string.plain_text),
+                    withText(R.string.drag_and_drop_plain_text),
                     withTagValue(iz("text_view" as Any))
                 )
             )
@@ -106,7 +106,7 @@ open class BaseDragAndDropTest {
             matches(
                 allOf(
                     isDisplayed(),
-                    withText(R.string.plain_text),
+                    withText(R.string.drag_and_drop_plain_text),
                     withTagValue(iz("text_view" as Any))
                 )
             )

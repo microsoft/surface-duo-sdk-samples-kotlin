@@ -10,4 +10,4 @@
     android:name="com.microsoft.device.display.samples.dualview.fragments.MapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout="@layout/fragment_map" />
+    tools:layout="@layout/dual_view_fragment_map" />
