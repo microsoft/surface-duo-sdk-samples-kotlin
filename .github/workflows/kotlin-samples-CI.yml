@@ -5,9 +5,8 @@ name: Kotlin samples CI
 
 on:
   push:
-    branches: [ develop, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ develop, master ]
   workflow_dispatch:
     inputs:
       name:
@@ -17,7 +16,7 @@ on:
         required: false
 
 jobs:
-  build:
+  build-test-and-check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
