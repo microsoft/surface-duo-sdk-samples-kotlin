@@ -13,9 +13,12 @@ import com.microsoft.device.display.samples.draganddrop.fragment.DropTargetFragm
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_drag_and_drop.*
 
-class MainActivity : AppCompatActivity(), ScreenInfoListener {
+/**
+ * The Activity containing the drag source and drop target containers
+ */
+class DragAndDropActivity : AppCompatActivity(), ScreenInfoListener {
 
     companion object {
         private const val FRAGMENT_SINGLE_SCREEN_DRAG_SOURCE = "FragmentSingleScreenDragSource"
@@ -26,13 +29,12 @@ class MainActivity : AppCompatActivity(), ScreenInfoListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_drag_and_drop)
         reset_button.setOnClickListener { recreate() }
     }
 
     override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        setupLayout(screenInfo)
+        setupFragments(screenInfo)
     }
 
     override fun onResume() {
@@ -45,15 +47,21 @@ class MainActivity : AppCompatActivity(), ScreenInfoListener {
         ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
     }
 
-    private fun setupLayout(screenInfo: ScreenInfo) {
-        if (!screenInfo.isDualMode()) {
-            setupLayoutForSingleScreen()
+    /**
+     * Setup and adds fragments to the screen
+     */
+    private fun setupFragments(screenInfo: ScreenInfo) {
+        if (screenInfo.isDualMode()) {
+            setupFragmentsForDualScreen()
         } else {
-            setupLayoutForDualScreen()
+            setupFragmentsForSingleScreen()
         }
     }
 
-    private fun setupLayoutForSingleScreen() {
+    /**
+     * Setup and adds the fragments for the single screen mode
+     */
+    private fun setupFragmentsForSingleScreen() {
         if (supportFragmentManager.findFragmentByTag(FRAGMENT_SINGLE_SCREEN_DRAG_SOURCE) == null) {
             supportFragmentManager.beginTransaction()
                 .replace(
@@ -72,7 +80,10 @@ class MainActivity : AppCompatActivity(), ScreenInfoListener {
         }
     }
 
-    private fun setupLayoutForDualScreen() {
+    /**
+     * Setup and adds the fragments for the dual screen mode
+     */
+    private fun setupFragmentsForDualScreen() {
         if (supportFragmentManager.findFragmentByTag(FRAGMENT_DUAL_SCREEN_DRAG_SOURCE) == null) {
             supportFragmentManager.beginTransaction()
                 .replace(
