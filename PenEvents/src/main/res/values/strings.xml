@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~
   ~  Copyright (c) Microsoft Corporation. All rights reserved.
   ~  Licensed under the MIT License.
@@ -7,21 +7,21 @@
 
 <resources>
     <string name="app_name">PenEvents</string>
-    <string name="ActionButtonRelease">Action : Button Release</string>
-    <string name="ActionButtonPress">Action : Button Press</string>
-    <string name="ActionHoverMove">Action : Hover Move</string>
-    <string name="ActionHoverExit">Action : Hover Exit</string>
-    <string name="ActionHoverEnter">Action : Hover Enter</string>
-    <string name="ActionOutside">Action : Outside</string>
-    <string name="ActionCancel">Action : Cancel</string>
-    <string name="ActionUp">Action : Up</string>
-    <string name="ActionMove">Action : Move</string>
-    <string name="ActionDown">Action : Down</string>
-    <string name="Pressure">Pressure : </string>
-    <string name="Orientation">Orientation : </string>
-    <string name="ButtonState">Button State : </string>
-    <string name="Location">"Location :  "</string>
-    <string name="Tilt">"Tilt : "</string>
+    <string name="action_button_release">Action : Button Release</string>
+    <string name="action_button_press">Action : Button Press</string>
+    <string name="action_hover_move">Action : Hover Move</string>
+    <string name="action_hover_exit">Action : Hover Exit</string>
+    <string name="action_hover_enter">Action : Hover Enter</string>
+    <string name="action_outside">Action : Outside</string>
+    <string name="action_cancel">Action : Cancel</string>
+    <string name="action_up">Action : Up</string>
+    <string name="action_move">Action : Move</string>
+    <string name="action_down">Action : Down</string>
+    <string name="pressure_value">Pressure : %1$s</string>
+    <string name="orientation_value">Orientation : %1$s</string>
+    <string name="button_state_value">Button State : %1$d</string>
+    <string name="location_value">Location :  %1$s, %2$s</string>
+    <string name="tilt_value">Tilt : %1$s</string>
     <string name="device">device</string>
     <string name="action">action</string>
     <string name="pressure">pressure</string>
