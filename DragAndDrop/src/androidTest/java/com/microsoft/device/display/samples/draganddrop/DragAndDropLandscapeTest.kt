@@ -17,7 +17,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4ClassRunner::class)
 @LargeTest
-class DragAndDropLandscapeTest : DragAndDropPortraitTest() {
+class DragAndDropLandscapeTest : BaseDragAndDropTest() {
     @After
     fun tearDown() {
         unfreezeRotation()
@@ -26,48 +26,48 @@ class DragAndDropLandscapeTest : DragAndDropPortraitTest() {
     @Test
     fun dragAndDropImageInSingleModeWithOrientationLeft() {
         setOrientationLeft()
-        dragAndDropImageInSingleMode()
+        checkDragAndDropImageInSingleMode()
     }
 
     @Test
     fun dragAndDropImageInSingleModeWithOrientationRight() {
         setOrientationRight()
-        dragAndDropImageInSingleMode()
+        checkDragAndDropImageInSingleMode()
     }
 
     @Test
     fun dragAndDropTextInSingleModeWithOrientationLeft() {
         setOrientationLeft()
-        dragAndDropTextInSingleMode()
+        checkDragAndDropTextInSingleMode()
     }
 
     @Test
     fun dragAndDropTextInSingleModeWithOrientationRight() {
         setOrientationRight()
-        dragAndDropTextInSingleMode()
+        checkDragAndDropTextInSingleMode()
     }
 
     @Test
     fun dragAndDropImageInDualModeWithOrientationLeft() {
         setOrientationLeft()
-        dragAndDropImageInDualMode()
+        checkDragAndDropImageInDualMode()
     }
 
     @Test
     fun dragAndDropImageInDualModeWithOrientationRight() {
         setOrientationRight()
-        dragAndDropImageInDualMode()
+        checkDragAndDropImageInDualMode()
     }
 
     @Test
     fun dragAndDropTextInDualModeWithOrientationLeft() {
         setOrientationLeft()
-        dragAndDropTextInDualMode()
+        checkDragAndDropTextInDualMode()
     }
 
     @Test
     fun dragAndDropTextInDualModeWithOrientationRight() {
         setOrientationRight()
-        dragAndDropTextInDualMode()
+        checkDragAndDropTextInDualMode()
     }
 }
