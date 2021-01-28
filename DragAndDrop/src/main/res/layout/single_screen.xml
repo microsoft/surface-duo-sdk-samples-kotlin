@@ -4,22 +4,27 @@
   ~
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:baselineAligned="false"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/drag_source_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.5" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/drop_target_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/drop_target_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.5" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drag_source_container" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
