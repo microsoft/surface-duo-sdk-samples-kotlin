@@ -4,15 +4,21 @@
  *
  */
 
-package com.microsoft.device.display.samples.contentcontext
+package com.microsoft.device.display.samples.dualview
 
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.microsoft.device.display.samples.dualview.fragments.MapFragment
+import com.microsoft.device.display.samples.dualview.fragments.RestaurantsFragment
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
+import kotlinx.android.synthetic.main.activity_dual_view.*
 
-class MainActivity : FragmentActivity(), ScreenInfoListener {
+/**
+ * [AppCompatActivity] implementation that contains the restaurants screen and the map screen
+ */
+class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
     companion object {
         private const val FRAGMENT_DUAL_START = "FragmentDualStart"
         private const val FRAGMENT_DUAL_END = "FragmentDualEnd"
@@ -21,7 +27,15 @@ class MainActivity : FragmentActivity(), ScreenInfoListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_dual_view)
+        setupToolbar()
+    }
+
+    /**
+     * Setup the toolbar
+     */
+    private fun setupToolbar() {
+        setSupportActionBar(toolbar)
     }
 
     override fun onStart() {
@@ -42,19 +56,26 @@ class MainActivity : FragmentActivity(), ScreenInfoListener {
         }
     }
 
+    /**
+     * Setup and adds fragments for single screen mode
+     */
     private fun setupSingleScreenFragments() {
         if (supportFragmentManager.findFragmentByTag(FRAGMENT_SINGLE_SCREEN) == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.first_container_id, ListFragment(), FRAGMENT_SINGLE_SCREEN)
+                .replace(R.id.first_container_id, RestaurantsFragment(), FRAGMENT_SINGLE_SCREEN)
                 .commit()
         }
     }
+
+    /**
+     * Setup and adds fragments for dual screen mode
+     */
     private fun setupDualScreenFragments() {
         if (supportFragmentManager.findFragmentByTag(FRAGMENT_DUAL_START) == null &&
             supportFragmentManager.findFragmentByTag(FRAGMENT_DUAL_END) == null
         ) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.first_container_id, ListFragment(), FRAGMENT_DUAL_START)
+                .replace(R.id.first_container_id, RestaurantsFragment(), FRAGMENT_DUAL_START)
                 .commit()
 
             supportFragmentManager.beginTransaction()

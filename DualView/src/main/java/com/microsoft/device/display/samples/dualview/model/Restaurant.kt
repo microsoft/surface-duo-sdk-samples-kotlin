@@ -4,8 +4,11 @@
  *
  */
 
-package com.microsoft.device.display.samples.contentcontext.model
+package com.microsoft.device.display.samples.dualview.model
 
+/**
+ * Data model class that contains all the restaurant properties
+ */
 data class Restaurant(
     val title: String? = "",
     val imageResourceId: Int = 0,

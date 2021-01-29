@@ -4,17 +4,20 @@
  *
  */
 
-package com.microsoft.device.display.samples.contentcontext.model
+package com.microsoft.device.display.samples.dualview.model
 
-import com.microsoft.device.display.samples.contentcontext.R
+import com.microsoft.device.display.samples.dualview.R
 
+/**
+ * Contains all restaurants data
+ */
 object DataProvider {
     val restaurants: List<Restaurant> = listOf(
         Restaurant(
             "Pestle Rock",
             R.drawable.pestle_rock_image,
             4.4,
-            2303,
+            2303304,
             Restaurant.Type.Thai,
             3,
             "Wine bar with upscale small plates in a lofty modern space with a central wine tower & staircase.",

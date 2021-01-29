@@ -1,8 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) Microsoft Corporation. All rights reserved.
   ~ Licensed under the MIT License.
   ~
   -->
 
-<resources />
+<resources>
+    <dimen name="margin_big">26dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_medium">10dp</dimen>
+    <dimen name="margin_small">6dp</dimen>
+    <dimen name="margin_very_small">2dp</dimen>
+    <dimen name="restaurant_image_width">131dp</dimen>
+    <dimen name="restaurant_image_height">88dp</dimen>
+</resources>

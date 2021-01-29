@@ -4,7 +4,7 @@
  *
  */
 
-package com.microsoft.device.display.samples.contentcontext
+package com.microsoft.device.display.samples.dualview
 
 import android.app.Application
 import com.microsoft.device.dualscreen.ScreenManagerProvider
