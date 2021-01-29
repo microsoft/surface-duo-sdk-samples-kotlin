@@ -4,9 +4,9 @@
 name: Kotlin samples CI
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
+  push:
+    branches: [ main, release ]
   workflow_dispatch:
     inputs:
       name:
