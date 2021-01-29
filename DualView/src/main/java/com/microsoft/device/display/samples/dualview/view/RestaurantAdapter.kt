@@ -79,7 +79,7 @@ class RestaurantAdapter(
         }
 
         /**
-         * Changes the text color for view's with black if the cell is selected, otherwise with gray
+         * Changes the text color of the view to black if the cell is selected, otherwise to gray
          */
         private fun markViewSelection(isSelected: Boolean) {
             val colorResId = if (isSelected) {

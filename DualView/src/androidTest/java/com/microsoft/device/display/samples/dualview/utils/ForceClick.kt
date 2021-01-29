@@ -15,7 +15,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 
 /**
- * Click action for a view without to check the coordinates for the view on the screen. when device is rotated.
+ * Click action without checking the coordinates for the view on the screen. when device is rotated.
  */
 class ForceClick : ViewAction {
     override fun getConstraints(): Matcher<View> {

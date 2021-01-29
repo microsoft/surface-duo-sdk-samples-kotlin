@@ -54,7 +54,7 @@ class RestaurantsFragment : Fragment(), ScreenInfoListener {
         return when (item.itemId) {
             R.id.action_map -> {
                 markSelectedRestaurant(NO_ITEM_SELECTED)
-                shopMapFragment(R.id.first_container_id)
+                showMapFragment(R.id.first_container_id)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -86,7 +86,7 @@ class RestaurantsFragment : Fragment(), ScreenInfoListener {
 
     override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
         currentScreenInfo = screenInfo
-        requireActivity().invalidateOptionsMenu()
+        activity?.invalidateOptionsMenu()
         if (!screenInfo.isDualMode()) {
             restaurantAdapter?.selectItem(NO_ITEM_SELECTED)
         }
@@ -111,7 +111,7 @@ class RestaurantsFragment : Fragment(), ScreenInfoListener {
             else -> R.id.first_container_id
         }
         markSelectedRestaurant(selectedViewModel.getItemPosition(item))
-        shopMapFragment(mapContainerId)
+        showMapFragment(mapContainerId)
     }
 
     /**
@@ -126,7 +126,7 @@ class RestaurantsFragment : Fragment(), ScreenInfoListener {
      *
      * @param containerId The view id used as the container for the [MapFragment]
      */
-    private fun shopMapFragment(@IdRes containerId: Int) {
+    private fun showMapFragment(@IdRes containerId: Int) {
         val fragment = MapFragment()
         parentFragmentManager.beginTransaction()
             .replace(containerId, fragment, fragment.TAG)

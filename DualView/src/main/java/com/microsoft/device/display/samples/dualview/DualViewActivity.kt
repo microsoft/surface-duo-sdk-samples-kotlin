@@ -16,7 +16,7 @@ import com.microsoft.device.dualscreen.ScreenManagerProvider
 import kotlinx.android.synthetic.main.activity_dual_view.*
 
 /**
- * [AppCompatActivity] implementation that will contains the restaurants screen and the map screen
+ * [AppCompatActivity] implementation that contains the restaurants screen and the map screen
  */
 class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
     companion object {

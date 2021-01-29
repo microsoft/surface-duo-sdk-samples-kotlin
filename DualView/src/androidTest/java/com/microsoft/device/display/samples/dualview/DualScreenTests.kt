@@ -11,9 +11,9 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.rule.ActivityTestRule
 import com.microsoft.device.display.samples.dualview.utils.forceClick
 import com.microsoft.device.display.samples.dualview.utils.setOrientationLeft
 import com.microsoft.device.display.samples.dualview.utils.setOrientationRight
@@ -29,7 +29,7 @@ import org.junit.runner.RunWith
 @LargeTest
 class DualScreenTests {
     @get:Rule
-    val activityRule = ActivityTestRule(DualViewActivity::class.java)
+    val activityScenarioRule = activityScenarioRule<DualViewActivity>()
 
     @After
     fun tearDown() {
