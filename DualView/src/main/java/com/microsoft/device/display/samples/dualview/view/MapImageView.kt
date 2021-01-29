@@ -4,7 +4,7 @@
  *
  */
 
-package com.microsoft.device.display.samples.contentcontext.view
+package com.microsoft.device.display.samples.dualview.view
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -17,7 +17,14 @@ import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 import kotlin.math.sqrt
 
-class MapImageView : AppCompatImageView {
+/**
+ * Fake map view implementation
+ */
+class MapImageView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : AppCompatImageView(context, attrs, defStyleAttr) {
     companion object {
         internal const val NONE = 0
         internal const val DRAG = 1
@@ -33,21 +40,8 @@ class MapImageView : AppCompatImageView {
     internal var mid = PointF()
     internal var oldDist = 1f
 
-    @SuppressLint("ClickableViewAccessibility")
-    constructor(context: Context) : super(context) {
-        setupView()
-    }
-
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        setupView()
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        setupView()
-    }
-
-    private fun setupView() {
-        setOnTouchListener(MyTouch())
+    init {
+        setOnTouchListener(MapViewOnTouchListener())
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -60,15 +54,15 @@ class MapImageView : AppCompatImageView {
                 DISTANCE_UNTIL_WATERMARK * 2
             matrix.preScale(SCALE_FACTOR, SCALE_FACTOR)
             matrix.preTranslate(x, y)
-            this.imageMatrix = matrix
+            imageMatrix = matrix
         }
     }
 
-    internal inner class MyTouch : OnTouchListener {
+    internal inner class MapViewOnTouchListener : OnTouchListener {
         @SuppressLint("ClickableViewAccessibility")
-        override fun onTouch(v: View, event: MotionEvent): Boolean {
-            val mImageView = v as ImageView
-            mImageView.scaleType = ScaleType.MATRIX
+        override fun onTouch(view: View, event: MotionEvent): Boolean {
+            val imageView = view as ImageView
+            imageView.scaleType = ScaleType.MATRIX
             val scale: Float
 
             when (event.action and MotionEvent.ACTION_MASK) {
@@ -91,7 +85,7 @@ class MapImageView : AppCompatImageView {
                 MotionEvent.ACTION_MOVE ->
                     if (mode == DRAG) {
                         matrix.set(savedMatrix)
-                        if (mImageView.left >= -392) {
+                        if (imageView.left >= -392) {
                             matrix.postTranslate(event.x - start.x, event.y - start.y)
                         }
                     } else if (mode == ZOOM) {
@@ -103,7 +97,7 @@ class MapImageView : AppCompatImageView {
                         }
                     }
             }
-            mImageView.imageMatrix = matrix
+            imageView.imageMatrix = matrix
             return true
         }
 

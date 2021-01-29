@@ -4,10 +4,10 @@
  *
  */
 
-package com.microsoft.device.display.samples.contentcontext
+package com.microsoft.device.display.samples.dualview
 
-import com.microsoft.device.display.samples.contentcontext.util.formatPriceRange
-import com.microsoft.device.display.samples.contentcontext.util.formatRating
+import com.microsoft.device.display.samples.dualview.util.formatPriceRange
+import com.microsoft.device.display.samples.dualview.util.formatRating
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

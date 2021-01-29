@@ -4,12 +4,12 @@
  *
  */
 
-package com.microsoft.device.display.samples.contentcontext.view
+package com.microsoft.device.display.samples.dualview.view
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.microsoft.device.display.samples.contentcontext.model.DataProvider
-import com.microsoft.device.display.samples.contentcontext.model.Restaurant
+import com.microsoft.device.display.samples.dualview.model.DataProvider
+import com.microsoft.device.display.samples.dualview.model.Restaurant
 
 class SelectedViewModel : ViewModel() {
     val listItems = DataProvider.restaurants

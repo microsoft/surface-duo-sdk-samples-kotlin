@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~
   ~  Copyright (c) Microsoft Corporation. All rights reserved.
   ~  Licensed under the MIT License.
@@ -8,11 +7,10 @@
 
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dual_list"
+    android:name="com.microsoft.device.display.samples.dualview.fragments.RestaurantsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.microsoft.device.display.samples.contentcontext.ListFragment"
-    tools:showIn="@layout/fragment_items_list" />
+    tools:showIn="@layout/fragment_restaurants" />
 
 
 

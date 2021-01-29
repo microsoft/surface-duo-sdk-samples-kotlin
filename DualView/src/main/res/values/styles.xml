@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) Microsoft Corporation. All rights reserved.
   ~ Licensed under the MIT License.
   ~
@@ -14,11 +14,58 @@
         <item name="actionMenuTextColor">@color/white</item>
     </style>
 
-    <style name="GrayText">
+    <style name="Text" parent="@style/Widget.AppCompat.TextView" />
+
+    <style name="Text.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Text.Restaurant" />
+
+    <style name="Text.Restaurant.Title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Text.Restaurant.Description">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/gray_500</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="Text.Restaurant.Rating">
         <item name="android:textColor">@color/gray_500</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">3sp</item>
         <item name="android:letterSpacing">0.01</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Text.Restaurant.Type">
+        <item name="android:textColor">@color/gray_500</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Text.Restaurant.Price">
+        <item name="android:textColor">@color/gray_500</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>
