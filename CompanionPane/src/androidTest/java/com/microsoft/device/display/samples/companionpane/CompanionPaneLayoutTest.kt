@@ -28,6 +28,9 @@ class CompanionPaneLayoutTest {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<CompanionPaneActivity>()
 
+    @get:Rule
+    val activityScenarioRule2 = activityScenarioRule<CompanionPaneActivity>() //To test the workflow
+
     @After
     fun tearDown() {
         unfreezeRotation()
