@@ -25,6 +25,7 @@ import org.junit.runner.RunWith
 class LayoutOrientationTest {
 
     private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+    private val device2 = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()) //This is a test
 
     @get:Rule
     val activityRule = ActivityTestRule(MainActivity::class.java)
