@@ -29,25 +29,12 @@ import com.microsoft.device.display.samples.twopage.TwoPageActivity
  */
 class DuoSamplesListFragment : Fragment() {
 
-    companion object {
-        private const val GIT_LINK_DRAG_AND_DROP = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/DragAndDrop"
-        private const val GIT_LINK_DUAL_VIEW = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/DualView"
-        private const val GIT_LINK_HINGE_ANGLE = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/HingeAngle"
-        private const val GIT_LINK_LIST_DETAILS = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/HingeAngle"
-        private const val GIT_LINK_PEN_EVENTS = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/PenEvents"
-        private const val GIT_LINK_TWO_PAGE = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/TwoPage"
-        private const val GIT_LINK_COMPANION_PANE = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/CompanionPane"
-        private const val GIT_LINK_EXTENDED_CANVAS = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/ExtendCanvas"
-        private const val GIT_LINK_SECOND_SCREEN = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/IntentToSecondScreen"
-        private const val GIT_LINK_QUALIFIERS = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/Qualifiers"
-        private const val GIT_LINK_MULTIPLE_INSTANCES = "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/MultipleInstances"
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.duo_samples_fragment_first, container, false)
+        return inflater.inflate(R.layout.fragment_duo_samples, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,7 +45,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_1_dear_and_drop).setOnClickListener {
-            openGitLink(GIT_LINK_DRAG_AND_DROP)
+            openGitLink(GithubRepoLinks.GIT_LINK_DRAG_AND_DROP)
         }
 
         view.findViewById<Button>(R.id.button_2_dual_view).setOnClickListener {
@@ -66,7 +53,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_2_dual_view).setOnClickListener {
-            openGitLink(GIT_LINK_DUAL_VIEW)
+            openGitLink(GithubRepoLinks.GIT_LINK_DUAL_VIEW)
         }
 
         view.findViewById<Button>(R.id.button_3_hinge_angle).setOnClickListener {
@@ -74,7 +61,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_3_hinge_angle).setOnClickListener {
-            openGitLink(GIT_LINK_HINGE_ANGLE)
+            openGitLink(GithubRepoLinks.GIT_LINK_HINGE_ANGLE)
         }
 
         view.findViewById<Button>(R.id.button_4_list_details).setOnClickListener {
@@ -82,7 +69,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_4_list_details).setOnClickListener {
-            openGitLink(GIT_LINK_LIST_DETAILS)
+            openGitLink(GithubRepoLinks.GIT_LINK_LIST_DETAILS)
         }
 
         view.findViewById<Button>(R.id.button_5_pen_events).setOnClickListener {
@@ -90,7 +77,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_5_pen_events).setOnClickListener {
-            openGitLink(GIT_LINK_PEN_EVENTS)
+            openGitLink(GithubRepoLinks.GIT_LINK_PEN_EVENTS)
         }
 
         view.findViewById<Button>(R.id.button_6_two_page).setOnClickListener {
@@ -98,7 +85,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_6_two_page).setOnClickListener {
-            openGitLink(GIT_LINK_TWO_PAGE)
+            openGitLink(GithubRepoLinks.GIT_LINK_TWO_PAGE)
         }
 
         view.findViewById<Button>(R.id.button_7_companion_pane).setOnClickListener {
@@ -106,7 +93,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_7_companion_pane).setOnClickListener {
-            openGitLink(GIT_LINK_COMPANION_PANE)
+            openGitLink(GithubRepoLinks.GIT_LINK_COMPANION_PANE)
         }
 
         view.findViewById<Button>(R.id.button_8_extended_canvas).setOnClickListener {
@@ -114,7 +101,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_8_extended_canvas).setOnClickListener {
-            openGitLink(GIT_LINK_EXTENDED_CANVAS)
+            openGitLink(GithubRepoLinks.GIT_LINK_EXTENDED_CANVAS)
         }
 
         view.findViewById<Button>(R.id.button_9_intent_to_second_screen).setOnClickListener {
@@ -122,7 +109,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_9_intent_to_second_screen).setOnClickListener {
-            openGitLink(GIT_LINK_SECOND_SCREEN)
+            openGitLink(GithubRepoLinks.GIT_LINK_SECOND_SCREEN)
         }
 
         view.findViewById<Button>(R.id.button_10_qualifiers).setOnClickListener {
@@ -130,7 +117,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_10_qualifiers).setOnClickListener {
-            openGitLink(GIT_LINK_QUALIFIERS)
+            openGitLink(GithubRepoLinks.GIT_LINK_QUALIFIERS)
         }
 
         view.findViewById<Button>(R.id.button_11_multiple_instances).setOnClickListener {
@@ -138,7 +125,7 @@ class DuoSamplesListFragment : Fragment() {
             startActivity(intent)
         }
         view.findViewById<View>(R.id.link_11_multiple_instances).setOnClickListener {
-            openGitLink(GIT_LINK_MULTIPLE_INSTANCES)
+            openGitLink(GithubRepoLinks.GIT_LINK_MULTIPLE_INSTANCES)
         }
     }
 

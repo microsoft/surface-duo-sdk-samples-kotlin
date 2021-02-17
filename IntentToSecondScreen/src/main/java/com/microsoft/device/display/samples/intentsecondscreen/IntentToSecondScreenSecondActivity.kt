@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 class IntentToSecondScreenSecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.intent_to_second_screen_activity_second)
+        setContentView(R.layout.activity_second_intent_to_second_screen)
         setupToolbar()
     }
 

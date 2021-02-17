@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+
+    <style name="IntentButtonStyle" parent="@android:style/Widget.DeviceDefault.Button">
+        <item name="android:layout_width">450dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/intent_app_buttons_margin_start</item>
+        <item name="android:maxWidth">450dp</item>
+    </style>
+</resources>

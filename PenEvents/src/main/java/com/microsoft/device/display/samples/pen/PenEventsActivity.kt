@@ -8,7 +8,7 @@ package com.microsoft.device.display.samples.pen
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.pen_events_activity_main.*
+import kotlinx.android.synthetic.main.activity_pen_events.*
 
 /**
  * Activity containing the drawing surface and some additional info like tool type, location, pressure, etc.
@@ -19,7 +19,7 @@ class PenEventsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.pen_events_activity_main)
+        setContentView(R.layout.activity_pen_events)
         setupToolbar()
         penEventDrawer = PenEventDrawer(textureView)
         penEventsHandler = PenEventsHandler()

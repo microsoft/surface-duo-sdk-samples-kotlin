@@ -13,7 +13,7 @@ import com.microsoft.device.display.samples.draganddrop.fragment.DropTargetFragm
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.drag_and_drop_main_activity.*
+import kotlinx.android.synthetic.main.activity_drag_and_drop.*
 
 /**
  * The Activity containing the drag source and drop target containers
@@ -29,7 +29,7 @@ class DragAndDropActivity : AppCompatActivity(), ScreenInfoListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.drag_and_drop_main_activity)
+        setContentView(R.layout.activity_drag_and_drop)
         setupToolbar()
         reset_button.setOnClickListener { recreate() }
     }

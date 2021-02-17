@@ -13,7 +13,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:show_in_dual_screen_end="@layout/dual_view_fragment_map"
-    app:show_in_dual_screen_start="@layout/fragment_restaurants"
-    app:show_in_single_screen="@layout/fragment_restaurants"
+    app:show_in_dual_screen_end="@layout/fragment_dual_view_map"
+    app:show_in_dual_screen_start="@layout/fragment_dual_view_restaurants"
+    app:show_in_single_screen="@layout/fragment_dual_view_restaurants"
     app:tools_screen_mode="dual_screen" />

@@ -25,7 +25,7 @@ class ListDetailsActivity : AppCompatActivity(), ScreenInfoListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list_details_activity_main)
+        setContentView(R.layout.activity_list_details)
         setupToolbar()
         observeSelectedItem()
         observeNavigationStack()

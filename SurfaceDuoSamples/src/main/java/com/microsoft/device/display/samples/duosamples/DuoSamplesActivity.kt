@@ -8,11 +8,11 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 
-class DuoSamplesMainActivity : AppCompatActivity() {
+class DuoSamplesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.duo_samples_activity_main)
+        setContentView(R.layout.activity_duo_samples)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)

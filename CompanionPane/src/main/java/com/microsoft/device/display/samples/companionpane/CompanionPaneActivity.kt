@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 class CompanionPaneActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.companion_pane_activity_main)
+        setContentView(R.layout.activity_companion_pane)
         setupToolbar()
     }
 

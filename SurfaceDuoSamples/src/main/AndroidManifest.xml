@@ -14,7 +14,7 @@
         android:theme="@style/DuoSampleAppTheme">
 
         <activity
-            android:name=".DuoSamplesMainActivity"
+            android:name=".DuoSamplesActivity"
             android:label="@string/surface_duo_samples_app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

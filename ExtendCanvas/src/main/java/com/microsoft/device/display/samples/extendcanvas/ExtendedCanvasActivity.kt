@@ -19,7 +19,7 @@ class ExtendedCanvasActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.extended_canvas_activity_main)
+        setContentView(R.layout.activity_extended_canvas)
         setupToolbar()
         setupWebView()
     }

@@ -18,7 +18,7 @@ class HingeAngleActivity : AppCompatActivity(), ScreenInfoListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.hinge_angle_activity_main)
+        setContentView(R.layout.activity_hinge_angle)
         setupToolbar()
     }
 

@@ -7,10 +7,10 @@
 
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:name="com.microsoft.device.display.samples.dualview.fragments.RestaurantsFragment"
+    android:name="com.microsoft.device.display.samples.dualview.fragments.DualViewRestaurantsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:showIn="@layout/fragment_restaurants" />
+    tools:showIn="@layout/fragment_dual_view_restaurants" />
 
 
 

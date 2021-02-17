@@ -7,12 +7,7 @@
 package com.microsoft.device.display.samples.dualview.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.IdRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
@@ -27,12 +22,12 @@ import com.microsoft.device.display.samples.dualview.view.SelectedViewModel.Comp
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.fragment_restaurants.*
+import kotlinx.android.synthetic.main.fragment_dual_view_restaurants.*
 
 /**
  * [Fragment] implementation that contains the restaurant list
  */
-class RestaurantsFragment : Fragment(), ScreenInfoListener {
+class DualViewRestaurantsFragment : Fragment(), ScreenInfoListener {
     private var restaurantAdapter: RestaurantAdapter? = null
     private val selectedViewModel: SelectedViewModel by activityViewModels()
     private var currentScreenInfo: ScreenInfo? = null
@@ -45,7 +40,7 @@ class RestaurantsFragment : Fragment(), ScreenInfoListener {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         if (currentScreenInfo?.isDualMode() == false) {
             menu.clear()
-            inflater.inflate(R.menu.menu_list, menu)
+            inflater.inflate(R.menu.menu_dual_view_list, menu)
         }
         super.onCreateOptionsMenu(menu, inflater)
     }
@@ -62,7 +57,7 @@ class RestaurantsFragment : Fragment(), ScreenInfoListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_restaurants, container, false)
+        return inflater.inflate(R.layout.fragment_dual_view_restaurants, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -124,10 +119,10 @@ class RestaurantsFragment : Fragment(), ScreenInfoListener {
     /**
      * Adds the map fragment to the given container
      *
-     * @param containerId The view id used as the container for the [MapFragment]
+     * @param containerId The view id used as the container for the [DualViewMapFragment]
      */
     private fun showMapFragment(@IdRes containerId: Int) {
-        val fragment = MapFragment()
+        val fragment = DualViewMapFragment()
         parentFragmentManager.beginTransaction()
             .replace(containerId, fragment, fragment.TAG)
             .addToBackStack(null)

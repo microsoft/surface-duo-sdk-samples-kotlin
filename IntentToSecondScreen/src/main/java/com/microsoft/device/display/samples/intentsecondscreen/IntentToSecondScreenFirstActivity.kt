@@ -10,7 +10,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.intent_to_second_screen_activity_first.*
+import kotlinx.android.synthetic.main.activity_first_intent_to_second_screen.*
 
 /**
  * {@link Intent.FLAG_ACTIVITY_MULTIPLE_TASK} along with android:launchMode="singleInstance"
@@ -35,7 +35,7 @@ import kotlinx.android.synthetic.main.intent_to_second_screen_activity_first.*
 class IntentToSecondScreenFirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.intent_to_second_screen_activity_first)
+        setContentView(R.layout.activity_first_intent_to_second_screen)
         setupToolbar()
         setListeners()
     }

@@ -8,4 +8,5 @@ include ':SurfaceDuoSamples'
 include ':ListDetail', ':ExtendCanvas', ':TwoPage', ':DualView',
         ':IntentToSecondScreen', ':DragAndDrop', ':CompanionPane', ':MultipleInstances',
         ':PenEvents', ':Qualifiers', ':HingeAngle'
+
 rootProject.name = 'DuoSDKSampleApps'

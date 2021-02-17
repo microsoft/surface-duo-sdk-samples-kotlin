@@ -31,7 +31,7 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener, ScreenInfoLis
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.two_page_activity_main)
+        setContentView(R.layout.activity_two_page)
         setupToolbar()
         setupPagerAdapter()
     }

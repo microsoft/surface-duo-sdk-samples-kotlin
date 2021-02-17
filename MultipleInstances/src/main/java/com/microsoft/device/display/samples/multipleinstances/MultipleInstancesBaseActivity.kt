@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.multiple_instances_layout_second_screen.*
 abstract class MultipleInstancesBaseActivity : AppCompatActivity(), ScreenInfoListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.multiple_instances_activity_base)
+        setContentView(R.layout.activity_multiple_instances)
         setupToolbar()
         addShortcuts()
     }

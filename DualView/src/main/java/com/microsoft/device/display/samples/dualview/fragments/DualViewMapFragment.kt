@@ -16,12 +16,12 @@ import com.microsoft.device.display.samples.dualview.view.SelectedViewModel.Comp
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.dual_view_fragment_map.*
+import kotlinx.android.synthetic.main.fragment_dual_view_map.*
 
 /**
  * [Fragment] implementation that contains the fake map view
  */
-class MapFragment : Fragment(), ScreenInfoListener {
+class DualViewMapFragment : Fragment(), ScreenInfoListener {
     private val selectedViewModel: SelectedViewModel by activityViewModels()
     private var currentScreenInfo: ScreenInfo? = null
 
@@ -33,7 +33,7 @@ class MapFragment : Fragment(), ScreenInfoListener {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         if (currentScreenInfo?.isDualMode() == false) {
             menu.clear()
-            inflater.inflate(R.menu.menu_map, menu)
+            inflater.inflate(R.menu.menu_duak_view_map, menu)
         }
         super.onCreateOptionsMenu(menu, inflater)
     }
@@ -49,7 +49,7 @@ class MapFragment : Fragment(), ScreenInfoListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.dual_view_fragment_map, container, false)
+        return inflater.inflate(R.layout.fragment_dual_view_map, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

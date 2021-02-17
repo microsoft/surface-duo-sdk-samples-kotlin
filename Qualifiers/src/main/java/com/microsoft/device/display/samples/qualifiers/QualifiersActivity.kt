@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 class QualifiersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.qualifiers_activity_main)
+        setContentView(R.layout.activity_qualifiers)
         setupToolbar()
     }
 
