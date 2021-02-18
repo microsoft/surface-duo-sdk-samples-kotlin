@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.microsoft.device.display.samples.multipleinstances">
+
+    <application
+        android:name=".utils.TestApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/multiple_instances_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/TestTheme">
+        <activity
+            android:name=".MultipleInstancesSecondActivity"
+            android:label="@string/multiple_instances_app_name"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MultipleInstancesMainActivity"
+            android:label="@string/multiple_instances_app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

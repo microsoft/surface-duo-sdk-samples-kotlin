@@ -3,6 +3,7 @@
   ~ Licensed under the MIT License.
   ~
   -->
+
 <resources>
     <string name="intent_app_name">Intent To Second Screen</string>
     <string name="intent_app_web_link">https://www.microsoft.com</string>

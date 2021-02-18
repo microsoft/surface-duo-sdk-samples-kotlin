@@ -3,6 +3,7 @@
   ~ Licensed under the MIT License.
   ~
   -->
+
 <resources>
     <dimen name="intent_app_buttons_margin_start">40dp</dimen>
     <dimen name="intent_app_buttons_margin_top">16dp</dimen>

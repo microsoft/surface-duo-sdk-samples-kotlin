@@ -30,9 +30,4 @@ dependencies {
 
     implementation microsoftDependencies.screenManager
     implementation microsoftDependencies.layouts
-
-    testImplementation testDependencies.junit
-    androidTestImplementation instrumentationTestDependencies.junit
-    androidTestImplementation instrumentationTestDependencies.espressoCore
-    androidTestImplementation instrumentationTestDependencies.testRunner
 }

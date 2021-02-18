@@ -16,6 +16,11 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.microsoft.device.display.samples.test.utils.setOrientationLeft
+import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
+import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import com.microsoft.device.display.samples.twopage.utils.horizontalSwipeToLeft
+import com.microsoft.device.display.samples.twopage.utils.verticalSwipeToTop
 import org.hamcrest.core.AllOf.allOf
 import org.junit.After
 import org.junit.Before

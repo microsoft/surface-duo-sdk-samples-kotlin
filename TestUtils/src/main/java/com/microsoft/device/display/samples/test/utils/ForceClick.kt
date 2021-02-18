@@ -4,7 +4,7 @@
  *
  */
 
-package com.microsoft.device.display.samples.dualview.utils
+package com.microsoft.device.display.samples.test.utils
 
 import android.view.View
 import androidx.test.espresso.UiController

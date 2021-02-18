@@ -1,4 +1,4 @@
-package com.microsoft.device.display.samples.twopage
+package com.microsoft.device.display.samples.twopage.utils
 
 import androidx.test.espresso.IdlingResource
 import androidx.test.espresso.IdlingResource.ResourceCallback

@@ -28,28 +28,28 @@ class ShortcutsTest {
     private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
     private val context = InstrumentationRegistry.getInstrumentation().targetContext
 
-    private val APP_NAME = context.getString(R.string.multiple_instances_app_name)
-    private val NEW_INSTANCE_SHORTCUT_LABEL = context.getString(R.string.multiple_instances_main_shortcut_label)
-    private val SECOND_ACTIVITY_SHORTCUT_LABEL = context.getString(R.string.multiple_instances_second_shortcut_label)
+    private val appName = context.getString(R.string.multiple_instances_app_name)
+    private val mainActivityShortcutLabel = context.getString(R.string.multiple_instances_main_shortcut_label)
+    private val secondActivityShortcutLabel = context.getString(R.string.multiple_instances_second_shortcut_label)
 
     @Test
     fun openSecondShortcutOnRightScreen_whenMainActivityIsVisibleOnLeft() {
         longClick(getLeftAppIcon())
 
-        if (!device.hasObject(By.text(NEW_INSTANCE_SHORTCUT_LABEL))) {
-            Assert.fail("The $NEW_INSTANCE_SHORTCUT_LABEL shortcut was not found")
+        if (!device.hasObject(By.text(mainActivityShortcutLabel))) {
+            Assert.fail("The $mainActivityShortcutLabel shortcut was not found")
         }
 
-        device.findObject(UiSelector().text(NEW_INSTANCE_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
+        device.findObject(UiSelector().text(mainActivityShortcutLabel)).clickAndWaitForNewWindow()
         onView(withText(R.string.multiple_instances_main_activity_text)).check(matches(isDisplayed()))
 
         longClick(getRightAppIcon())
 
-        if (!device.hasObject(By.text(SECOND_ACTIVITY_SHORTCUT_LABEL))) {
-            Assert.fail("The $SECOND_ACTIVITY_SHORTCUT_LABEL shortcut was not found")
+        if (!device.hasObject(By.text(secondActivityShortcutLabel))) {
+            Assert.fail("The $secondActivityShortcutLabel shortcut was not found")
         }
 
-        device.findObject(UiSelector().text(SECOND_ACTIVITY_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
+        device.findObject(UiSelector().text(secondActivityShortcutLabel)).clickAndWaitForNewWindow()
         onView(withText(R.string.multiple_instances_second_activity_text)).check(matches(isDisplayed()))
     }
 
@@ -57,20 +57,20 @@ class ShortcutsTest {
     fun openMainShortcutOnRightScreen_whenSecondActivityIsVisibleOnLeft() {
         longClick(getLeftAppIcon())
 
-        if (!device.hasObject(By.text(SECOND_ACTIVITY_SHORTCUT_LABEL))) {
-            Assert.fail("The $SECOND_ACTIVITY_SHORTCUT_LABEL shortcut was not found")
+        if (!device.hasObject(By.text(secondActivityShortcutLabel))) {
+            Assert.fail("The $secondActivityShortcutLabel shortcut was not found")
         }
 
-        device.findObject(UiSelector().text(SECOND_ACTIVITY_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
+        device.findObject(UiSelector().text(secondActivityShortcutLabel)).clickAndWaitForNewWindow()
         onView(withText(R.string.multiple_instances_second_activity_text)).check(matches(isDisplayed()))
 
         longClick(getRightAppIcon())
 
-        if (!device.hasObject(By.text(NEW_INSTANCE_SHORTCUT_LABEL))) {
-            Assert.fail("The $NEW_INSTANCE_SHORTCUT_LABEL shortcut was not found")
+        if (!device.hasObject(By.text(mainActivityShortcutLabel))) {
+            Assert.fail("The $mainActivityShortcutLabel shortcut was not found")
         }
 
-        device.findObject(UiSelector().text(NEW_INSTANCE_SHORTCUT_LABEL)).clickAndWaitForNewWindow()
+        device.findObject(UiSelector().text(mainActivityShortcutLabel)).clickAndWaitForNewWindow()
         onView(withText(R.string.multiple_instances_main_activity_text)).check(matches(isDisplayed()))
     }
 
@@ -79,17 +79,17 @@ class ShortcutsTest {
     }
 
     private fun getRightAppIcon(): UiObject {
-        while (!device.hasObject(By.text(APP_NAME))) {
+        while (!device.hasObject(By.text(appName))) {
             scrollInRightAppDrawer()
         }
-        return device.findObject(UiSelector().text(APP_NAME))
+        return device.findObject(UiSelector().text(appName))
     }
 
     private fun getLeftAppIcon(): UiObject {
-        while (!device.hasObject(By.text(APP_NAME))) {
+        while (!device.hasObject(By.text(appName))) {
             scrollInLeftAppDrawer()
         }
-        return device.findObject(UiSelector().text(APP_NAME))
+        return device.findObject(UiSelector().text(appName))
     }
 
     private fun scrollInRightAppDrawer() {

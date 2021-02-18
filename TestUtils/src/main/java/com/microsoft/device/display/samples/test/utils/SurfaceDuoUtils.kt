@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 
-package com.microsoft.device.display.samples.dualview.utils
+package com.microsoft.device.display.samples.test.utils
 
 import android.graphics.Rect
 import android.view.Surface

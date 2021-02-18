@@ -38,7 +38,7 @@ class DualViewMapFragment : Fragment(), ScreenInfoListener {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         if (currentScreenInfo?.isDualMode() == false) {
             menu.clear()
-            inflater.inflate(R.menu.menu_duak_view_map, menu)
+            inflater.inflate(R.menu.menu_dual_view_map, menu)
         }
         super.onCreateOptionsMenu(menu, inflater)
     }

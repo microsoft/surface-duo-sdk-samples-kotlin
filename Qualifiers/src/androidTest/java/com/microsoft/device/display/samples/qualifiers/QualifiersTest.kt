@@ -15,6 +15,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.microsoft.device.display.samples.qualifiers.test.R
 import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_IMAGE_DESCRIPTION
 import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_MESSAGE
 import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_RESOURCE_FOLDER
@@ -22,9 +23,9 @@ import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_IMAGE
 import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_MESSAGE
 import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_RESOURCE_FOLDER
 import com.microsoft.device.display.samples.qualifiers.utils.hasBackgroundColor
-import com.microsoft.device.display.samples.qualifiers.utils.setOrientationLeft
-import com.microsoft.device.display.samples.qualifiers.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.qualifiers.utils.unfreezeRotation
+import com.microsoft.device.display.samples.test.utils.setOrientationLeft
+import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
+import com.microsoft.device.display.samples.test.utils.unfreezeRotation
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
