@@ -72,7 +72,7 @@ class ListDetailsSwitchScreenModeTest {
         onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
         onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
-        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.image_2)))
+        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.list_details_image_2)))
     }
 
     private fun checkInDualScreenMode() {
@@ -81,6 +81,6 @@ class ListDetailsSwitchScreenModeTest {
         onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
         onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, forceClick()))
-        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.image_3)))
+        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.list_details_image_3)))
     }
 }

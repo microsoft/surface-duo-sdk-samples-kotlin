@@ -41,7 +41,7 @@ class ListDetailsInSingleScreenModeTest {
         onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
         onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
-        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.image_2)))
+        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.list_details_image_2)))
     }
 
     @Test

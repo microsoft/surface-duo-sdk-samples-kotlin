@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:show_in_dual_screen_end="@layout/fragment_dual_screen"
-    app:show_in_dual_screen_start="@layout/fragment_single_screen"
-    app:show_in_single_screen="@layout/fragment_single_screen"
+    app:show_in_dual_screen_end="@layout/hinge_angle_fragment_dual_screen"
+    app:show_in_dual_screen_start="@layout/hinge_angle_fragment_single_screen"
+    app:show_in_single_screen="@layout/hinge_angle_fragment_single_screen"
     app:tools_screen_mode="dual_screen" />

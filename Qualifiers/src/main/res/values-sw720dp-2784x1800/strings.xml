@@ -8,8 +8,8 @@
     <!-- When your app is spanned, Surface Duo will take the resources you have put on this folder
     (values-sw720dp-2784x1800) for both dual-portrait and dual-landscape, so you can add here specific dimens,
     strings, colors, etc. for Surface Duo. -->
-    <string name="app_name">Qualifiers</string>
-    <string name="hello_world">Hello World! \nSpanned mode!</string>
-    <string name="resource_folder">sw720dp-2784x1800</string>
-    <string name="sticker_image_content_description">Dual screen image</string>
+    <string name="qualifiers_app_name">Qualifiers</string>
+    <string name="qualifiers_hello_world">Hello World! \nSpanned mode!</string>
+    <string name="qualifiers_resource_folder">sw720dp-2784x1800</string>
+    <string name="qualifiers_sticker_image_content_description">Dual screen image</string>
 </resources>

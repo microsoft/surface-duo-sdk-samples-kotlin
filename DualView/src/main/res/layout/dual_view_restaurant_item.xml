@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/item_image"
+        android:layout_width="@dimen/dual_view_restaurant_image_width"
+        android:layout_height="@dimen/dual_view_restaurant_image_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/cantinetta_image" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_title"
+        style="@style/DualViewText.Restaurant.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dual_view_margin_medium"
+        app:layout_constraintStart_toEndOf="@id/item_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cantinetta" />
+
+    <include
+        android:id="@+id/item_rating_type_and_price"
+        layout="@layout/dual_view_restaurant_rating_type_and_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dual_view_margin_very_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/item_title"
+        app:layout_constraintTop_toBottomOf="@id/item_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_description"
+        style="@style/DualViewText.Restaurant.Description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dual_view_margin_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/item_title"
+        app:layout_constraintTop_toBottomOf="@id/item_rating_type_and_price"
+        tools:text="Wine bar with upscale small plates in a lofty modern space with a central wine tower and staircase." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

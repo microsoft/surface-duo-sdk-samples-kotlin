@@ -31,8 +31,21 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener, ScreenInfoLis
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_two_page)
+        setupToolbar()
         setupPagerAdapter()
+    }
+
+    private fun setupToolbar() {
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onScreenInfoChanged(screenInfo: ScreenInfo) {

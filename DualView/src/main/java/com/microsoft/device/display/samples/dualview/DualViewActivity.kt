@@ -8,12 +8,11 @@ package com.microsoft.device.display.samples.dualview
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.microsoft.device.display.samples.dualview.fragments.MapFragment
-import com.microsoft.device.display.samples.dualview.fragments.RestaurantsFragment
+import com.microsoft.device.display.samples.dualview.fragments.DualViewMapFragment
+import com.microsoft.device.display.samples.dualview.fragments.DualViewRestaurantsFragment
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.activity_dual_view.*
 
 /**
  * [AppCompatActivity] implementation that contains the restaurants screen and the map screen
@@ -31,11 +30,16 @@ class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
         setupToolbar()
     }
 
-    /**
-     * Setup the toolbar
-     */
     private fun setupToolbar() {
-        setSupportActionBar(toolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onStart() {
@@ -62,7 +66,7 @@ class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
     private fun setupSingleScreenFragments() {
         if (supportFragmentManager.findFragmentByTag(FRAGMENT_SINGLE_SCREEN) == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.first_container_id, RestaurantsFragment(), FRAGMENT_SINGLE_SCREEN)
+                .replace(R.id.first_container_id, DualViewRestaurantsFragment(), FRAGMENT_SINGLE_SCREEN)
                 .commit()
         }
     }
@@ -75,11 +79,11 @@ class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
             supportFragmentManager.findFragmentByTag(FRAGMENT_DUAL_END) == null
         ) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.first_container_id, RestaurantsFragment(), FRAGMENT_DUAL_START)
+                .replace(R.id.first_container_id, DualViewRestaurantsFragment(), FRAGMENT_DUAL_START)
                 .commit()
 
             supportFragmentManager.beginTransaction()
-                .replace(R.id.second_container_id, MapFragment(), FRAGMENT_DUAL_END)
+                .replace(R.id.second_container_id, DualViewMapFragment(), FRAGMENT_DUAL_END)
                 .commit()
         }
     }

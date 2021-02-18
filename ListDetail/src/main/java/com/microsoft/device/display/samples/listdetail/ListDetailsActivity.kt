@@ -16,7 +16,6 @@ import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Contains the image gallery and selected image details but only in dual screen mode.
@@ -26,14 +25,16 @@ class ListDetailsActivity : AppCompatActivity(), ScreenInfoListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_list_details)
         setupToolbar()
         observeSelectedItem()
-        observeNavigationStack()
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(toolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -71,14 +72,6 @@ class ListDetailsActivity : AppCompatActivity(), ScreenInfoListener {
                 }
             }
         )
-    }
-
-    private fun observeNavigationStack() {
-        supportFragmentManager.addOnBackStackChangedListener {
-            val backButtonEnabled = !supportFragmentManager.isBackStackEmpty
-            supportActionBar?.setHomeButtonEnabled(backButtonEnabled)
-            supportActionBar?.setDisplayHomeAsUpEnabled(backButtonEnabled)
-        }
     }
 
     override fun onScreenInfoChanged(screenInfo: ScreenInfo) {

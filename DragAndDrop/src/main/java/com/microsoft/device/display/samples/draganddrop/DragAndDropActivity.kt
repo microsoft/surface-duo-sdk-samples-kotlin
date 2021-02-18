@@ -30,7 +30,20 @@ class DragAndDropActivity : AppCompatActivity(), ScreenInfoListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag_and_drop)
+        setupToolbar()
         reset_button.setOnClickListener { recreate() }
+    }
+
+    private fun setupToolbar() {
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onScreenInfoChanged(screenInfo: ScreenInfo) {

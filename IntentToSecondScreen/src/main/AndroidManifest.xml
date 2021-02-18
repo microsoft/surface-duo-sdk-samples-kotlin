@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) Microsoft Corporation. All rights reserved.
   ~ Licensed under the MIT License.
   ~
@@ -10,30 +9,28 @@
     package="com.microsoft.device.display.samples.intentsecondscreen"
     tools:ignore="GoogleAppIndexingWarning">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".FirstActivity">
+    <application>
+        <activity
+            android:name=".IntentToSecondScreenFirstActivity"
+            android:label="@string/intent_app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity"
-            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".IntentToSecondScreenSecondActivity"
+            android:label="@string/intent_app_name"
+            android:launchMode="singleInstance" />
+
         <activity-alias
-            android:targetActivity=".SecondActivity"
             android:name=".SecondActivityShortcut"
-            android:label="@string/app_name"
-            android:exported="true">
+            android:label="@string/intent_app_name"
+            android:targetActivity=".IntentToSecondScreenSecondActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
     </application>

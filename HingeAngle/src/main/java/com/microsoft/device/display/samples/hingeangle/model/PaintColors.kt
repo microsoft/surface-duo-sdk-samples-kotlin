@@ -18,9 +18,9 @@ enum class PaintColors {
 
 val PaintColors.color: Int
     get() = when (this) {
-        PaintColors.Red -> R.color.red
-        PaintColors.Blue -> R.color.blue
-        PaintColors.Green -> R.color.green
-        PaintColors.Yellow -> R.color.yellow
-        PaintColors.Purple -> R.color.purple
+        PaintColors.Red -> R.color.hinge_angle_red
+        PaintColors.Blue -> R.color.hinge_angle_blue
+        PaintColors.Green -> R.color.hinge_angle_green
+        PaintColors.Yellow -> R.color.hinge_angle_yellow
+        PaintColors.Purple -> R.color.hinge_angle_purple
     }

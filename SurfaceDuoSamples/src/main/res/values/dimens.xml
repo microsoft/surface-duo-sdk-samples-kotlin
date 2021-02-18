@@ -1,0 +1,20 @@
+<!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.Licensed under the MIT License.
+  -->
+
+<resources>
+    <dimen name="duo_sample_small_margin">10dp</dimen>
+    <dimen name="duo_sample_small_margin2">15dp</dimen>
+    <dimen name="duo_sample_medium_margin">20dp</dimen>
+    <dimen name="duo_sample_card_elevation">3dp</dimen>
+
+    <dimen name="info_layout_max_width">450dp</dimen>
+    <dimen name="card_view_width">510dp</dimen>
+
+    <dimen name="link_button_height">28dp</dimen>
+    <dimen name="link_button_width">100dp</dimen>
+    <dimen name="link_button_start_margin">50dp</dimen>
+
+    <dimen name="text_size_normal">15sp</dimen>
+    <dimen name="text_size_small">10sp</dimen>
+</resources>

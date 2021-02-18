@@ -1,0 +1,23 @@
+<!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.Licensed under the MIT License.
+  -->
+
+<resources>
+    <string name="surface_duo_samples_app_name">Surface Duo Samples</string>
+    <string name="hello_to_the_app">Welcome to the Surface Duo Samples App!</string>
+
+    <string name="drag_and_drop_info">Drag and drop - Shows how to build a layout where you can drag and drop content from other apps.</string>
+    <string name="dual_view_info">Dual View - Shows how to build a layout with custom behavior for single screen or dual screen.</string>
+    <string name="hinge_angle_info">Hinge Angle- Shows how to listen to the hinge angle sensor and use the angle values.</string>
+    <string name="list_details_info">List Detail - Shows how to implement the list-details pattern on Surface Duo.</string>
+    <string name="pen_events_info">Pen Events - Shows how to follow the pen events and use the metrics.</string>
+    <string name="two_page_info">Two Page - Shows how to build a two page layout.</string>
+    <string name="companion_pane_info">Companion Pane - Shows how to build a companion pane.</string>
+    <string name="extend_canvas_info">Extended Canvas - Shows how to integrate a large canvas.</string>
+    <string name="intent_to_second_screen_info">Intent To Second Screen - Shows how to open activities in different scenarios.</string>
+    <string name="qualifiers_info">Qualifiers - Shows how to use the android resource qualifiers to structure the project resources for duo devices.</string>
+    <string name="multiple_instances_info">Multiple Instances - Shows how to open multiple instances of the same activity.</string>
+
+    <string name="try_it_out">Try it out</string>
+    <string name="view_the_code">View Code</string>
+</resources>

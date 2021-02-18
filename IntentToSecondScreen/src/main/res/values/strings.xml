@@ -4,11 +4,11 @@
   ~
   -->
 <resources>
-    <string name="app_name">IntentToSecondScreen</string>
-    <string name="web_link">https://www.microsoft.com</string>
-    <string name="map_link">https://maps.app.goo.gl/od6hh3onYGVi4A8w8</string>
-    <string name="link_access_tag">Go to microsoft.com</string>
-    <string name="button_text">Start Second Activity</string>
-    <string name="map_text">Navigate on Google Maps</string>
-    <string name="text_second_screen">Hello Second Screen</string>
+    <string name="intent_app_name">Intent To Second Screen</string>
+    <string name="intent_app_web_link">https://www.microsoft.com</string>
+    <string name="intent_app_map_link">https://maps.app.goo.gl/od6hh3onYGVi4A8w8</string>
+    <string name="intent_app_link_access_tag">Go to microsoft.com</string>
+    <string name="intent_app_button_text">Start Second Activity</string>
+    <string name="intent_app_map_text">Navigate on Google Maps</string>
+    <string name="intent_app_text_second_screen">Hello Second Screen</string>
 </resources>

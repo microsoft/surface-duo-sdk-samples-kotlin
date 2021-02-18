@@ -13,7 +13,6 @@ import android.hardware.SensorManager
 import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import com.microsoft.device.display.samples.hingeangle.extensions.hingeAngleSensor
-import java.lang.IllegalStateException
 
 private const val DEFAULT_HINGE_ANGLE = 180
 

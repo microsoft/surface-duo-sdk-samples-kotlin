@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~
   ~  Copyright (c) Microsoft Corporation. All rights reserved.
   ~  Licensed under the MIT License.
@@ -7,10 +6,7 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#CDCBCB</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="dark_grey">#2b2b2b</color>
-    <color name="gray">#555555</color>
-    <color name="light_gray">#BEBEBE</color>
+    <color name="companion_pane_dark_grey">#2b2b2b</color>
+    <color name="companion_pane_gray">#555555</color>
+    <color name="companion_pane_light_gray">#BEBEBE</color>
 </resources>

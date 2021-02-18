@@ -17,14 +17,14 @@ import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
 import com.microsoft.device.dualscreen.ScreenInfo
 import com.microsoft.device.dualscreen.ScreenInfoListener
 import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.fragment_image_details.*
+import kotlinx.android.synthetic.main.list_details_fragment_image_details.*
 
 /**
  * Contains selected image in full screen mode
  */
 class ImageDetailsFragment : Fragment(), ScreenInfoListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_image_details, container, false)
+        return inflater.inflate(R.layout.list_details_fragment_image_details, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

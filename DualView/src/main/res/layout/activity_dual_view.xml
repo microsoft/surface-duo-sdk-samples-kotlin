@@ -5,35 +5,15 @@
   ~
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.microsoft.device.dualscreen.layouts.SurfaceDuoLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/surface_duo_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_constraintBottom_toTopOf="@id/surface_duo_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="@string/app_name"
-        app:titleTextColor="@android:color/white" />
-
-    <com.microsoft.device.dualscreen.layouts.SurfaceDuoLayout
-        android:id="@+id/surface_duo_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:show_in_dual_screen_end="@layout/fragment_map"
-        app:show_in_dual_screen_start="@layout/fragment_restaurants"
-        app:show_in_single_screen="@layout/fragment_restaurants"
-        app:tools_screen_mode="dual_screen" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:show_in_dual_screen_end="@layout/fragment_dual_view_map"
+    app:show_in_dual_screen_start="@layout/fragment_dual_view_restaurants"
+    app:show_in_single_screen="@layout/fragment_dual_view_restaurants"
+    app:tools_screen_mode="dual_screen" />

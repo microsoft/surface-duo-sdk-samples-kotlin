@@ -20,7 +20,7 @@
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/sticker_image_content_description"
+        android:contentDescription="@string/qualifiers_sticker_image_content_description"
         android:src="@drawable/sticker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_margin"
-        android:text="@string/hello_world"
+        android:text="@string/qualifiers_hello_world"
         app:layout_constraintLeft_toLeftOf="@id/image"
         app:layout_constraintRight_toRightOf="@id/image"
         app:layout_constraintTop_toBottomOf="@id/image" />
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_margin"
-        android:text="@string/resource_folder"
+        android:text="@string/qualifiers_resource_folder"
         app:layout_constraintLeft_toLeftOf="@id/message"
         app:layout_constraintRight_toRightOf="@id/message"
         app:layout_constraintTop_toBottomOf="@id/message" />

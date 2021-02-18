@@ -27,7 +27,7 @@ class ImageAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ImageViewHolder(
-            layoutInflater.inflate(R.layout.layout_image_item, parent, false)
+            layoutInflater.inflate(R.layout.list_details_layout_image_item, parent, false)
         )
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {

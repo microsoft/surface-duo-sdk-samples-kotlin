@@ -5,11 +5,14 @@
   -->
 
 <resources>
-    <dimen name="margin_big">26dp</dimen>
-    <dimen name="margin_normal">16dp</dimen>
-    <dimen name="margin_medium">10dp</dimen>
-    <dimen name="margin_small">6dp</dimen>
-    <dimen name="margin_very_small">2dp</dimen>
-    <dimen name="restaurant_image_width">131dp</dimen>
-    <dimen name="restaurant_image_height">88dp</dimen>
+    <dimen name="dual_view_margin_big">26dp</dimen>
+    <dimen name="dual_view_margin_normal">16dp</dimen>
+    <dimen name="dual_view_margin_medium">10dp</dimen>
+    <dimen name="dual_view_margin_small">6dp</dimen>
+    <dimen name="dual_view_margin_very_small">2dp</dimen>
+    <dimen name="dual_view_restaurant_image_width">131dp</dimen>
+    <dimen name="dual_view_restaurant_image_height">88dp</dimen>
+
+    <dimen name="dual_view_restaurant_item_price">50dp</dimen>
+    <dimen name="dual_view_restaurant_item_reviews">100dp</dimen>
 </resources>

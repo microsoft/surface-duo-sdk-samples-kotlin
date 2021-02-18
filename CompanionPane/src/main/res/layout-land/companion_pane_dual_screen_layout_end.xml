@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dual_screen_layout_land_end"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/companion_pane_background_portrait_end"
+    android:padding="@dimen/companion_pane_large_padding"
+    tools:ignore="MissingDefaultResource">
+
+    <include
+        android:id="@+id/magic_definition_control"
+        layout="@layout/companion_pane_magic_definition_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/vignette_brightness_control"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <include
+        android:id="@+id/vignette_brightness_control"
+        layout="@layout/companion_pane_vignette_brightness_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/companion_pane_large_padding"
+        app:layout_constraintBottom_toTopOf="@id/short_filter_icon_control"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/magic_definition_control" />
+
+    <include
+        android:id="@+id/short_filter_icon_control"
+        layout="@layout/companion_pane_short_filter_icon_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/companion_pane_large_padding"
+        app:layout_constraintBottom_toTopOf="@id/scale_control"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vignette_brightness_control" />
+
+    <include
+        android:id="@+id/scale_control"
+        layout="@layout/companion_pane_scale_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/companion_pane_large_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/short_filter_icon_control" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

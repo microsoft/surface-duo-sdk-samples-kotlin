@@ -5,5 +5,5 @@
   -->
 
 <resources>
-    <string name="app_name">Extended Canvas</string>
+    <string name="extend_canvas_app_name">Extended Canvas</string>
 </resources>

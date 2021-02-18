@@ -5,13 +5,12 @@
   -->
 
 <resources>
-
-    <style name="Text.Content">
+    <style name="TwoPageText.Content">
         <item name="android:lineSpacingExtra">5dp</item>
         <item name="android:breakStrategy">balanced</item>
     </style>
 
-    <style name="Text.Content.Italic">
+    <style name="TwoPageText.Content.Italic">
         <item name="android:lineSpacingExtra">5dp</item>
         <item name="android:breakStrategy">balanced</item>
         <item name="android:textStyle">italic</item>

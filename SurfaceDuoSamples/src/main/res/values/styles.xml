@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+
+    <style name="DuoSampleAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DuoSampleTextView.Info" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dual_view_black</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:layout_marginStart">@dimen/duo_sample_medium_margin</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/duo_sample_small_margin2</item>
+    </style>
+
+    <style name="DuoSampleButton.GitHub" parent="@android:style/Widget.DeviceDefault.Button">
+        <item name="android:layout_marginBottom">@dimen/duo_sample_medium_margin</item>
+        <item name="android:layout_width">@dimen/link_button_width</item>
+        <item name="android:layout_marginTop">@dimen/duo_sample_medium_margin</item>
+        <item name="android:layout_height">@dimen/link_button_height</item>
+        <item name="android:layout_marginStart">@dimen/duo_sample_medium_margin</item>
+        <item name="android:text">@string/try_it_out</item>
+        <item name="android:background">@drawable/green_background</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ImageViewLinkToGit" parent="@android:style/Widget.DeviceDefault.Button">
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/link_button_height</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginStart">@dimen/link_button_start_margin</item>
+        <item name="android:background">@drawable/grey_background</item>
+        <item name="android:drawableLeft">@drawable/external_link</item>
+        <item name="android:paddingStart">@dimen/duo_sample_small_margin2</item>
+        <item name="android:paddingEnd">@dimen/duo_sample_small_margin2</item>
+        <item name="android:layout_marginTop">@dimen/duo_sample_medium_margin</item>
+        <item name="android:layout_marginBottom">@dimen/duo_sample_medium_margin</item>
+        <item name="android:tint">@android:color/white</item>
+        <item name="android:text">@string/view_the_code</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:drawableTint">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="CardViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+</resources>

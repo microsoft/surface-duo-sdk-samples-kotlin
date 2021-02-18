@@ -5,27 +5,19 @@
   -->
 
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="actionMenuTextColor">@color/white</item>
-    </style>
 
-    <style name="Text" parent="@style/Widget.AppCompat.TextView" />
+    <style name="DualViewText" parent="@style/Widget.AppCompat.TextView" />
 
-    <style name="Text.Title">
+    <style name="DualViewText.Title">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/dual_view_black</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Text.Restaurant" />
+    <style name="DualViewText.Restaurant" />
 
-    <style name="Text.Restaurant.Title">
-        <item name="android:textColor">@color/black</item>
+    <style name="DualViewText.Restaurant.Title">
+        <item name="android:textColor">@color/dual_view_black</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:lineSpacingExtra">3sp</item>
@@ -33,25 +25,16 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Text.Restaurant.Description">
+    <style name="DualViewText.Restaurant.Description">
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/gray_500</item>
+        <item name="android:textColor">@color/dual_view_gray_500</item>
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">3sp</item>
         <item name="android:letterSpacing">0.01</item>
     </style>
 
-    <style name="Text.Restaurant.Rating">
-        <item name="android:textColor">@color/gray_500</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:lineSpacingExtra">3sp</item>
-        <item name="android:letterSpacing">0.01</item>
-        <item name="android:ellipsize">end</item>
-    </style>
-
-    <style name="Text.Restaurant.Type">
-        <item name="android:textColor">@color/gray_500</item>
+    <style name="DualViewText.Restaurant.Rating">
+        <item name="android:textColor">@color/dual_view_gray_500</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">3sp</item>
@@ -59,8 +42,17 @@
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="Text.Restaurant.Price">
-        <item name="android:textColor">@color/gray_500</item>
+    <style name="DualViewText.Restaurant.Type">
+        <item name="android:textColor">@color/dual_view_gray_500</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="DualViewText.Restaurant.Price">
+        <item name="android:textColor">@color/dual_view_gray_500</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">3sp</item>
