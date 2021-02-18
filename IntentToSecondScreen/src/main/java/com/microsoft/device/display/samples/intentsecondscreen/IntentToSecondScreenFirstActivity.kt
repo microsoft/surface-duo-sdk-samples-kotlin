@@ -52,7 +52,6 @@ class IntentToSecondScreenFirstActivity : AppCompatActivity() {
         return true
     }
 
-
     private fun setListeners() {
         open_second_screen.setOnClickListener { openSecondScreen() }
         open_browser.setOnClickListener {

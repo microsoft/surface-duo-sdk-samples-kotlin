@@ -28,7 +28,6 @@ class ListDetailsActivity : AppCompatActivity(), ScreenInfoListener {
         setContentView(R.layout.activity_list_details)
         setupToolbar()
         observeSelectedItem()
-        observeNavigationStack()
     }
 
     private fun setupToolbar() {
@@ -73,14 +72,6 @@ class ListDetailsActivity : AppCompatActivity(), ScreenInfoListener {
                 }
             }
         )
-    }
-
-    private fun observeNavigationStack() {
-        supportFragmentManager.addOnBackStackChangedListener {
-            val backButtonEnabled = !supportFragmentManager.isBackStackEmpty
-            supportActionBar?.setHomeButtonEnabled(backButtonEnabled)
-            supportActionBar?.setDisplayHomeAsUpEnabled(backButtonEnabled)
-        }
     }
 
     override fun onScreenInfoChanged(screenInfo: ScreenInfo) {

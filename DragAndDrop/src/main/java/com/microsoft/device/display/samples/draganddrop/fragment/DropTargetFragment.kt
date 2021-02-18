@@ -18,7 +18,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.microsoft.device.display.samples.draganddrop.R
-import com.microsoft.device.display.samples.draganddrop.utils.*
+import com.microsoft.device.display.samples.draganddrop.utils.MimeType
+import com.microsoft.device.display.samples.draganddrop.utils.fromValue
+import com.microsoft.device.display.samples.draganddrop.utils.remove
+import com.microsoft.device.display.samples.draganddrop.utils.removeViews
+import com.microsoft.device.display.samples.draganddrop.utils.replaceWith
+import com.microsoft.device.display.samples.draganddrop.utils.setDragAndDropImageURI
+import com.microsoft.device.display.samples.draganddrop.utils.setElevation
+import com.microsoft.device.display.samples.draganddrop.utils.updateColorAndElevation
 import kotlinx.android.synthetic.main.drag_and_drop_target_layout.*
 
 /**

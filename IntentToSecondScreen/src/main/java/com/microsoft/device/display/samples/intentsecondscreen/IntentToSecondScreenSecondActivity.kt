@@ -27,5 +27,4 @@ class IntentToSecondScreenSecondActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
-
 }

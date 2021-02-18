@@ -10,7 +10,6 @@ import android.app.Service
 import android.content.Context
 import android.hardware.SensorEvent
 import android.hardware.SensorManager
-import android.util.Log
 import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import com.microsoft.device.display.samples.hingeangle.extensions.hingeAngleSensor
@@ -34,11 +33,6 @@ class HingeAngleLiveData(context: Context) : LiveData<Int>() {
                 if (it.sensor == hingeAngleSensor) {
                     val angle = it.values[0].toInt()
                     value = angle
-                    Log.e("HingeAngleLiveData", "New Hinge Angle1:  , " + it.values[0] +
-                        "--2:  " + it.values[1] +
-                        "--3:  " + it.values[2] +
-                        "-- avg:  " + (it.values[0] + it.values[1] + it.values[2]) / 3
-                    )
                 }
             }
         }
