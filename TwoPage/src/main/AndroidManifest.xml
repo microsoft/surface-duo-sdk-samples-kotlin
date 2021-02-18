@@ -10,7 +10,6 @@
     <application>
         <activity
             android:name=".TwoPageActivity"
-            android:configChanges="screenSize|screenLayout|orientation|smallestScreenSize"
             android:label="@string/two_page_app_name" />
     </application>
 </manifest>
