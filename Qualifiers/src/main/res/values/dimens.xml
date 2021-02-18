@@ -4,6 +4,7 @@
   ~  Licensed under the MIT License.
   ~
   -->
+
 <resources>
     <dimen name="text_size">20sp</dimen>
     <dimen name="view_margin">10dp</dimen>

@@ -45,4 +45,5 @@ dependencies {
     androidTestImplementation instrumentationTestDependencies.testRules
     androidTestImplementation instrumentationTestDependencies.testRunner
     androidTestUtil instrumentationTestDependencies.testOrchestrator
+    androidTestImplementation project(':TestUtils')
 }

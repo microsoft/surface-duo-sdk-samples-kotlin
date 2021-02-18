@@ -6,10 +6,6 @@
 
 package com.microsoft.device.display.samples.multipleinstances
 
-import android.content.Intent
-import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
-import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.microsoft.device.dualscreen.ScreenInfo
@@ -26,7 +22,6 @@ abstract class MultipleInstancesBaseActivity : AppCompatActivity(), ScreenInfoLi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multiple_instances)
         setupToolbar()
-        addShortcuts()
     }
 
     private fun setupToolbar() {
@@ -68,26 +63,4 @@ abstract class MultipleInstancesBaseActivity : AppCompatActivity(), ScreenInfoLi
      * @return the text for the second screen TextView
      */
     abstract fun getSecondScreenText(): String
-
-    private fun addShortcuts() {
-        val mainActivityIntent = Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, MultipleInstancesMainActivity::class.java)
-        mainActivityIntent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-
-        val secondActivityIntent = Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, MultipleInstancesSecondActivity::class.java)
-        mainActivityIntent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-
-        getSystemService(ShortcutManager::class.java)?.let { shortcutManager ->
-            val mainShortcut = ShortcutInfo.Builder(this, "id1")
-                .setShortLabel(getString(R.string.multiple_instances_main_shortcut_label))
-                .setLongLabel(getString(R.string.multiple_instances_main_shortcut_label))
-                .setIntent(mainActivityIntent)
-                .build()
-            val secondShortcut = ShortcutInfo.Builder(this, "id2")
-                .setShortLabel(getString(R.string.multiple_instances_second_shortcut_label))
-                .setLongLabel(getString(R.string.multiple_instances_second_shortcut_label))
-                .setIntent(secondActivityIntent)
-                .build()
-            shortcutManager.dynamicShortcuts = listOf(mainShortcut, secondShortcut)
-        }
-    }
 }

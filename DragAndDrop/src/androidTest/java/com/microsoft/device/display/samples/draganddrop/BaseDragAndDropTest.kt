@@ -7,12 +7,12 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withTagValue
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.activityScenarioRule
-import com.microsoft.device.display.samples.draganddrop.utils.childOf
 import com.microsoft.device.display.samples.draganddrop.utils.dragAndDropImageInDualScreenMode
 import com.microsoft.device.display.samples.draganddrop.utils.dragAndDropImageInSingleScreenMode
 import com.microsoft.device.display.samples.draganddrop.utils.dragAndDropTextInDualScreenMode
 import com.microsoft.device.display.samples.draganddrop.utils.dragAndDropTextInSingleScreenMode
-import com.microsoft.device.display.samples.draganddrop.utils.switchFromSingleToDualScreen
+import com.microsoft.device.display.samples.test.utils.childOf
+import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Rule
 import org.hamcrest.CoreMatchers.`is` as iz

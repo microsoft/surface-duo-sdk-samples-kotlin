@@ -8,9 +8,9 @@ package com.microsoft.device.display.samples.draganddrop
 
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.microsoft.device.display.samples.draganddrop.utils.setOrientationLeft
-import com.microsoft.device.display.samples.draganddrop.utils.setOrientationRight
-import com.microsoft.device.display.samples.draganddrop.utils.unfreezeRotation
+import com.microsoft.device.display.samples.test.utils.setOrientationLeft
+import com.microsoft.device.display.samples.test.utils.setOrientationRight
+import com.microsoft.device.display.samples.test.utils.unfreezeRotation
 import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith

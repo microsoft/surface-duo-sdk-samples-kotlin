@@ -34,6 +34,8 @@ dependencies {
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
     androidTestImplementation instrumentationTestDependencies.espressoIntents
-    androidTestImplementation instrumentationTestDependencies.uiAutomator
     androidTestImplementation instrumentationTestDependencies.testRules
+    androidTestImplementation instrumentationTestDependencies.testRunner
+    androidTestUtil instrumentationTestDependencies.testOrchestrator
+    androidTestImplementation project(':TestUtils')
 }

@@ -15,12 +15,12 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.microsoft.device.display.samples.listdetail.utils.forceClick
 import com.microsoft.device.display.samples.listdetail.utils.hasDrawable
-import com.microsoft.device.display.samples.listdetail.utils.setOrientationLeft
-import com.microsoft.device.display.samples.listdetail.utils.setOrientationRight
-import com.microsoft.device.display.samples.listdetail.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.listdetail.utils.unfreezeRotation
+import com.microsoft.device.display.samples.test.utils.forceClick
+import com.microsoft.device.display.samples.test.utils.setOrientationLeft
+import com.microsoft.device.display.samples.test.utils.setOrientationRight
+import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
+import com.microsoft.device.display.samples.test.utils.unfreezeRotation
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test

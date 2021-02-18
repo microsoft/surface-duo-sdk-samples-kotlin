@@ -4,7 +4,7 @@
  *
  */
 
-package com.microsoft.device.display.samples.draganddrop.utils
+package com.microsoft.device.display.samples.test.utils
 
 import android.view.View
 import android.view.ViewGroup

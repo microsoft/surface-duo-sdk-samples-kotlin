@@ -13,9 +13,9 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.microsoft.device.display.samples.companionpane.utils.setOrientationLeft
-import com.microsoft.device.display.samples.companionpane.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.companionpane.utils.unfreezeRotation
+import com.microsoft.device.display.samples.test.utils.setOrientationLeft
+import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
+import com.microsoft.device.display.samples.test.utils.unfreezeRotation
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
