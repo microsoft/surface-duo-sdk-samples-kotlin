@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~
   ~  Copyright (c) Microsoft Corporation. All rights reserved.
   ~  Licensed under the MIT License.
@@ -6,15 +6,15 @@
   -->
 
 <resources>
-    <string name="app_name">Companion Pane</string>
-    <string name="Filters">Filters</string>
-    <string name="Gingham">Gingham</string>
-    <string name="Original">Original</string>
-    <string name="Lark">Lark</string>
-    <string name="Juno">Juno</string>
-    <string name="Ludwig">Ludwig</string>
-    <string name="magic_wand">Magic Wand</string>
-    <string name="definition">Definition</string>
-    <string name="vignette">Vignette</string>
-    <string name="brightness">Brightness</string>
+    <string name="companion_pane_app_name">Companion Pane</string>
+    <string name="companion_pane_filters">Filters</string>
+    <string name="companion_pane_gingham">Gingham</string>
+    <string name="companion_pane_original">Original</string>
+    <string name="companion_pane_lark">Lark</string>
+    <string name="companion_pane_juno">Juno</string>
+    <string name="companion_pane_ludwig">Ludwig</string>
+    <string name="companion_pane_magic_wand">Magic Wand</string>
+    <string name="companion_pane_definition">Definition</string>
+    <string name="companion_pane_vignette">Vignette</string>
+    <string name="companion_pane_brightness">Brightness</string>
 </resources>

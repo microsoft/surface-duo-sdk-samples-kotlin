@@ -12,16 +12,16 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.rule.ActivityTestRule
-import com.microsoft.device.display.samples.listdetail.utils.forceClick
 import com.microsoft.device.display.samples.listdetail.utils.hasDrawable
-import com.microsoft.device.display.samples.listdetail.utils.setOrientationLeft
-import com.microsoft.device.display.samples.listdetail.utils.setOrientationRight
-import com.microsoft.device.display.samples.listdetail.utils.switchFromDualToSingleScreen
-import com.microsoft.device.display.samples.listdetail.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.listdetail.utils.unfreezeRotation
+import com.microsoft.device.display.samples.test.utils.forceClick
+import com.microsoft.device.display.samples.test.utils.setOrientationLeft
+import com.microsoft.device.display.samples.test.utils.setOrientationRight
+import com.microsoft.device.display.samples.test.utils.switchFromDualToSingleScreen
+import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
+import com.microsoft.device.display.samples.test.utils.unfreezeRotation
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -31,7 +31,7 @@ import org.junit.runner.RunWith
 @LargeTest
 class ListDetailsSwitchScreenModeTest {
     @get:Rule
-    val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activityScenarioRule = activityScenarioRule<ListDetailsActivity>()
 
     @After
     fun tearDown() {
@@ -69,18 +69,18 @@ class ListDetailsSwitchScreenModeTest {
 
     private fun checkInSingleScreenMode() {
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.image_list)).check(matches(isDisplayed()))
+        onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
-        onView(withId(R.id.image_list)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
-        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.image_2)))
+        onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
+        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.list_details_image_2)))
     }
 
     private fun checkInDualScreenMode() {
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.second_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.image_list)).check(matches(isDisplayed()))
+        onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
-        onView(withId(R.id.image_list)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, forceClick()))
-        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.image_3)))
+        onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, forceClick()))
+        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.list_details_image_3)))
     }
 }

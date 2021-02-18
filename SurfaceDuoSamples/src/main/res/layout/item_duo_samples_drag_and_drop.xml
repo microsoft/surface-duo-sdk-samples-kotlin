@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    style="@style/CardViewStyle"
+    card_view:cardElevation="@dimen/duo_sample_card_elevation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/drag_and_drop_info"
+            style="@style/DuoSampleTextView.Info"
+            android:text="@string/drag_and_drop_info"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_1_drag_and_drop_try"
+            style="@style/DuoSampleButton.GitHub"
+            android:text="@string/try_it_out"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/drag_and_drop_info" />
+
+        <Button
+            android:id="@+id/link_1_dear_and_drop"
+            style="@style/ImageViewLinkToGit"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@id/button_1_drag_and_drop_try"
+            card_view:layout_constraintTop_toBottomOf="@id/drag_and_drop_info" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

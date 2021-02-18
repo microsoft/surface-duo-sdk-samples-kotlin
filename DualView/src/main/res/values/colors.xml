@@ -6,8 +6,6 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#F54D4D</color>
-    <color name="colorPrimaryDark">#F65F5F</color>
-    <color name="colorAccent">#5ed8af</color>
-    <color name="gray_500">#9E9E9E</color>
+    <color name="dual_view_gray_500">#9E9E9E</color>
+    <color name="dual_view_black">#000000</color>
 </resources>

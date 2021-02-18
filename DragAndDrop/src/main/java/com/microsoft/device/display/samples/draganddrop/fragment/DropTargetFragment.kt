@@ -6,7 +6,6 @@
 
 package com.microsoft.device.display.samples.draganddrop.fragment
 
-import android.content.ContentResolver
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
@@ -16,178 +15,187 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.microsoft.device.display.samples.draganddrop.R
+import com.microsoft.device.display.samples.draganddrop.utils.MimeType
+import com.microsoft.device.display.samples.draganddrop.utils.fromValue
+import com.microsoft.device.display.samples.draganddrop.utils.remove
+import com.microsoft.device.display.samples.draganddrop.utils.removeViews
+import com.microsoft.device.display.samples.draganddrop.utils.replaceWith
+import com.microsoft.device.display.samples.draganddrop.utils.setDragAndDropImageURI
+import com.microsoft.device.display.samples.draganddrop.utils.setElevation
+import com.microsoft.device.display.samples.draganddrop.utils.updateColorAndElevation
+import kotlinx.android.synthetic.main.drag_and_drop_target_layout.*
 
+/**
+ * The Fragment implementation containing the drop zone
+ */
 class DropTargetFragment : Fragment(), View.OnDragListener {
-    private lateinit var imageDropContainer: RelativeLayout
-    private lateinit var textDropContainer: RelativeLayout
-    private lateinit var imageHintContainer: ConstraintLayout
-    private lateinit var textHintContainer: ConstraintLayout
-
     companion object {
-        fun newInstance(): DropTargetFragment {
-            return DropTargetFragment()
-        }
+        private const val HINT_ELEVATION = 4f
+        private const val DEFAULT_ELEVATION = 0f
+        fun newInstance(): DropTargetFragment = DropTargetFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.drop_target_layout, container, false)
-
-        imageHintContainer = view.findViewById(R.id.drop_image_hint)
-        textHintContainer = view.findViewById(R.id.drop_text_hint)
-
-        imageDropContainer = view.findViewById(R.id.drop_image_container)
-        textDropContainer = view.findViewById(R.id.drop_text_container)
-        imageDropContainer.setOnDragListener(this)
-        textDropContainer.setOnDragListener(this)
-
-        return view
+        return inflater.inflate(R.layout.drag_and_drop_target_layout, container, false)
     }
 
-    override fun onDrag(v: View, event: DragEvent): Boolean {
-        val action = event.action
-        var mimeType = ""
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setOnDragListeners()
+    }
 
-        if (event.clipDescription != null) {
-            mimeType = event.clipDescription.getMimeType(0)
+    private fun setOnDragListeners() {
+        drop_image_hint.setOnDragListener(this)
+        drop_text_hint.setOnDragListener(this)
+    }
+
+    override fun onDrag(view: View, event: DragEvent): Boolean {
+        val mimeTypeValue = event.clipDescription?.getMimeType(0)
+        val mimeType = MimeType.fromValue(mimeTypeValue)
+        return when (event.action) {
+            DragEvent.ACTION_DRAG_STARTED -> onDragStarted(mimeType)
+            DragEvent.ACTION_DRAG_ENTERED -> onDragEntered(mimeType)
+            DragEvent.ACTION_DROP -> onDrop(view, mimeType, event)
+            DragEvent.ACTION_DRAG_ENDED -> onDragEnded(mimeType)
+            DragEvent.ACTION_DRAG_LOCATION,
+            DragEvent.ACTION_DRAG_EXITED -> true // Ignore events
+            else -> false
         }
+    }
 
-        when (action) {
-            DragEvent.ACTION_DRAG_STARTED -> {
-                if (mimeType == "") {
-                    return false
-                }
-                if (isImage(mimeType) || isText(mimeType)) {
-                    setBackgroundColor(mimeType)
-                    return true
-                }
-                return false
-            }
-
-            DragEvent.ACTION_DRAG_ENTERED -> {
+    private fun onDragStarted(mimeType: MimeType?): Boolean {
+        return when (mimeType) {
+            MimeType.IMAGE_JPEG, MimeType.TEXT_PLAIN -> {
                 setBackgroundColor(mimeType)
-                return true
+                true
             }
-
-            DragEvent.ACTION_DROP -> {
-                if (isText(mimeType)) {
-                    handleTextDrop(event)
-                    v.elevation = 1f
-                } else if (isImage(mimeType)) {
-                    handleImageDrop(event)
-                    v.elevation = 1f
-                }
-                clearBackgroundColor(mimeType)
-                return true
-            }
-
-            DragEvent.ACTION_DRAG_ENDED -> {
-                clearBackgroundColor()
-                return true
-            }
-
-            DragEvent.ACTION_DRAG_LOCATION, DragEvent.ACTION_DRAG_EXITED ->
-                // Ignore events
-                return true
-
-            else -> {
-            }
+            else -> false
         }
-        return false
     }
 
-    private fun setBackgroundColor(mimeType: String) {
+    private fun onDragEntered(mimeType: MimeType?): Boolean {
+        return mimeType?.let {
+            setBackgroundColor(it)
+            true
+        } ?: false
+    }
+
+    private fun onDrop(view: View, mimeType: MimeType?, event: DragEvent): Boolean {
+        if (!acceptDropEvent(view, mimeType)) {
+            onDragEnded(mimeType)
+            return false
+        }
+
+        when (mimeType) {
+            MimeType.IMAGE_JPEG -> handleImageDrop(event)
+            MimeType.TEXT_PLAIN -> handleTextDrop(event)
+        }
+
+        return onDragEnded(mimeType)
+    }
+
+    private fun acceptDropEvent(view: View, mimeType: MimeType?): Boolean {
+        val targetView = when (mimeType) {
+            MimeType.IMAGE_JPEG -> drop_image_hint
+            MimeType.TEXT_PLAIN -> drop_text_hint
+            else -> null
+        }
+
+        return targetView == view
+    }
+
+    private fun onDragEnded(mimeType: MimeType?): Boolean {
+        mimeType?.let {
+            clearBackgroundColor(it)
+        } ?: run {
+            onDragEnded(MimeType.TEXT_PLAIN)
+            onDragEnded(MimeType.IMAGE_JPEG)
+        }
+
+        return true
+    }
+
+    /**
+     * Sets the background color to [Color.GRAY] for the drop zone depending on the given mime type
+     */
+    private fun setBackgroundColor(mimeType: MimeType) {
         val colorFilter = PorterDuffColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN)
-        if (isImage(mimeType)) {
-            imageHintContainer.background.colorFilter = colorFilter
-            imageHintContainer.elevation = 4f
-            imageHintContainer.invalidate()
-        } else if (isText(mimeType)) {
-            textHintContainer.background.colorFilter = colorFilter
-            textHintContainer.elevation = 4f
-            textHintContainer.invalidate()
+        when (mimeType) {
+            MimeType.IMAGE_JPEG -> {
+                drop_image_hint.updateColorAndElevation(colorFilter, HINT_ELEVATION)
+                setElevation(HINT_ELEVATION, image_hint_image_view, image_hint_text_view)
+            }
+
+            MimeType.TEXT_PLAIN -> {
+                drop_text_hint.updateColorAndElevation(colorFilter, HINT_ELEVATION)
+                setElevation(HINT_ELEVATION, text_hint_image_view, text_hint_text_view)
+            }
         }
     }
 
-    private fun clearBackgroundColor(mimeType: String) {
-        if (isImage(mimeType)) {
-            imageHintContainer.background.clearColorFilter()
-            imageHintContainer.elevation = 0f
-            imageHintContainer.invalidate()
-        } else if (isText(mimeType)) {
-            textHintContainer.background.clearColorFilter()
-            textHintContainer.elevation = 0f
-            textHintContainer.invalidate()
+    /**
+     * Clears the background color for the drop zone depending on the given mime type
+     */
+    private fun clearBackgroundColor(mimeType: MimeType) {
+        when (mimeType) {
+            MimeType.IMAGE_JPEG -> {
+                drop_image_hint.updateColorAndElevation(null, DEFAULT_ELEVATION)
+                setElevation(DEFAULT_ELEVATION, image_hint_image_view, image_hint_text_view)
+            }
+
+            MimeType.TEXT_PLAIN -> {
+                drop_text_hint.updateColorAndElevation(null, DEFAULT_ELEVATION)
+                setElevation(DEFAULT_ELEVATION, text_hint_image_view, text_hint_text_view)
+            }
         }
     }
 
-    private fun clearBackgroundColor() {
-        imageHintContainer.background.clearColorFilter()
-        imageHintContainer.elevation = 0f
-        imageHintContainer.invalidate()
-        textHintContainer.background.clearColorFilter()
-        textHintContainer.elevation = 0f
-        textHintContainer.invalidate()
-    }
-
-    private fun isImage(mime: String): Boolean {
-        return mime.startsWith("image/")
-    }
-
-    private fun isText(mime: String): Boolean {
-        return mime.startsWith("text/")
-    }
-
+    /**
+     * Adds the text from the [DragEvent.getClipData] to the drop zone
+     *
+     * @param event The [DragEvent] containing the text that will be added to the drop zone
+     */
     private fun handleTextDrop(event: DragEvent) {
         val item = event.clipData.getItemAt(0)
         val dragData = item.text.toString()
-        var view = event.localState as? View
-        // Remove the local text view, vw is null if drop from another app
-        if (view != null) {
-            val owner = view.parent as ViewGroup
-            owner.removeView(view)
-        } else {
-            val textView = TextView(this.context)
-            textView.text = dragData
-            view = textView
+        var sourceView = event.localState as? View
+        sourceView?.let {
+            it.remove()
+        } ?: run {
+            sourceView = TextView(requireContext()).apply {
+                text = dragData
+            }
         }
 
-        textDropContainer.removeAllViews()
-        textDropContainer.addView(view)
-        view.visibility = View.VISIBLE
+        removeViews(text_hint_image_view, text_hint_text_view)
+        empty_text.replaceWith(sourceView)
+        sourceView?.setOnLongClickListener(null)
+        drop_text_hint.setOnDragListener(null)
     }
 
+    /**
+     * Adds the image from the [DragEvent.getClipData] to the drop zone
+     *
+     * @param event The [DragEvent] containing the image that will be added to the drop zone
+     */
     private fun handleImageDrop(event: DragEvent) {
         val item = event.clipData.getItemAt(0)
-        var view: View? = event.localState as View
-        // Remove the local image view, vw is null if drop from another app
-        if (view != null) {
-            val owner = view.parent as ViewGroup
-            owner.removeView(view)
-        } else {
-            val imageView = ImageView(this.context)
-            val uri = item.uri
-            if (ContentResolver.SCHEME_CONTENT == uri.scheme) {
-                // Accessing a "content" scheme Uri requires a permission grant.
-                ActivityCompat.requestDragAndDropPermissions(this.activity, event)
-                    ?: return // Permission could not be obtained.return
-
-                imageView.setImageURI(uri)
-            } else {
-                // Other schemes (such as "android.resource") do not require a permission grant.
-                imageView.setImageURI(uri)
+        var sourceView = event.localState as? View
+        sourceView?.let {
+            // Remove the local image view, source view is null if drop from another app
+            it.remove()
+        } ?: run {
+            sourceView = ImageView(requireContext()).apply {
+                setDragAndDropImageURI(requireActivity(), event, item)
             }
-
-            view = imageView
         }
 
-        imageDropContainer.removeAllViews()
-        imageDropContainer.addView(view)
-        view.visibility = View.VISIBLE
+        removeViews(image_hint_text_view, image_hint_image_view)
+        empty_image.replaceWith(sourceView)
+        sourceView?.setOnLongClickListener(null)
+        drop_image_hint.setOnDragListener(null)
     }
 }

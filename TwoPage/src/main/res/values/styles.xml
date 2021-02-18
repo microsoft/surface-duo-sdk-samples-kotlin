@@ -1,21 +1,38 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) Microsoft Corporation. All rights reserved.
   ~ Licensed under the MIT License.
   ~
   -->
 
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="TwoPageText">
+        <item name="android:textSize">@dimen/two_page_title_text_size</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/two_page_black</item>
     </style>
 
-    <style name="DarkerGrayTheme" parent="AppTheme">
-        <item name="android:background">@android:color/darker_gray</item>
+    <style name="TwoPageText.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TwoPageText.Title.AppName">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/two_page_app_name_text_size</item>
+    </style>
+
+    <style name="TwoPageText.Content">
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="TwoPageText.Content.Italic">
+        <item name="android:lineSpacingExtra">5dp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="TwoPageText.PageNumber">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">@dimen/two_page_page_number_text_size</item>
+        <item name="android:textColor">@color/two_page_lightGrey</item>
     </style>
 
 </resources>

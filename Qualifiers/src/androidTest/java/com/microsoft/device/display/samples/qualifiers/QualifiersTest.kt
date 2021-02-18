@@ -6,23 +6,27 @@
 
 package com.microsoft.device.display.samples.qualifiers
 
-import android.graphics.drawable.ColorDrawable
-import android.view.View
 import androidx.annotation.ColorInt
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.rule.ActivityTestRule
-import androidx.test.uiautomator.UiDevice
-import org.hamcrest.Description
-import org.hamcrest.Matcher
+import com.microsoft.device.display.samples.qualifiers.test.R
+import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_IMAGE_DESCRIPTION
+import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_MESSAGE
+import com.microsoft.device.display.samples.qualifiers.utils.DUAL_SCREEN_RESOURCE_FOLDER
+import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_IMAGE_DESCRIPTION
+import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_MESSAGE
+import com.microsoft.device.display.samples.qualifiers.utils.SINGLE_SCREEN_RESOURCE_FOLDER
+import com.microsoft.device.display.samples.qualifiers.utils.hasBackgroundColor
+import com.microsoft.device.display.samples.test.utils.setOrientationLeft
+import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
+import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import org.junit.After
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -30,63 +34,67 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4ClassRunner::class)
 @LargeTest
 class QualifiersTest {
-
-    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-
     @get:Rule
-    val activityRule = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activityScenarioRule = activityScenarioRule<QualifiersActivity>()
 
-    @Test
-    fun displaySingleLayout_inSingleMode() {
-        onView(withId(R.id.layout_container))
-            .check(matches(withBackgroundColor(null)))
-        onView(withId(R.id.image))
-            .check(matches(withContentDescription("Single screen image")))
-        onView(withId(R.id.text))
-            .check(matches(withText("Hello World! \nSingle screen mode")))
-        onView(withId(R.id.resource_folder_text))
-            .check(matches(withText("sw540dp-1350x1800")))
+    @After
+    fun tearDown() {
+        unfreezeRotation()
     }
 
     @Test
-    fun displayDualLayout_inDualMode() {
-        spanApplication()
-
-        onView(withId(R.id.layout_container))
-            .check(matches(withBackgroundColor(R.color.colorAccent)))
-        onView(withId(R.id.image))
-            .check(matches(withContentDescription("Dual screen image")))
-        onView(withId(R.id.text))
-            .check(matches(withText("Hello World! \nSpanned mode!")))
-        onView(withId(R.id.resource_folder_text))
-            .check(matches(withText("sw720dp-2784x1800")))
+    fun singleScreenModeInPortrait() {
+        checkContent(
+            null,
+            SINGLE_SCREEN_IMAGE_DESCRIPTION,
+            SINGLE_SCREEN_MESSAGE,
+            SINGLE_SCREEN_RESOURCE_FOLDER
+        )
     }
 
-    private fun spanApplication() {
-        device.swipe(675, 1780, 1350, 900, 400)
+    @Test
+    fun dualScreenModeInPortrait() {
+        switchFromSingleToDualScreen()
+        checkContent(
+            R.color.colorAccent,
+            DUAL_SCREEN_IMAGE_DESCRIPTION,
+            DUAL_SCREEN_MESSAGE,
+            DUAL_SCREEN_RESOURCE_FOLDER
+        )
     }
 
-    companion object {
-        fun withBackgroundColor(@ColorInt expectedColor: Int?): Matcher<View> =
-            object : BoundedMatcher<View, ConstraintLayout>(ConstraintLayout::class.java) {
-                override fun describeTo(description: Description?) {
-                    description?.appendText(
-                        "Check for item to have color with id $expectedColor"
-                    )
-                }
+    @Test
+    fun singleScreenModeInLandscape() {
+        setOrientationLeft()
+        checkContent(
+            null,
+            SINGLE_SCREEN_IMAGE_DESCRIPTION,
+            SINGLE_SCREEN_MESSAGE,
+            SINGLE_SCREEN_RESOURCE_FOLDER
+        )
+    }
 
-                override fun matchesSafely(view: ConstraintLayout?): Boolean {
-                    view?.let {
-                        if (expectedColor == null) {
-                            return view.background == null
-                        }
-                        if (view.background is ColorDrawable) {
-                            val actualColor = (view.background as ColorDrawable).color
-                            return actualColor == view.context.getColor(expectedColor)
-                        }
-                    }
-                    return false
-                }
-            }
+    @Test
+    fun dualScreenModeInLandscape() {
+        switchFromSingleToDualScreen()
+        setOrientationLeft()
+        checkContent(
+            R.color.colorAccent,
+            DUAL_SCREEN_IMAGE_DESCRIPTION,
+            DUAL_SCREEN_MESSAGE,
+            DUAL_SCREEN_RESOURCE_FOLDER
+        )
+    }
+
+    private fun checkContent(
+        @ColorInt expectedBackgroundColor: Int?,
+        expectedImageContentDescription: String,
+        expectedMessage: String,
+        expectedResourceFolder: String
+    ) {
+        onView(withId(R.id.layout_container)).check(matches(hasBackgroundColor(expectedBackgroundColor)))
+        onView(withId(R.id.image)).check(matches(withContentDescription(expectedImageContentDescription)))
+        onView(withId(R.id.message)).check(matches(withText(expectedMessage)))
+        onView(withId(R.id.resource_folder)).check(matches(withText(expectedResourceFolder)))
     }
 }

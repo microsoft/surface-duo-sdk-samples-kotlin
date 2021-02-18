@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MapsFragment">
+    <item
+        android:id="@+id/dual_view_action_list"
+        android:icon="@drawable/dual_view_ic_list"
+        android:orderInCategory="200"
+        android:title="@string/dual_view_menu_item_list"
+        app:showAsAction="ifRoom" />
+</menu>

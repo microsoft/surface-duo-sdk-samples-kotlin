@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/duo_sample_small_margin"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/duo_sample_medium_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/duo_sample_medium_margin"
+            android:layout_marginBottom="25dp"
+            android:text="@string/hello_to_the_app"
+            android:textColor="@color/dual_view_black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <include layout="@layout/item_duo_samples_drag_and_drop" />
+
+        <include layout="@layout/item_duo_samples_dual_view" />
+
+        <include layout="@layout/item_duo_samples_hinge_angle" />
+
+        <include layout="@layout/item_duo_samples_list_detail" />
+
+        <include layout="@layout/item_duo_samples_pen_events" />
+
+        <include layout="@layout/item_duo_samples_two_page" />
+
+        <include layout="@layout/item_duo_samples_companion_pane" />
+
+        <include layout="@layout/item_duo_samples_extended_canvas" />
+
+        <include layout="@layout/item_duo_samples_intent_to_second_screen" />
+
+        <include layout="@layout/item_duo_samples_qualifiers" />
+
+        <include layout="@layout/item_duo_samples_multiple_instances" />
+    </LinearLayout>
+</ScrollView>

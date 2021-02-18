@@ -9,7 +9,7 @@
         single screen device; so it shouldn't be any reason to have specific resources for single screen mode.
         But for informative purposes, here is the resource folder (values-sw540dp-1350x1800 that Surface Duo uses
         when on single screen mode (both single-portrait and single-landscape) -->
-    <string name="app_name">Qualifiers</string>
-    <string name="hello_world">Hello World! \nSingle screen mode</string>
-    <string name="resource_folder">sw540dp-1350x1800</string>
+    <string name="qualifiers_app_name">Qualifiers</string>
+    <string name="qualifiers_hello_world">Hello World! \nSingle screen mode</string>
+    <string name="qualifiers_resource_folder">sw540dp-1350x1800</string>
 </resources>

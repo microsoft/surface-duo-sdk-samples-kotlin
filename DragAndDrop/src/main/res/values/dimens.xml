@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
 <resources>
-    <dimen name="reset_button_margin">16dp</dimen>
-    <dimen name="image_width">180dp</dimen>
-    <dimen name="image_height">160dp</dimen>
-    <dimen name="image_margin">8dp</dimen>
-    <dimen name="text_margin">8dp</dimen>
-    <dimen name="very_small_padding">4dp</dimen>
+    <dimen name="drag_and_drop_reset_button_margin">16dp</dimen>
+    <dimen name="drag_and_drop_image_width">180dp</dimen>
+    <dimen name="drag_and_drop_image_height">160dp</dimen>
+    <dimen name="drag_and_drop_image_margin">8dp</dimen>
+    <dimen name="drag_and_drop_text_margin">8dp</dimen>
+    <dimen name="drag_and_drop_very_small_padding">4dp</dimen>
 </resources>
