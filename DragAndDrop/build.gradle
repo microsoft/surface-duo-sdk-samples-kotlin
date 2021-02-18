@@ -37,7 +37,6 @@ dependencies {
 
     implementation microsoftDependencies.screenManager
     implementation microsoftDependencies.layouts
-    api microsoftDependencies.fragmentsHandler
 
     testImplementation testDependencies.junit
 

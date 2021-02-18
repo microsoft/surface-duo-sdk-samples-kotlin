@@ -5,21 +5,14 @@
 package com.microsoft.device.display.samples.duosamples
 
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 
 class DuoSamplesActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_duo_samples)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        onBackPressed()
-        return true
     }
 }

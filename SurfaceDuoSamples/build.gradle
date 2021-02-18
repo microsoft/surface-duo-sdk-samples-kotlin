@@ -51,6 +51,10 @@ dependencies {
     implementation project(':DragAndDrop')
     implementation project(':HingeAngle')
 
+    implementation microsoftDependencies.screenManager
+    implementation microsoftDependencies.layouts
+    implementation microsoftDependencies.fragmentsHandler
+
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.constraintLayout

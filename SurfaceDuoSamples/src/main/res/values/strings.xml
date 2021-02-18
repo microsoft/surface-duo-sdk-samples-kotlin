@@ -8,7 +8,7 @@
 
     <string name="drag_and_drop_info">Drag and drop - Shows how to build a layout where you can drag and drop content from other apps.</string>
     <string name="dual_view_info">Dual View - Shows how to build a layout with custom behavior for single screen or dual screen.</string>
-    <string name="hinge_angle_info">Hinge Angle- Shows how to listen to the hinge angle sen/ListDetailsActivity.ktsor and use the angle values.</string>
+    <string name="hinge_angle_info">Hinge Angle- Shows how to listen to the hinge angle sensor and use the angle values.</string>
     <string name="list_details_info">List Detail - Shows how to implement the list-details pattern on Surface Duo.</string>
     <string name="pen_events_info">Pen Events - Shows how to follow the pen events and use the metrics.</string>
     <string name="two_page_info">Two Page - Shows how to build a two page layout.</string>
