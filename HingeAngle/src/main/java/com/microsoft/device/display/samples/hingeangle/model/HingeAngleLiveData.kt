@@ -14,7 +14,12 @@ import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import com.microsoft.device.display.samples.hingeangle.extensions.hingeAngleSensor
 
-private const val DEFAULT_HINGE_ANGLE = 180
+const val DEFAULT_HINGE_ANGLE = 180
+
+/**
+ * Value sent by the  [HingeAngleLiveData] when the device doesn't have a hinge.
+ */
+const val UNAVAILABLE_HINGE = 999
 
 /**
  * LiveData that exposes the hinge angle values from sensor
@@ -41,14 +46,16 @@ class HingeAngleLiveData(context: Context) : LiveData<Int>() {
     override fun onActive() {
         hingeAngleSensor?.let {
             sensorManager?.registerListener(hingeAngleSensorListener, it, SensorManager.SENSOR_DELAY_NORMAL)
-        } ?: throw IllegalStateException("HingeAngleSensor cannot be null")
+        } ?: run {
+            value = UNAVAILABLE_HINGE
+        }
     }
 
     override fun onInactive() {
         super.onInactive()
         hingeAngleSensor?.let {
             sensorManager?.unregisterListener(hingeAngleSensorListener, it)
-        } ?: throw IllegalStateException("HingeAngleSensor cannot be null")
+        }
     }
 
     companion object {
