@@ -12,13 +12,8 @@
     <application>
         <activity
             android:name=".IntentToSecondScreenFirstActivity"
-            android:label="@string/intent_app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:label="@string/intent_app_name" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".IntentToSecondScreenSecondActivity"
             android:label="@string/intent_app_name"

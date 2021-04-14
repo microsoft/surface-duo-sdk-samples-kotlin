@@ -5,7 +5,7 @@
   -->
 
 <resources>
-    <string name="surface_duo_samples_app_name">Surface Duo Samples</string>
+    <string name="surface_duo_samples_app_name">Duo Samples</string>
     <string name="hello_to_the_app">Welcome to the Surface Duo Samples App!</string>
 
     <string name="drag_and_drop_info">Drag and drop - Shows how to build a layout where you can drag and drop content from other apps.</string>
