@@ -15,9 +15,11 @@ import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.microsoft.device.display.samples.hingeangle.R
+import com.microsoft.device.display.samples.hingeangle.model.DEFAULT_HINGE_ANGLE
 import com.microsoft.device.display.samples.hingeangle.model.HingeAngleLiveData
 import com.microsoft.device.display.samples.hingeangle.model.HingeAngleViewModel
 import com.microsoft.device.display.samples.hingeangle.model.PaintColors
+import com.microsoft.device.display.samples.hingeangle.model.UNAVAILABLE_HINGE
 import com.microsoft.device.display.samples.hingeangle.model.color
 import com.microsoft.device.display.samples.hingeangle.views.PenDrawingView
 
@@ -99,9 +101,15 @@ class SingleScreenFragment : Fragment() {
         HingeAngleLiveData.get(requireContext()).observe(
             viewLifecycleOwner,
             {
-                hingeAngleValueView.text = it.toString()
-                drawingView.paintRadius = it
-                currentAngle = it
+                if (it != UNAVAILABLE_HINGE) {
+                    hingeAngleValueView.text = it.toString()
+                    drawingView.paintRadius = it
+                    currentAngle = it
+                } else {
+                    hingeAngleValueView.text = getString(R.string.hinge_angle_unavailable)
+                    drawingView.paintRadius = DEFAULT_HINGE_ANGLE
+                    currentAngle = DEFAULT_HINGE_ANGLE
+                }
             }
         )
     }
