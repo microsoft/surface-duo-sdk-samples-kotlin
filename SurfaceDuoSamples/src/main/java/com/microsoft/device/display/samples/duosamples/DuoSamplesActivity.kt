@@ -14,5 +14,6 @@ class DuoSamplesActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        supportActionBar?.title = getString( R.string.surface_duo_samples_app_title)
     }
 }
