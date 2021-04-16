@@ -11,7 +11,7 @@
         android:name="DuoSamplesApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/surface_duo_samples_app_name"
+        android:label="@string/surface_duo_samples_app_title"
         android:supportsRtl="true"
         android:theme="@style/DuoSampleAppTheme">
 
