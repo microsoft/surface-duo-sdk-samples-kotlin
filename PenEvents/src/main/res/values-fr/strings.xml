@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="pen_events_app_name">Pen Events</string>
+    <string name="pen_events_action_button_release">Action : Button Release</string>
+    <string name="pen_events_action_button_press">Action : Button Press</string>
+    <string name="pen_events_action_hover_move">Action : Hover Move</string>
+    <string name="pen_events_action_hover_exit">Action : Hover Exit</string>
+    <string name="pen_events_action_hover_enter">Action : Hover Enter</string>
+    <string name="pen_events_action_outside">Action : Outside</string>
+    <string name="pen_events_action_cancel">Action : Cancel</string>
+    <string name="pen_events_action_up">Action : Up</string>
+    <string name="pen_events_action_move">Action : Move</string>
+    <string name="pen_events_action_down">Action : Down</string>
+    <string name="pen_events_pressure_value">Pressure : %1$s</string>
+    <string name="pen_events_orientation_value">Orientation : %1$s</string>
+    <string name="pen_events_button_state_value">Button State : %1$d</string>
+    <string name="pen_events_location_value">Location :  %1$s, %2$s</string>
+    <string name="pen_events_tilt_value">Tilt : %1$s</string>
+    <string name="pen_events_device">device</string>
+    <string name="pen_events_action">action</string>
+    <string name="pen_events_pressure">pressure</string>
+    <string name="pen_events_orientation">orientation</string>
+    <string name="pen_events_button_state">button state</string>
+    <string name="pen_events_coordinates">coordinates</string>
+    <string name="pen_events_tilt">tilt</string>
+</resources>

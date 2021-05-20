@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="dual_view_app_name">Dual View</string>
+    <string name="dual_view_search_toast">This sample doesn\'t have the search functionality built in</string>
+    <string name="dual_view_list_title">Dine-in Restaurants</string>
+    <string name="dual_view_restaurant_type">%1$s restaurant</string>
+
+    <string name="dual_view_menu_item_list">List</string>
+    <string name="dual_view_menu_item_map">Map</string>
+</resources>
