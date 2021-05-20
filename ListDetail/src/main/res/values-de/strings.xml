@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="list_details_app_name">List Detail</string>
+    <string name="list_details_camera">Camera</string>
+    <string name="list_details_device">Device</string>
+    <string name="list_details_device_name">Surface Duo</string>
+    <string name="list_details_image_spec">f/2.0  1/15  2.51mm  ISO 520</string>
+    <string name="list_details_item_image">Item Image</string>
+</resources>
