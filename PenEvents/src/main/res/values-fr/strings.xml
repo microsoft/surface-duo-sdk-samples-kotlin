@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="pen_events_app_name">Actions du stylet</string>
+    <string name="pen_events_action_button_release">Action: relâchement du bouton</string>
+    <string name="pen_events_action_button_press">Action: appuyez sur le bouton</string>
+    <string name="pen_events_action_hover_move">Action: déplacer le survol</string>
+    <string name="pen_events_action_hover_exit">Action: Survolez la sortie</string>
+    <string name="pen_events_action_hover_enter">Action: passez la souris sur Entrée</string>
+    <string name="pen_events_action_outside">Action: à l\'extérieur</string>
+    <string name="pen_events_action_cancel">Action: Annuler</string>
+    <string name="pen_events_action_up">Action: vers le haut</string>
+    <string name="pen_events_action_move">Action: déplacer</string>
+    <string name="pen_events_action_down">Action: vers le bas</string>
+    <string name="pen_events_pressure_value">Pression +: + %1$s</string>
+    <string name="pen_events_orientation_value">Orientation +: + %1$s</string>
+    <string name="pen_events_button_state_value">Bouton + État +: + %1$d</string>
+    <string name="pen_events_location_value">Emplacement +: ++ %1$s, + %2$s</string>
+    <string name="pen_events_tilt_value">Inclinaison +: + %1$s</string>
+    <string name="pen_events_device">appareil</string>
+    <string name="pen_events_action">action</string>
+    <string name="pen_events_pressure">pression</string>
+    <string name="pen_events_orientation">orientation</string>
+    <string name="pen_events_button_state">état du bouton</string>
+    <string name="pen_events_coordinates">coordonnées</string>
+    <string name="pen_events_tilt">inclinaison</string>
+</resources>

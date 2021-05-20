@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="multiple_instances_app_name">Échantillons Surface Duo</string>
+    <string name="multiple_instances_main_activity_text">Bienvenu à l\écran principal</string>
+    <string name="multiple_instances_second_activity_text">Bonjour deuxième écran</string>
+    <string name="multiple_instances_main_shortcut_label">Activité principale</string>
+    <string name="multiple_instances_second_shortcut_label">Deuxième activité</string>
+</resources>

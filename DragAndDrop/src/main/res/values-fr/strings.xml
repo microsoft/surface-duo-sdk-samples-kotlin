@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="drag_and_drop_app_name">Glisser-déposer</string>
+    <string name="drag_and_drop_plain_text">L\'équilibre parfait entre productivité et mobilité. Surface Duo est un nouvel appareil à double écran qui tient dans votre poche. Avec deux écrans connectés d\'une manière révolutionnaire à 360 °, Surface Duo réunit le meilleur de Microsoft et d\'Android pour réinventer la productivité en déplacement.</string>
+    <string name="drag_and_drop_drag_image_here">Faites glisser l\'image ici</string>
+    <string name="drag_and_drop_drag_text_here">Faites glisser le texte ici</string>
+</resources>

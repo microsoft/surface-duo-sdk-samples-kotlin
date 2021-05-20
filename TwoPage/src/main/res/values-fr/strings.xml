@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="two_page_app_name">Deux pages</string>
+    <string name="article_title">Le Colisée romain</string>
+    <string name="two_page_image_caption">Colisée romain, histoire ancienne</string>
+    <string name="two_page_page1_text">Contrairement à la croyance populaire, Lorem Ipsum n\'est pas simplement un texte aléatoire. Il a ses racines dans un morceau de littérature latine classique de 45 avant JC, ce qui en fait plus de 2000 ans. Richard McClintock, professeur de latin au Hampden-Sydney College en Virginie, a recherché l\'un des mots latins les plus obscurs, consectetur, d\'un passage du Lorem Ipsum, et en parcourant les citations du mot dans la littérature classique, a découvert la source incontestable.</string>
+    <string name="two_page_page2_title1">Pourquoi l\'utilisons-nous?</string>
+    <string name="two_page_page2_text1">"C\'est un fait établi depuis longtemps qu\'un lecteur sera distrait par le contenu lisible d\'une page lorsqu\'il regarde sa mise en page. L\'intérêt d\'utiliser Lorem Ipsum est qu\'il a une distribution plus ou moins normale des lettres, par opposition à en utilisant "Contenu ici, contenu ici", ce qui donne l\'impression d\'être en anglais lisible. De nombreux packages de publication assistée par ordinateur et éditeurs de pages Web utilisent désormais Lorem Ipsum comme modèle de texte par défaut, et une recherche sur "lorem ipsum" permettra de découvrir de nombreux sites Web encore dans leur enfance.</string>
+    <string name="two_page_page2_title2">Où puis-je en obtenir?</string>
+    <string name="two_page_page2_text2">Il existe de nombreuses variantes de passages du Lorem Ipsum disponibles, mais la majorité ont subi des altérations sous une forme ou une autre, par de l\'humour injecté ou des mots aléatoires qui ne semblent même pas légèrement crédibles. Si vous comptez utiliser un passage du Lorem Ipsum, vous devez vous assurer qu\'il n\'y a rien de gênant caché au milieu du texte. Tous les générateurs Lorem Ipsum sur Internet ont tendance à répéter des morceaux prédéfinis si nécessaire, ce qui en fait le premier véritable générateur sur Internet. Il utilise un dictionnaire de plus de 200 mots latins, combiné avec une poignée de structures de phrases modèles, pour générer Lorem Ipsum qui semble raisonnable.</string>
+    <string name="two_page_page3_title1">Origines et découverte</string>
+    <string name="two_page_page3_text1">Jusqu\'à récemment, l\'opinion dominante supposait que le lorem ipsum était né comme un texte absurde. "Ce n\'est pas du latin, même si ça y ressemble, et ça ne dit rien," Avant</string>
+    <string name="two_page_page4_title1">Voici le passage classique de lorem ipsum suivi de la version étrange mais fascinante de Boparai:</string>
+    <string name="two_page_page4_text1">"Lorem ipsum carottes, expérience de premier cycle améliorée. Pour le Bureau ne se soucient pas encore de la nutrition. Maintenant, mettez du piment orange sur le canapé. Pour les bananes tristes joueurs de tests. comme un parfum comme une piscine ou un siège ni était chaud. mais pourtant jupe graduée. devoirs carottes membres bouton. devoirs maintenant cacahuète, immobilier et au dui, la vallée fait toujours rire. la masse terrestre de basket-ball de premier cycle reçoit les véhicules de football. "</string>
+    <string name="two_page_page4_title2">Version de Boparai:</string>
+    <string name="two_page_page4_text2">«Rrow lui-même, que ce soit le chagrin; qu\'il l\'aime; qu\'il le poursuive, cherchant à l\'acquérir. Parce qu\'il ne tiendra pas, unis mais par le biais du concer, et aussi de ceux qui résistent. Il ejjnoyes, afin que quelqu\'un gagne, aussi avec un sévère, à moins de la vie. Puisse un officier d\'officier quelque chose de rien d\'un empoisonné. Jusqu\'à ce que, d\'un de deux, deux pinson puissent aussi le poursuivre, pas même un morceau twho, comme un réservoir; un proverbe, de la levure; ou bien ils n\'inscrivent ni. Pourtant, pourtant, le lit fanon. la vallée est toujours un rire. "</string>
+    <string name="two_page_page1_page_number">PAGE 1 sur 4</string>
+    <string name="two_page_page2_page_number">PAGE 2 sur 4</string>
+    <string name="two_page_page3_page_number">PAGE 3 sur 4</string>
+    <string name="two_page_page4_page_number">PAGE 4 sur 4</string>
+
+</resources>

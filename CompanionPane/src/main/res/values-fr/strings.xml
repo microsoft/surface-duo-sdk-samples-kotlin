@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="companion_pane_app_name">Aide panel</string>
+    <string name="companion_pane_filters">Filtres</string>
+    <string name="companion_pane_gingham">Vichy</string>
+    <string name="companion_pane_original">Original</string>
+    <string name="companion_pane_lark">Alouette</string>
+    <string name="companion_pane_juno">Junon</string>
+    <string name="companion_pane_ludwig">Ludwig</string>
+    <string name="companion_pane_magic_wand">Baguette magique</string>
+    <string name="companion_pane_definition">Définition</string>
+    <string name="companion_pane_vignette">Vignette</string>
+    <string name="companion_pane_brightness">Luminosité</string>
+</resources>
