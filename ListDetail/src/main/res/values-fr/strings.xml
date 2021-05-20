@@ -5,10 +5,10 @@
   -->
 
 <resources>
-    <string name="list_details_app_name">Détail de la liste</string>
+    <string name="list_details_app_name">Détail/Liste</string>
     <string name="list_details_camera">Caméra</string>
     <string name="list_details_device">Appareil</string>
-    <string name="list_details_device_name">Duo de surface</string>
+    <string name="list_details_device_name">Surface Duo</string>
     <string name="list_details_image_spec">f /2,0 1/15 2,51 mm ISO 520</string>
     <string name="list_details_item_image">Image de l\'article</string>
 </resources>

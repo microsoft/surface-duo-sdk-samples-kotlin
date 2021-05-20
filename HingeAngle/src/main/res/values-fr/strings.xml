@@ -5,7 +5,7 @@
   -->
 
 <resources>
-    <string name="hinge_angle_app_name">Angle de charnière</string>
-    <string name="hinge_angle_button_clear_text">Dégager</string>
+    <string name="hinge_angle_app_name">Angle de pliage</string>
+    <string name="hinge_angle_button_clear_text">effacer</string>
     <string name="hinge_angle_unavailable">Le capteur de charnière n\'est pas disponible!</string>
 </resources>

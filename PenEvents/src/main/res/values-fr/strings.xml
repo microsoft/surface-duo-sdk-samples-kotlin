@@ -6,7 +6,7 @@
   -->
 
 <resources>
-    <string name="pen_events_app_name">Événements de stylo</string>
+    <string name="pen_events_app_name">Actions du stylet</string>
     <string name="pen_events_action_button_release">Action: relâchement du bouton</string>
     <string name="pen_events_action_button_press">Action: appuyez sur le bouton</string>
     <string name="pen_events_action_hover_move">Action: déplacer le survol</string>

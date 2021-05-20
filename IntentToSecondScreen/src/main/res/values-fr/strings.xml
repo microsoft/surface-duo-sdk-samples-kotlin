@@ -5,7 +5,7 @@
   -->
 
 <resources>
-    <string name="intent_app_name">Intention de deuxième écran</string>
+    <string name="intent_app_name">Intent to Second Screen</string>
     <string name="intent_app_web_link">https://www.microsoft.com</string>
     <string name="intent_app_map_link">https://maps.app.goo.gl/od6hh3onYGVi4A8w8</string>
     <string name="intent_app_link_access_tag">Allez sur microsoft.com</string>
