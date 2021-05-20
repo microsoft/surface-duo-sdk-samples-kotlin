@@ -5,8 +5,8 @@
   -->
 
 <resources>
-    <string name="drag_and_drop_app_name">Drag And Drop</string>
-    <string name="drag_and_drop_plain_text">The perfect balance of productivity and mobility. Surface Duo is a new dual-screen device that fits in your pocket. With two screens connected by a revolutionary 360° hinge, Surface Duo brings together the best of Microsoft and Android to reimagine productivity on the go. Coming Holiday 2020.</string>
-    <string name="drag_and_drop_drag_image_here">Drag Image here</string>
-    <string name="drag_and_drop_drag_text_here">Drag text here</string>
+    <string name="drag_and_drop_app_name">Glisser déposer</string>
+    <string name="drag_and_drop_plain_text">L\'équilibre parfait entre productivité et mobilité. Surface Duo est un nouvel appareil à double écran qui tient dans votre poche. Avec deux écrans connectés par une charnière révolutionnaire à 360 °, Surface Duo réunit le meilleur de Microsoft et d\'Android pour réinventer la productivité en déplacement. À venir vacances 2020.</string>
+    <string name="drag_and_drop_drag_image_here">Faites glisser l\'image ici</string>
+    <string name="drag_and_drop_drag_text_here">Faites glisser le texte ici</string>
 </resources>
