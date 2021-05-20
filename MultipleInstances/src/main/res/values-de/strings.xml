@@ -1,7 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
 <resources>
-    <string name="multiple_instances_app_name">Surface Duo Samples</string>
-    <string name="multiple_instances_main_activity_text">Hello Main Screen</string>
-    <string name="multiple_instances_second_activity_text">Hello Second Screen</string>
-    <string name="multiple_instances_main_shortcut_label">Main Activity</string>
-    <string name="multiple_instances_second_shortcut_label">Second Activity</string>
+    <string name="multiple_instances_app_name">Oberflächen-Duo-Proben</string>
+    <string name="multiple_instances_main_activity_text">Hallo Hauptbildschirm</string>
+    <string name="multiple_instances_second_activity_text">Hallo zweiter Bildschirm</string>
+    <string name="multiple_instances_main_shortcut_label">Hauptaktivität</string>
+    <string name="multiple_instances_second_shortcut_label">Zweite Aktivität</string>
 </resources>

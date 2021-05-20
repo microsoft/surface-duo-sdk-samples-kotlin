@@ -6,10 +6,10 @@
 
 <resources>
     <string name="dual_view_app_name">Dual View</string>
-    <string name="dual_view_search_toast">This sample doesn\'t have the search functionality built in</string>
-    <string name="dual_view_list_title">Dine-in Restaurants</string>
-    <string name="dual_view_restaurant_type">%1$s restaurant</string>
+    <string name="dual_view_search_toast">In diesem Beispiel ist die Suchfunktion nicht integriert</string>
+    <string name="dual_view_list_title">Restaurants</string>
+    <string name="dual_view_restaurant_type">%1$s + Restaurant</string>
 
-    <string name="dual_view_menu_item_list">List</string>
-    <string name="dual_view_menu_item_map">Map</string>
+    <string name="dual_view_menu_item_list">Aufführen</string>
+    <string name="dual_view_menu_item_map">Karte</string>
 </resources>

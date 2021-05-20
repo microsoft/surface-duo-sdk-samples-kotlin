@@ -5,10 +5,10 @@
   -->
 
 <resources>
-    <string name="list_details_app_name">List Detail</string>
-    <string name="list_details_camera">Camera</string>
-    <string name="list_details_device">Device</string>
-    <string name="list_details_device_name">Surface Duo</string>
-    <string name="list_details_image_spec">f/2.0  1/15  2.51mm  ISO 520</string>
-    <string name="list_details_item_image">Item Image</string>
+    <string name="list_details_app_name">Listendetail</string>
+    <string name="list_details_camera">Kamera</string>
+    <string name="list_details_device">Gerät</string>
+    <string name="list_details_device_name">Oberflächen-Duo</string>
+    <string name="list_details_image_spec">1: 2,0 1/15 2,51 mm ISO 520</string>
+    <string name="list_details_item_image">Artikelbild</string>
 </resources>
