@@ -5,7 +5,7 @@
   -->
 
 <resources>
-    <string name="multiple_instances_app_name">Oberflächen-Duo-Proben</string>
+    <string name="multiple_instances_app_name">Multiple Instances</string>
     <string name="multiple_instances_main_activity_text">Hallo Hauptbildschirm</string>
     <string name="multiple_instances_second_activity_text">Hallo zweiter Bildschirm</string>
     <string name="multiple_instances_main_shortcut_label">Hauptaktivität</string>

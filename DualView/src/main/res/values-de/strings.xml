@@ -8,7 +8,7 @@
     <string name="dual_view_app_name">Dual View</string>
     <string name="dual_view_search_toast">In diesem Beispiel ist die Suchfunktion nicht integriert</string>
     <string name="dual_view_list_title">Restaurants</string>
-    <string name="dual_view_restaurant_type">%1$s + Restaurant</string>
+    <string name="dual_view_restaurant_type">%1$s Restaurant</string>
 
     <string name="dual_view_menu_item_list">Aufführen</string>
     <string name="dual_view_menu_item_map">Karte</string>

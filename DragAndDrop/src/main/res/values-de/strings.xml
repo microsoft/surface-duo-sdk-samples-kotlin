@@ -5,8 +5,8 @@
   -->
 
 <resources>
-    <string name="drag_and_drop_app_name">Drag &amp; Drop</string>
-    <string name="drag_and_drop_plain_text">Das perfekte Gleichgewicht zwischen Produktivität und Mobilität. Surface Duo ist ein neues Dual-Screen-Gerät, das in Ihre Tasche passt. Mit zwei Bildschirmen, die durch ein revolutionäres 360 ° -Scharnier verbunden sind, vereint Surface Duo das Beste aus Microsoft und Android, um die Produktivität unterwegs neu zu definieren. Kommender Feiertag 2020.</string>
+    <string name="drag_and_drop_app_name">Drag And Drop</string>
+    <string name="drag_and_drop_plain_text">Das perfekte Gleichgewicht zwischen Produktivität und Mobilität. Surface Duo ist ein neues Dual-Screen-Gerät, das in Ihre Tasche passt. Mit zwei Bildschirmen, die durch ein revolutionäres 360 ° -Scharnier verbunden sind, vereint Surface Duo das Beste aus Microsoft und Android, um die Produktivität unterwegs neu zu definieren.</string>
     <string name="drag_and_drop_drag_image_here">Ziehen Sie das Bild hierher</string>
     <string name="drag_and_drop_drag_text_here">Ziehen Sie den Text hierher</string>
 </resources>

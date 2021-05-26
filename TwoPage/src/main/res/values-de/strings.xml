@@ -5,7 +5,7 @@
   -->
 
 <resources>
-    <string name="two_page_app_name">Zwei Seiten</string>
+    <string name="two_page_app_name">Two Page</string>
     <string name="article_title">Das römische Kolosseum</string>
     <string name="two_page_image_caption">Römisches Kolosseum, alte Geschichte</string>
     <string name="two_page_page1_text">Entgegen der landläufigen Meinung ist Lorem Ipsum kein zufälliger Text. Es hat seine Wurzeln in einem Stück klassischer lateinischer Literatur aus dem Jahr 45 v. Chr. Und ist damit über 2000 Jahre alt. Richard McClintock, ein Lateinprofessor am Hampden-Sydney College in Virginia, suchte eines der dunkeleren lateinischen Wörter, consectetur, aus einer Lorem Ipsum-Passage und entdeckte die unbestreitbare Quelle, indem er die Zitate des Wortes in der klassischen Literatur durchging.</string>

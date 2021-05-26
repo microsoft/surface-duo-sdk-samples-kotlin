@@ -8,7 +8,7 @@
 <resources>
     <!-- This is the a specific resource folder (values-sw720dp) that any device that fits with this configuration
      will use. E.g: Pixel C tablet emulator-->
-    <string name="qualifiers_app_name">Qualifikanten</string>
+    <string name="qualifiers_app_name">Qualifiers</string>
     <string name="qualifiers_hello_world">Hallo Welt!</string>
     <string name="qualifiers_resource_folder">sw720dp</string>
 </resources>

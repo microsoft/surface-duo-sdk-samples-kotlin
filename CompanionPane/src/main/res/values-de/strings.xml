@@ -6,7 +6,7 @@
   -->
 
 <resources>
-    <string name="companion_pane_app_name">Begleitfenster</string>
+    <string name="companion_pane_app_name">Companion Pane</string>
     <string name="companion_pane_filters">Filter</string>
     <string name="companion_pane_gingham">Gingham</string>
     <string name="companion_pane_original">Original</string>

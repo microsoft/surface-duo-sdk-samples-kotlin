@@ -9,17 +9,17 @@
     <string name="surface_duo_samples_app_title">Faltbare App-Beispiele von Surface Duo</string>
     <string name="hello_to_the_app">Willkommen bei Foldable Samples von Surface Duo!</string>
 
-    <string name="drag_and_drop_info">Drag &amp; Drop - Zeigt, wie Sie ein Layout erstellen, in das Sie Inhalte aus anderen Apps ziehen und ablegen können.</string>
-    <string name="dual_view_info">Doppelte Ansicht - Zeigt, wie ein Layout mit benutzerdefiniertem Verhalten für einen einzelnen Bildschirm oder einen doppelten Bildschirm erstellt wird.</string>
-    <string name="hinge_angle_info">Scharnierwinkel - Zeigt an, wie der Scharnierwinkelsensor angehört und die Winkelwerte verwendet werden.</string>
-    <string name="list_details_info">Listendetails - Zeigt an, wie das Listendetails-Muster in Surface Duo implementiert wird.</string>
-    <string name="pen_events_info">Stiftereignisse - Zeigt an, wie Sie die Stiftereignisse verfolgen und die Metriken verwenden.</string>
-    <string name="two_page_info">Zwei Seiten - Zeigt, wie ein zweiseitiges Layout erstellt wird.</string>
-    <string name="companion_pane_info">Begleitfenster - Zeigt an, wie ein Begleitfenster erstellt wird.</string>
-    <string name="extend_canvas_info">Erweiterte Leinwand - Zeigt, wie eine große Leinwand integriert wird.</string>
-    <string name="intent_to_second_screen_info">Absicht zum zweiten Bildschirm - Zeigt, wie Aktivitäten in verschiedenen Szenarien geöffnet werden.</string>
-    <string name="qualifiers_info">Qualifizierer - Zeigt, wie die Android-Ressourcenqualifizierer zum Strukturieren der Projektressourcen für Duo-Geräte verwendet werden.</string>
-    <string name="multiple_instances_info">Mehrere Instanzen - Zeigt an, wie mehrere Instanzen derselben Aktivität geöffnet werden.</string>
+    <string name="drag_and_drop_info">Drag and drop - Zeigt, wie Sie ein Layout erstellen, in das Sie Inhalte aus anderen Apps ziehen und ablegen können.</string>
+    <string name="dual_view_info">Dual View - Zeigt, wie ein Layout mit benutzerdefiniertem Verhalten für einen einzelnen Bildschirm oder einen doppelten Bildschirm erstellt wird.</string>
+    <string name="hinge_angle_info">Hinge Angle - Zeigt an, wie der Scharnierwinkelsensor angehört und die Winkelwerte verwendet werden.</string>
+    <string name="list_details_info">List Detail - Zeigt an, wie das Listendetails-Muster in Surface Duo implementiert wird.</string>
+    <string name="pen_events_info">Pen Events - Zeigt an, wie Sie die Stiftereignisse verfolgen und die Metriken verwenden.</string>
+    <string name="two_page_info">Two Page - Zeigt, wie ein zweiseitiges Layout erstellt wird.</string>
+    <string name="companion_pane_info">Companion Pane - Zeigt an, wie ein Begleitfenster erstellt wird.</string>
+    <string name="extend_canvas_info">Extended Canvas - Zeigt, wie eine große Leinwand integriert wird.</string>
+    <string name="intent_to_second_screen_info">Intent To Second Screen - Zeigt, wie Aktivitäten in verschiedenen Szenarien geöffnet werden.</string>
+    <string name="qualifiers_info">Qualifiers - Zeigt, wie die Android-Ressourcenqualifizierer zum Strukturieren der Projektressourcen für Duo-Geräte verwendet werden.</string>
+    <string name="multiple_instances_info">Multiple Instances - Zeigt an, wie mehrere Instanzen derselben Aktivität geöffnet werden.</string>
 
     <string name="try_it_out">Versuch es</string>
     <string name="view_the_code">Code anzeigen</string>
