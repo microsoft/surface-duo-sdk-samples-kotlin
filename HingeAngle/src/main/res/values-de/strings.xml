@@ -6,6 +6,6 @@
 
 <resources>
     <string name="hinge_angle_app_name">Hinge Angle</string>
-    <string name="hinge_angle_button_clear_text">effacer</string>
-    <string name="hinge_angle_unavailable">Le capteur de charnière n\'est pas disponible!</string>
+    <string name="hinge_angle_button_clear_text">klar</string>
+    <string name="hinge_angle_unavailable">Der Scharniersensor ist nicht verfügbar!</string>
 </resources>

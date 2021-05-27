@@ -9,17 +9,17 @@
     <string name="surface_duo_samples_app_title">Exemples d\'applications pliables par Surface Duo</string>
     <string name="hello_to_the_app">Bienvenue dans les exemples pliables de Surface Duo!</string>
 
-    <string name="drag_and_drop_info">Glisser-déposer - Montre comment créer une mise en page dans laquelle vous pouvez faire glisser et déposer du contenu à partir d\'autres applications.</string>
-    <string name="dual_view_info">Double affichage - Montre comment créer une mise en page avec un comportement personnalisé pour un écran unique ou double écran.</string>
-    <string name="hinge_angle_info">Angle de pliage - Montre comment utiliser la valeur du capteur d\'angle dans un programme.</string>
-    <string name="list_details_info">Détail/Liste - Montre comment implémenter le modèle de détails ou de liste sur Surface Duo.</string>
-    <string name="pen_events_info">Actions du stylet - montre comment suivre les actions du stylet et utiliser les valeurs.</string>
-    <string name="two_page_info">Deux pages - Montre comment créer une mise en page sur deux pages.</string>
-    <string name="companion_pane_info">Aide panel - montre comment construire le panel d\'aide.</string>
+    <string name="drag_and_drop_info">Drag and drop - Montre comment créer une mise en page dans laquelle vous pouvez faire glisser et déposer du contenu à partir d\'autres applications.</string>
+    <string name="dual_view_info">Dual View - Montre comment créer une mise en page avec un comportement personnalisé pour un écran unique ou double écran.</string>
+    <string name="hinge_angle_info">Hinge Angle - Montre comment utiliser la valeur du capteur d\'angle dans un programme.</string>
+    <string name="list_details_info">List Detail - Montre comment implémenter le modèle de détails ou de liste sur Surface Duo.</string>
+    <string name="pen_events_info">Pen Events - montre comment suivre les actions du stylet et utiliser les valeurs.</string>
+    <string name="two_page_info">Two Page - Montre comment créer une mise en page sur deux pages.</string>
+    <string name="companion_pane_info">Companion Pane - montre comment construire le panel d\'aide.</string>
     <string name="extend_canvas_info">Extended Canvas - Montre comment intégrer une grande canvas.</string>
     <string name="intent_to_second_screen_info">Intent to Second Screen - Montre comment ouvrir des activités dans différents scénarios.</string>
-    <string name="qualifiers_info">Qualificateurs - Montre comment utiliser les qualificateurs de ressources Android pour structurer les ressources du projet pour les Surface Duo.</string>
-    <string name="multiple_instances_info">Instances multiples - Montre comment ouvrir plusieurs instances de la même activité.</string>
+    <string name="qualifiers_info">Qualifiers - Montre comment utiliser les qualificateurs de ressources Android pour structurer les ressources du projet pour les Surface Duo.</string>
+    <string name="multiple_instances_info">Multiple Instances - Montre comment ouvrir plusieurs instances de la même activité.</string>
 
     <string name="try_it_out">Essaye le</string>
     <string name="view_the_code">Afficher le code</string>

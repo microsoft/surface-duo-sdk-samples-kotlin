@@ -20,7 +20,7 @@
     <string name="pen_events_pressure_value">Pressure : %1$s</string>
     <string name="pen_events_orientation_value">Orientation : %1$s</string>
     <string name="pen_events_button_state_value">Button State : %1$d</string>
-    <string name="pen_events_location_value">Location :  %1$s, %2$s</string>
+    <string name="pen_events_location_value">Location : %1$s, %2$s</string>
     <string name="pen_events_tilt_value">Tilt : %1$s</string>
     <string name="pen_events_device">device</string>
     <string name="pen_events_action">action</string>

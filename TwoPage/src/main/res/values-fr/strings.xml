@@ -5,7 +5,7 @@
   -->
 
 <resources>
-    <string name="two_page_app_name">Deux pages</string>
+    <string name="two_page_app_name">Two Page</string>
     <string name="article_title">Le Colisée romain</string>
     <string name="two_page_image_caption">Colisée romain, histoire ancienne</string>
     <string name="two_page_page1_text">Contrairement à la croyance populaire, Lorem Ipsum n\'est pas simplement un texte aléatoire. Il a ses racines dans un morceau de littérature latine classique de 45 avant JC, ce qui en fait plus de 2000 ans. Richard McClintock, professeur de latin au Hampden-Sydney College en Virginie, a recherché l\'un des mots latins les plus obscurs, consectetur, d\'un passage du Lorem Ipsum, et en parcourant les citations du mot dans la littérature classique, a découvert la source incontestable.</string>

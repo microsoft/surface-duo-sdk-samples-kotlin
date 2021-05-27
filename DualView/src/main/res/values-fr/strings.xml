@@ -5,10 +5,10 @@
   -->
 
 <resources>
-    <string name="dual_view_app_name">Double affichage</string>
+    <string name="dual_view_app_name">Dual View</string>
     <string name="dual_view_search_toast">Cet exemple ne dispose pas de la fonctionnalité de recherche intégrée</string>
     <string name="dual_view_list_title">Restaurants où dîner</string>
-    <string name="dual_view_restaurant_type">%1$s + restaurant</string>
+    <string name="dual_view_restaurant_type">%1$s restaurant</string>
 
     <string name="dual_view_menu_item_list">Lister</string>
     <string name="dual_view_menu_item_map">Carte</string>

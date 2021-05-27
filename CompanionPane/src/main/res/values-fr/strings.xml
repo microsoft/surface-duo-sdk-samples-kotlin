@@ -6,7 +6,7 @@
   -->
 
 <resources>
-    <string name="companion_pane_app_name">Aide panel</string>
+    <string name="companion_pane_app_name">Companion Pane</string>
     <string name="companion_pane_filters">Filtres</string>
     <string name="companion_pane_gingham">Vichy</string>
     <string name="companion_pane_original">Original</string>
