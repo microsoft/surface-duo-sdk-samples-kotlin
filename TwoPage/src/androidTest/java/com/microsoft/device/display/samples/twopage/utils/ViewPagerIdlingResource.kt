@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
+ */
+
 package com.microsoft.device.display.samples.twopage.utils
 
 import androidx.test.espresso.IdlingResource
