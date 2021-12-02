@@ -36,6 +36,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -55,6 +58,7 @@ dependencies {
     implementation microsoftDependencies.layouts
     implementation microsoftDependencies.fragmentsHandler
 
+    implementation androidxDependencies.recyclerView
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.constraintLayout

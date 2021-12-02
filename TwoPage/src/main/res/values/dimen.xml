@@ -5,7 +5,6 @@
   -->
 
 <resources>
-    <dimen name="two_page_text_size">28sp</dimen>
     <dimen name="two_page_title_text_size">16sp</dimen>
     <dimen name="two_page_page_padding">20dp</dimen>
     <dimen name="two_page_app_name_text_size">24dp</dimen>

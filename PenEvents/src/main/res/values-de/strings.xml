@@ -12,7 +12,6 @@
     <string name="pen_events_action_hover_move">Aktion : Bewegen Sie den Mauszeiger</string>
     <string name="pen_events_action_hover_exit">Aktion : Hover-Ausgang</string>
     <string name="pen_events_action_hover_enter">Aktion : Bewegen Sie den Mauszeiger</string>
-    <string name="pen_events_action_outside">Aktion : Draußen</string>
     <string name="pen_events_action_cancel">Aktion : Abbrechen</string>
     <string name="pen_events_action_up">Aktion : Auf</string>
     <string name="pen_events_action_move">Aktion : Verschieben</string>

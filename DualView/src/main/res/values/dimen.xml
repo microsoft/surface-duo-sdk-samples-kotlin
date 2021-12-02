@@ -6,7 +6,6 @@
 
 <resources>
     <dimen name="dual_view_margin_big">26dp</dimen>
-    <dimen name="dual_view_margin_normal">16dp</dimen>
     <dimen name="dual_view_margin_medium">10dp</dimen>
     <dimen name="dual_view_margin_small">6dp</dimen>
     <dimen name="dual_view_margin_very_small">2dp</dimen>

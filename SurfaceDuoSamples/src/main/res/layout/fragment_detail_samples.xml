@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/details_content_horizontal_margin"
+        android:layout_marginTop="@dimen/details_content_large_margin"
+        android:text="@string/drag_and_drop_app_name"
+        android:textColor="@color/details_title"
+        android:textSize="@dimen/details_title_text_size"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/github_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/view_the_code"
+        android:textColor="@color/simple_gray"
+        android:theme="@style/Theme.SwitchGithub"
+        card_view:layout_constraintBottom_toBottomOf="@+id/app_name"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintTop_toTopOf="@+id/app_name" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/details_content_large_margin"
+        card_view:layout_constraintBottom_toTopOf="@id/btn_try_it"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toBottomOf="@+id/app_name">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/details_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/list_details_item_image"
+                android:scaleType="center"
+                android:src="@drawable/details_drag_and_drop" />
+
+            <TextView
+                android:id="@+id/app_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/details_content_horizontal_margin"
+                android:layout_marginTop="@dimen/details_content_large_margin"
+                android:layout_marginEnd="@dimen/details_content_horizontal_margin"
+                android:text="@string/drag_and_drop_description"
+                android:textColor="@color/simple_gray"
+                android:textSize="@dimen/details_content_text_size" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_try_it"
+        style="@style/DuoSampleButton.OpenSample"
+        android:layout_marginEnd="@dimen/details_content_horizontal_margin"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent" />
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/details_content_large_margin"
+        android:visibility="gone"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toBottomOf="@+id/app_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

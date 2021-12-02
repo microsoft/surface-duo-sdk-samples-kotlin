@@ -6,7 +6,6 @@
 
 <resources>
     <string name="dual_view_app_name">Dual View</string>
-    <string name="dual_view_search_toast">This sample doesn\'t have the search functionality built in</string>
     <string name="dual_view_list_title">Dine-in Restaurants</string>
     <string name="dual_view_restaurant_type">%1$s restaurant</string>
 
