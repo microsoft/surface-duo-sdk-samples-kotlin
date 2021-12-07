@@ -70,11 +70,9 @@ class DuoSamplesDetailsFragment : Fragment() {
     private fun onViewCodeChanged(isChecked: Boolean) {
         if (isChecked) {
             binding.githubSwitch.setText(R.string.turn_off_code)
-            binding.webView.visibility = View.GONE
             binding.webView.visibility = View.VISIBLE
         } else {
             binding.githubSwitch.setText(R.string.view_the_code)
-            binding.webView.visibility = View.VISIBLE
             binding.webView.visibility = View.GONE
         }
     }
