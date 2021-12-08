@@ -12,7 +12,6 @@
     <string name="pen_events_action_hover_move">Action : déplacer le survol</string>
     <string name="pen_events_action_hover_exit">Action : Survolez la sortie</string>
     <string name="pen_events_action_hover_enter">Action : passez la souris sur Entrée</string>
-    <string name="pen_events_action_outside">Action : à l\'extérieur</string>
     <string name="pen_events_action_cancel">Action : Annuler</string>
     <string name="pen_events_action_up">Action : vers le haut</string>
     <string name="pen_events_action_move">Action : déplacer</string>

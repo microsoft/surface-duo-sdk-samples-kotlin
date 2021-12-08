@@ -12,7 +12,6 @@
     <string name="pen_events_action_hover_move">Action : Hover Move</string>
     <string name="pen_events_action_hover_exit">Action : Hover Exit</string>
     <string name="pen_events_action_hover_enter">Action : Hover Enter</string>
-    <string name="pen_events_action_outside">Action : Outside</string>
     <string name="pen_events_action_cancel">Action : Cancel</string>
     <string name="pen_events_action_up">Action : Up</string>
     <string name="pen_events_action_move">Action : Move</string>

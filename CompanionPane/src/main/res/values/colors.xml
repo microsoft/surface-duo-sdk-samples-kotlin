@@ -6,7 +6,5 @@
   -->
 
 <resources>
-    <color name="companion_pane_dark_grey">#2b2b2b</color>
     <color name="companion_pane_gray">#555555</color>
-    <color name="companion_pane_light_gray">#BEBEBE</color>
 </resources>

@@ -5,18 +5,23 @@
   -->
 
 <resources>
-    <dimen name="duo_sample_small_margin">10dp</dimen>
-    <dimen name="duo_sample_small_margin2">15dp</dimen>
-    <dimen name="duo_sample_medium_margin">20dp</dimen>
-    <dimen name="duo_sample_card_elevation">3dp</dimen>
+    <dimen name="details_content_horizontal_margin">50dp</dimen>
+    <dimen name="details_content_large_margin">30dp</dimen>
 
-    <dimen name="info_layout_max_width">450dp</dimen>
-    <dimen name="card_view_width">510dp</dimen>
+    <dimen name="details_title_text_size">24sp</dimen>
+    <dimen name="details_content_text_size">14sp</dimen>
 
-    <dimen name="link_button_height">28dp</dimen>
-    <dimen name="link_button_width">100dp</dimen>
-    <dimen name="link_button_start_margin">50dp</dimen>
+    <dimen name="details_item_margin_top">7dp</dimen>
+    <dimen name="details_item_margin_horizontal">12dp</dimen>
+    <dimen name="details_item_padding_horizontal">20dp</dimen>
+    <dimen name="details_item_padding_vertical">18dp</dimen>
 
-    <dimen name="text_size_normal">15sp</dimen>
-    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="details_image_height">38dp</dimen>
+    <dimen name="details_image_width">57dp</dimen>
+
+    <dimen name="details_app_name_text_size">16sp</dimen>
+
+    <dimen name="details_info_text_size">11sp</dimen>
+    <dimen name="details_info_margin_start">20dp</dimen>
+    <dimen name="details_info_margin_end">8dp</dimen>
 </resources>

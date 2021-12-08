@@ -7,7 +7,6 @@
 <resources>
     <string name="surface_duo_samples_app_name">Applications pliables par Surface Duo</string>
     <string name="surface_duo_samples_app_title">Exemples d\'applications pliables par Surface Duo</string>
-    <string name="hello_to_the_app">Bienvenue dans les exemples pliables de Surface Duo!</string>
 
     <string name="drag_and_drop_info">Drag and drop - Montre comment créer une mise en page dans laquelle vous pouvez faire glisser et déposer du contenu à partir d\'autres applications.</string>
     <string name="dual_view_info">Dual View - Montre comment créer une mise en page avec un comportement personnalisé pour un écran unique ou double écran.</string>
@@ -21,6 +20,49 @@
     <string name="qualifiers_info">Qualifiers - Montre comment utiliser les qualificateurs de ressources Android pour structurer les ressources du projet pour les Surface Duo.</string>
     <string name="multiple_instances_info">Multiple Instances - Montre comment ouvrir plusieurs instances de la même activité.</string>
 
-    <string name="try_it_out">Essaye le</string>
     <string name="view_the_code">Afficher le code</string>
+    <string name="turn_off_code">Turn off code inspection</string>
+
+    <string name="drag_and_drop_description">Support for drag-and-drop ensures a great user experience using all the different input types supported by the Surface Duo.
+        \n\nDrag-and-drop lets a user easily share data (image/text) between parts of an app, or between different apps on two screens.
+        \n\nThis sample demonstrates how to implement drag-and drop in your Android App.</string>
+
+    <string name="dual_view_description">Having two screens provides a natural affordance to compare two versions of the same type of content side-by-side, like two images, lists, or documents.
+        \n\nIt can also be used to show the same information in two different ways at the same time, with each screen working seamlessly to provide more information to the user.
+        \n\nThis sample demonstrates how to implement Dual View in your Android App.</string>
+
+    <string name="hinge_angle_description">The hinge angle is a value from 0 to 360:
+\n\n0 - device is closed (screens are facing each other, and not visible)
+\n90 - device is an "L" shape, also known as the laptop posture or book posture depending on orientation
+\n180 - device is flat
+\n360 - device is folded so that the screens are facing away from each other and only one screen is operating.</string>
+
+    <string name="list_details_description">The list-detail pattern has a main pane (usually with a list view) and a details pane for content. When an item in the list is selected, the details pane is updated.
+\n\nThis pattern is naturally good for when you have a wider viewing area.
+\n\nThis sample demonstrates how to implement List Detail in your Android App.</string>
+
+    <string name="pen_events_description"> You may consider this pattern if you need a bigger canvas for a task such as drawing, or if your app has a free-flowing canvas that the user can freely scroll to avoid the seam if some important content is obscured.
+\n\nThis provides the benefit of giving your app more screen real-estate, rather than constricting it to one screen or another.
+\n\nThis sample demonstrates how to implement Extended Canvas in your Android App.</string>
+
+    <string name="two_page_description"> Two-page pattern naturally tends to provide a book-like paging experience.
+\n\nYou can use the natural boundary to show several items from a collection—like pages or pictures—which otherwise might have required the user to view one at a time.
+\n\nThis sample demonstrates how to implement Two Page in your Android App.</string>
+
+    <string name="companion_pane_description">The companion pane pattern is a great opportunity to take advantage of added screen real-estate by taking second-level surfaces that are otherwise hidden and exposing them when the app is spanned.
+\n\nYou can also take advantage of two screens by placing the app canvas on one screen and using the other to hold tools that manipulate the content of the canvas.
+\n\nThis sample demonstrates how to implement Companion Pane in your Android App.</string>
+
+    <string name="extend_canvas_description">This sample visualizes data from pen events into shapes that detail on the orientations, pen tip pressure, barrel button, and eraser interactions.
+\n\nYou can also take advantage of two screens by placing the app canvas on one screen and using the other to hold tools that manipulate the content of the canvas.</string>
+
+    <string name="intent_to_second_screen_description">This sample demonstrates how an activity can open on the second screen (as long as it\'s empty, otherwise the activity will launch over the current one).
+\n\nThis sample demonstrates how to implement on the secondary display in your Android App.</string>
+
+    <string name="qualifiers_description">This sample demonstrates how to load layouts or values XML specifically for the Surface Duo using resource qualifier folder names.
+\n\nWhen creating apps, we often have to deal with different screen configurations (dimensions) and make design adjustments so the app adapts to whatever device it is being used on.
+\n\nSurface Duo is no different than other Android devices in that it also has its own device dimensions that will need to be considered in your app design.</string>
+
+    <string name="multiple_instances_description">This sample demonstrates how to implement another instance - here for example Microsoft Edge on the Surface Duo can be opened twice to have two different browsing sessions.
+\n\nTest out the sample to see the multiple instances in action. </string>
 </resources>
