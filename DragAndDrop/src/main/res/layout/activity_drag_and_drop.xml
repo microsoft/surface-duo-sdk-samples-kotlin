@@ -10,13 +10,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.microsoft.device.dualscreen.layouts.SurfaceDuoLayout
+    <com.microsoft.device.dualscreen.layouts.FoldableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:single_screen_layout_id="@layout/drag_and_drop_single_screen"
-        app:show_in_dual_screen_start="@layout/drag_and_drop_source_layout"
         app:show_in_dual_screen_end="@layout/drag_and_drop_target_layout"
-        app:tools_screen_mode="dual_screen"/>
+        app:show_in_dual_screen_start="@layout/drag_and_drop_source_layout"
+        app:single_screen_layout_id="@layout/drag_and_drop_single_screen"
+        app:tools_screen_mode="dual_screen" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/reset_button"

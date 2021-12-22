@@ -17,6 +17,7 @@ import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.microsoft.device.display.samples.hingeangle.R
+import com.microsoft.device.display.samples.hingeangle.databinding.HingeAngleFragmentSingleScreenBinding
 import com.microsoft.device.display.samples.hingeangle.model.DEFAULT_HINGE_ANGLE
 import com.microsoft.device.display.samples.hingeangle.model.HingeAngleLiveData
 import com.microsoft.device.display.samples.hingeangle.model.HingeAngleViewModel
@@ -29,13 +30,19 @@ import com.microsoft.device.display.samples.hingeangle.views.PenDrawingView
  * Fragment containing the drawing surface and the color selector component.
  */
 class SingleScreenFragment : Fragment() {
+    private lateinit var binding: HingeAngleFragmentSingleScreenBinding
     private lateinit var viewModel: HingeAngleViewModel
     private lateinit var drawingView: PenDrawingView
     private lateinit var hingeAngleValueView: TextView
     private var currentAngle: Int = 0
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.hinge_angle_fragment_single_screen, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = HingeAngleFragmentSingleScreenBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

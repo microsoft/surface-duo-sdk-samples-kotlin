@@ -8,20 +8,24 @@ package com.microsoft.device.display.samples.pen
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_pen_events.*
+import com.microsoft.device.display.samples.pen.databinding.ActivityPenEventsBinding
 
 /**
  * Activity containing the drawing surface and some additional info like tool type, location, pressure, etc.
  */
 class PenEventsActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityPenEventsBinding
+
     private var penEventDrawer: PenEventDrawer? = null
     private var penEventsHandler = PenEventsHandler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pen_events)
+        binding = ActivityPenEventsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
-        penEventDrawer = PenEventDrawer(textureView)
+        penEventDrawer = PenEventDrawer(binding.textureView)
         penEventsHandler = PenEventsHandler()
     }
 
@@ -40,7 +44,7 @@ class PenEventsActivity : AppCompatActivity() {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         displayValues(event)
         val eventHandled = penEventsHandler.canHandleEvent(event)
-        action_value.text = getString(penEventsHandler.getActionValue(event))
+        binding.actionValue.text = getString(penEventsHandler.getActionValue(event))
         if (eventHandled) {
             penEventDrawer?.drawEvent(event)
         }
@@ -48,11 +52,21 @@ class PenEventsActivity : AppCompatActivity() {
     }
 
     private fun displayValues(event: MotionEvent) {
-        device_info.text = parseToolType(event.getToolType(0))
-        pressure_value.text = getString(R.string.pen_events_pressure_value, event.pressure.toString())
-        orientation_value.text = getString(R.string.pen_events_orientation_value, event.orientation.toString())
-        button_state_value.text = getString(R.string.pen_events_button_state_value, event.buttonState)
-        location_value.text = getString(R.string.pen_events_location_value, event.rawX.toString(), event.rawY.toString())
-        tilt_value.text = getString(R.string.pen_events_tilt_value, event.getAxisValue(MotionEvent.AXIS_TILT).toString())
+        binding.deviceInfo.text = parseToolType(event.getToolType(0))
+        binding.pressureValue.text =
+            getString(R.string.pen_events_pressure_value, event.pressure.toString())
+        binding.orientationValue.text =
+            getString(R.string.pen_events_orientation_value, event.orientation.toString())
+        binding.buttonStateValue.text =
+            getString(R.string.pen_events_button_state_value, event.buttonState)
+        binding.locationValue.text = getString(
+            R.string.pen_events_location_value,
+            event.rawX.toString(),
+            event.rawY.toString()
+        )
+        binding.tiltValue.text = getString(
+            R.string.pen_events_tilt_value,
+            event.getAxisValue(MotionEvent.AXIS_TILT).toString()
+        )
     }
 }

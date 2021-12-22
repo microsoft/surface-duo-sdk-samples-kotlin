@@ -6,6 +6,7 @@
 
 package com.microsoft.device.display.samples.dualview.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -14,36 +15,58 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.window.layout.WindowInfoRepository
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.dualview.R
+import com.microsoft.device.display.samples.dualview.databinding.FragmentDualViewRestaurantsBinding
 import com.microsoft.device.display.samples.dualview.model.Restaurant
 import com.microsoft.device.display.samples.dualview.util.TAG
 import com.microsoft.device.display.samples.dualview.view.RestaurantAdapter
 import com.microsoft.device.display.samples.dualview.view.SelectedViewModel
 import com.microsoft.device.display.samples.dualview.view.SelectedViewModel.Companion.NO_ITEM_SELECTED
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.fragment_dual_view_restaurants.*
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * [Fragment] implementation that contains the restaurant list
  */
-class DualViewRestaurantsFragment : Fragment(), ScreenInfoListener {
-    private var restaurantAdapter: RestaurantAdapter? = null
+class DualViewRestaurantsFragment : Fragment() {
+    private lateinit var binding: FragmentDualViewRestaurantsBinding
     private val selectedViewModel: SelectedViewModel by activityViewModels()
-    private var currentScreenInfo: ScreenInfo? = null
+
+    private lateinit var windowInfoRepository: WindowInfoRepository
+    private var windowLayoutInfo: WindowLayoutInfo? = null
+
+    private var restaurantAdapter: RestaurantAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentDualViewRestaurantsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        if (currentScreenInfo?.isDualMode() == false) {
+        if (!windowLayoutInfo.isInDualMode()) {
             menu.clear()
             inflater.inflate(R.menu.menu_dual_view_list, menu)
         }
@@ -61,10 +84,6 @@ class DualViewRestaurantsFragment : Fragment(), ScreenInfoListener {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_dual_view_restaurants, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRestaurantList()
@@ -75,31 +94,37 @@ class DualViewRestaurantsFragment : Fragment(), ScreenInfoListener {
      */
     private fun setupRestaurantList() {
         restaurantAdapter = RestaurantAdapter(requireContext(), selectedViewModel, ::onItemClick)
-        restaurants_recycler_view.adapter = restaurantAdapter
-        restaurants_recycler_view.setHasFixedSize(true)
+        binding.restaurantsRecyclerView.adapter = restaurantAdapter
+        binding.restaurantsRecyclerView.setHasFixedSize(true)
         val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         ResourcesCompat.getDrawable(resources, R.drawable.item_divider, null)?.let {
             divider.setDrawable(it)
         }
-        restaurants_recycler_view.addItemDecoration(divider)
+        binding.restaurantsRecyclerView.addItemDecoration(divider)
     }
 
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        currentScreenInfo = screenInfo
-        activity?.invalidateOptionsMenu()
-        if (!screenInfo.isDualMode()) {
-            restaurantAdapter?.selectItem(NO_ITEM_SELECTED)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        observeWindowLayoutInfo(context as AppCompatActivity)
+    }
+
+    private fun observeWindowLayoutInfo(activity: AppCompatActivity) {
+        windowInfoRepository = activity.windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect {
+                    onWindowLayoutInfoChanged(it)
+                }
+            }
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        this.windowLayoutInfo = windowLayoutInfo
+        activity?.invalidateOptionsMenu()
+        if (!windowLayoutInfo.isInDualMode()) {
+            restaurantAdapter?.selectItem(NO_ITEM_SELECTED)
+        }
     }
 
     /**
@@ -107,7 +132,7 @@ class DualViewRestaurantsFragment : Fragment(), ScreenInfoListener {
      */
     private fun onItemClick(item: Restaurant) {
         val mapContainerId = when {
-            currentScreenInfo?.isDualMode() == true -> R.id.second_container_id
+            windowLayoutInfo.isInDualMode() -> R.id.second_container_id
             else -> R.id.first_container_id
         }
         markSelectedRestaurant(selectedViewModel.getItemPosition(item))
@@ -128,9 +153,13 @@ class DualViewRestaurantsFragment : Fragment(), ScreenInfoListener {
      */
     private fun showMapFragment(@IdRes containerId: Int) {
         val fragment = DualViewMapFragment()
-        parentFragmentManager.beginTransaction()
+        val transaction = parentFragmentManager.beginTransaction()
             .replace(containerId, fragment, fragment.TAG)
-            .addToBackStack(null)
-            .commit()
+
+        if (!windowLayoutInfo.isInDualMode()) {
+            transaction.addToBackStack(null)
+        }
+
+        transaction.commit()
     }
 }

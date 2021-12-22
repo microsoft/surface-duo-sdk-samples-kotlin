@@ -74,8 +74,9 @@ fun View.updateColorAndElevation(colorFilter: ColorFilter?, elevation: Float) {
 /**
  * Sets the elevation for the given list of [View]'s
  */
-fun setElevation(elevation: Float, vararg views: View) {
-    views.forEach { it.elevation = elevation }
+fun setElevation(elevation: Float, vararg views: View?) {
+    views.filterNotNull()
+        .forEach { it.elevation = elevation }
 }
 
 /**
@@ -85,7 +86,11 @@ fun setElevation(elevation: Float, vararg views: View) {
  * @param event The drag and drop event
  * @param clipDataItem The clip data item containing the image URI
  */
-fun ImageView.setDragAndDropImageURI(activity: Activity, event: DragEvent, clipDataItem: ClipData.Item) {
+fun ImageView.setDragAndDropImageURI(
+    activity: Activity,
+    event: DragEvent,
+    clipDataItem: ClipData.Item
+) {
     val uri = clipDataItem.uri
     if (ContentResolver.SCHEME_CONTENT == uri.scheme) {
         // Accessing a "content" scheme Uri requires a permission grant.

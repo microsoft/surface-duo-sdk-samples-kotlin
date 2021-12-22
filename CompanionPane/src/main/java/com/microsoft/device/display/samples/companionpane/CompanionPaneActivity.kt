@@ -8,11 +8,16 @@ package com.microsoft.device.display.samples.companionpane
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.microsoft.device.display.samples.companionpane.databinding.ActivityCompanionPaneBinding
 
 class CompanionPaneActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCompanionPaneBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_companion_pane)
+        binding = ActivityCompanionPaneBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
     }
 

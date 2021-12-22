@@ -22,7 +22,8 @@
         <activity-alias
             android:name=".SecondActivityShortcut"
             android:label="@string/intent_app_name"
-            android:targetActivity=".IntentToSecondScreenSecondActivity">
+            android:targetActivity=".IntentToSecondScreenSecondActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

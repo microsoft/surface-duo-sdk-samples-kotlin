@@ -17,7 +17,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.microsoft.device.display.samples.draganddrop.R
+import com.microsoft.device.display.samples.draganddrop.databinding.DragAndDropTargetLayoutBinding
 import com.microsoft.device.display.samples.draganddrop.utils.MimeType
 import com.microsoft.device.display.samples.draganddrop.utils.fromValue
 import com.microsoft.device.display.samples.draganddrop.utils.remove
@@ -26,7 +26,6 @@ import com.microsoft.device.display.samples.draganddrop.utils.replaceWith
 import com.microsoft.device.display.samples.draganddrop.utils.setDragAndDropImageURI
 import com.microsoft.device.display.samples.draganddrop.utils.setElevation
 import com.microsoft.device.display.samples.draganddrop.utils.updateColorAndElevation
-import kotlinx.android.synthetic.main.drag_and_drop_target_layout.*
 
 /**
  * The Fragment implementation containing the drop zone
@@ -38,8 +37,14 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
         fun newInstance(): DropTargetFragment = DropTargetFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.drag_and_drop_target_layout, container, false)
+    private lateinit var binding: DragAndDropTargetLayoutBinding
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = DragAndDropTargetLayoutBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,8 +53,8 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
     }
 
     private fun setOnDragListeners() {
-        drop_image_hint.setOnDragListener(this)
-        drop_text_hint.setOnDragListener(this)
+        binding.dropImageHint.setOnDragListener(this)
+        binding.dropTextHint.setOnDragListener(this)
     }
 
     override fun onDrag(view: View, event: DragEvent): Boolean {
@@ -99,8 +104,8 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
 
     private fun acceptDropEvent(view: View, mimeType: MimeType?): Boolean {
         val targetView = when (mimeType) {
-            MimeType.IMAGE_JPEG -> drop_image_hint
-            MimeType.TEXT_PLAIN -> drop_text_hint
+            MimeType.IMAGE_JPEG -> binding.dropImageHint
+            MimeType.TEXT_PLAIN -> binding.dropTextHint
             else -> null
         }
 
@@ -125,13 +130,13 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
         val colorFilter = PorterDuffColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN)
         when (mimeType) {
             MimeType.IMAGE_JPEG -> {
-                drop_image_hint.updateColorAndElevation(colorFilter, HINT_ELEVATION)
-                setElevation(HINT_ELEVATION, image_hint_image_view, image_hint_text_view)
+                binding.dropImageHint.updateColorAndElevation(colorFilter, HINT_ELEVATION)
+                setElevation(HINT_ELEVATION, binding.imageHintImageView, binding.imageHintTextView)
             }
 
             MimeType.TEXT_PLAIN -> {
-                drop_text_hint.updateColorAndElevation(colorFilter, HINT_ELEVATION)
-                setElevation(HINT_ELEVATION, text_hint_image_view, text_hint_text_view)
+                binding.dropTextHint.updateColorAndElevation(colorFilter, HINT_ELEVATION)
+                setElevation(HINT_ELEVATION, binding.textHintImageView, binding.textHintTextView)
             }
         }
     }
@@ -142,13 +147,18 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
     private fun clearBackgroundColor(mimeType: MimeType) {
         when (mimeType) {
             MimeType.IMAGE_JPEG -> {
-                drop_image_hint.updateColorAndElevation(null, DEFAULT_ELEVATION)
-                setElevation(DEFAULT_ELEVATION, image_hint_image_view, image_hint_text_view)
+                binding.dropImageHint.updateColorAndElevation(null, DEFAULT_ELEVATION)
+                setElevation(
+                    DEFAULT_ELEVATION,
+                    binding.imageHintImageView,
+                    binding.imageHintTextView
+                )
             }
 
             MimeType.TEXT_PLAIN -> {
-                drop_text_hint.updateColorAndElevation(null, DEFAULT_ELEVATION)
-                setElevation(DEFAULT_ELEVATION, text_hint_image_view, text_hint_text_view)
+                binding.textHintImageView
+                binding.dropTextHint.updateColorAndElevation(null, DEFAULT_ELEVATION)
+                setElevation(DEFAULT_ELEVATION, binding.textHintImageView, binding.textHintTextView)
             }
         }
     }
@@ -170,10 +180,10 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
             }
         }
 
-        removeViews(text_hint_image_view, text_hint_text_view)
-        empty_text.replaceWith(sourceView)
+        removeViews(binding.textHintImageView, binding.textHintTextView)
+        binding.emptyText.replaceWith(sourceView)
         sourceView?.setOnLongClickListener(null)
-        drop_text_hint.setOnDragListener(null)
+        binding.dropTextHint.setOnDragListener(null)
     }
 
     /**
@@ -193,9 +203,9 @@ class DropTargetFragment : Fragment(), View.OnDragListener {
             }
         }
 
-        removeViews(image_hint_text_view, image_hint_image_view)
-        empty_image.replaceWith(sourceView)
+        removeViews(binding.imageHintTextView, binding.imageHintImageView)
+        binding.emptyImage.replaceWith(sourceView)
         sourceView?.setOnLongClickListener(null)
-        drop_image_hint.setOnDragListener(null)
+        binding.dropImageHint.setOnDragListener(null)
     }
 }

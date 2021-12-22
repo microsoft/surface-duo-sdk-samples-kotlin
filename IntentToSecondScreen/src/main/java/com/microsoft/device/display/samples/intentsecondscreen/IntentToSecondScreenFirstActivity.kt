@@ -10,7 +10,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_first_intent_to_second_screen.*
+import com.microsoft.device.display.samples.intentsecondscreen.databinding.ActivityFirstIntentToSecondScreenBinding
 
 /**
  * {@link Intent.FLAG_ACTIVITY_MULTIPLE_TASK} along with android:launchMode="singleInstance"
@@ -33,9 +33,13 @@ import kotlinx.android.synthetic.main.activity_first_intent_to_second_screen.*
  *
  */
 class IntentToSecondScreenFirstActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityFirstIntentToSecondScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_first_intent_to_second_screen)
+        binding = ActivityFirstIntentToSecondScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
         setListeners()
     }
@@ -53,11 +57,11 @@ class IntentToSecondScreenFirstActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        open_second_screen.setOnClickListener { openSecondScreen() }
-        open_browser.setOnClickListener {
+        binding.openSecondScreen.setOnClickListener { openSecondScreen() }
+        binding.openBrowser.setOnClickListener {
             openBrowserApp(resources.getString(R.string.intent_app_web_link))
         }
-        open_map.setOnClickListener {
+        binding.openMap.setOnClickListener {
             openBrowserApp(resources.getString(R.string.intent_app_map_link))
         }
     }

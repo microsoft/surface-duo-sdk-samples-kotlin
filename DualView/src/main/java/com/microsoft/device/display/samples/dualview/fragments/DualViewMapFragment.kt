@@ -6,6 +6,7 @@
 
 package com.microsoft.device.display.samples.dualview.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -13,30 +14,49 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.window.layout.WindowInfoRepository
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.dualview.R
+import com.microsoft.device.display.samples.dualview.databinding.FragmentDualViewMapBinding
 import com.microsoft.device.display.samples.dualview.view.SelectedViewModel
 import com.microsoft.device.display.samples.dualview.view.SelectedViewModel.Companion.NO_ITEM_SELECTED
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.fragment_dual_view_map.*
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * [Fragment] implementation that contains the fake map view
  */
-class DualViewMapFragment : Fragment(), ScreenInfoListener {
+class DualViewMapFragment : Fragment() {
+    private lateinit var binding: FragmentDualViewMapBinding
     private val selectedViewModel: SelectedViewModel by activityViewModels()
-    private var currentScreenInfo: ScreenInfo? = null
+    private var windowLayoutInfo: WindowLayoutInfo? = null
+    private lateinit var windowInfoRepository: WindowInfoRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentDualViewMapBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        if (currentScreenInfo?.isDualMode() == false) {
+        if (!windowLayoutInfo.isInDualMode()) {
             menu.clear()
             inflater.inflate(R.menu.menu_dual_view_map, menu)
         }
@@ -51,10 +71,6 @@ class DualViewMapFragment : Fragment(), ScreenInfoListener {
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_dual_view_map, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -89,21 +105,27 @@ class DualViewMapFragment : Fragment(), ScreenInfoListener {
         } else {
             R.drawable.unselected_map
         }
-        map_view.setImageResource(drawableResId)
+        binding.mapView.setImageResource(drawableResId)
     }
 
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        currentScreenInfo = screenInfo
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        observeWindowLayoutInfo(context as AppCompatActivity)
+    }
+
+    private fun observeWindowLayoutInfo(activity: AppCompatActivity) {
+        windowInfoRepository = activity.windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect {
+                    onWindowLayoutInfoChanged(it)
+                }
+            }
+        }
+    }
+
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        this.windowLayoutInfo = windowLayoutInfo
         requireActivity().invalidateOptionsMenu()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
     }
 }

@@ -14,6 +14,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.microsoft.device.display.samples.hingeangle.R
+import com.microsoft.device.display.samples.hingeangle.databinding.HingeAngleFragmentDualScreenBinding
 import com.microsoft.device.display.samples.hingeangle.extensions.flip
 import com.microsoft.device.display.samples.hingeangle.model.HingeAngleViewModel
 
@@ -21,10 +22,16 @@ import com.microsoft.device.display.samples.hingeangle.model.HingeAngleViewModel
  * Fragment containing the flipped image.
  */
 class DualScreenFragment : Fragment() {
+    private lateinit var binding: HingeAngleFragmentDualScreenBinding
     private lateinit var imageView: ImageView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.hinge_angle_fragment_dual_screen, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = HingeAngleFragmentDualScreenBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

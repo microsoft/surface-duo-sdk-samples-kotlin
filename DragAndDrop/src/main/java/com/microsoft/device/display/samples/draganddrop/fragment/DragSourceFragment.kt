@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.microsoft.device.display.samples.draganddrop.R
+import com.microsoft.device.display.samples.draganddrop.databinding.DragAndDropSourceLayoutBinding
 import com.microsoft.device.display.samples.draganddrop.utils.mimeType
 import com.microsoft.device.display.samples.draganddrop.utils.value
 
@@ -27,8 +28,15 @@ class DragSourceFragment : Fragment(), View.OnLongClickListener {
         fun newInstance(): DragSourceFragment = DragSourceFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.drag_and_drop_source_layout, container, false)
+    private lateinit var binding: DragAndDropSourceLayoutBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = DragAndDropSourceLayoutBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

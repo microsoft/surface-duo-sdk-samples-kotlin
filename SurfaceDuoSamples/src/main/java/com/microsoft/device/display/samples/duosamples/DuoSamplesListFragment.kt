@@ -6,34 +6,45 @@
 
 package com.microsoft.device.display.samples.duosamples
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import androidx.window.layout.WindowInfoRepository
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.duosamples.databinding.FragmentDuoSamplesBinding
 import com.microsoft.device.display.samples.duosamples.samples.Sample
 import com.microsoft.device.display.samples.duosamples.samples.SampleBuilder
 import com.microsoft.device.display.samples.duosamples.samples.SampleModel
-import com.microsoft.device.display.samples.listdetail.extensions.isInPortrait
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
+import com.microsoft.device.dualscreen.utils.wm.isFoldingFeatureVertical
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * A [Fragment] that displays the list of samples.
  */
-class DuoSamplesListFragment : Fragment(), ScreenInfoListener {
+class DuoSamplesListFragment : Fragment() {
 
     private lateinit var viewModel: SampleViewModel
     private lateinit var binding: FragmentDuoSamplesBinding
-    private var screenInfo: ScreenInfo? = null
+
+    private var windowLayoutInfo: WindowLayoutInfo? = null
+    private lateinit var windowInfoRepository: WindowInfoRepository
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,18 +61,24 @@ class DuoSamplesListFragment : Fragment(), ScreenInfoListener {
         prepareRecyclerView()
     }
 
-    override fun onResume() {
-        super.onResume()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        observeWindowLayoutInfo(context as AppCompatActivity)
     }
 
-    override fun onPause() {
-        super.onPause()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
+    private fun observeWindowLayoutInfo(activity: AppCompatActivity) {
+        windowInfoRepository = activity.windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect {
+                    onWindowLayoutInfoChanged(it)
+                }
+            }
+        }
     }
 
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        this.screenInfo = screenInfo
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        this.windowLayoutInfo = windowLayoutInfo
     }
 
     private fun prepareRecyclerView() {
@@ -93,8 +110,8 @@ class DuoSamplesListFragment : Fragment(), ScreenInfoListener {
 
     private fun onClickSample(sample: SampleModel) {
         viewModel.selectedSample.value = sample
-        screenInfo?.let { screenInfo ->
-            if (!screenInfo.isDualMode() || screenInfo.isInPortrait) {
+        windowLayoutInfo?.let { windowLayoutInfo ->
+            if (!windowLayoutInfo.isInDualMode() || !windowLayoutInfo.isFoldingFeatureVertical()) {
                 val intent = Intent(requireActivity(), SampleBuilder.getSampleActivity(sample.type))
                 startActivity(intent)
             }

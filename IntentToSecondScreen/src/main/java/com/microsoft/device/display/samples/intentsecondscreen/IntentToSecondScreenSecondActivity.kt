@@ -8,11 +8,16 @@ package com.microsoft.device.display.samples.intentsecondscreen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.microsoft.device.display.samples.intentsecondscreen.databinding.ActivitySecondIntentToSecondScreenBinding
 
 class IntentToSecondScreenSecondActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySecondIntentToSecondScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second_intent_to_second_screen)
+        binding = ActivitySecondIntentToSecondScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
     }
 

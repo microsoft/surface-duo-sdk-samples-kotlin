@@ -6,7 +6,6 @@
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -25,6 +24,10 @@ android {
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -34,7 +37,6 @@ dependencies {
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
 
-    implementation microsoftDependencies.screenManager
     implementation microsoftDependencies.layouts
 
     testImplementation testDependencies.junit

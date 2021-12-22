@@ -44,16 +44,17 @@ class PenEventDrawer(private val textureView: TextureView) {
      * @param event The [MotionEvent]
      */
     fun drawEvent(event: MotionEvent) {
-        val canvas = textureView.lockCanvas()
-        drawBackgroundColor(canvas)
-        if (unlockCanvasWhenFinishedDrawing(event.action, canvas)) return
+        textureView.lockCanvas()?.let { canvas ->
+            drawBackgroundColor(canvas)
+            if (unlockCanvasWhenFinishedDrawing(event.action, canvas)) return
 
-        changePaintAsEraserIfApplicable(event.getToolType(0))
-        drawPressureCircle(event.buttonState, event.pressure, canvas)
-        drawOrientationArc(event.orientation, canvas)
-        drawPointUnderPenCircle(event.x, event.y, event.pressure, canvas)
+            changePaintAsEraserIfApplicable(event.getToolType(0))
+            drawPressureCircle(event.buttonState, event.pressure, canvas)
+            drawOrientationArc(event.orientation, canvas)
+            drawPointUnderPenCircle(event.x, event.y, event.pressure, canvas)
 
-        textureView.unlockCanvasAndPost(canvas)
+            textureView.unlockCanvasAndPost(canvas)
+        }
     }
 
     /**

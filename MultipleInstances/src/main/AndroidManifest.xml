@@ -13,6 +13,7 @@
     <application>
         <activity
             android:name=".MultipleInstancesSecondActivity"
+            android:exported="true"
             android:label="@string/multiple_instances_app_name"
             android:launchMode="singleInstance">
             <intent-filter>
@@ -22,6 +23,7 @@
 
         <activity
             android:name=".MultipleInstancesMainActivity"
+            android:exported="true"
             android:label="@string/multiple_instances_app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
