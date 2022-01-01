@@ -59,13 +59,13 @@ class DualViewActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 windowInfoRepository.windowLayoutInfo.collect { info ->
-                    onScreenInfoChanged(info)
+                    onWindowLayoutInfoChanged(info)
                 }
             }
         }
     }
 
-    private fun onScreenInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
         if (windowLayoutInfo.isInDualMode()) {
             setupDualScreenFragments()
         } else {

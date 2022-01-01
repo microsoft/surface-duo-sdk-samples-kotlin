@@ -67,7 +67,7 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
                     // Temporary fix for FoldableLayout delay bug
                     findViewById<View>(R.id.foldable_layout)
                         .postDelayed(
-                            { onScreenInfoChanged(info) },
+                            { onWindowLayoutInfoChanged(info) },
                             200L
                         )
                 }
@@ -75,7 +75,7 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
         }
     }
 
-    private fun onScreenInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
         pagerAdapter.showTwoPages =
             windowLayoutInfo.isInDualMode() && windowLayoutInfo.isFoldingFeatureVertical()
         pagerAdapter.pageContentScrollEnabled =

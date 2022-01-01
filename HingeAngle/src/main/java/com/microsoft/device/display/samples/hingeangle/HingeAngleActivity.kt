@@ -51,13 +51,13 @@ class HingeAngleActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 windowInfoRepository.windowLayoutInfo.collect { info ->
-                    onScreenInfoChanged(info)
+                    onWindowLayoutInfoChanged(info)
                 }
             }
         }
     }
 
-    private fun onScreenInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
         addFragments(windowLayoutInfo)
     }
 

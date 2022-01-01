@@ -53,7 +53,7 @@ abstract class MultipleInstancesBaseActivity : AppCompatActivity() {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 windowInfoRepository.windowLayoutInfo.collect { info ->
                     binding.foldableLayout.postDelayed(
-                        { onScreenInfoChanged(info) },
+                        { onWindowLayoutInfoChanged(info) },
                         200L
                     )
                 }
@@ -61,7 +61,7 @@ abstract class MultipleInstancesBaseActivity : AppCompatActivity() {
         }
     }
 
-    private fun onScreenInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
         findViewById<AppCompatTextView>(R.id.first_screen_text).text = getFirstScreenText()
 
         if (windowLayoutInfo.isInDualMode()) {
