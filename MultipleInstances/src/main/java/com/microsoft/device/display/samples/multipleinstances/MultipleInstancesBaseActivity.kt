@@ -7,21 +7,34 @@
 package com.microsoft.device.display.samples.multipleinstances
 
 import android.os.Bundle
+import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.multiple_instances_layout_first_screen.*
-import kotlinx.android.synthetic.main.multiple_instances_layout_second_screen.*
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import com.microsoft.device.display.samples.multipleinstances.databinding.ActivityMultipleInstancesBinding
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * Base Activity that shows one TextView for single screen mode and two TextView's for dual screen mode.
  */
-abstract class MultipleInstancesBaseActivity : AppCompatActivity(), ScreenInfoListener {
+abstract class MultipleInstancesBaseActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMultipleInstancesBinding
+    private var windowLayoutInfo: WindowLayoutInfo? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_multiple_instances)
+        binding = ActivityMultipleInstancesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
+        initWindowLayoutInfo()
     }
 
     private fun setupToolbar() {
@@ -36,21 +49,33 @@ abstract class MultipleInstancesBaseActivity : AppCompatActivity(), ScreenInfoLi
         return true
     }
 
-    override fun onResume() {
-        super.onResume()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
+    private var treeListener: ViewTreeObserver.OnGlobalLayoutListener =
+        ViewTreeObserver.OnGlobalLayoutListener {
+            windowLayoutInfo?.let {
+                onWindowLayoutInfoChanged(it)
+            }
+        }
+
+    private fun initWindowLayoutInfo() {
+        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
+
+        val windowInfoRepository = windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect { info ->
+                    windowLayoutInfo = info
+                }
+            }
+        }
     }
 
-    override fun onPause() {
-        super.onPause()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
-    }
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        binding.foldableLayout.viewTreeObserver.removeOnGlobalLayoutListener(treeListener)
 
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        first_screen_text.text = getFirstScreenText()
+        findViewById<AppCompatTextView>(R.id.first_screen_text).text = getFirstScreenText()
 
-        if (screenInfo.isDualMode()) {
-            second_screen_text.text = getSecondScreenText()
+        if (windowLayoutInfo.isInDualMode()) {
+            findViewById<AppCompatTextView>(R.id.second_screen_text).text = getSecondScreenText()
         }
     }
 

@@ -3,4 +3,4 @@
 # Comma-separated list of rules to disable (Since 0.34.0)
 # Note that rules in any ruleset other than the standard ruleset will need to be prefixed
 # by the ruleset identifier.
-disabled_rules = final-newline
+disabled_rules = final-newline,  import-ordering

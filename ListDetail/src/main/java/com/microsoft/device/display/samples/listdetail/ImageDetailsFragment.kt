@@ -6,25 +6,43 @@
 
 package com.microsoft.device.display.samples.listdetail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
-import com.microsoft.device.display.samples.listdetail.extensions.isInPortrait
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.window.layout.WindowInfoRepository
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import com.microsoft.device.display.samples.listdetail.databinding.ListDetailsFragmentImageDetailsBinding
 import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.list_details_fragment_image_details.*
+import com.microsoft.device.dualscreen.utils.wm.isFoldingFeatureVertical
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * Contains selected image in full screen mode
  */
-class ImageDetailsFragment : Fragment(), ScreenInfoListener {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.list_details_fragment_image_details, container, false)
+class ImageDetailsFragment : Fragment() {
+
+    private lateinit var binding: ListDetailsFragmentImageDetailsBinding
+    private lateinit var windowInfoRepository: WindowInfoRepository
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = ListDetailsFragmentImageDetailsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,31 +55,32 @@ class ImageDetailsFragment : Fragment(), ScreenInfoListener {
         viewModel.selectedItem.observe(
             viewLifecycleOwner,
             {
-                imageView.setImageResource(it)
+                binding.imageView.setImageResource(it)
             }
         )
     }
 
-    override fun onResume() {
-        super.onResume()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        observeWindowLayoutInfo(context as AppCompatActivity)
     }
 
-    override fun onPause() {
-        super.onPause()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
+    private fun observeWindowLayoutInfo(activity: AppCompatActivity) {
+        windowInfoRepository = activity.windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect {
+                    setupLayout(it)
+                }
+            }
+        }
     }
 
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        setupLayout(screenInfo)
-    }
-
-    private fun setupLayout(screenInfo: ScreenInfo) {
+    private fun setupLayout(windowLayoutInfo: WindowLayoutInfo) {
         val guidLinePercent = when {
-            screenInfo.isDualMode() && screenInfo.isInPortrait -> 0.45f
+            windowLayoutInfo.isInDualMode() && !windowLayoutInfo.isFoldingFeatureVertical() -> 0.45f
             else -> 0.70f
         }
-
-        guid_line.setGuidelinePercent(guidLinePercent)
+        binding.guidLine.setGuidelinePercent(guidLinePercent)
     }
 }

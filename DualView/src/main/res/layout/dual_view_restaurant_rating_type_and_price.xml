@@ -31,6 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/dual_view_margin_medium"
+        android:lines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/item_price"
         app:layout_constraintStart_toEndOf="@id/item_rating"

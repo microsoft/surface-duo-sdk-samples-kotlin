@@ -11,14 +11,14 @@
     <string name="drag_and_drop_info">A sample app that shows how to build a layout where you can drag and drop from other apps.</string>
     <string name="dual_view_info">A sample app that shows how to build a layout with custom behavior for single or dual screen.</string>
     <string name="hinge_angle_info">A sample app that shows how to listen to hinge angle sensor and use the angle values.</string>
-    <string name="list_details_info">Design pattern showcasing list-detail hierarchy on the Surface Duo.</string>
-    <string name="extend_canvas_info">Design pattern showcasing advantage of larger screen canvas on the Surface Duo.</string>
-    <string name="two_page_info">Design pattern showcasing advantage of two screen reading experience on the Surface Duo.</string>
-    <string name="companion_pane_info">Design pattern showcasing advantage of companion screen for content and control on the Surface Duo.</string>
-    <string name="pen_events_info">Sample to show Pen events and metrics on the Surface Duo.</string>
+    <string name="list_details_info">Design pattern showcasing list-detail hierarchy.</string>
+    <string name="extend_canvas_info">Design pattern showcasing advantage of larger screen canvas.</string>
+    <string name="two_page_info">Design pattern showcasing advantage of two screen reading experience.</string>
+    <string name="companion_pane_info">Design pattern showcasing advantage of companion screen for content and control.</string>
+    <string name="pen_events_info">Sample to show Pen events and metrics.</string>
     <string name="intent_to_second_screen_info">Sample to open activities in different scenarios.</string>
-    <string name="qualifiers_info">Use android resource qualifiers to structure project recources in Surface Duo. </string>
-    <string name="multiple_instances_info">A sample to open multiple instances of the same activity on the Surface Duo.</string>
+    <string name="qualifiers_info">Use android resource qualifiers to structure project recources. </string>
+    <string name="multiple_instances_info">A sample to open multiple instances of the same activity.</string>
 
     <string name="view_the_code">View Code</string>
     <string name="turn_off_code">Turn off code inspection</string>

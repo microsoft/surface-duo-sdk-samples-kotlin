@@ -7,11 +7,16 @@ package com.microsoft.device.display.samples.qualifiers
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.microsoft.device.display.samples.qualifiers.databinding.ActivityQualifiersBinding
 
 class QualifiersActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityQualifiersBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_qualifiers)
+        binding = ActivityQualifiersBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
     }
 

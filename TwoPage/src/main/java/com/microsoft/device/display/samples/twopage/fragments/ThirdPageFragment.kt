@@ -11,16 +11,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
-import com.microsoft.device.display.samples.twopage.R
-import kotlinx.android.synthetic.main.fragment_two_page_third_page.*
+import com.microsoft.device.display.samples.twopage.databinding.FragmentTwoPageThirdPageBinding
 
 /**
  * Implementation for the third page
  */
 class ThirdPageFragment : BasePageFragment() {
-    override fun getScrollingContent(): ScrollView = page3_content
+    private lateinit var binding: FragmentTwoPageThirdPageBinding
+    override fun getScrollingContent(): ScrollView = binding.page3Content
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_two_page_third_page, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentTwoPageThirdPageBinding.inflate(inflater, container, false)
+        return binding.root
     }
 }

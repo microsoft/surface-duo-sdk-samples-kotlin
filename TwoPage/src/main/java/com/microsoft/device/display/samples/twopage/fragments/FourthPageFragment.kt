@@ -11,16 +11,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
-import com.microsoft.device.display.samples.twopage.R
-import kotlinx.android.synthetic.main.fragment_two_page_fourth_page.*
+import com.microsoft.device.display.samples.twopage.databinding.FragmentTwoPageFourthPageBinding
 
 /**
  * Implementation for the fourth page
  */
 class FourthPageFragment : BasePageFragment() {
-    override fun getScrollingContent(): ScrollView = page4_content
+    private lateinit var binding: FragmentTwoPageFourthPageBinding
+    override fun getScrollingContent(): ScrollView = binding.page4Content
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_two_page_fourth_page, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentTwoPageFourthPageBinding.inflate(inflater, container, false)
+        return binding.root
     }
 }

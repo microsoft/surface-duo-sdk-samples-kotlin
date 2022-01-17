@@ -8,18 +8,30 @@ package com.microsoft.device.display.samples.hingeangle
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import com.microsoft.device.display.samples.hingeangle.databinding.ActivityHingeAngleBinding
 import com.microsoft.device.display.samples.hingeangle.fragments.DualScreenFragment
 import com.microsoft.device.display.samples.hingeangle.fragments.SingleScreenFragment
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
-class HingeAngleActivity : AppCompatActivity(), ScreenInfoListener {
+class HingeAngleActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityHingeAngleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hinge_angle)
+        binding = ActivityHingeAngleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
+        initWindowLayoutInfo()
     }
 
     private fun setupToolbar() {
@@ -34,22 +46,23 @@ class HingeAngleActivity : AppCompatActivity(), ScreenInfoListener {
         return true
     }
 
-    override fun onResume() {
-        super.onResume()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
+    private fun initWindowLayoutInfo() {
+        val windowInfoRepository = windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect { info ->
+                    onWindowLayoutInfoChanged(info)
+                }
+            }
+        }
     }
 
-    override fun onPause() {
-        super.onPause()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        addFragments(windowLayoutInfo)
     }
 
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        addFragments(screenInfo)
-    }
-
-    private fun addFragments(screenInfo: ScreenInfo) {
-        if (screenInfo.isDualMode()) {
+    private fun addFragments(windowLayoutInfo: WindowLayoutInfo) {
+        if (windowLayoutInfo.isInDualMode()) {
             addFragmentsForDualScreen()
         } else {
             addFragmentsForSingleScreen()

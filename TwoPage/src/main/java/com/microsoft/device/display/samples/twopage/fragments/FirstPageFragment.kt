@@ -11,16 +11,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
-import com.microsoft.device.display.samples.twopage.R
-import kotlinx.android.synthetic.main.fragment_two_page_first_page.*
+import com.microsoft.device.display.samples.twopage.databinding.FragmentTwoPageFirstPageBinding
 
 /**
  * Implementation for the first page
  */
 class FirstPageFragment : BasePageFragment() {
-    override fun getScrollingContent(): ScrollView = page1_content
+    private lateinit var binding: FragmentTwoPageFirstPageBinding
+    override fun getScrollingContent(): ScrollView = binding.page1Content
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_two_page_first_page, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentTwoPageFirstPageBinding.inflate(inflater, container, false)
+        return binding.root
     }
 }

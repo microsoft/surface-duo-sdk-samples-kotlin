@@ -11,15 +11,21 @@ import android.os.Bundle
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import com.microsoft.device.display.samples.extend.R
+import com.microsoft.device.display.samples.extend.databinding.ActivityExtendedCanvasBinding
 
 class ExtendedCanvasActivity : AppCompatActivity() {
     companion object {
-        const val GOOGLE_MAPS_URL = "https://www.google.com/maps/@?api=1&map_action=map&center=47.652822, -122.134596&zoom=12"
+        const val GOOGLE_MAPS_URL =
+            "https://www.google.com/maps/@?api=1&map_action=map&center=47.652822, -122.134596&zoom=12"
     }
+
+    private lateinit var binding: ActivityExtendedCanvasBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_extended_canvas)
+        binding = ActivityExtendedCanvasBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
         setupWebView()
     }

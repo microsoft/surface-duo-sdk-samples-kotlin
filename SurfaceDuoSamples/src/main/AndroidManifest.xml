@@ -17,6 +17,7 @@
 
         <activity
             android:name=".DuoSamplesActivity"
+            android:exported="true"
             android:label="@string/surface_duo_samples_app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

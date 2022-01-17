@@ -32,9 +32,10 @@
         tools:ignore="ContentDescription" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
@@ -62,9 +63,10 @@
         tools:ignore="ContentDescription" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView

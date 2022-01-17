@@ -4,7 +4,8 @@
   ~
   -->
 
-<com.microsoft.device.dualscreen.layouts.SurfaceDuoLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.microsoft.device.dualscreen.layouts.FoldableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/foldable_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

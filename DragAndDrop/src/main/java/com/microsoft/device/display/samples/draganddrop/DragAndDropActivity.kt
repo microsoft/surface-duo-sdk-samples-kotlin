@@ -8,17 +8,23 @@ package com.microsoft.device.display.samples.draganddrop
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import com.microsoft.device.display.samples.draganddrop.databinding.ActivityDragAndDropBinding
 import com.microsoft.device.display.samples.draganddrop.fragment.DragSourceFragment
 import com.microsoft.device.display.samples.draganddrop.fragment.DropTargetFragment
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
-import kotlinx.android.synthetic.main.activity_drag_and_drop.*
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * The Activity containing the drag source and drop target containers
  */
-class DragAndDropActivity : AppCompatActivity(), ScreenInfoListener {
+class DragAndDropActivity : AppCompatActivity() {
 
     companion object {
         private const val FRAGMENT_SINGLE_SCREEN_DRAG_SOURCE = "FragmentSingleScreenDragSource"
@@ -27,11 +33,16 @@ class DragAndDropActivity : AppCompatActivity(), ScreenInfoListener {
         private const val FRAGMENT_DUAL_SCREEN_DROP_TARGET = "FragmentDualScreenDropTarget"
     }
 
+    private lateinit var binding: ActivityDragAndDropBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drag_and_drop)
+        binding = ActivityDragAndDropBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
-        reset_button.setOnClickListener { recreate() }
+        binding.resetButton.setOnClickListener { recreate() }
+        initWindowLayoutInfo()
     }
 
     private fun setupToolbar() {
@@ -46,25 +57,22 @@ class DragAndDropActivity : AppCompatActivity(), ScreenInfoListener {
         return true
     }
 
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        setupFragments(screenInfo)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
+    private fun initWindowLayoutInfo() {
+        val windowInfoRepository = windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect { info ->
+                    setupFragments(info)
+                }
+            }
+        }
     }
 
     /**
      * Setup and adds fragments to the screen
      */
-    private fun setupFragments(screenInfo: ScreenInfo) {
-        if (screenInfo.isDualMode()) {
+    private fun setupFragments(windowLayoutInfo: WindowLayoutInfo) {
+        if (windowLayoutInfo.isInDualMode()) {
             setupFragmentsForDualScreen()
         } else {
             setupFragmentsForSingleScreen()

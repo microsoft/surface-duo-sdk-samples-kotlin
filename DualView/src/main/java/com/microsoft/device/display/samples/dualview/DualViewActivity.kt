@@ -8,26 +8,38 @@ package com.microsoft.device.display.samples.dualview
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import com.microsoft.device.display.samples.dualview.databinding.ActivityDualViewBinding
 import com.microsoft.device.display.samples.dualview.fragments.DualViewMapFragment
 import com.microsoft.device.display.samples.dualview.fragments.DualViewRestaurantsFragment
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * [AppCompatActivity] implementation that contains the restaurants screen and the map screen
  */
-class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
+class DualViewActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DUAL_START = "FragmentDualStart"
         private const val FRAGMENT_DUAL_END = "FragmentDualEnd"
         private const val FRAGMENT_SINGLE_SCREEN = "FragmentSingleScreen"
     }
 
+    private lateinit var binding: ActivityDualViewBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dual_view)
+        binding = ActivityDualViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
+        initWindowLayoutInfo()
     }
 
     private fun setupToolbar() {
@@ -42,18 +54,19 @@ class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
         return true
     }
 
-    override fun onStart() {
-        super.onStart()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
+    private fun initWindowLayoutInfo() {
+        val windowInfoRepository = windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect { info ->
+                    onWindowLayoutInfoChanged(info)
+                }
+            }
+        }
     }
 
-    override fun onPause() {
-        super.onPause()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
-    }
-
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        if (screenInfo.isDualMode()) {
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        if (windowLayoutInfo.isInDualMode()) {
             setupDualScreenFragments()
         } else {
             setupSingleScreenFragments()
@@ -66,7 +79,11 @@ class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
     private fun setupSingleScreenFragments() {
         if (supportFragmentManager.findFragmentByTag(FRAGMENT_SINGLE_SCREEN) == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.first_container_id, DualViewRestaurantsFragment(), FRAGMENT_SINGLE_SCREEN)
+                .replace(
+                    R.id.first_container_id,
+                    DualViewRestaurantsFragment(),
+                    FRAGMENT_SINGLE_SCREEN
+                )
                 .commit()
         }
     }
@@ -79,7 +96,11 @@ class DualViewActivity : AppCompatActivity(), ScreenInfoListener {
             supportFragmentManager.findFragmentByTag(FRAGMENT_DUAL_END) == null
         ) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.first_container_id, DualViewRestaurantsFragment(), FRAGMENT_DUAL_START)
+                .replace(
+                    R.id.first_container_id,
+                    DualViewRestaurantsFragment(),
+                    FRAGMENT_DUAL_START
+                )
                 .commit()
 
             supportFragmentManager.beginTransaction()

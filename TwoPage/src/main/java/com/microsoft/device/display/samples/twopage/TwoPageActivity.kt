@@ -7,23 +7,32 @@
 package com.microsoft.device.display.samples.twopage
 
 import android.annotation.SuppressLint
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.SparseArray
+import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import com.microsoft.device.display.samples.twopage.extensions.isInPortrait
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import com.microsoft.device.display.samples.twopage.databinding.ActivityTwoPageBinding
 import com.microsoft.device.display.samples.twopage.fragments.FirstPageFragment
 import com.microsoft.device.display.samples.twopage.fragments.FourthPageFragment
 import com.microsoft.device.display.samples.twopage.fragments.SecondPageFragment
 import com.microsoft.device.display.samples.twopage.fragments.ThirdPageFragment
-import com.microsoft.device.dualscreen.ScreenInfo
-import com.microsoft.device.dualscreen.ScreenInfoListener
-import com.microsoft.device.dualscreen.ScreenManagerProvider
+import com.microsoft.device.dualscreen.utils.wm.isFoldingFeatureVertical
+import com.microsoft.device.dualscreen.utils.wm.isInDualMode
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
-class TwoPageActivity : AppCompatActivity(), OnPageChangeListener, ScreenInfoListener {
+class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
+    private lateinit var binding: ActivityTwoPageBinding
+    private var windowLayoutInfo: WindowLayoutInfo? = null
     private lateinit var viewPager: ViewPager
     private lateinit var pagerAdapter: PagerAdapter
     private var position = 0
@@ -31,9 +40,12 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener, ScreenInfoLis
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_two_page)
+        binding = ActivityTwoPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupToolbar()
         setupPagerAdapter()
+        initWindowLayoutInfo()
     }
 
     private fun setupToolbar() {
@@ -48,25 +60,33 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener, ScreenInfoLis
         return true
     }
 
-    override fun onScreenInfoChanged(screenInfo: ScreenInfo) {
-        pagerAdapter.showTwoPages = screenInfo.isDualMode() && !screenInfo.isInPortrait
-        pagerAdapter.pageContentScrollEnabled = !screenInfo.isDualMode() || !screenInfo.isInPortrait
+    private var treeListener: ViewTreeObserver.OnGlobalLayoutListener =
+        ViewTreeObserver.OnGlobalLayoutListener {
+            windowLayoutInfo?.let {
+                onWindowLayoutInfoChanged(it)
+            }
+        }
+
+    private fun initWindowLayoutInfo() {
+        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
+
+        val windowInfoRepository = windowInfoRepository()
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                windowInfoRepository.windowLayoutInfo.collect { info ->
+                    windowLayoutInfo = info
+                }
+            }
+        }
+    }
+
+    private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        binding.foldableLayout.viewTreeObserver.removeOnGlobalLayoutListener(treeListener)
+        pagerAdapter.showTwoPages =
+            windowLayoutInfo.isInDualMode() && windowLayoutInfo.isFoldingFeatureVertical()
+        pagerAdapter.pageContentScrollEnabled =
+            !windowLayoutInfo.isInDualMode() || !windowLayoutInfo.isFoldingFeatureVertical()
         setupViewPager()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        ScreenManagerProvider.getScreenManager().addScreenInfoListener(this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        ScreenManagerProvider.getScreenManager().removeScreenInfoListener(this)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        ScreenManagerProvider.getScreenManager().onConfigurationChanged()
     }
 
     private fun setupPagerAdapter() {

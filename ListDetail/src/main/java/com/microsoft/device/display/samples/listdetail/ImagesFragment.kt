@@ -13,17 +13,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.microsoft.device.display.samples.listdetail.databinding.ListDetailsFragmentImagesBinding
 import com.microsoft.device.display.samples.listdetail.model.DataProvider
 import com.microsoft.device.display.samples.listdetail.model.ImageAdapter
 import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
-import kotlinx.android.synthetic.main.list_details_fragment_images.*
 
 /**
  * Contains the image gallery
  */
 class ImagesFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.list_details_fragment_images, container, false)
+    private lateinit var binding: ListDetailsFragmentImagesBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = ListDetailsFragmentImagesBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,8 +41,9 @@ class ImagesFragment : Fragment() {
     private fun setupImages() {
         val layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         layoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
-        imagesRecyclerView.layoutManager = layoutManager
-        imagesRecyclerView.adapter = ImageAdapter(requireContext(), DataProvider.imageIDs, ::onClickImage)
+        binding.imagesRecyclerView.layoutManager = layoutManager
+        binding.imagesRecyclerView.adapter =
+            ImageAdapter(requireContext(), DataProvider.imageIDs, ::onClickImage)
     }
 
     private fun onClickImage(imageResId: Int) {

@@ -5,12 +5,12 @@
  */
 
 ext {
-    gradlePluginVersion = "4.1.2"
-    kotlinVersion = "1.4.30"
-    compileSdkVersion = 29
-    buildToolsVersion = '29.0.2'
+    gradlePluginVersion = "7.0.2"
+    kotlinVersion = "1.5.0"
+    compileSdkVersion = 31
+    buildToolsVersion = '30.0.3'
     targetSdkVersion = compileSdkVersion
-    minSdkVersion = compileSdkVersion
+    minSdkVersion = 25
 
     config = [
             gradlePlugin             : "com.android.tools.build:gradle:$gradlePluginVersion",
@@ -54,22 +54,18 @@ ext {
     ]
 
     //Microsoft dependencies version
-    screenManagerWindowManagerVersion = "1.0.0-beta2"
-    screenManagerDisplayMaskVersion = "1.0.0-beta2"
-    fragmentsHandlerVersion = "1.0.0-beta1"
-    layoutsVersion = "1.0.0-beta2"
-    bottomNavigationVersion = "1.0.0-beta1"
-    recyclerViewVersion = "1.0.0-beta2"
-    tabsVersion = "1.0.0-beta1"
+    fragmentsHandlerVersion = "1.0.0-beta4"
+    layoutsVersion = "1.0.0-beta7"
+    bottomNavigationVersion = "1.0.0-beta3"
+    recyclerViewVersion = "1.0.0-beta5"
+    tabsVersion = "1.0.0-beta3"
 
     microsoftDependencies = [
-            screenManagerWindowManager: "com.microsoft.device.dualscreen:screenmanager-windowmanager:$screenManagerWindowManagerVersion",
-            screenManagerDisplayMask  : "com.microsoft.device.dualscreen:screenmanager-displaymask:$screenManagerDisplayMaskVersion",
-            fragmentsHandler          : "com.microsoft.device.dualscreen:fragmentshandler:$fragmentsHandlerVersion",
-            layouts                   : "com.microsoft.device.dualscreen:layouts:$layoutsVersion",
-            bottomNavigation          : "com.microsoft.device.dualscreen:bottomnavigation:$bottomNavigationVersion",
-            recyclerView              : "com.microsoft.device.dualscreen:recyclerview:$recyclerViewVersion",
-            tabs                      : "com.microsoft.device.dualscreen:tabs:$tabsVersion"
+            fragmentsHandler: "com.microsoft.device.dualscreen:fragmentshandler:$fragmentsHandlerVersion",
+            layouts         : "com.microsoft.device.dualscreen:layouts:$layoutsVersion",
+            bottomNavigation: "com.microsoft.device.dualscreen:bottomnavigation:$bottomNavigationVersion",
+            recyclerView    : "com.microsoft.device.dualscreen:recyclerview:$recyclerViewVersion",
+            tabs            : "com.microsoft.device.dualscreen:tabs:$tabsVersion"
     ]
     microsoftDependencies["screenManager"] = microsoftDependencies.screenManagerWindowManager
 

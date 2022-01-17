@@ -8,14 +8,12 @@ package com.microsoft.device.display.samples.duosamples
 
 import android.app.Application
 import com.microsoft.device.display.samples.multipleinstances.createShortcuts
-import com.microsoft.device.dualscreen.ScreenManagerProvider
 import com.microsoft.device.dualscreen.fragmentshandler.FragmentManagerStateHandler
 
 class DuoSamplesApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         createShortcuts()
-        ScreenManagerProvider.init(this)
         FragmentManagerStateHandler.init(this)
     }
 }
