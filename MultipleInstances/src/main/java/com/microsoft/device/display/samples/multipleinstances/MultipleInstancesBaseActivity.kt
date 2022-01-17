@@ -7,6 +7,7 @@
 package com.microsoft.device.display.samples.multipleinstances
 
 import android.os.Bundle
+import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.lifecycle.Lifecycle
@@ -25,6 +26,7 @@ import kotlinx.coroutines.launch
  */
 abstract class MultipleInstancesBaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMultipleInstancesBinding
+    private var windowLayoutInfo: WindowLayoutInfo? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,21 +49,29 @@ abstract class MultipleInstancesBaseActivity : AppCompatActivity() {
         return true
     }
 
+    private var treeListener: ViewTreeObserver.OnGlobalLayoutListener =
+        ViewTreeObserver.OnGlobalLayoutListener {
+            windowLayoutInfo?.let {
+                onWindowLayoutInfoChanged(it)
+            }
+        }
+
     private fun initWindowLayoutInfo() {
+        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
+
         val windowInfoRepository = windowInfoRepository()
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 windowInfoRepository.windowLayoutInfo.collect { info ->
-                    binding.foldableLayout.postDelayed(
-                        { onWindowLayoutInfoChanged(info) },
-                        200L
-                    )
+                    windowLayoutInfo = info
                 }
             }
         }
     }
 
     private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        binding.foldableLayout.viewTreeObserver.removeOnGlobalLayoutListener(treeListener)
+
         findViewById<AppCompatTextView>(R.id.first_screen_text).text = getFirstScreenText()
 
         if (windowLayoutInfo.isInDualMode()) {

@@ -52,21 +52,23 @@ class PenEventsActivity : AppCompatActivity() {
     }
 
     private fun displayValues(event: MotionEvent) {
-        binding.deviceInfo.text = parseToolType(event.getToolType(0))
-        binding.pressureValue.text =
-            getString(R.string.pen_events_pressure_value, event.pressure.toString())
-        binding.orientationValue.text =
-            getString(R.string.pen_events_orientation_value, event.orientation.toString())
-        binding.buttonStateValue.text =
-            getString(R.string.pen_events_button_state_value, event.buttonState)
-        binding.locationValue.text = getString(
-            R.string.pen_events_location_value,
-            event.rawX.toString(),
-            event.rawY.toString()
-        )
-        binding.tiltValue.text = getString(
-            R.string.pen_events_tilt_value,
-            event.getAxisValue(MotionEvent.AXIS_TILT).toString()
-        )
+        with(binding) {
+            deviceInfo.text = parseToolType(event.getToolType(0))
+            pressureValue.text =
+                getString(R.string.pen_events_pressure_value, event.pressure.toString())
+            orientationValue.text =
+                getString(R.string.pen_events_orientation_value, event.orientation.toString())
+            buttonStateValue.text =
+                getString(R.string.pen_events_button_state_value, event.buttonState)
+            locationValue.text = getString(
+                R.string.pen_events_location_value,
+                event.rawX.toString(),
+                event.rawY.toString()
+            )
+            tiltValue.text = getString(
+                R.string.pen_events_tilt_value,
+                event.getAxisValue(MotionEvent.AXIS_TILT).toString()
+            )
+        }
     }
 }

@@ -31,7 +31,7 @@
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="@dimen/details_info_margin_start"
         android:text="@string/drag_and_drop_app_name"
         android:textColor="@color/details_title"
         android:textSize="@dimen/details_app_name_text_size"
@@ -40,13 +40,18 @@
 
     <TextView
         android:id="@+id/app_info"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/details_info_margin_start"
         android:layout_marginTop="@dimen/details_info_margin_end"
+        android:layout_marginEnd="@dimen/details_info_margin_end"
+        android:gravity="start|top"
+        android:lines="2"
         android:text="@string/drag_and_drop_info"
         android:textColor="@color/simple_gray"
         android:textSize="@dimen/details_info_text_size"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toEndOf="@+id/app_icon"
         card_view:layout_constraintTop_toBottomOf="@+id/app_name" />
 

@@ -9,7 +9,7 @@ package com.microsoft.device.display.samples.twopage
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.SparseArray
-import android.view.View
+import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -32,6 +32,7 @@ import kotlinx.coroutines.launch
 
 class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
     private lateinit var binding: ActivityTwoPageBinding
+    private var windowLayoutInfo: WindowLayoutInfo? = null
     private lateinit var viewPager: ViewPager
     private lateinit var pagerAdapter: PagerAdapter
     private var position = 0
@@ -59,23 +60,28 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
         return true
     }
 
+    private var treeListener: ViewTreeObserver.OnGlobalLayoutListener =
+        ViewTreeObserver.OnGlobalLayoutListener {
+            windowLayoutInfo?.let {
+                onWindowLayoutInfoChanged(it)
+            }
+        }
+
     private fun initWindowLayoutInfo() {
+        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
+
         val windowInfoRepository = windowInfoRepository()
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 windowInfoRepository.windowLayoutInfo.collect { info ->
-                    // Temporary fix for FoldableLayout delay bug
-                    findViewById<View>(R.id.foldable_layout)
-                        .postDelayed(
-                            { onWindowLayoutInfoChanged(info) },
-                            200L
-                        )
+                    windowLayoutInfo = info
                 }
             }
         }
     }
 
     private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
+        binding.foldableLayout.viewTreeObserver.removeOnGlobalLayoutListener(treeListener)
         pagerAdapter.showTwoPages =
             windowLayoutInfo.isInDualMode() && windowLayoutInfo.isFoldingFeatureVertical()
         pagerAdapter.pageContentScrollEnabled =
