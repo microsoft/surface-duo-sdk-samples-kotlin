@@ -7,7 +7,6 @@
 package com.microsoft.device.display.samples.duosamples
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,6 +25,7 @@ import androidx.window.layout.WindowInfoRepository
 import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.duosamples.databinding.FragmentDuoSamplesBinding
+import com.microsoft.device.display.samples.duosamples.navigation.getMainNavigator
 import com.microsoft.device.display.samples.duosamples.samples.Sample
 import com.microsoft.device.display.samples.duosamples.samples.SampleBuilder
 import com.microsoft.device.display.samples.duosamples.samples.SampleModel
@@ -66,6 +66,8 @@ class DuoSamplesListFragment : Fragment() {
         observeWindowLayoutInfo(context as AppCompatActivity)
     }
 
+    private fun getLaunchNavigator() = requireActivity().getMainNavigator()
+
     private fun observeWindowLayoutInfo(activity: AppCompatActivity) {
         windowInfoRepository = activity.windowInfoRepository()
         lifecycleScope.launch(Dispatchers.Main) {
@@ -79,6 +81,13 @@ class DuoSamplesListFragment : Fragment() {
 
     private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
         this.windowLayoutInfo = windowLayoutInfo
+        with(getLaunchNavigator()) {
+            if (windowLayoutInfo.isInDualMode()) {
+                navigateToSampleDescription()
+            } else {
+                navigateUp()
+            }
+        }
     }
 
     private fun prepareRecyclerView() {
@@ -112,8 +121,7 @@ class DuoSamplesListFragment : Fragment() {
         viewModel.selectedSample.value = sample
         windowLayoutInfo?.let { windowLayoutInfo ->
             if (!windowLayoutInfo.isInDualMode() || !windowLayoutInfo.isFoldingFeatureVertical()) {
-                val intent = Intent(requireActivity(), SampleBuilder.getSampleActivity(sample.type))
-                startActivity(intent)
+                getLaunchNavigator().navigateFromListToSample(sample.type)
             }
         }
     }

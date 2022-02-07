@@ -4,17 +4,12 @@
   ~
   -->
 
-<com.microsoft.device.dualscreen.layouts.FoldableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/surface_duo_layout"
+    android:id="@+id/launch_nav_host_fragment"
+    android:name="androidx.navigation.fragment.FoldableNavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    app:dual_landscape_single_layout_id="@layout/foldable_page_app_list"
-    app:dual_screen_end_layout_id="@layout/foldable_page_sample_details"
-    app:dual_screen_start_layout_id="@layout/foldable_page_app_list"
-    app:is_dual_landscape_single_container="true"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:single_screen_layout_id="@layout/foldable_page_app_list" />
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/navigation_main" />

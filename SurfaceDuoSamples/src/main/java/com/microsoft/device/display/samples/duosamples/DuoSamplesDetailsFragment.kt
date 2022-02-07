@@ -6,7 +6,6 @@
 
 package com.microsoft.device.display.samples.duosamples
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.microsoft.device.display.samples.duosamples.databinding.FragmentDetailSamplesBinding
-import com.microsoft.device.display.samples.duosamples.samples.SampleBuilder
+import com.microsoft.device.display.samples.duosamples.navigation.getMainNavigator
 import com.microsoft.device.display.samples.duosamples.samples.SampleModel
 
 /**
@@ -47,11 +46,13 @@ class DuoSamplesDetailsFragment : Fragment() {
             onViewCodeChanged(isChecked)
         }
         binding.btnTryIt.setOnClickListener {
-            viewModel.selectedSample.value?.let {
-                onOpenSample(SampleBuilder.getSampleActivity(it.type))
+            viewModel.selectedSample.value?.let { sample ->
+                getLaunchNavigator().navigateFromDetailsToSample(sample.type)
             }
         }
     }
+
+    private fun getLaunchNavigator() = requireActivity().getMainNavigator()
 
     private fun onSampleSelected(sample: SampleModel?) {
         if (sample != null) {
@@ -75,10 +76,5 @@ class DuoSamplesDetailsFragment : Fragment() {
             binding.githubSwitch.setText(R.string.view_the_code)
             binding.webView.visibility = View.GONE
         }
-    }
-
-    private fun onOpenSample(activityToOpen: Class<*>) {
-        val intent = Intent(requireActivity(), activityToOpen)
-        startActivity(intent)
     }
 }

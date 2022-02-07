@@ -58,6 +58,9 @@ dependencies {
     implementation microsoftDependencies.layouts
     implementation microsoftDependencies.fragmentsHandler
 
+    implementation navigationDependencies.fragmentKtx
+    implementation navigationDependencies.uiKtx
+
     implementation androidxDependencies.recyclerView
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.ktxCore

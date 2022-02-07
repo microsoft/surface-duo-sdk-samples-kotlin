@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/fragment_samples_list">
+
+    <fragment
+        android:id="@+id/fragment_samples_list"
+        android:name="com.microsoft.device.display.samples.duosamples.DuoSamplesListFragment"
+        android:label="DuoSamplesListFragment"
+        tools:layout="@layout/fragment_duo_samples">
+
+        <action
+            android:id="@+id/action_sample_list_to_sample_details"
+            app:destination="@id/fragment_details_sample"
+            app:launchScreen="end" />
+
+        <action
+            android:id="@+id/sample_list_to_drag_and_drop"
+            app:destination="@id/drag_and_drop_sample" />
+        <action
+            android:id="@+id/sample_list_to_dual_view"
+            app:destination="@+id/dual_view_sample" />
+        <action
+            android:id="@+id/sample_list_to_hinge_angle"
+            app:destination="@id/hinge_angle_sample" />
+        <action
+            android:id="@+id/sample_list_to_list_details"
+            app:destination="@+id/list_details_sample" />
+        <action
+            android:id="@+id/sample_list_to_extended_canvas"
+            app:destination="@+id/extended_canvas_sample" />
+        <action
+            android:id="@+id/sample_list_to_two_page"
+            app:destination="@+id/two_page_sample" />
+        <action
+            android:id="@+id/sample_list_to_companion_pane"
+            app:destination="@id/companion_pane_sample" />
+        <action
+            android:id="@+id/sample_list_to_pen_events"
+            app:destination="@+id/pen_events_sample" />
+        <action
+            android:id="@+id/sample_list_to_intent_to_second_screen"
+            app:destination="@+id/intent_to_second_screen_sample" />
+        <action
+            android:id="@+id/sample_list_to_qualifiers"
+            app:destination="@+id/qualifiers_sample" />
+        <action
+            android:id="@+id/sample_list_to_multiple_instances"
+            app:destination="@+id/multiple_instances_sample" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_details_sample"
+        android:name="com.microsoft.device.display.samples.duosamples.DuoSamplesDetailsFragment"
+        android:label="DuoSamplesDetailsFragment"
+        tools:layout="@layout/fragment_detail_samples">
+
+        <action
+            android:id="@+id/sample_details_to_drag_and_drop"
+            app:destination="@id/drag_and_drop_sample" />
+        <action
+            android:id="@+id/sample_details_to_dual_view"
+            app:destination="@+id/dual_view_sample" />
+        <action
+            android:id="@+id/sample_details_to_hinge_angle"
+            app:destination="@+id/hinge_angle_sample" />
+        <action
+            android:id="@+id/sample_details_to_list_details"
+            app:destination="@+id/list_details_sample" />
+        <action
+            android:id="@+id/sample_details_to_extended_canvas"
+            app:destination="@+id/extended_canvas_sample" />
+        <action
+            android:id="@+id/sample_details_to_two_page"
+            app:destination="@+id/two_page_sample" />
+        <action
+            android:id="@+id/sample_details_to_companion_pane"
+            app:destination="@id/companion_pane_sample" />
+        <action
+            android:id="@+id/sample_details_to_pen_events"
+            app:destination="@+id/pen_events_sample" />
+        <action
+            android:id="@+id/sample_details_to_intent_to_second_screen"
+            app:destination="@+id/intent_to_second_screen_sample" />
+        <action
+            android:id="@+id/sample_details_to_qualifiers"
+            app:destination="@+id/qualifiers_sample" />
+        <action
+            android:id="@+id/sample_details_to_multiple_instances"
+            app:destination="@+id/multiple_instances_sample" />
+
+    </fragment>
+
+    <activity
+        android:id="@+id/drag_and_drop_sample"
+        android:name="com.microsoft.device.display.samples.draganddrop.DragAndDropActivity"
+        android:label="DragAndDropActivity"
+        tools:layout="@layout/activity_drag_and_drop" />
+
+    <activity
+        android:id="@+id/dual_view_sample"
+        android:name="com.microsoft.device.display.samples.dualview.DualViewActivity"
+        android:label="DualViewActivity"
+        tools:layout="@layout/activity_dual_view" />
+
+    <activity
+        android:id="@+id/hinge_angle_sample"
+        android:name="com.microsoft.device.display.samples.hingeangle.HingeAngleActivity"
+        android:label="HingeAngleActivity"
+        tools:layout="@layout/activity_hinge_angle" />
+
+    <activity
+        android:id="@+id/list_details_sample"
+        android:name="com.microsoft.device.display.samples.listdetail.ListDetailsActivity"
+        android:label="ListDetailsActivity"
+        tools:layout="@layout/activity_list_details" />
+
+    <activity
+        android:id="@+id/extended_canvas_sample"
+        android:name="com.microsoft.device.display.samples.extendcanvas.ExtendedCanvasActivity"
+        android:label="ExtendedCanvasActivity"
+        tools:layout="@layout/activity_extended_canvas" />
+
+    <activity
+        android:id="@+id/two_page_sample"
+        android:name="com.microsoft.device.display.samples.twopage.TwoPageActivity"
+        android:label="TwoPageActivity"
+        tools:layout="@layout/activity_two_page" />
+
+    <activity
+        android:id="@+id/companion_pane_sample"
+        android:name="com.microsoft.device.display.samples.companionpane.CompanionPaneActivity"
+        android:label="CompanionPaneActivity"
+        tools:layout="@layout/activity_companion_pane" />
+
+    <activity
+        android:id="@+id/pen_events_sample"
+        android:name="com.microsoft.device.display.samples.pen.PenEventsActivity"
+        android:label="PenEventsActivity"
+        tools:layout="@layout/activity_pen_events" />
+
+    <activity
+        android:id="@+id/intent_to_second_screen_sample"
+        android:name="com.microsoft.device.display.samples.intentsecondscreen.IntentToSecondScreenFirstActivity"
+        android:label="IntentToSecondScreenFirstActivity"
+        tools:layout="@layout/activity_first_intent_to_second_screen" />
+
+    <activity
+        android:id="@+id/qualifiers_sample"
+        android:name="com.microsoft.device.display.samples.qualifiers.QualifiersActivity"
+        android:label="QualifiersActivity"
+        tools:layout="@layout/activity_qualifiers" />
+
+    <activity
+        android:id="@+id/multiple_instances_sample"
+        android:name="com.microsoft.device.display.samples.multipleinstances.MultipleInstancesMainActivity"
+        android:label="MultipleInstancesMainActivity"
+        tools:layout="@layout/activity_multiple_instances" />
+</navigation>
