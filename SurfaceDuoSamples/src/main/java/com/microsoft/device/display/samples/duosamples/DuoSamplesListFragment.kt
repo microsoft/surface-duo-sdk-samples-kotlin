@@ -59,7 +59,6 @@ class DuoSamplesListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity()).get(SampleViewModel::class.java)
         prepareRecyclerView()
-        requireActivity()
     }
 
     override fun onAttach(context: Context) {
