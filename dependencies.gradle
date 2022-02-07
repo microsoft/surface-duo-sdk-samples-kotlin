@@ -69,6 +69,14 @@ ext {
     ]
     microsoftDependencies["screenManager"] = microsoftDependencies.screenManagerWindowManager
 
+    navigationVersion = '1.0.0-alpha1'
+
+    navigationDependencies = [
+            fragmentKtx   : "com.microsoft.device.dualscreen:navigation-fragment-ktx:$navigationVersion",
+            uiKtx         : "com.microsoft.device.dualscreen:navigation-ui-ktx:$navigationVersion",
+            safeArgsPlugin: "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+    ]
+
     //Test dependencies version
     junitVersion = "4.13.2"
     mockitoVersion = "3.5.9"
