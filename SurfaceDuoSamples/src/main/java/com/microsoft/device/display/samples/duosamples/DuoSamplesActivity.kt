@@ -42,4 +42,8 @@ class DuoSamplesActivity : AppCompatActivity(), MainNavigatorHost {
     override fun getMainNavigator(): MainNavigator {
         return navigator
     }
+
+    override fun onBackPressed() {
+        finish()
+    }
 }
