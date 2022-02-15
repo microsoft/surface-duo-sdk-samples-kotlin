@@ -67,7 +67,6 @@ ext {
             recyclerView    : "com.microsoft.device.dualscreen:recyclerview:$recyclerViewVersion",
             tabs            : "com.microsoft.device.dualscreen:tabs:$tabsVersion"
     ]
-    microsoftDependencies["screenManager"] = microsoftDependencies.screenManagerWindowManager
 
     navigationVersion = '1.0.0-alpha1'
 
