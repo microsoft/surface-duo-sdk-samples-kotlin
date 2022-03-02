@@ -14,12 +14,12 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import com.microsoft.device.display.samples.dualview.view.RestaurantAdapter
 import com.microsoft.device.display.samples.test.utils.forceClick
-import com.microsoft.device.display.samples.test.utils.setOrientationLeft
-import com.microsoft.device.display.samples.test.utils.setOrientationRight
-import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import com.microsoft.device.dualscreen.testing.resetOrientation
+import com.microsoft.device.dualscreen.testing.spanFromStart
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -30,15 +30,16 @@ import org.junit.runner.RunWith
 class DualScreenTests {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<DualViewActivity>()
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @After
     fun tearDown() {
-        unfreezeRotation()
+        device.resetOrientation()
     }
 
     @Test
     fun displayListAndMapFromList() {
-        switchFromSingleToDualScreen()
+        device.spanFromStart()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.second_container_id)).check(matches(isDisplayed()))
@@ -49,13 +50,13 @@ class DualScreenTests {
 
     @Test
     fun displayListAndMapFromListWithRotationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         displayListAndMapFromList()
     }
 
     @Test
     fun displayListAndMapFromListWithRotationRight() {
-        setOrientationRight()
+        device.setOrientationRight()
         displayListAndMapFromList()
     }
 
@@ -67,7 +68,7 @@ class DualScreenTests {
         onView(withId(R.id.restaurants_recycler_view))
             .perform(actionOnItemAtPosition<RestaurantAdapter.RestaurantViewHolder>(3, forceClick()))
 
-        switchFromSingleToDualScreen()
+        device.spanFromStart()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.second_container_id)).check(matches(isDisplayed()))
@@ -78,13 +79,13 @@ class DualScreenTests {
 
     @Test
     fun displayListAndMapFromMapWithRotationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         displayListAndMapFromMap()
     }
 
     @Test
     fun displayListAndMapFromMapWithRotationRight() {
-        setOrientationRight()
+        device.setOrientationRight()
         displayListAndMapFromMap()
     }
 }

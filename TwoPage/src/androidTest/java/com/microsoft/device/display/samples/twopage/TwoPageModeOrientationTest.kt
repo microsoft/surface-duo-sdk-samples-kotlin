@@ -16,11 +16,13 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.microsoft.device.display.samples.test.utils.setOrientationLeft
-import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
+import com.microsoft.device.display.samples.twopage.utils.ViewPagerIdlingResource
 import com.microsoft.device.display.samples.twopage.utils.horizontalSwipeToLeft
 import com.microsoft.device.display.samples.twopage.utils.verticalSwipeToTop
+import com.microsoft.device.dualscreen.testing.resetOrientation
+import com.microsoft.device.dualscreen.testing.spanFromStart
 import org.hamcrest.core.AllOf.allOf
 import org.junit.After
 import org.junit.Before
@@ -35,6 +37,7 @@ class TwoPageModeOrientationTest {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<TwoPageActivity>()
     private lateinit var idlingResource: ViewPagerIdlingResource
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @Before
     fun setup() {
@@ -48,7 +51,7 @@ class TwoPageModeOrientationTest {
     @After
     fun resetOrientation() {
         IdlingRegistry.getInstance().unregister(idlingResource)
-        unfreezeRotation()
+        device.resetOrientation()
     }
 
     @Test
@@ -65,7 +68,7 @@ class TwoPageModeOrientationTest {
 
     @Test
     fun layoutInDualScreenPortrait() {
-        switchFromSingleToDualScreen()
+        device.spanFromStart()
 
         onView(withId(R.id.pager)).check(matches(isDisplayed()))
         onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
@@ -90,7 +93,7 @@ class TwoPageModeOrientationTest {
 
     @Test
     fun layoutInSingleScreenLandscape() {
-        setOrientationLeft()
+        device.setOrientationLeft()
 
         onView(withId(R.id.pager)).check(matches(isDisplayed()))
         onView(allOf(withId(R.id.app_name_text), withText("Two Page")))
@@ -104,8 +107,8 @@ class TwoPageModeOrientationTest {
 
     @Test
     fun layoutInDualScreenLandscape() {
-        setOrientationLeft()
-        switchFromSingleToDualScreen()
+        device.setOrientationLeft()
+        device.spanFromStart()
 
         onView(withId(R.id.pager)).check(matches(isDisplayed()))
         onView(allOf(withId(R.id.app_name_text), withText("Two Page")))

@@ -15,10 +15,11 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import com.microsoft.device.display.samples.listdetail.utils.hasDrawable
 import com.microsoft.device.display.samples.test.utils.forceClick
-import com.microsoft.device.display.samples.test.utils.setOrientationLeft
-import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import com.microsoft.device.dualscreen.testing.resetOrientation
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -29,10 +30,11 @@ import org.junit.runner.RunWith
 class ListDetailsInSingleScreenModeTest {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<ListDetailsActivity>()
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @After
     fun tearDown() {
-        unfreezeRotation()
+        device.resetOrientation()
     }
 
     @Test
@@ -40,19 +42,25 @@ class ListDetailsInSingleScreenModeTest {
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
 
-        onView(withId(R.id.imagesRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, forceClick()))
-        onView(withId(R.id.imageView)).check(matches(isDisplayed())).check(matches(hasDrawable(R.drawable.list_details_image_2)))
+        onView(withId(R.id.imagesRecyclerView)).perform(
+            actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                1,
+                forceClick()
+            )
+        )
+        onView(withId(R.id.imageView)).check(matches(isDisplayed()))
+            .check(matches(hasDrawable(R.drawable.list_details_image_2)))
     }
 
     @Test
     fun openDetailsFromListWithRotationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         openDetailsFromList()
     }
 
     @Test
     fun openDetailsFromListWithRotationRight() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         openDetailsFromList()
     }
 }

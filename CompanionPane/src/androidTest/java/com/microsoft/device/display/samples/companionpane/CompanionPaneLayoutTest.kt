@@ -13,9 +13,10 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.microsoft.device.display.samples.test.utils.setOrientationLeft
-import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
+import com.microsoft.device.dualscreen.testing.resetOrientation
+import com.microsoft.device.dualscreen.testing.spanFromStart
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -27,10 +28,11 @@ class CompanionPaneLayoutTest {
 
     @get:Rule
     val activityScenarioRule = activityScenarioRule<CompanionPaneActivity>()
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @After
     fun tearDown() {
-        unfreezeRotation()
+        device.resetOrientation()
     }
 
     @Test
@@ -41,7 +43,7 @@ class CompanionPaneLayoutTest {
 
     @Test
     fun singleScreenModeInLandscape() {
-        setOrientationLeft()
+        device.setOrientationLeft()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.single_screen_layout_land)).check(matches(isDisplayed()))
@@ -49,7 +51,7 @@ class CompanionPaneLayoutTest {
 
     @Test
     fun dualScreenModeInPortrait() {
-        switchFromSingleToDualScreen()
+        device.spanFromStart()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.dual_screen_layout_land_start)).check(matches(isDisplayed()))
@@ -60,8 +62,8 @@ class CompanionPaneLayoutTest {
 
     @Test
     fun dualScreenModeInLandscape() {
-        switchFromSingleToDualScreen()
-        setOrientationLeft()
+        device.spanFromStart()
+        device.setOrientationLeft()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.dual_screen_layout_port_start)).check(matches(isDisplayed()))

@@ -17,10 +17,11 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import com.microsoft.device.display.samples.test.utils.forceClick
-import com.microsoft.device.display.samples.test.utils.setOrientationLeft
-import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import com.microsoft.device.dualscreen.testing.resetOrientation
+import com.microsoft.device.dualscreen.testing.spanFromStart
 import org.hamcrest.core.AllOf.allOf
 import org.junit.After
 import org.junit.Rule
@@ -32,10 +33,11 @@ import org.junit.runner.RunWith
 class OpenSecondActivityTest {
     @get:Rule
     val intentsTestRule = IntentsTestRule(IntentToSecondScreenFirstActivity::class.java)
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @After
     fun tearDown() {
-        unfreezeRotation()
+        device.resetOrientation()
     }
 
     @Test
@@ -47,7 +49,7 @@ class OpenSecondActivityTest {
 
     @Test
     fun dualScreenModeInPortrait() {
-        switchFromSingleToDualScreen()
+        device.spanFromStart()
         openSecondScreen()
         checkIntentForTheSecondScreen()
         checkTheSecondScreen()
@@ -55,13 +57,13 @@ class OpenSecondActivityTest {
 
     @Test
     fun singleScreenModeInLandscape() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         singleScreenModeInPortrait()
     }
 
     @Test
     fun dualScreenModeInLandscape() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         dualScreenModeInPortrait()
     }
 
