@@ -5,9 +5,9 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.microsoft.device.display.samples.test">
+    package="com.microsoft.device.display.samples.dualview">
 
     <application
-        android:name=".utils.TestApplication"
-        android:theme="@style/TestTheme" />
+        android:name="com.microsoft.device.display.samples.test.utils.TestApplication"
+        android:theme="@style/Theme.AppCompat" />
 </manifest>
