@@ -48,6 +48,7 @@ dependencies {
 
     androidTestImplementation instrumentationTestDependencies.junitKtx
     androidTestImplementation instrumentationTestDependencies.espressoCore
+    androidTestImplementation instrumentationTestDependencies.uiAutomator
     androidTestImplementation instrumentationTestDependencies.testRules
     androidTestImplementation instrumentationTestDependencies.testRunner
     androidTestUtil instrumentationTestDependencies.testOrchestrator

@@ -38,7 +38,7 @@ class CompanionPaneLayoutTest {
     @Test
     fun singleScreenModeInPortrait() {
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.single_screen_layout_port)).check(matches(isDisplayed()))
+        onView(withId(R.id.companion_pane_single_screen_layout)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -46,7 +46,7 @@ class CompanionPaneLayoutTest {
         device.setOrientationLeft()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.single_screen_layout_land)).check(matches(isDisplayed()))
+        onView(withId(R.id.companion_pane_single_screen_layout)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -54,10 +54,10 @@ class CompanionPaneLayoutTest {
         device.spanFromStart()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.dual_screen_layout_land_start)).check(matches(isDisplayed()))
+        onView(withId(R.id.companion_pane_dual_screen_layout_start)).check(matches(isDisplayed()))
 
         onView(withId(R.id.second_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.dual_screen_layout_land_end)).check(matches(isDisplayed()))
+        onView(withId(R.id.companion_pane_dual_screen_layout_end)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -66,9 +66,9 @@ class CompanionPaneLayoutTest {
         device.setOrientationLeft()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.dual_screen_layout_port_start)).check(matches(isDisplayed()))
+        onView(withId(R.id.companion_pane_dual_screen_layout_start)).check(matches(isDisplayed()))
 
         onView(withId(R.id.second_container_id)).check(matches(isDisplayed()))
-        onView(withId(R.id.dual_screen_layout_port_end)).check(matches(isDisplayed()))
+        onView(withId(R.id.companion_pane_dual_screen_layout_end)).check(matches(isDisplayed()))
     }
 }
