@@ -8,6 +8,7 @@ package com.microsoft.device.display.samples.test.utils
 
 import android.view.View
 import androidx.test.espresso.ViewAction
+import com.microsoft.device.dualscreen.testing.ForceClick
 import org.hamcrest.Matcher
 
 /**

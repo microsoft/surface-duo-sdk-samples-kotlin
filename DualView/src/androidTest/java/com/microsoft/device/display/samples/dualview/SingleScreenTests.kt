@@ -14,11 +14,11 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import com.microsoft.device.display.samples.dualview.view.RestaurantAdapter
 import com.microsoft.device.display.samples.test.utils.forceClick
-import com.microsoft.device.display.samples.test.utils.setOrientationLeft
-import com.microsoft.device.display.samples.test.utils.setOrientationRight
-import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import com.microsoft.device.dualscreen.testing.resetOrientation
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -29,10 +29,11 @@ import org.junit.runner.RunWith
 class SingleScreenTests {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<DualViewActivity>()
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @After
     fun tearDown() {
-        unfreezeRotation()
+        device.resetOrientation()
     }
 
     @Test
@@ -47,13 +48,13 @@ class SingleScreenTests {
 
     @Test
     fun openMapFromListWithRotationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         openMapFromList()
     }
 
     @Test
     fun openMapFromListWithRotationRight() {
-        setOrientationRight()
+        device.setOrientationRight()
         openMapFromList()
     }
 }

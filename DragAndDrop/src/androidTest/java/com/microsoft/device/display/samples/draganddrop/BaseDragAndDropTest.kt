@@ -13,12 +13,14 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withTagValue
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.activityScenarioRule
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import com.microsoft.device.display.samples.draganddrop.utils.dragAndDropImageInDualScreenMode
 import com.microsoft.device.display.samples.draganddrop.utils.dragAndDropImageInSingleScreenMode
 import com.microsoft.device.display.samples.draganddrop.utils.dragAndDropTextInDualScreenMode
 import com.microsoft.device.display.samples.draganddrop.utils.dragAndDropTextInSingleScreenMode
 import com.microsoft.device.display.samples.test.utils.childOf
-import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
+import com.microsoft.device.dualscreen.testing.spanFromStart
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Rule
 import org.hamcrest.CoreMatchers.`is` as iz
@@ -26,6 +28,7 @@ import org.hamcrest.CoreMatchers.`is` as iz
 open class BaseDragAndDropTest {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<DragAndDropActivity>()
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     fun checkDragAndDropImageInSingleMode() {
         dragAndDropImageInSingleScreenMode()
@@ -65,7 +68,7 @@ open class BaseDragAndDropTest {
     }
 
     fun checkDragAndDropImageInDualMode() {
-        switchFromSingleToDualScreen()
+        device.spanFromStart()
 
         onView(
             childOf(
@@ -92,7 +95,7 @@ open class BaseDragAndDropTest {
     }
 
     fun checkDragAndDropTextInDualMode() {
-        switchFromSingleToDualScreen()
+        device.spanFromStart()
 
         onView(
             childOf(

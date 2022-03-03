@@ -47,5 +47,6 @@ dependencies {
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation instrumentationTestDependencies.espressoCore
-    implementation instrumentationTestDependencies.uiAutomator
+    api instrumentationTestDependencies.uiAutomator
+    api instrumentationTestDependencies.kotlinTesting
 }

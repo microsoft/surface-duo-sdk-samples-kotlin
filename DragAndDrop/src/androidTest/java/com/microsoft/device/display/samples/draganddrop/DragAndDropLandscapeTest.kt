@@ -8,9 +8,9 @@ package com.microsoft.device.display.samples.draganddrop
 
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.microsoft.device.display.samples.test.utils.setOrientationLeft
-import com.microsoft.device.display.samples.test.utils.setOrientationRight
-import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
+import com.microsoft.device.dualscreen.testing.resetOrientation
 import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,56 +18,58 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4ClassRunner::class)
 @LargeTest
 class DragAndDropLandscapeTest : BaseDragAndDropTest() {
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+
     @After
     fun tearDown() {
-        unfreezeRotation()
+        device.resetOrientation()
     }
 
     @Test
     fun dragAndDropImageInSingleModeWithOrientationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         checkDragAndDropImageInSingleMode()
     }
 
     @Test
     fun dragAndDropImageInSingleModeWithOrientationRight() {
-        setOrientationRight()
+        device.setOrientationRight()
         checkDragAndDropImageInSingleMode()
     }
 
     @Test
     fun dragAndDropTextInSingleModeWithOrientationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         checkDragAndDropTextInSingleMode()
     }
 
     @Test
     fun dragAndDropTextInSingleModeWithOrientationRight() {
-        setOrientationRight()
+        device.setOrientationRight()
         checkDragAndDropTextInSingleMode()
     }
 
     @Test
     fun dragAndDropImageInDualModeWithOrientationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         checkDragAndDropImageInDualMode()
     }
 
     @Test
     fun dragAndDropImageInDualModeWithOrientationRight() {
-        setOrientationRight()
+        device.setOrientationRight()
         checkDragAndDropImageInDualMode()
     }
 
     @Test
     fun dragAndDropTextInDualModeWithOrientationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         checkDragAndDropTextInDualMode()
     }
 
     @Test
     fun dragAndDropTextInDualModeWithOrientationRight() {
-        setOrientationRight()
+        device.setOrientationRight()
         checkDragAndDropTextInDualMode()
     }
 }

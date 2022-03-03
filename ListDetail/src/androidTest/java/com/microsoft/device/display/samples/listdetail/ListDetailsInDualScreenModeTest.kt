@@ -15,12 +15,12 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import com.microsoft.device.display.samples.listdetail.utils.hasDrawable
 import com.microsoft.device.display.samples.test.utils.forceClick
-import com.microsoft.device.display.samples.test.utils.setOrientationLeft
-import com.microsoft.device.display.samples.test.utils.setOrientationRight
-import com.microsoft.device.display.samples.test.utils.switchFromSingleToDualScreen
-import com.microsoft.device.display.samples.test.utils.unfreezeRotation
+import com.microsoft.device.dualscreen.testing.resetOrientation
+import com.microsoft.device.dualscreen.testing.spanFromStart
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -31,15 +31,16 @@ import org.junit.runner.RunWith
 class ListDetailsInDualScreenModeTest {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<ListDetailsActivity>()
+    private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     @After
     fun tearDown() {
-        unfreezeRotation()
+        device.resetOrientation()
     }
 
     @Test
     fun displayListAndDetails() {
-        switchFromSingleToDualScreen()
+        device.spanFromStart()
 
         onView(withId(R.id.first_container_id)).check(matches(isDisplayed()))
         onView(withId(R.id.imagesRecyclerView)).check(matches(isDisplayed()))
@@ -50,13 +51,13 @@ class ListDetailsInDualScreenModeTest {
 
     @Test
     fun displayListAndDetailsWithRotationLeft() {
-        setOrientationLeft()
+        device.setOrientationLeft()
         displayListAndDetails()
     }
 
     @Test
     fun displayListAndDetailsWithRotationRight() {
-        setOrientationRight()
+        device.setOrientationRight()
         displayListAndDetails()
     }
 }
