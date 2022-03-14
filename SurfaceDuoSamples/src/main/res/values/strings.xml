@@ -17,8 +17,8 @@
     <string name="companion_pane_info">Design pattern showcasing advantage of companion screen for content and control.</string>
     <string name="pen_events_info">Sample to show Pen events and metrics.</string>
     <string name="intent_to_second_screen_info">Sample to open activities in different scenarios.</string>
-    <string name="qualifiers_info">Use android resource qualifiers to structure project recources. </string>
-    <string name="multiple_instances_info">A sample to open multiple instances of the same activity.</string>
+    <string name="qualifiers_info">Use android resource qualifiers to structure project resources. </string>
+    <string name="multiple_instances_info">A sample to open multiple instances of the same application.</string>
 
     <string name="view_the_code">View Code</string>
     <string name="turn_off_code">Turn off code inspection</string>
@@ -41,9 +41,8 @@
 \n\nThis pattern is naturally good for when you have a wider viewing area.
 \n\nThis sample demonstrates how to implement List Detail in your Android App.</string>
 
-    <string name="pen_events_description"> You may consider this pattern if you need a bigger canvas for a task such as drawing, or if your app has a free-flowing canvas that the user can freely scroll to avoid the seam if some important content is obscured.
-\n\nThis provides the benefit of giving your app more screen real-estate, rather than constricting it to one screen or another.
-\n\nThis sample demonstrates how to implement Extended Canvas in your Android App.</string>
+    <string name="pen_events_description">This sample visualizes data from pen events into shapes that shows  the orientations, pen tip pressure, barrel button, and eraser interactions.
+\n\nYou can also take advantage of two screens by placing the app canvas on one screen and using the other to hold tools that manipulate the content of the canvas.</string>
 
     <string name="two_page_description"> Two-page pattern naturally tends to provide a book-like paging experience.
 \n\nYou can use the natural boundary to show several items from a collection—like pages or pictures—which otherwise might have required the user to view one at a time.
@@ -53,17 +52,18 @@
 \n\nYou can also take advantage of two screens by placing the app canvas on one screen and using the other to hold tools that manipulate the content of the canvas.
 \n\nThis sample demonstrates how to implement Companion Pane in your Android App.</string>
 
-    <string name="extend_canvas_description">This sample visualizes data from pen events into shapes that detail on the orientations, pen tip pressure, barrel button, and eraser interactions.
-\n\nYou can also take advantage of two screens by placing the app canvas on one screen and using the other to hold tools that manipulate the content of the canvas.</string>
+    <string name="extend_canvas_description"> You may consider this pattern if you need a bigger canvas for a task such as drawing, or if your app has a free-flowing canvas that the user can freely scroll to avoid the seam if some important content is obscured.
+\n\nThis provides the benefit of giving your app more screen real-estate, rather than constricting it to one screen or another.
+\n\nThis sample demonstrates how to implement Extended Canvas in your Android App.</string>
 
-    <string name="intent_to_second_screen_description">This sample demonstrates how an activity can open on the second screen (as long as it\'s empty, otherwise the activity will launch over the current one).
-\n\nThis sample demonstrates how to implement on the secondary display in your Android App.</string>
+    <string name="intent_to_second_screen_description">Having two screens give the option to open a new activity side by side or on top of the existing one
+\n\nThis sample demonstrates how this can be achieved on a Surface Duo device. </string>
 
     <string name="qualifiers_description">This sample demonstrates how to load layouts or values XML specifically for the Surface Duo using resource qualifier folder names.
 \n\nWhen creating apps, we often have to deal with different screen configurations (dimensions) and make design adjustments so the app adapts to whatever device it is being used on.
 \n\nSurface Duo is no different than other Android devices in that it also has its own device dimensions that will need to be considered in your app design.</string>
 
-    <string name="multiple_instances_description">This sample demonstrates how to implement another instance - here for example Microsoft Edge on the Surface Duo can be opened twice to have two different browsing sessions.
-\n\nTest out the sample to see the multiple instances in action. </string>
+    <string name="multiple_instances_description">This sample demonstrates how to implement another instance - the application can be on the Surface Duo can be opened twice to have two different browsing sessions.
+\n\nUsing aliases each instance can have different entry points into the app. </string>
 
 </resources>
