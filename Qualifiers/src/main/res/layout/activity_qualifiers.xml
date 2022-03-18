@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+<!-- This is the default resource folder (layout), that any device that doesn't fit on the qualifiers
+that you have defined for specific resource folders, will use -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/view_margin"
+    tools:context=".QualifiersActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/qualifiers_sticker_image_content_description"
+        android:src="@drawable/planet"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resource_folder"
+        style="@style/Text.ResourceFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin"
+        android:text="@string/screen_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

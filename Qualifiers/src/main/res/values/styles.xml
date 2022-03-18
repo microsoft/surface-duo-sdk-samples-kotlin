@@ -6,15 +6,12 @@
   -->
 
 <resources>
-
     <style name="Text" parent="@style/Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/text_size</item>
     </style>
-
-    <style name="Text.Message" />
-
     <style name="Text.ResourceFolder">
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">30sp</item>
     </style>
-
 </resources>
