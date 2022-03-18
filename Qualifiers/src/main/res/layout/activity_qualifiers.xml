@@ -9,7 +9,6 @@ that you have defined for specific resource folders, will use -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/view_margin"
@@ -20,19 +19,9 @@ that you have defined for specific resource folders, will use -->
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/qualifiers_sticker_image_content_description"
-        android:src="@drawable/sticker"
+        android:src="@drawable/planet"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/message"
-        style="@style/Text.Message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/view_margin"
-        android:text="@string/qualifiers_hello_world"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image" />
 
     <TextView
         android:id="@+id/resource_folder"
@@ -40,8 +29,8 @@ that you have defined for specific resource folders, will use -->
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_margin"
-        android:text="@string/qualifiers_resource_folder"
+        android:text="@string/screen_info"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/message" />
+        app:layout_constraintTop_toBottomOf="@id/image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
