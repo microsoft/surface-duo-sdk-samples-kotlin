@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~
+  ~  Copyright (c) Microsoft Corporation. All rights reserved.
+  ~  Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <!-- This is the a specific resource folder (values-sw720dp) that any device that fits with this configuration
+     will use. E.g: Pixel C tablet emulator-->
+    <string name="qualifiers_app_name">Qualifiers</string>
+    <string name="qualifiers_hello_world">Bonjour le monde!</string>
+    <string name="qualifiers_resource_folder">sw720dp</string>
+</resources>

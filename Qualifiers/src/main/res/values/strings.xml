@@ -8,6 +8,7 @@
     <!-- This is the default resource folder (values), that any device that doesn't fit on the qualifiers
    that you have defined for specific resource folders, will use -->
     <string name="qualifiers_app_name">Qualifiers</string>
-    <string name="screen_info">default values folder</string>
-    <string name="qualifiers_sticker_image_content_description">Image</string>
+    <string name="qualifiers_hello_world">Hello World!</string>
+    <string name="qualifiers_resource_folder">default values folder</string>
+    <string name="qualifiers_sticker_image_content_description">Single screen image</string>
 </resources>

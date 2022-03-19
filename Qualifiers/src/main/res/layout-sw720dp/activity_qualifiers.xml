@@ -4,15 +4,16 @@
   ~  Licensed under the MIT License.
   ~
   -->
-<!-- This is the default resource folder (layout), that any device that doesn't fit on the qualifiers
-that you have defined for specific resource folders, will use -->
+
+<!-- This is the a specific resource folder (layout-sw720dp) that any device that fits with this configuration
+ will use. E.g: Pixel C tablet emulator-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/view_margin"
+    android:padding="@dimen/screen_padding"
     tools:context=".QualifiersActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -21,7 +22,9 @@ that you have defined for specific resource folders, will use -->
         android:layout_height="wrap_content"
         android:contentDescription="@string/qualifiers_sticker_image_content_description"
         android:src="@drawable/sticker"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -31,17 +34,19 @@ that you have defined for specific resource folders, will use -->
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_margin"
         android:text="@string/qualifiers_hello_world"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/image"
+        app:layout_constraintRight_toRightOf="@id/image"
         app:layout_constraintTop_toBottomOf="@id/image" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/resource_folder"
         style="@style/Text.ResourceFolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_margin"
         android:text="@string/qualifiers_resource_folder"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/message"
+        app:layout_constraintRight_toRightOf="@id/message"
         app:layout_constraintTop_toBottomOf="@id/message" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
