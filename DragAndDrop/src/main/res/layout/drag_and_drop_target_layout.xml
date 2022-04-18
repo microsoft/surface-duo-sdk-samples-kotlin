@@ -9,99 +9,113 @@
     android:id="@+id/drop_target_zone"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/drag_and_drop_very_small_padding">
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/drop_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="@dimen/drag_and_drop_content_medium_margin"
+        android:layout_marginTop="@dimen/drag_and_drop_content_large_margin"
+        android:fontFamily="@font/merriweather_black"
+        android:gravity="center"
+        android:text="@string/drop_title"
+        android:textColor="#000000"
+        android:textSize="@dimen/drag_and_drop_title_size_xlarge"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/title_separator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/drag_and_drop_separator_height"
+        android:layout_marginHorizontal="@dimen/drag_and_drop_content_medium_margin"
+        android:layout_marginTop="@dimen/drag_and_drop_content_xlarge_margin"
+        android:contentDescription="@string/res_descriptor_title_separator"
+        android:src="@drawable/line"
+        app:layout_constraintTop_toBottomOf="@id/drop_title" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.4" />
 
-    <View
-        android:id="@+id/drop_image_hint"
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/drag_and_drop_very_small_padding"
-        android:background="@color/drag_and_drop_light_gray"
+        android:layout_marginStart="@dimen/drag_and_drop_content_medium_margin"
+        android:layout_marginTop="@dimen/drag_and_drop_content_xlarge_margin"
+        android:layout_marginBottom="@dimen/drag_and_drop_content_large_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/title_separator">
 
-    <View
-        android:id="@+id/drop_text_hint"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/empty_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/dashed_stroke_background"
+            android:gravity="center"
+            android:padding="@dimen/drag_and_drop_content_medium_padding"
+            android:scaleType="centerInside" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/drop_image_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_drop_image_hint"
+            android:fontFamily="@font/merriweather_bold"
+            android:text="@string/drop_hint_image"
+            android:textColor="#71B9FB" />
+    </FrameLayout>
+
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/drag_and_drop_very_small_padding"
-        android:background="@color/drag_and_drop_light_gray"
+        android:layout_marginHorizontal="@dimen/drag_and_drop_content_medium_margin"
+        android:layout_marginTop="@dimen/drag_and_drop_content_xlarge_margin"
+        android:layout_marginBottom="@dimen/drag_and_drop_content_large_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/title_separator">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/empty_image"
-        android:layout_width="@dimen/drag_and_drop_image_width"
-        android:layout_height="@dimen/drag_and_drop_image_height"
-        android:layout_margin="@dimen/drag_and_drop_image_margin"
-        android:gravity="center"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/empty_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/dashed_stroke_background"
+            android:gravity="center"
+            android:padding="@dimen/drag_and_drop_content_medium_padding" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/empty_text"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/drag_and_drop_text_margin"
-        android:gravity="start|center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/drop_text_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_drop_text_hint"
+            android:fontFamily="@font/merriweather_bold"
+            android:text="@string/drop_hint_text"
+            android:textColor="#71B9FB" />
+    </FrameLayout>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_hint_image_view"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/image_hint_text_view"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/drag_and_drop_ic_photo_black" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/image_hint_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/drag_and_drop_drag_image_here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_hint_image_view" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/text_hint_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/text_hint_text_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/drag_and_drop_ic_text_fields_black" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_hint_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/drag_and_drop_drag_text_here"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/drag_and_drop_reset_button_margin"
+        android:layout_marginBottom="@dimen/drag_and_drop_reset_button_margin"
+        android:src="@android:drawable/ic_menu_revert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/text_hint_image_view" />
+        app:pressedTranslationZ="@dimen/drag_and_drop_floating_button_translation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

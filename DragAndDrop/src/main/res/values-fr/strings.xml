@@ -9,4 +9,8 @@
     <string name="drag_and_drop_plain_text">L\'équilibre parfait entre productivité et mobilité. Surface Duo est un nouvel appareil à double écran qui tient dans votre poche. Avec deux écrans connectés d\'une manière révolutionnaire à 360 °, Surface Duo réunit le meilleur de Microsoft et d\'Android pour réinventer la productivité en déplacement.</string>
     <string name="drag_and_drop_drag_image_here">Faites glisser l\'image ici</string>
     <string name="drag_and_drop_drag_text_here">Faites glisser le texte ici</string>
+
+    <string name="drop_title">À propos de Surface Duo</string>
+    <string name="drop_hint_image">Faites glisser l\'image ici</string>
+    <string name="drop_hint_text">Faites glisser le texte ici</string>
 </resources>

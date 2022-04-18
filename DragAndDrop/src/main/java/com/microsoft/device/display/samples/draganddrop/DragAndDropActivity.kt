@@ -41,7 +41,6 @@ class DragAndDropActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupToolbar()
-        binding.resetButton.setOnClickListener { recreate() }
         initWindowLayoutInfo()
     }
 

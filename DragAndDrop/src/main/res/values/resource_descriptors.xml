@@ -5,6 +5,5 @@
   -->
 
 <resources>
-    <color name="drag_and_drop_light_gray">#ededed</color>
-    <color name="gray">#FF888888</color>
+    <string name="res_descriptor_title_separator">title separator</string>
 </resources>
