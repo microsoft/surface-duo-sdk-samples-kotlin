@@ -25,7 +25,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.microsoft.device.display.samples.draganddrop.R
 import com.microsoft.device.display.samples.draganddrop.databinding.DragAndDropTargetLayoutBinding
-import java.io.BufferedReader
 import java.io.FileInputStream
 import java.io.FileNotFoundException
 
@@ -56,7 +55,8 @@ class DropTargetFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setOnDropListeners()
+        setOnTextDropListeners()
+        setOnImageDropListeners()
         binding.resetButton.setOnClickListener { resetDropTarget() }
 
         with(viewModel.text.value) {
@@ -76,7 +76,7 @@ class DropTargetFragment : Fragment() {
         }
     }
 
-    private fun setOnDropListeners() {
+    private fun setOnTextDropListeners() {
         DropHelper.configureView(
             requireActivity(),
             binding.emptyText,
@@ -97,7 +97,9 @@ class DropTargetFragment : Fragment() {
             }
             remaining
         }
+    }
 
+    private fun setOnImageDropListeners() {
         DropHelper.configureView(
             requireActivity(),
             binding.emptyImage,
@@ -188,7 +190,7 @@ class DropTargetFragment : Fragment() {
         val parcelFileDescriptor: ParcelFileDescriptor? = try {
             requireActivity().contentResolver.openFileDescriptor(item.uri, "r")
         } catch (e: FileNotFoundException) {
-            e.printStackTrace()
+            Log.e(TAG, "Clip data is missing it's text")
             null
         }
 
@@ -196,20 +198,14 @@ class DropTargetFragment : Fragment() {
             Log.e(TAG, "Invalid File Descriptor")
             return ""
         }
-
-        val fileDescriptor = parcelFileDescriptor.fileDescriptor
-        val reader = BufferedReader(FileInputStream(fileDescriptor).reader())
-        val content = StringBuilder()
-        try {
-            var line = reader.readLine()
-            while (line != null) {
-                content.append(line)
-                line = reader.readLine()
-            }
+        val reader = FileInputStream(parcelFileDescriptor.fileDescriptor).reader()
+        return try {
+            reader.readText()
         } catch (e: java.lang.Exception) {
-            reader.close()
             Log.e(TAG, "Unable to read file: ${e.message}")
+            ""
+        } finally {
+            reader.close()
         }
-        return reader.toString()
     }
 }

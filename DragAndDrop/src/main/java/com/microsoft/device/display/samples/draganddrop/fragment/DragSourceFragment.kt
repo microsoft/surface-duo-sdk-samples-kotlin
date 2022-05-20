@@ -71,14 +71,12 @@ class DragSourceFragment : Fragment() {
             }
             val imageFile = File(folder, DRAG_FILE_NAME)
 
-            if (!imageFile.exists()) {
-                ByteArrayOutputStream().use { bos ->
-                    (view as ImageView).drawable.toBitmap()
-                        .compress(Bitmap.CompressFormat.PNG, 0, bos)
-                    FileOutputStream(imageFile).use { fos ->
-                        fos.write(bos.toByteArray())
-                        fos.flush()
-                    }
+            ByteArrayOutputStream().use { bos ->
+                (view as ImageView).drawable.toBitmap()
+                    .compress(Bitmap.CompressFormat.PNG, 0, bos)
+                FileOutputStream(imageFile).use { fos ->
+                    fos.write(bos.toByteArray())
+                    fos.flush()
                 }
             }
 

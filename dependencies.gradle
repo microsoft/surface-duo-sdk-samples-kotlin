@@ -5,12 +5,14 @@
  */
 
 ext {
-    gradlePluginVersion = "7.0.2"
-    kotlinVersion = "1.5.0"
+    gradlePluginVersion = "7.2.0"
+    kotlinVersion = "1.6.0"
     compileSdkVersion = 31
     buildToolsVersion = '30.0.3'
     targetSdkVersion = compileSdkVersion
     minSdkVersion = 25
+    versionCode = 2
+    versionName = "1.0.2"
 
     config = [
             gradlePlugin             : "com.android.tools.build:gradle:$gradlePluginVersion",
@@ -33,7 +35,7 @@ ext {
     viewPager2Version = "1.0.0"
     localBroadcastManagerVersion = "1.0.0"
     lifecycleExtensionsVersion = "2.2.0"
-    dragAndDropVersion = "1.0.0-beta01"
+    dragAndDropVersion = "1.0.0"
 
     androidxDependencies = [
             appCompat           : "androidx.appcompat:appcompat:$appCompatVersion",

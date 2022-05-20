@@ -6,7 +6,7 @@
 
 <resources>
     <string name="drag_and_drop_app_name">Drag And Drop</string>
-    <string name="drag_and_drop_plain_text">Das perfekte Gleichgewicht zwischen Produktivität und Mobilität. Surface Duo ist ein neues Dual-Screen-Gerät, das in Ihre Tasche passt. Mit zwei Bildschirmen, die durch ein revolutionäres 360 ° -Scharnier verbunden sind, vereint Surface Duo das Beste aus Microsoft und Android, um die Produktivität unterwegs neu zu definieren.</string>
+    <string name="drag_and_drop_plain_text">Surface Duo ist ein neues Dual-Screen-Gerät, das in Ihre Tasche passt und auf Android basiert. Mit zwei Bildschirmen, die durch ein revolutionäres 360°-Scharnier verbunden sind, vereint Surface Duo das Beste von Microsoft und Android, um die Produktivität unterwegs neu zu definieren. Ihre Android-Apps funktionieren nur auf dem Surface Duo, aber Sie können ein paar Schritte unternehmen, damit sie besser funktionieren, und die Dual-Screen-Natur des Surface Duo nutzen, um Ihren Benutzern einzigartige Erfahrungen zu bieten. Verwenden Sie den Jetpack Window Manager und die Vorschau des Surface Duo Software Development Kit (SDK) mit Android Studio, um Ihre neuen und vorhandenen Android-Apps großartig für Dual-Screens zu machen. Das SDK enthält auch APIs, mit denen Sie Ihre App verbessern können, um einzigartige Funktionen des Geräts zu nutzen. Außerdem steht Ihnen ein separater Surface Duo-Emulator zum Entwickeln und Testen Ihrer Apps zur Verfügung.</string>
     <string name="drag_and_drop_drag_image_here">Ziehen Sie das Bild hierher</string>
     <string name="drag_and_drop_drag_text_here">Ziehen Sie den Text hierher</string>
 
