@@ -190,7 +190,7 @@ class DropTargetFragment : Fragment() {
         val parcelFileDescriptor: ParcelFileDescriptor? = try {
             requireActivity().contentResolver.openFileDescriptor(item.uri, "r")
         } catch (e: FileNotFoundException) {
-            Log.e(TAG, "Clip data is missing it's text")
+            Log.e(TAG, "Clip data is missing its text")
             null
         }
 
