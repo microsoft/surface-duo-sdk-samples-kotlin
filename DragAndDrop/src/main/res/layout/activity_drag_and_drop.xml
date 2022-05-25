@@ -4,27 +4,11 @@
   ~
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.microsoft.device.dualscreen.layouts.FoldableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.microsoft.device.dualscreen.layouts.FoldableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:show_in_dual_screen_end="@layout/drag_and_drop_target_layout"
-        app:show_in_dual_screen_start="@layout/drag_and_drop_source_layout"
-        app:single_screen_layout_id="@layout/drag_and_drop_single_screen"
-        app:tools_screen_mode="dual_screen" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/reset_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/drag_and_drop_reset_button_margin"
-        android:layout_marginBottom="@dimen/drag_and_drop_reset_button_margin"
-        android:src="@android:drawable/ic_menu_revert"
-        app:pressedTranslationZ="12dp" />
-</FrameLayout>
+    android:layout_height="match_parent"
+    app:show_in_dual_screen_end="@layout/drag_and_drop_target_layout"
+    app:show_in_dual_screen_start="@layout/drag_and_drop_source_layout"
+    app:single_screen_layout_id="@layout/drag_and_drop_single_screen"
+    app:tools_screen_mode="dual_screen" />

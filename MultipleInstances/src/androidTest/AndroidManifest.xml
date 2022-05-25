@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/TestTheme">
         <activity
+            android:exported="true"
             android:name=".MultipleInstancesSecondActivity"
             android:label="@string/multiple_instances_app_name"
             android:launchMode="singleInstance">
@@ -25,6 +26,7 @@
         </activity>
 
         <activity
+            android:exported="true"
             android:name=".MultipleInstancesMainActivity"
             android:label="@string/multiple_instances_app_name">
             <intent-filter>

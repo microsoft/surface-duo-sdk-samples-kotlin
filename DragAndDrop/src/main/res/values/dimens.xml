@@ -5,10 +5,19 @@
   -->
 
 <resources>
+    <dimen name="drag_and_drop_title_size_xlarge">36sp</dimen>
+    <dimen name="drag_and_drop_content_text_size">17sp</dimen>
+
+    <dimen name="drag_and_drop_separator_height">1dp</dimen>
+
+    <dimen name="drag_and_drop_floating_button_translation">12dp</dimen>
+
     <dimen name="drag_and_drop_reset_button_margin">16dp</dimen>
-    <dimen name="drag_and_drop_image_width">180dp</dimen>
-    <dimen name="drag_and_drop_image_height">160dp</dimen>
-    <dimen name="drag_and_drop_image_margin">8dp</dimen>
-    <dimen name="drag_and_drop_text_margin">8dp</dimen>
-    <dimen name="drag_and_drop_very_small_padding">4dp</dimen>
+    <dimen name="drag_and_drop_content_medium_padding">10dp</dimen>
+    <dimen name="drag_and_drop_content_xlarge_padding">30dp</dimen>
+
+    <dimen name="drag_and_drop_content_small_margin">10dp</dimen>
+    <dimen name="drag_and_drop_content_medium_margin">20dp</dimen>
+    <dimen name="drag_and_drop_content_large_margin">25dp</dimen>
+    <dimen name="drag_and_drop_content_xlarge_margin">30dp</dimen>
 </resources>
