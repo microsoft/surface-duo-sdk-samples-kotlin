@@ -11,14 +11,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.window.layout.WindowInfoRepository
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.listdetail.databinding.ListDetailsFragmentImageDetailsBinding
 import com.microsoft.device.display.samples.listdetail.model.SelectionViewModel
@@ -34,7 +32,6 @@ import kotlinx.coroutines.launch
 class ImageDetailsFragment : Fragment() {
 
     private lateinit var binding: ListDetailsFragmentImageDetailsBinding
-    private lateinit var windowInfoRepository: WindowInfoRepository
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,26 +49,24 @@ class ImageDetailsFragment : Fragment() {
 
     private fun observeSelectedImage() {
         val viewModel = ViewModelProvider(requireActivity()).get(SelectionViewModel::class.java)
-        viewModel.selectedItem.observe(
-            viewLifecycleOwner,
-            {
-                binding.imageView.setImageResource(it)
-            }
-        )
+        viewModel.selectedItem.observe(viewLifecycleOwner) {
+            binding.imageView.setImageResource(it)
+        }
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        observeWindowLayoutInfo(context as AppCompatActivity)
+        registerWindowInfoFlow()
     }
 
-    private fun observeWindowLayoutInfo(activity: AppCompatActivity) {
-        windowInfoRepository = activity.windowInfoRepository()
+    private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                windowInfoRepository.windowLayoutInfo.collect {
-                    setupLayout(it)
-                }
+                WindowInfoTracker.getOrCreate(requireContext())
+                    .windowLayoutInfo(requireActivity())
+                    .collect { windowLayoutInfo ->
+                        setupLayout(windowLayoutInfo)
+                    }
             }
         }
     }

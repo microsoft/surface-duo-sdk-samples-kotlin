@@ -14,14 +14,12 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.window.layout.WindowInfoRepository
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.dualview.R
 import com.microsoft.device.display.samples.dualview.databinding.FragmentDualViewMapBinding
@@ -39,7 +37,6 @@ class DualViewMapFragment : Fragment() {
     private lateinit var binding: FragmentDualViewMapBinding
     private val selectedViewModel: SelectedViewModel by activityViewModels()
     private var windowLayoutInfo: WindowLayoutInfo? = null
-    private lateinit var windowInfoRepository: WindowInfoRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,12 +79,9 @@ class DualViewMapFragment : Fragment() {
      * Observes the selected restaurant in order to setup the fake map view
      */
     private fun observeSelectedRestaurant() {
-        selectedViewModel.selectedPosition.observe(
-            viewLifecycleOwner,
-            {
-                setupMap(it)
-            }
-        )
+        selectedViewModel.selectedPosition.observe(viewLifecycleOwner) {
+            setupMap(it)
+        }
     }
 
     /**
@@ -110,16 +104,17 @@ class DualViewMapFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        observeWindowLayoutInfo(context as AppCompatActivity)
+        registerWindowInfoFlow()
     }
 
-    private fun observeWindowLayoutInfo(activity: AppCompatActivity) {
-        windowInfoRepository = activity.windowInfoRepository()
+    private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                windowInfoRepository.windowLayoutInfo.collect {
-                    onWindowLayoutInfoChanged(it)
-                }
+                WindowInfoTracker.getOrCreate(requireContext())
+                    .windowLayoutInfo(requireActivity())
+                    .collect { windowLayoutInfo ->
+                        onWindowLayoutInfoChanged(windowLayoutInfo)
+                    }
             }
         }
     }

@@ -12,7 +12,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
@@ -21,8 +20,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import androidx.window.layout.WindowInfoRepository
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.duosamples.databinding.FragmentDuoSamplesBinding
 import com.microsoft.device.display.samples.duosamples.navigation.getMainNavigator
@@ -44,7 +42,6 @@ class DuoSamplesListFragment : Fragment() {
     private lateinit var binding: FragmentDuoSamplesBinding
 
     private var windowLayoutInfo: WindowLayoutInfo? = null
-    private lateinit var windowInfoRepository: WindowInfoRepository
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,18 +60,19 @@ class DuoSamplesListFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        observeWindowLayoutInfo(context as AppCompatActivity)
+        registerWindowInfoFlow()
     }
 
     private fun getLaunchNavigator() = requireActivity().getMainNavigator()
 
-    private fun observeWindowLayoutInfo(activity: AppCompatActivity) {
-        windowInfoRepository = activity.windowInfoRepository()
+    private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                windowInfoRepository.windowLayoutInfo.collect {
-                    onWindowLayoutInfoChanged(it)
-                }
+                WindowInfoTracker.getOrCreate(requireContext())
+                    .windowLayoutInfo(requireActivity())
+                    .collect { windowLayoutInfo ->
+                        onWindowLayoutInfoChanged(windowLayoutInfo)
+                    }
             }
         }
     }

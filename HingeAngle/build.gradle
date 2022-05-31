@@ -31,7 +31,6 @@ dependencies {
     implementation androidxDependencies.constraintLayout
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
-    implementation androidxDependencies.locaBroadcastManager
 
     implementation microsoftDependencies.layouts
 }

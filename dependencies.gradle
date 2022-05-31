@@ -26,15 +26,13 @@ ext {
     ]
 
     //AndroidX versions
-    appCompatVersion = "1.1.0"
+    appCompatVersion = "1.3.1"
     constraintLayoutVersion = "2.0.4"
-    recyclerViewVersion = "1.1.0"
+    recyclerViewVersion = "1.2.0"
     cardViewVersion = "1.0.0"
-    ktxCoreVersion = "1.7.0"
-    ktxFragmentVersion = "1.2.4"
-    viewPager2Version = "1.0.0"
-    localBroadcastManagerVersion = "1.0.0"
-    lifecycleExtensionsVersion = "2.2.0"
+    coreKtxVersion = "1.7.0"
+    fragmentKtxVersion = "1.3.1"
+    lifecycleExtensionsVersion = "2.4.1"
     dragAndDropVersion = "1.0.0"
 
     androidxDependencies = [
@@ -42,27 +40,24 @@ ext {
             constraintLayout    : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
             recyclerView        : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
             cardView            : "androidx.cardview:cardview:$cardViewVersion",
-            ktxCore             : "androidx.core:core-ktx:$ktxCoreVersion",
-            ktxFragment         : "androidx.fragment:fragment-ktx:$ktxFragmentVersion",
-            viewPager2          : "androidx.viewpager2:viewpager2:$viewPager2Version",
-            locaBroadcastManager: "androidx.localbroadcastmanager:localbroadcastmanager:$localBroadcastManagerVersion",
+            ktxCore             : "androidx.core:core-ktx:$coreKtxVersion",
+            ktxFragment         : "androidx.fragment:fragment-ktx:$fragmentKtxVersion",
             lifecycleExtensions : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
             dragAndDrop         : "androidx.draganddrop:draganddrop:$dragAndDropVersion"
     ]
 
     //Google dependencies
-    materialVersion = "1.1.0"
-
-    googleDependencies = [
+    materialVersion = "1.3.0"
+    materialDependencies = [
             material: "com.google.android.material:material:$materialVersion"
     ]
 
     //Microsoft dependencies version
-    fragmentsHandlerVersion = "1.0.0-beta4"
-    layoutsVersion = "1.0.0-beta7"
-    bottomNavigationVersion = "1.0.0-beta3"
-    recyclerViewVersion = "1.0.0-beta5"
-    tabsVersion = "1.0.0-beta3"
+    fragmentsHandlerVersion = "1.0.0-beta5"
+    layoutsVersion = "1.0.0-beta9"
+    bottomNavigationVersion = "1.0.0-beta5"
+    recyclerViewVersion = "1.0.0-beta6"
+    tabsVersion = "1.0.0-beta5"
 
     microsoftDependencies = [
             fragmentsHandler: "com.microsoft.device.dualscreen:fragmentshandler:$fragmentsHandlerVersion",
@@ -72,7 +67,7 @@ ext {
             tabs            : "com.microsoft.device.dualscreen:tabs:$tabsVersion"
     ]
 
-    navigationVersion = '1.0.0-alpha1'
+    navigationVersion = '1.0.0-alpha3'
 
     navigationDependencies = [
             fragmentKtx   : "com.microsoft.device.dualscreen:navigation-fragment-ktx:$navigationVersion",

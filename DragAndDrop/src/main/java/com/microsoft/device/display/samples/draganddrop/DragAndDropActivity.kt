@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.draganddrop.databinding.ActivityDragAndDropBinding
 import com.microsoft.device.display.samples.draganddrop.fragment.DragSourceFragment
@@ -41,7 +41,7 @@ class DragAndDropActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupToolbar()
-        initWindowLayoutInfo()
+        registerWindowInfoFlow()
     }
 
     private fun setupToolbar() {
@@ -56,13 +56,14 @@ class DragAndDropActivity : AppCompatActivity() {
         return true
     }
 
-    private fun initWindowLayoutInfo() {
-        val windowInfoRepository = windowInfoRepository()
+    private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                windowInfoRepository.windowLayoutInfo.collect { info ->
-                    setupFragments(info)
-                }
+                WindowInfoTracker.getOrCreate(this@DragAndDropActivity)
+                    .windowLayoutInfo(this@DragAndDropActivity)
+                    .collect { windowLayoutInfo ->
+                        setupFragments(windowLayoutInfo)
+                    }
             }
         }
     }
