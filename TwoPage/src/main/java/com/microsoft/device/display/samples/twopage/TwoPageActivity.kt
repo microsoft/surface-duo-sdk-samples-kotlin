@@ -17,7 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.twopage.databinding.ActivityTwoPageBinding
 import com.microsoft.device.display.samples.twopage.fragments.FirstPageFragment
@@ -45,7 +45,8 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
 
         setupToolbar()
         setupPagerAdapter()
-        initWindowLayoutInfo()
+        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
+        registerWindowInfoFlow()
     }
 
     private fun setupToolbar() {
@@ -67,15 +68,14 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
             }
         }
 
-    private fun initWindowLayoutInfo() {
-        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
-
-        val windowInfoRepository = windowInfoRepository()
+    private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                windowInfoRepository.windowLayoutInfo.collect { info ->
-                    windowLayoutInfo = info
-                }
+                WindowInfoTracker.getOrCreate(this@TwoPageActivity)
+                    .windowLayoutInfo(this@TwoPageActivity)
+                    .collect { info ->
+                        windowLayoutInfo = info
+                    }
             }
         }
     }

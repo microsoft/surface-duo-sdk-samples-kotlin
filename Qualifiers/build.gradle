@@ -34,7 +34,6 @@ dependencies {
     implementation kotlinDependencies.kotlinStdlib
     implementation androidxDependencies.appCompat
     implementation androidxDependencies.constraintLayout
-    implementation androidxDependencies.lifecycleExtensions
 
     testImplementation testDependencies.junit
 

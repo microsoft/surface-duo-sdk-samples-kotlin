@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.hingeangle.databinding.ActivityHingeAngleBinding
 import com.microsoft.device.display.samples.hingeangle.fragments.DualScreenFragment
@@ -31,7 +31,7 @@ class HingeAngleActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupToolbar()
-        initWindowLayoutInfo()
+        registerWindowInfoFlow()
     }
 
     private fun setupToolbar() {
@@ -46,13 +46,14 @@ class HingeAngleActivity : AppCompatActivity() {
         return true
     }
 
-    private fun initWindowLayoutInfo() {
-        val windowInfoRepository = windowInfoRepository()
+    private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                windowInfoRepository.windowLayoutInfo.collect { info ->
-                    onWindowLayoutInfoChanged(info)
-                }
+                WindowInfoTracker.getOrCreate(this@HingeAngleActivity)
+                    .windowLayoutInfo(this@HingeAngleActivity)
+                    .collect { windowLayoutInfo ->
+                        onWindowLayoutInfoChanged(windowLayoutInfo)
+                    }
             }
         }
     }

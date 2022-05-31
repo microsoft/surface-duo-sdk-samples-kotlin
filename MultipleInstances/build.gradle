@@ -34,7 +34,6 @@ dependencies {
 
     implementation microsoftDependencies.layouts
 
-
     testImplementation testDependencies.junit
 
     androidTestImplementation instrumentationTestDependencies.junit

@@ -12,7 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.listdetail.databinding.ActivityListDetailsBinding
 import com.microsoft.device.display.samples.listdetail.extensions.TAG
@@ -38,7 +38,7 @@ class ListDetailsActivity : AppCompatActivity() {
 
         setupToolbar()
         observeSelectedItem()
-        initWindowLayoutInfo()
+        registerWindowInfoFlow()
     }
 
     private fun setupToolbar() {
@@ -63,35 +63,33 @@ class ListDetailsActivity : AppCompatActivity() {
 
     private fun observeSelectedItem() {
         val viewModel = ViewModelProvider(this).get(SelectionViewModel::class.java)
-        viewModel.selectedItem.observe(
-            this,
-            {
-                windowLayoutInfo?.let {
-                    if (it.isInDualMode() && it.isFoldingFeatureVertical()) {
-                        supportFragmentManager
-                            .beginTransaction()
-                            .replace(R.id.second_container_id, ImageDetailsFragment(), null)
-                            .commit()
-                    } else {
-                        val detailsFragment = ImageDetailsFragment()
-                        supportFragmentManager
-                            .beginTransaction()
-                            .add(R.id.first_container_id, detailsFragment, detailsFragment.TAG)
-                            .addToBackStack(detailsFragment.TAG)
-                            .commit()
-                    }
+        viewModel.selectedItem.observe(this) {
+            windowLayoutInfo?.let {
+                if (it.isInDualMode() && it.isFoldingFeatureVertical()) {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.second_container_id, ImageDetailsFragment(), null)
+                        .commit()
+                } else {
+                    val detailsFragment = ImageDetailsFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .add(R.id.first_container_id, detailsFragment, detailsFragment.TAG)
+                        .addToBackStack(detailsFragment.TAG)
+                        .commit()
                 }
             }
-        )
+        }
     }
 
-    private fun initWindowLayoutInfo() {
-        val windowInfoRepository = windowInfoRepository()
+    private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                windowInfoRepository.windowLayoutInfo.collect { info ->
-                    setupLayout(info)
-                }
+                WindowInfoTracker.getOrCreate(this@ListDetailsActivity)
+                    .windowLayoutInfo(this@ListDetailsActivity)
+                    .collect { windowLayoutInfo ->
+                        setupLayout(windowLayoutInfo)
+                    }
             }
         }
     }

@@ -13,7 +13,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.multipleinstances.databinding.ActivityMultipleInstancesBinding
 import com.microsoft.device.dualscreen.utils.wm.isInDualMode
@@ -34,7 +34,8 @@ abstract class MultipleInstancesBaseActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupToolbar()
-        initWindowLayoutInfo()
+        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
+        registerWindowInfoFlow()
     }
 
     private fun setupToolbar() {
@@ -56,15 +57,14 @@ abstract class MultipleInstancesBaseActivity : AppCompatActivity() {
             }
         }
 
-    private fun initWindowLayoutInfo() {
-        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
-
-        val windowInfoRepository = windowInfoRepository()
+    private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                windowInfoRepository.windowLayoutInfo.collect { info ->
-                    windowLayoutInfo = info
-                }
+                WindowInfoTracker.getOrCreate(this@MultipleInstancesBaseActivity)
+                    .windowLayoutInfo(this@MultipleInstancesBaseActivity)
+                    .collect { info ->
+                        windowLayoutInfo = info
+                    }
             }
         }
     }
