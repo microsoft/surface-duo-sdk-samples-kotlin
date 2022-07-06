@@ -17,7 +17,7 @@ data class Restaurant(
     val type: Type,
     val priceRange: Int = 0,
     val description: String? = "",
-    val mapImageResourceId: Int = 0
+    val coordinates: RestaurantCoordinates
 ) {
 
     enum class Type(private val label: String) {

@@ -12,7 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.microsoft.device.display.samples.dualview.R
 import com.microsoft.device.display.samples.dualview.model.Restaurant
@@ -31,13 +31,20 @@ class RestaurantAdapter(
     private val layoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        RestaurantViewHolder(layoutInflater.inflate(R.layout.dual_view_restaurant_item, parent, false))
+        RestaurantViewHolder(
+            layoutInflater.inflate(
+                R.layout.dual_view_restaurant_item,
+                parent,
+                false
+            )
+        )
 
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
         holder.bind(
             viewModel.getItem(position)!!,
             onClickRestaurantItem,
-            position == viewModel.selectedPosition.value
+            position == viewModel.selectedPosition.value,
+            position == itemCount - 12
         )
     }
 
@@ -61,19 +68,29 @@ class RestaurantAdapter(
         private val typeView = itemView.findViewById<TextView>(R.id.item_type)
         private val priceView = itemView.findViewById<TextView>(R.id.item_price)
         private val descriptionView = itemView.findViewById<TextView>(R.id.item_description)
+        private val divider = itemView.findViewById<View>(R.id.divider)
 
         /**
          * Sets the Restaurant data to the corresponding UI component
          */
-        fun bind(item: Restaurant, onClick: (item: Restaurant) -> Unit, isSelected: Boolean) {
+        fun bind(
+            item: Restaurant,
+            onClick: (item: Restaurant) -> Unit,
+            isSelected: Boolean,
+            isLastItem: Boolean
+        ) {
             imageView.setImageResource(item.imageResourceId)
             titleView.text = item.title
             ratingView.text = formatRating(item.rating, item.voteCount)
-            typeView.text = itemView.resources.getString(R.string.dual_view_restaurant_type, item.type.toString())
+            typeView.text = itemView.resources.getString(
+                R.string.dual_view_restaurant_type,
+                item.type.toString()
+            )
             priceView.text = formatPriceRange(item.priceRange)
             descriptionView.text = item.description
 
             markViewSelection(isSelected)
+            markDivider(isLastItem)
 
             itemView.setOnClickListener { onClick(item) }
         }
@@ -82,17 +99,14 @@ class RestaurantAdapter(
          * Changes the text color of the view to black if the cell is selected, otherwise to gray
          */
         private fun markViewSelection(isSelected: Boolean) {
-            val colorResId = if (isSelected) {
-                R.color.dual_view_black
-            } else {
-                R.color.dual_view_gray_500
-            }
-            val color = ContextCompat.getColor(itemView.context, colorResId)
+            itemView.isSelected = isSelected
+        }
 
-            ratingView?.setTextColor(color)
-            typeView?.setTextColor(color)
-            priceView?.setTextColor(color)
-            descriptionView?.setTextColor(color)
+        /**
+         * Changes the visibility of the divider view
+         */
+        private fun markDivider(isLastItem: Boolean) {
+            divider.isVisible = !isLastItem
         }
     }
 }

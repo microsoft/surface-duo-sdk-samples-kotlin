@@ -27,14 +27,14 @@
 
     <style name="DualViewText.Restaurant.Description">
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/dual_view_gray_500</item>
+        <item name="android:textColor">@color/dual_view_black</item>
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">3sp</item>
         <item name="android:letterSpacing">0.01</item>
     </style>
 
     <style name="DualViewText.Restaurant.Rating">
-        <item name="android:textColor">@color/dual_view_gray_500</item>
+        <item name="android:textColor">@color/dual_view_black</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">3sp</item>
@@ -43,7 +43,7 @@
     </style>
 
     <style name="DualViewText.Restaurant.Type">
-        <item name="android:textColor">@color/dual_view_gray_500</item>
+        <item name="android:textColor">@color/dual_view_black</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">3sp</item>
@@ -52,7 +52,7 @@
     </style>
 
     <style name="DualViewText.Restaurant.Price">
-        <item name="android:textColor">@color/dual_view_gray_500</item>
+        <item name="android:textColor">@color/dual_view_black</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">3sp</item>

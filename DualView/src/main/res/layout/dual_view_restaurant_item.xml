@@ -9,12 +9,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/cell_background"
+    android:paddingStart="@dimen/dual_view_margin_big"
+    android:paddingEnd="@dimen/dual_view_margin_big">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/item_image"
         android:layout_width="@dimen/dual_view_restaurant_image_width"
         android:layout_height="@dimen/dual_view_restaurant_image_height"
+        android:layout_marginTop="@dimen/dual_view_margin_medium_plus"
+        android:layout_marginBottom="@dimen/dual_view_margin_medium_plus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/cantinetta_image" />
@@ -25,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dual_view_margin_medium"
+        android:layout_marginTop="@dimen/dual_view_margin_medium_plus"
         app:layout_constraintStart_toEndOf="@id/item_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Cantinetta" />
@@ -45,10 +51,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dual_view_margin_small"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:ellipsize="end"
+        android:lines="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/item_title"
         app:layout_constraintTop_toBottomOf="@id/item_rating_type_and_price"
         tools:text="Wine bar with upscale small plates in a lofty modern space with a central wine tower and staircase." />
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dual_view_margin_medium_plus"
+        android:background="@color/dual_view_cell_divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_description"
+        app:layout_constraintStart_toStartOf="@+id/item_description"
+        app:layout_constraintTop_toBottomOf="@id/item_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
