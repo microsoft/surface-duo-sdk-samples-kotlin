@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/hinge_angle_margin_extra_large"
+        android:textColor="@color/hinge_angle_angle_color"
         android:textSize="@dimen/hinge_angle_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/hinge_angle_margin_extra_large"
+        android:background="@drawable/hinge_angle_button_background"
+        android:gravity="center"
         android:text="@string/hinge_angle_button_clear_text"
+        android:textAllCaps="true"
+        android:textSize="@dimen/hinge_angle_btn_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -45,7 +50,6 @@
         layout="@layout/hinge_angle_colors_selector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/hinge_angle_margin_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
