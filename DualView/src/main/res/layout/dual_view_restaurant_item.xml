@@ -57,15 +57,4 @@
         app:layout_constraintStart_toStartOf="@id/item_title"
         app:layout_constraintTop_toBottomOf="@id/item_rating_type_and_price"
         tools:text="Wine bar with upscale small plates in a lofty modern space with a central wine tower and staircase." />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/dual_view_margin_medium_plus"
-        android:background="@color/dual_view_cell_divider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/item_description"
-        app:layout_constraintStart_toStartOf="@+id/item_description"
-        app:layout_constraintTop_toBottomOf="@id/item_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>

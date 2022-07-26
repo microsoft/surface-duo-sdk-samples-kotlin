@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.microsoft.device.display.samples.dualview.R
 import com.microsoft.device.display.samples.dualview.model.Restaurant
@@ -43,8 +42,7 @@ class RestaurantAdapter(
         holder.bind(
             viewModel.getItem(position)!!,
             onClickRestaurantItem,
-            position == viewModel.selectedPosition.value,
-            position == itemCount - 12
+            position == viewModel.selectedPosition.value
         )
     }
 
@@ -68,7 +66,6 @@ class RestaurantAdapter(
         private val typeView = itemView.findViewById<TextView>(R.id.item_type)
         private val priceView = itemView.findViewById<TextView>(R.id.item_price)
         private val descriptionView = itemView.findViewById<TextView>(R.id.item_description)
-        private val divider = itemView.findViewById<View>(R.id.divider)
 
         /**
          * Sets the Restaurant data to the corresponding UI component
@@ -76,8 +73,7 @@ class RestaurantAdapter(
         fun bind(
             item: Restaurant,
             onClick: (item: Restaurant) -> Unit,
-            isSelected: Boolean,
-            isLastItem: Boolean
+            isSelected: Boolean
         ) {
             imageView.setImageResource(item.imageResourceId)
             titleView.text = item.title
@@ -90,23 +86,14 @@ class RestaurantAdapter(
             descriptionView.text = item.description
 
             markViewSelection(isSelected)
-            markDivider(isLastItem)
-
             itemView.setOnClickListener { onClick(item) }
         }
 
         /**
-         * Changes the text color of the view to black if the cell is selected, otherwise to gray
+         * Changes the background color of the cell if it is selected
          */
         private fun markViewSelection(isSelected: Boolean) {
             itemView.isSelected = isSelected
-        }
-
-        /**
-         * Changes the visibility of the divider view
-         */
-        private fun markDivider(isLastItem: Boolean) {
-            divider.isVisible = !isLastItem
         }
     }
 }
