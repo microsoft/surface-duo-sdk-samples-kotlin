@@ -6,6 +6,8 @@
 
 package com.microsoft.device.display.samples.dualview.model
 
+import android.graphics.Point
+
 /**
  * Data model class that contains all the restaurant properties
  */
@@ -17,7 +19,7 @@ data class Restaurant(
     val type: Type,
     val priceRange: Int = 0,
     val description: String? = "",
-    val mapImageResourceId: Int = 0
+    val coordinates: Point
 ) {
 
     enum class Type(private val label: String) {

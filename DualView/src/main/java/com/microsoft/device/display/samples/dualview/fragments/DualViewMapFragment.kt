@@ -23,8 +23,8 @@ import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
 import com.microsoft.device.display.samples.dualview.R
 import com.microsoft.device.display.samples.dualview.databinding.FragmentDualViewMapBinding
+import com.microsoft.device.display.samples.dualview.view.MapSimulator
 import com.microsoft.device.display.samples.dualview.view.SelectedViewModel
-import com.microsoft.device.display.samples.dualview.view.SelectedViewModel.Companion.NO_ITEM_SELECTED
 import com.microsoft.device.dualscreen.utils.wm.isInDualMode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -37,10 +37,12 @@ class DualViewMapFragment : Fragment() {
     private lateinit var binding: FragmentDualViewMapBinding
     private val selectedViewModel: SelectedViewModel by activityViewModels()
     private var windowLayoutInfo: WindowLayoutInfo? = null
+    private lateinit var mapSimulator: MapSimulator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        mapSimulator = MapSimulator(requireContext())
     }
 
     override fun onCreateView(
@@ -89,17 +91,12 @@ class DualViewMapFragment : Fragment() {
      * Shows the image corresponding to the selected restaurant
      */
     private fun setupMap(selectedRestaurantPosition: Int) {
-        val drawableResId = if (selectedRestaurantPosition != NO_ITEM_SELECTED) {
-            val item = selectedViewModel.getItem(selectedRestaurantPosition)
-            if (item != null && item.mapImageResourceId != 0) {
-                item.mapImageResourceId
-            } else {
-                R.drawable.unselected_map
-            }
-        } else {
-            R.drawable.unselected_map
-        }
-        binding.mapView.setImageResource(drawableResId)
+        binding.mapView.setImageBitmap(
+            mapSimulator.generateMap(
+                selectedViewModel.listItems.map { item -> item.coordinates },
+                selectedRestaurantPosition
+            )
+        )
     }
 
     override fun onAttach(context: Context) {

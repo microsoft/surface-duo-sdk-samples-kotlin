@@ -5,10 +5,11 @@
   -->
 
 <resources>
+    <dimen name="dual_view_margin_very_small">2dp</dimen>
+    <dimen name="dual_view_margin_small">6dp</dimen>
     <dimen name="dual_view_margin_big">26dp</dimen>
     <dimen name="dual_view_margin_medium">10dp</dimen>
-    <dimen name="dual_view_margin_small">6dp</dimen>
-    <dimen name="dual_view_margin_very_small">2dp</dimen>
+    <dimen name="dual_view_margin_medium_plus">12dp</dimen>
     <dimen name="dual_view_restaurant_image_width">131dp</dimen>
     <dimen name="dual_view_restaurant_image_height">88dp</dimen>
 

@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.microsoft.device.display.samples.dualview.R
 import com.microsoft.device.display.samples.dualview.model.Restaurant
@@ -31,7 +30,13 @@ class RestaurantAdapter(
     private val layoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        RestaurantViewHolder(layoutInflater.inflate(R.layout.dual_view_restaurant_item, parent, false))
+        RestaurantViewHolder(
+            layoutInflater.inflate(
+                R.layout.dual_view_restaurant_item,
+                parent,
+                false
+            )
+        )
 
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
         holder.bind(
@@ -65,34 +70,30 @@ class RestaurantAdapter(
         /**
          * Sets the Restaurant data to the corresponding UI component
          */
-        fun bind(item: Restaurant, onClick: (item: Restaurant) -> Unit, isSelected: Boolean) {
+        fun bind(
+            item: Restaurant,
+            onClick: (item: Restaurant) -> Unit,
+            isSelected: Boolean
+        ) {
             imageView.setImageResource(item.imageResourceId)
             titleView.text = item.title
             ratingView.text = formatRating(item.rating, item.voteCount)
-            typeView.text = itemView.resources.getString(R.string.dual_view_restaurant_type, item.type.toString())
+            typeView.text = itemView.resources.getString(
+                R.string.dual_view_restaurant_type,
+                item.type.toString()
+            )
             priceView.text = formatPriceRange(item.priceRange)
             descriptionView.text = item.description
 
             markViewSelection(isSelected)
-
             itemView.setOnClickListener { onClick(item) }
         }
 
         /**
-         * Changes the text color of the view to black if the cell is selected, otherwise to gray
+         * Changes the background color of the cell if it is selected
          */
         private fun markViewSelection(isSelected: Boolean) {
-            val colorResId = if (isSelected) {
-                R.color.dual_view_black
-            } else {
-                R.color.dual_view_gray_500
-            }
-            val color = ContextCompat.getColor(itemView.context, colorResId)
-
-            ratingView?.setTextColor(color)
-            typeView?.setTextColor(color)
-            priceView?.setTextColor(color)
-            descriptionView?.setTextColor(color)
+            itemView.isSelected = isSelected
         }
     }
 }

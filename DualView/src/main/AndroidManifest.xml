@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <application>
         <activity
+            android:hardwareAccelerated="false"
             android:name=".DualViewActivity"
             android:label="@string/dual_view_app_name" />
     </application>

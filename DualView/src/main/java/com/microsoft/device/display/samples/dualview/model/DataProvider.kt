@@ -6,6 +6,7 @@
 
 package com.microsoft.device.display.samples.dualview.model
 
+import android.graphics.Point
 import com.microsoft.device.display.samples.dualview.R
 
 /**
@@ -21,7 +22,7 @@ object DataProvider {
             Restaurant.Type.Thai,
             3,
             "Wine bar with upscale small plates in a lofty modern space with a central wine tower & staircase.",
-            R.drawable.first_map
+            Point(910, 1700)
         ),
         Restaurant(
             "Sam's Pizza",
@@ -31,7 +32,7 @@ object DataProvider {
             Restaurant.Type.American,
             2,
             "Take-out/delivery chain offering classic & specialty pizzas, wings & breadsticks, plus desserts.",
-            R.drawable.second_map
+            Point(1049, 1914)
         ),
         Restaurant(
             "Sizzle and Crunch",
@@ -41,7 +42,7 @@ object DataProvider {
             Restaurant.Type.Thai,
             2,
             "Eatery with a wood-fired oven turning out European & NW dishes in a white-&-blue cottage-like room.",
-            R.drawable.third_map
+            Point(1225, 1855)
         ),
         Restaurant(
             "Cantinetta",
@@ -51,7 +52,7 @@ object DataProvider {
             Restaurant.Type.Italian,
             4,
             "Gourmet Neapolitan pies served in a lofty space with casual, industrial-chic decor.",
-            R.drawable.fourth_map
+            Point(1145, 1987)
         ),
         Restaurant(
             "Araya's Place",
@@ -61,7 +62,7 @@ object DataProvider {
             Restaurant.Type.Thai,
             2,
             "Araya's Place is the 1st vegan-Thai restaurant in the northwest while supporting local farms.",
-            R.drawable.fifth_map
+            Point(1605, 2043)
         ),
         Restaurant(
             "Kimchi Bistro",
@@ -71,7 +72,7 @@ object DataProvider {
             Restaurant.Type.Korean,
             4,
             "Small, no frills Korean restaurant with an extensive menu served in simple digs inside a mall.",
-            R.drawable.sixth_map
+            Point(1220, 2200)
         ),
         Restaurant(
             "Topolopompo Restaurant",
@@ -81,7 +82,7 @@ object DataProvider {
             Restaurant.Type.FineDine,
             3,
             "Compact locale with counter service dishing up classic Mediterranean eats such as hummus & falafel.",
-            R.drawable.seventh_map
+            Point(1410, 2228)
         ),
         Restaurant(
             "Morsel",
@@ -91,7 +92,7 @@ object DataProvider {
             Restaurant.Type.Breakfast,
             3,
             "Homey cafe with sofas, board games & quiet corners for gourmet coffee & craft biscuit sandwiches.",
-            R.drawable.eighth_map
+            Point(1330, 2375)
         )
     )
 }

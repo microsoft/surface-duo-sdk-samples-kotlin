@@ -6,6 +6,7 @@
   -->
 
 <resources>
-    <color name="dual_view_gray_500">#9E9E9E</color>
     <color name="dual_view_black">#000000</color>
+    <color name="dual_view_cell_selected">#DEEFFF</color>
+    <color name="dual_view_cell_divider">#14212121</color>
 </resources>
