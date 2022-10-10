@@ -10,4 +10,5 @@
     <color name="hinge_angle_red">#ffff0000</color>
     <color name="hinge_angle_green">#ff00ff00</color>
     <color name="hinge_angle_purple">#800080</color>
+    <color name="hinge_angle_angle_color">#797673</color>
 </resources>

@@ -8,4 +8,5 @@
     <string name="hinge_angle_app_name">Hinge Angle</string>
     <string name="hinge_angle_button_clear_text">Clear</string>
     <string name="hinge_angle_unavailable">The hinge sensor is not available!</string>
+    <string name="hinge_angle_value">%1$d °</string>
 </resources>

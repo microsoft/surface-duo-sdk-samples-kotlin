@@ -14,9 +14,10 @@ import androidx.lifecycle.ViewModel
 
 class HingeAngleViewModel : ViewModel() {
     val imageLiveData = MutableLiveData<Bitmap?>() // to copy between two screens
-    var pathList = listOf<Path>() // to retain the drawing when spanning/unspanning
-    var penRadius = 0 // to retain the pen value when spanning/unspanning
-    var paints = listOf<Paint>() // to retain the paint value when spanning/unspanning
+    var pathList = listOf<Path>() // to retain the drawing when spanning/un-spanning
+    var penRadius = 0 // to retain the pen value when spanning/un-spanning
+    var paints = listOf<Paint>() // to retain the paint value when spanning/un-spanning
+    var selectedPen = 0 // to retain the selected pen when spanning/un-spanning
 
     fun setImage(image: Bitmap?) {
         imageLiveData.value = image

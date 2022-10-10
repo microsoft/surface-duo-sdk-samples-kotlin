@@ -40,7 +40,7 @@ class SingleScreenFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = HingeAngleFragmentSingleScreenBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -68,16 +68,16 @@ class SingleScreenFragment : Fragment() {
         drawingView = view.findViewById(R.id.drawing_view)
         val clearButton = view.findViewById<Button>(R.id.button_clear)
         clearButton.setOnClickListener { clearDrawingSurface() }
-        val redButton = view.findViewById<Button>(R.id.button_red)
-        redButton.setOnClickListener { chooseColor(PaintColors.Red) }
-        val blueButton = view.findViewById<Button>(R.id.button_blue)
-        blueButton.setOnClickListener { chooseColor(PaintColors.Blue) }
-        val greenButton = view.findViewById<Button>(R.id.button_green)
-        greenButton.setOnClickListener { chooseColor(PaintColors.Green) }
-        val yellowButton = view.findViewById<Button>(R.id.button_yellow)
-        yellowButton.setOnClickListener { chooseColor(PaintColors.Yellow) }
-        val purpleButton = view.findViewById<Button>(R.id.button_purple)
-        purpleButton.setOnClickListener { chooseColor(PaintColors.Purple) }
+
+        binding.colorsSelector.penGroup.setOnCheckedChangeListener { group, optionId ->
+            when (optionId) {
+                R.id.button_red -> chooseColor(PaintColors.Red)
+                R.id.button_blue -> chooseColor(PaintColors.Blue)
+                R.id.button_green -> chooseColor(PaintColors.Green)
+                R.id.button_yellow -> chooseColor(PaintColors.Yellow)
+                R.id.button_purple -> chooseColor(PaintColors.Purple)
+            }
+        }
     }
 
     /**
@@ -104,23 +104,27 @@ class SingleScreenFragment : Fragment() {
         drawingView.drawingPathList = viewModel.pathList
         drawingView.paintRadius = viewModel.penRadius
         drawingView.paints = viewModel.paints
+        viewModel.selectedPen
+            .takeIf { it != 0 }
+            ?.let {
+                binding.colorsSelector.penGroup.check(it)
+            }
     }
 
     private fun observeHingeAngle() {
         HingeAngleLiveData.get(requireContext()).observe(
-            viewLifecycleOwner,
-            {
-                if (it != UNAVAILABLE_HINGE) {
-                    hingeAngleValueView.text = it.toString()
-                    drawingView.paintRadius = it
-                    currentAngle = it
-                } else {
-                    hingeAngleValueView.text = getString(R.string.hinge_angle_unavailable)
-                    drawingView.paintRadius = DEFAULT_HINGE_ANGLE
-                    currentAngle = DEFAULT_HINGE_ANGLE
-                }
+            viewLifecycleOwner
+        ) { angle ->
+            if (angle != UNAVAILABLE_HINGE) {
+                hingeAngleValueView.text = getString(R.string.hinge_angle_value, angle)
+                drawingView.paintRadius = angle
+                currentAngle = angle
+            } else {
+                hingeAngleValueView.text = getString(R.string.hinge_angle_unavailable)
+                drawingView.paintRadius = DEFAULT_HINGE_ANGLE
+                currentAngle = DEFAULT_HINGE_ANGLE
             }
-        )
+        }
     }
 
     override fun onResume() {
@@ -144,6 +148,7 @@ class SingleScreenFragment : Fragment() {
             viewModel.pathList = drawingView.drawingPathList
             viewModel.penRadius = currentAngle
             viewModel.paints = drawingView.paints
+            viewModel.selectedPen = binding.colorsSelector.penGroup.checkedRadioButtonId
         }
     }
 }
