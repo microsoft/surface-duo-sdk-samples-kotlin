@@ -4,15 +4,8 @@
   ~
   -->
 
-<com.microsoft.device.dualscreen.layouts.FoldableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/foldable_layout"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    app:dual_landscape_single_layout_id="@layout/two_page_double_landscape_layout"
-    app:dual_portrait_single_layout_id="@layout/two_page_single_screen_layout"
-    app:is_dual_landscape_single_container="true"
-    app:is_dual_portrait_single_container="true"
-    app:single_screen_layout_id="@layout/two_page_single_screen_layout"
-    app:tools_screen_mode="dual_screen" />
+    android:focusableInTouchMode="true" />
