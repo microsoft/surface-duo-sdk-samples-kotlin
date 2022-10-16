@@ -6,8 +6,8 @@
 
 <resources>
     <string name="multiple_instances_app_name">Multiple Instances</string>
-    <string name="multiple_instances_main_activity_text">Hello Main Screen</string>
-    <string name="multiple_instances_second_activity_text">Hello Second Screen</string>
+    <string name="multiple_instances_main_activity_text">Hello Main Screen 1</string>
+    <string name="multiple_instances_second_activity_text">Hello Main Screen 2</string>
     <string name="multiple_instances_main_shortcut_label">Main Activity</string>
     <string name="multiple_instances_second_shortcut_label">Second Activity</string>
 </resources>

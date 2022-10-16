@@ -19,5 +19,5 @@ class MultipleInstancesMainActivity : MultipleInstancesBaseActivity() {
 
     override fun getFirstScreenText(): String = getString(R.string.multiple_instances_main_activity_text)
 
-    override fun getSecondScreenText(): String = getString(R.string.multiple_instances_main_activity_text)
+    override fun getSecondScreenText(): String = getString(R.string.multiple_instances_second_activity_text)
 }
