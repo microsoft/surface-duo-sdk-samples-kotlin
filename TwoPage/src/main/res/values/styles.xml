@@ -30,9 +30,8 @@
     </style>
 
     <style name="TwoPageText.PageNumber">
-        <item name="android:textAlignment">textEnd</item>
         <item name="android:textSize">@dimen/two_page_page_number_text_size</item>
-        <item name="android:textColor">@color/two_page_lightGrey</item>
+        <item name="android:gravity">center</item>
     </style>
 
 </resources>

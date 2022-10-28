@@ -81,14 +81,13 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/page1_page_number"
         style="@style/TwoPageText.PageNumber"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/two_page_medium_margin"
         android:layout_marginEnd="@dimen/two_page_medium_margin"
         android:text="@string/two_page_page1_page_number"
-        android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/page1_content" />
 

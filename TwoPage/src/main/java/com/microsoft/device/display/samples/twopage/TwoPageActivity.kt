@@ -9,13 +9,11 @@ package com.microsoft.device.display.samples.twopage
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.SparseArray
-import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
@@ -32,9 +30,6 @@ import kotlinx.coroutines.launch
 
 class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
     private lateinit var binding: ActivityTwoPageBinding
-    private var windowLayoutInfo: WindowLayoutInfo? = null
-    private lateinit var viewPager: ViewPager
-    private lateinit var pagerAdapter: PagerAdapter
     private var position = 0
 
     @SuppressLint("InflateParams")
@@ -44,8 +39,6 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
         setContentView(binding.root)
 
         setupToolbar()
-        setupPagerAdapter()
-        binding.foldableLayout.viewTreeObserver.addOnGlobalLayoutListener(treeListener)
         registerWindowInfoFlow()
     }
 
@@ -61,52 +54,38 @@ class TwoPageActivity : AppCompatActivity(), OnPageChangeListener {
         return true
     }
 
-    private var treeListener: ViewTreeObserver.OnGlobalLayoutListener =
-        ViewTreeObserver.OnGlobalLayoutListener {
-            windowLayoutInfo?.let {
-                onWindowLayoutInfoChanged(it)
-            }
-        }
-
     private fun registerWindowInfoFlow() {
         lifecycleScope.launch(Dispatchers.Main) {
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 WindowInfoTracker.getOrCreate(this@TwoPageActivity)
                     .windowLayoutInfo(this@TwoPageActivity)
                     .collect { info ->
-                        windowLayoutInfo = info
+                        onWindowLayoutInfoChanged(info)
                     }
             }
         }
     }
 
     private fun onWindowLayoutInfoChanged(windowLayoutInfo: WindowLayoutInfo) {
-        binding.foldableLayout.viewTreeObserver.removeOnGlobalLayoutListener(treeListener)
-        pagerAdapter.showTwoPages =
-            windowLayoutInfo.isInDualMode() && windowLayoutInfo.isFoldingFeatureVertical()
-        pagerAdapter.pageContentScrollEnabled =
-            !windowLayoutInfo.isInDualMode() || !windowLayoutInfo.isFoldingFeatureVertical()
-        setupViewPager()
+        binding.pager.also { pager ->
+            if (pager.adapter == null) {
+                val adapter = setupPagerAdapter()
+                adapter.showTwoPages =
+                    windowLayoutInfo.isInDualMode() && windowLayoutInfo.isFoldingFeatureVertical()
+                adapter.pageContentScrollEnabled =
+                    !windowLayoutInfo.isInDualMode() || !windowLayoutInfo.isFoldingFeatureVertical()
+                pager.adapter = adapter
+            }
+        }
     }
 
-    private fun setupPagerAdapter() {
+    private fun setupPagerAdapter(): PagerAdapter {
         val fragments = SparseArray<Fragment>()
         fragments.put(0, FirstPageFragment())
         fragments.put(1, SecondPageFragment())
         fragments.put(2, ThirdPageFragment())
         fragments.put(3, FourthPageFragment())
-        pagerAdapter = PagerAdapter(supportFragmentManager, fragments)
-    }
-
-    private fun setupViewPager() {
-        if (::viewPager.isInitialized) {
-            viewPager.adapter = null
-        }
-        viewPager = findViewById<ViewPager>(R.id.pager).also {
-            it.adapter = pagerAdapter
-            it.currentItem = position
-            it.addOnPageChangeListener(this)
-        }
+        return PagerAdapter(supportFragmentManager, fragments)
     }
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
