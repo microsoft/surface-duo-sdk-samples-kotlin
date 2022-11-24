@@ -19,6 +19,7 @@
     <string name="intent_to_second_screen_info">Sample to open activities in different scenarios.</string>
     <string name="qualifiers_info">Use android resource qualifiers to structure project resources. </string>
     <string name="multiple_instances_info">A sample to open multiple instances of the same application.</string>
+    <string name="multiple_about_us">Learn more about the developer experience team.</string>
 
     <string name="view_the_code">View Code</string>
     <string name="turn_off_code">Turn off code inspection</string>
@@ -65,5 +66,4 @@
 
     <string name="multiple_instances_description">This sample demonstrates how to implement another instance - the application can be on the Surface Duo can be opened twice to have two different browsing sessions.
 \n\nUsing aliases each instance can have different entry points into the app. </string>
-
 </resources>

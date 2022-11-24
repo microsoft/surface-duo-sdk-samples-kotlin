@@ -32,4 +32,6 @@ object GithubRepoLinks {
         "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/Qualifiers"
     const val GIT_LINK_MULTIPLE_INSTANCES =
         "https://github.com/microsoft/surface-duo-sdk-samples-kotlin/tree/main/MultipleInstances"
+    const val GIT_LINK_ABOUT_US =
+        "https://github.com/microsoft/surface-duo-sdk-samples-kotlin"
 }

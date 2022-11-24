@@ -19,6 +19,7 @@
     <string name="intent_to_second_screen_info">Intent To Second Screen - Zeigt, wie Aktivitäten in verschiedenen Szenarien geöffnet werden.</string>
     <string name="qualifiers_info">Qualifiers - Zeigt, wie die Android-Ressourcenqualifizierer zum Strukturieren der Projektressourcen für Duo-Geräte verwendet werden.</string>
     <string name="multiple_instances_info">Multiple Instances - Zeigt an, wie mehrere Instanzen derselben Aktivität geöffnet werden.</string>
+    <string name="multiple_about_us">Learn more about the developer experience team.</string>
 
     <string name="view_the_code">Afficher le code</string>
     <string name="turn_off_code">Turn off code inspection</string>

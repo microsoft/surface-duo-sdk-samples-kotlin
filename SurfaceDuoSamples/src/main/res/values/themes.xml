@@ -1,0 +1,88 @@
+<!--
+  ~
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <style name="Theme.App" parent="Theme.MaterialComponents.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/dark_gray</item>
+        <item name="android:textColorPrimary">@color/dark_gray</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorAccent">?colorPrimary</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:textColorSecondary">@color/dark_gray</item>
+
+        <!-- Background color. -->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:colorBackgroundFloating">@color/white</item>
+        <item name="colorOnBackground">@color/dark_gray</item>
+
+        <!-- Surface color. -->
+        <item name="colorSurface">@color/white</item>
+
+        <item name="colorOnSurface">@color/black</item>
+
+        <!-- Widgets color. -->
+        <item name="actionBarStyle">@style/Widget.App.ActionBar</item>
+        <item name="textAppearanceHeadline6">@style/Widget.App.ActionBar.Title</item>
+
+        <item name="snackbarStyle">@style/Widget.App.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.App.Snackbar.TextView</item>
+    </style>
+
+    <!-- Needed for external OssLicensesMenuActivity and OssLicensesActivity -->
+    <style name="Theme.App.ActionBar" parent="Theme.AppCompat.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/dark_gray</item>
+        <item name="android:textColorPrimary">@color/dark_gray</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorAccent">?colorPrimary</item>
+        <item name="colorOnSecondary">@color/dark_gray</item>
+        <item name="android:textColorSecondary">@color/dark_gray</item>
+
+        <!-- Background color. -->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:colorBackgroundFloating">@color/white</item>
+        <item name="colorOnBackground">@color/dark_gray</item>
+
+        <!-- Surface color. -->
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/dark_gray</item>
+
+        <!-- Widgets color. -->
+        <item name="actionBarStyle">@style/Widget.App.ActionBar</item>
+    </style>
+
+    <style name="Widget.App.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="background">?android:attr/colorBackground</item>
+        <item name="titleTextAppearance">@style/Widget.App.ActionBar.Title</item>
+    </style>
+
+    <style name="Widget.App.ActionBar.Title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Widget.App.Snackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Snackbar</item>
+        <item name="backgroundOverlayColorAlpha">1.0</item>
+    </style>
+
+    <style name="Widget.App.Snackbar.TextView" parent="Widget.MaterialComponents.Snackbar.TextView">
+        <item name="android:alpha">1.0</item>
+        <item name="android:textColor">?attr/colorBackgroundFloating</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Snackbar" parent="">
+        <item name="colorOnSurface">?colorOnBackground</item>
+    </style>
+</resources>

@@ -37,7 +37,7 @@ dependencies {
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
     implementation androidxDependencies.dragAndDrop
-    implementation materialDependencies.material
+    implementation googleDependencies.material
 
     implementation microsoftDependencies.layouts
 

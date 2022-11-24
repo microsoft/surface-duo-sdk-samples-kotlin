@@ -40,6 +40,7 @@ class MainNavigator {
             Sample.INTENT_TO_SECOND_SCREEN -> R.id.sample_list_to_intent_to_second_screen
             Sample.QUALIFIERS -> R.id.sample_list_to_qualifiers
             Sample.MULTIPLE_INSTANCES -> R.id.sample_list_to_multiple_instances
+            Sample.ABOUT_US -> R.id.sample_list_about_us
         }
         navController?.navigate(action)
     }
@@ -57,6 +58,7 @@ class MainNavigator {
             Sample.INTENT_TO_SECOND_SCREEN -> R.id.sample_details_to_intent_to_second_screen
             Sample.QUALIFIERS -> R.id.sample_details_to_qualifiers
             Sample.MULTIPLE_INSTANCES -> R.id.sample_details_to_multiple_instances
+            Sample.ABOUT_US -> R.id.sample_details_about_us
         }
         navController?.navigate(action)
     }

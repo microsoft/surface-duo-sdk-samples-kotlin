@@ -9,19 +9,8 @@
 package com.microsoft.device.display.samples.duosamples.samples
 
 import android.content.Context
-import com.microsoft.device.display.samples.companionpane.CompanionPaneActivity
-import com.microsoft.device.display.samples.draganddrop.DragAndDropActivity
-import com.microsoft.device.display.samples.dualview.DualViewActivity
 import com.microsoft.device.display.samples.duosamples.GithubRepoLinks
 import com.microsoft.device.display.samples.duosamples.R
-import com.microsoft.device.display.samples.extendcanvas.ExtendedCanvasActivity
-import com.microsoft.device.display.samples.hingeangle.HingeAngleActivity
-import com.microsoft.device.display.samples.intentsecondscreen.IntentToSecondScreenFirstActivity
-import com.microsoft.device.display.samples.listdetail.ListDetailsActivity
-import com.microsoft.device.display.samples.multipleinstances.MultipleInstancesMainActivity
-import com.microsoft.device.display.samples.pen.PenEventsActivity
-import com.microsoft.device.display.samples.qualifiers.QualifiersActivity
-import com.microsoft.device.display.samples.twopage.TwoPageActivity
 
 /**
  * Utility class that return string and image resources to display the samples list and details.
@@ -41,6 +30,7 @@ class SampleBuilder {
                 Sample.INTENT_TO_SECOND_SCREEN -> R.string.intent_app_name
                 Sample.QUALIFIERS -> R.string.qualifiers_app_name
                 Sample.MULTIPLE_INSTANCES -> R.string.multiple_instances_app_name
+                Sample.ABOUT_US -> R.string.about_us_title
             }
         )
 
@@ -57,6 +47,7 @@ class SampleBuilder {
                 Sample.INTENT_TO_SECOND_SCREEN -> R.drawable.thumbnail_intent_to_second_screen
                 Sample.QUALIFIERS -> R.drawable.thumbnail_qualifiers
                 Sample.MULTIPLE_INSTANCES -> R.drawable.thumbnails_multiple_instances
+                Sample.ABOUT_US -> R.drawable.thumbnail_dual_view
             }
 
         fun getSimpleDescription(sample: Sample, context: Context) = context.getString(
@@ -72,6 +63,7 @@ class SampleBuilder {
                 Sample.INTENT_TO_SECOND_SCREEN -> R.string.intent_to_second_screen_info
                 Sample.QUALIFIERS -> R.string.qualifiers_info
                 Sample.MULTIPLE_INSTANCES -> R.string.multiple_instances_info
+                Sample.ABOUT_US -> R.string.multiple_about_us
             }
         )
 
@@ -88,6 +80,7 @@ class SampleBuilder {
                 Sample.INTENT_TO_SECOND_SCREEN -> R.drawable.detailed_intet_to_second_screen
                 Sample.QUALIFIERS -> R.drawable.detailed_qualifiers
                 Sample.MULTIPLE_INSTANCES -> R.drawable.detailed_multiple_instances
+                Sample.ABOUT_US -> R.drawable.detailed_multiple_instances
             }
 
         fun getDescription(sample: Sample, context: Context) = context.getString(
@@ -103,6 +96,7 @@ class SampleBuilder {
                 Sample.INTENT_TO_SECOND_SCREEN -> R.string.intent_to_second_screen_description
                 Sample.QUALIFIERS -> R.string.qualifiers_description
                 Sample.MULTIPLE_INSTANCES -> R.string.multiple_instances_description
+                Sample.ABOUT_US -> R.string.multiple_about_us_description
             }
         )
 
@@ -119,21 +113,7 @@ class SampleBuilder {
                 Sample.INTENT_TO_SECOND_SCREEN -> GithubRepoLinks.GIT_LINK_SECOND_SCREEN
                 Sample.QUALIFIERS -> GithubRepoLinks.GIT_LINK_QUALIFIERS
                 Sample.MULTIPLE_INSTANCES -> GithubRepoLinks.GIT_LINK_MULTIPLE_INSTANCES
-            }
-
-        fun getSampleActivity(sample: Sample) =
-            when (sample) {
-                Sample.DRAG_AND_DROP -> DragAndDropActivity::class.java
-                Sample.DUAL_VIEW -> DualViewActivity::class.java
-                Sample.HINGE_ANGLE -> HingeAngleActivity::class.java
-                Sample.LIST_DETAILS -> ListDetailsActivity::class.java
-                Sample.PEN_EVENTS -> PenEventsActivity::class.java
-                Sample.TWO_PAGE -> TwoPageActivity::class.java
-                Sample.COMPANION_PANE -> CompanionPaneActivity::class.java
-                Sample.EXTENDED_CANVAS -> ExtendedCanvasActivity::class.java
-                Sample.INTENT_TO_SECOND_SCREEN -> IntentToSecondScreenFirstActivity::class.java
-                Sample.QUALIFIERS -> QualifiersActivity::class.java
-                Sample.MULTIPLE_INSTANCES -> MultipleInstancesMainActivity::class.java
+                Sample.ABOUT_US -> GithubRepoLinks.GIT_LINK_ABOUT_US
             }
     }
 }

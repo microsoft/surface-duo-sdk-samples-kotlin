@@ -34,7 +34,7 @@
         android:layout_marginStart="@dimen/details_info_margin_start"
         android:text="@string/drag_and_drop_app_name"
         android:textColor="@color/details_title"
-        android:textSize="@dimen/details_app_name_text_size"
+        android:textSize="@dimen/text_size_16"
         card_view:layout_constraintStart_toEndOf="@+id/app_icon"
         card_view:layout_constraintTop_toTopOf="parent" />
 

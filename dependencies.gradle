@@ -50,8 +50,11 @@ ext {
 
     //Google dependencies
     materialVersion = "1.3.0"
-    materialDependencies = [
-            material: "com.google.android.material:material:$materialVersion"
+    ossLicensesVersion = '17.0.0'
+    ossLicensesPluginVersion = '0.10.5'
+    googleDependencies = [
+            material: "com.google.android.material:material:$materialVersion",
+            ossLicenses : "com.google.android.gms:play-services-oss-licenses:$ossLicensesVersion"
     ]
 
     //Microsoft dependencies version
