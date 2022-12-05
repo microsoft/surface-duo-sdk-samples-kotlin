@@ -29,9 +29,6 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
-    <style name="Store" >
-    </style>
-
     <style name="Store.Title" parent="TextAppearance.AppCompat.Title">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/text_size_24</item>

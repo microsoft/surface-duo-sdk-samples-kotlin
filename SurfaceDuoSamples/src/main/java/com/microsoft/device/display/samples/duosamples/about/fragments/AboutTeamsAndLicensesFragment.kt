@@ -5,8 +5,6 @@
 
 package com.microsoft.device.display.samples.duosamples.about.fragments
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.style.ClickableSpan
 import android.view.LayoutInflater
@@ -14,12 +12,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.microsoft.device.display.samples.duosamples.R
 import com.microsoft.device.display.samples.duosamples.about.ItemClickListener
 import com.microsoft.device.display.samples.duosamples.about.LayoutInfoViewModel
 import com.microsoft.device.display.samples.duosamples.about.LicensesConfig
 import com.microsoft.device.display.samples.duosamples.about.addClickableLink
+import com.microsoft.device.display.samples.duosamples.about.onOssLicensesClicked
+import com.microsoft.device.display.samples.duosamples.about.openUrl
 import com.microsoft.device.display.samples.duosamples.databinding.FragmentAboutTeamsAndLicensesBinding
 
 class AboutTeamsAndLicensesFragment : Fragment() {
@@ -46,7 +45,6 @@ class AboutTeamsAndLicensesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupObservers()
         setupListeners()
     }
@@ -60,39 +58,25 @@ class AboutTeamsAndLicensesFragment : Fragment() {
             onLinkClicked(LicensesConfig.PRIVACY_URL)
         }
         binding?.licenseTermsTitle?.setOnClickListener {
-            onOssLicensesClicked()
+            activity?.onOssLicensesClicked()
         }
         setupDescriptionText()
     }
 
-    private fun onOssLicensesClicked() {
-        activity?.let {
-            OssLicensesMenuActivity.setActivityTitle(getString(R.string.about_licenses_terms_title))
-            startActivity(Intent(it, OssLicensesMenuActivity::class.java))
-        }
-    }
-
     private fun onLinkClicked(linkUrl: String?) {
-        linkUrl?.takeIf { it.isNotBlank() }?.let { url -> openUrl(url) }
+        linkUrl?.takeIf { it.isNotBlank() }?.let { url -> activity?.openUrl(url) }
     }
 
     private fun setupDescriptionText() {
         val clickableSpan = object : ClickableSpan() {
             override fun onClick(view: View) {
-                openUrl(getString(R.string.github_issues_url))
+                activity?.openUrl(getString(R.string.github_issues_url))
             }
         }
 
         binding?.feedbackSingleScreenDescription?.addClickableLink(
             getString(R.string.about_feedback_description_clickable),
             clickableSpan
-        )
-    }
-
-    private fun openUrl(url: String) {
-        startActivity(
-            Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         )
     }
 
