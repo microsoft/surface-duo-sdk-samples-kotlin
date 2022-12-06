@@ -19,6 +19,7 @@
     <string name="intent_to_second_screen_info">Intent to Second Screen - Montre comment ouvrir des activités dans différents scénarios.</string>
     <string name="qualifiers_info">Qualifiers - Montre comment utiliser les qualificateurs de ressources Android pour structurer les ressources du projet pour les Surface Duo.</string>
     <string name="multiple_instances_info">Multiple Instances - Montre comment ouvrir plusieurs instances de la même activité.</string>
+    <string name="multiple_about_us">Learn more about the developer experience team.</string>
 
     <string name="view_the_code">Afficher le code</string>
     <string name="turn_off_code">Turn off code inspection</string>

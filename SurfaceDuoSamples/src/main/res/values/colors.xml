@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
+  ~
   ~ Copyright (c) Microsoft Corporation. All rights reserved.
   ~ Licensed under the MIT License.
   ~
@@ -11,4 +12,10 @@
 
     <color name="details_title">#0085FF</color>
     <color name="simple_gray">#B1B1B1</color>
+    <color name="dark_gray">#616161</color>
+
+    <color name="primary_gold">#DDCAB3</color>
+    <color name="black">#000000</color>
+    <color name="background_light">#FAFAFA</color>
+    <color name="background_gray">#1F2228</color>
 </resources>

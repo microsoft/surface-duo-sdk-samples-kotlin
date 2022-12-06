@@ -19,9 +19,28 @@
     <dimen name="details_image_height">38dp</dimen>
     <dimen name="details_image_width">57dp</dimen>
 
-    <dimen name="details_app_name_text_size">16sp</dimen>
-
     <dimen name="details_info_text_size">11sp</dimen>
     <dimen name="details_info_margin_start">20dp</dimen>
     <dimen name="details_info_margin_end">8dp</dimen>
+
+    <dimen name="normal_margin">16dp</dimen>
+    <dimen name="medium_margin">24dp</dimen>
+    <dimen name="large_margin">36dp</dimen>
+
+    <dimen name="large_padding">36dp</dimen>
+    <dimen name="normal_padding">16dp</dimen>
+    <dimen name="half_medium_padding">12dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+
+    <dimen name="team_link_button_width">84dp</dimen>
+    <dimen name="team_link_button_height">78dp</dimen>
+
+    <dimen name="button_radius">50dp</dimen>
+    <dimen name="card_radius">8dp</dimen>
 </resources>

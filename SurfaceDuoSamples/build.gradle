@@ -6,6 +6,8 @@
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.android.gms.oss-licenses-plugin'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -38,6 +40,7 @@ android {
     }
 
     buildFeatures {
+        dataBinding true
         viewBinding true
     }
 }
@@ -55,15 +58,18 @@ dependencies {
     implementation project(':DragAndDrop')
     implementation project(':HingeAngle')
 
+    implementation kotlinDependencies.kotlinStdlib
+
+    implementation androidxDependencies.recyclerView
+    implementation androidxDependencies.ktxCore
+    implementation androidxDependencies.constraintLayout
+    implementation androidxDependencies.cardView
+
+    implementation googleDependencies.ossLicenses
+
     implementation microsoftDependencies.layouts
     implementation microsoftDependencies.fragmentsHandler
 
     implementation navigationDependencies.fragmentKtx
     implementation navigationDependencies.uiKtx
-
-    implementation androidxDependencies.recyclerView
-    implementation kotlinDependencies.kotlinStdlib
-    implementation androidxDependencies.ktxCore
-    implementation androidxDependencies.constraintLayout
-    implementation androidxDependencies.cardView
 }

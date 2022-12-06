@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Microsoft Corporation. All rights reserved.
+  ~ Licensed under the MIT License.
+  ~
+  -->
+
+<resources>
+    <string name="about_us_title" translatable="false">About us</string>
+
+    <string name="multiple_about_us_description" translatable="false">Learn more or send feedback to the developer experience team at Microsoft Surface Duo.</string>
+
+    <string name="about_team_title" translatable="false">About us</string>
+    <string name="about_team_description" translatable="false">An Android application that showcases all the dual screen design patterns, SDKs and code snippets. Created by the Microsoft Foldables Developer Experience Team.</string>
+    <string name="about_feedback_title" translatable="false">Feedback</string>
+    <string name="about_feedback_description" translatable="false">Have Feedback? We’d love to hear it, but please don’t share sensitive information. Please reach out to the developer experience team at Microsoft Surface Duo for any feedback using the Github issue reporting.</string>
+    <string name="about_feedback_description_clickable" translatable="false">Github issue</string>
+    <string name="about_resources_title" translatable="false">Resources &amp; links</string>
+    <string name="about_licenses_title" translatable="false">Third Party Notices</string>
+    <string name="about_licenses_privacy_title" translatable="false">Microsoft Privacy Statement</string>
+    <string name="about_licenses_terms_title" translatable="false">Software Licenses</string>
+
+    <string name="about_accessibility_docs" translatable="false">Microsoft Docs</string>
+    <string name="about_accessibility_github" translatable="false">Github</string>
+    <string name="about_accessibility_blog" translatable="false">Microsoft Blog</string>
+    <string name="about_accessibility_twitch" translatable="false">Twitch</string>
+    <string name="about_accessibility_figma" translatable="false">Figma</string>
+    <string name="about_accessibility_learn" translatable="false">Microsoft Learn</string>
+    <string name="about_accessibility_twitter" translatable="false">Twitter</string>
+    <string name="about_accessibility_youtube" translatable="false">Youtube</string>
+
+    <string name="open_action_label" translatable="false">open</string>
+
+    <string name="docs_url" translatable="false">https://docs.microsoft.com/dual-screen/</string>
+    <string name="github_url" translatable="false">https://github.com/microsoft/surface-duo-sdk</string>
+    <string name="blog_url" translatable="false">https://devblogs.microsoft.com/surface-duo/</string>
+    <string name="twitch_url" translatable="false">https://twitch.tv/surfaceduodev</string>
+    <string name="figma_url" translatable="false">https://aka.ms/SurfaceDuoDesign</string>
+    <string name="learn_url" translatable="false">https://docs.microsoft.com/learn/modules/xamarin-forms-dual-screen/</string>
+    <string name="twitter_url" translatable="false">https://twitter.com/surfaceduodev</string>
+    <string name="youtube_url" translatable="false">https://www.youtube.com/channel/UClGu9QLtPNz8OdddBfhZXPA</string>
+
+    <string name="github_issues_url" translatable="false">https://github.com/microsoft/surface-duo-sdk-samples-kotlin/issues</string>
+</resources>

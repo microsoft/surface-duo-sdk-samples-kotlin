@@ -55,6 +55,9 @@
         <action
             android:id="@+id/sample_list_to_multiple_instances"
             app:destination="@+id/multiple_instances_sample" />
+        <action
+            android:id="@+id/sample_list_about_us"
+            app:destination="@+id/about_us_sample" />
 
     </fragment>
 
@@ -97,7 +100,9 @@
         <action
             android:id="@+id/sample_details_to_multiple_instances"
             app:destination="@+id/multiple_instances_sample" />
-
+        <action
+            android:id="@+id/sample_details_about_us"
+            app:destination="@+id/about_us_sample" />
     </fragment>
 
     <activity
@@ -165,4 +170,10 @@
         android:name="com.microsoft.device.display.samples.multipleinstances.MultipleInstancesMainActivity"
         android:label="MultipleInstancesMainActivity"
         tools:layout="@layout/activity_multiple_instances" />
+
+    <activity
+        android:id="@+id/about_us_sample"
+        android:name="com.microsoft.device.display.samples.duosamples.about.AboutActivity"
+        android:label="AboutUsActivity"
+        tools:layout="@layout/activity_about" />
 </navigation>
