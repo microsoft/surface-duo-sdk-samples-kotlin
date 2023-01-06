@@ -7,9 +7,9 @@
 <resources>
 
     <style name="IntentButtonStyle" parent="@android:style/Widget.DeviceDefault.Button">
-        <item name="android:layout_width">450dp</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/intent_app_buttons_margin_start</item>
-        <item name="android:maxWidth">450dp</item>
+        <item name="android:layout_marginEnd">@dimen/intent_app_buttons_margin_start</item>
     </style>
 </resources>

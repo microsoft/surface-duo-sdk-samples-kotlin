@@ -32,6 +32,8 @@ dependencies {
     implementation androidxDependencies.ktxCore
     implementation androidxDependencies.ktxFragment
 
+    implementation microsoftDependencies.layouts
+
     testImplementation testDependencies.junit
 
     androidTestImplementation instrumentationTestDependencies.junit

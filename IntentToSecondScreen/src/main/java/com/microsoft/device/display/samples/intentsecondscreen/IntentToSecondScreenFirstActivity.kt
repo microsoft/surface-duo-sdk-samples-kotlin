@@ -9,8 +9,16 @@ package com.microsoft.device.display.samples.intentsecondscreen
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.window.layout.WindowInfoTracker
 import com.microsoft.device.display.samples.intentsecondscreen.databinding.ActivityFirstIntentToSecondScreenBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * {@link Intent.FLAG_ACTIVITY_MULTIPLE_TASK} along with android:launchMode="singleInstance"
@@ -41,7 +49,7 @@ class IntentToSecondScreenFirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupToolbar()
-        setListeners()
+        registerWindowInfoFlow()
     }
 
     private fun setupToolbar() {
@@ -56,12 +64,26 @@ class IntentToSecondScreenFirstActivity : AppCompatActivity() {
         return true
     }
 
+    private fun registerWindowInfoFlow() {
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                WindowInfoTracker.getOrCreate(this@IntentToSecondScreenFirstActivity)
+                    .windowLayoutInfo(this@IntentToSecondScreenFirstActivity)
+                    .collect {
+                        setListeners()
+                    }
+            }
+        }
+    }
+
+
     private fun setListeners() {
-        binding.openSecondScreen.setOnClickListener { openSecondScreen() }
-        binding.openBrowser.setOnClickListener {
+        binding.root.findViewById<Button>(R.id.open_second_screen)
+            .setOnClickListener { openSecondScreen() }
+        binding.root.findViewById<Button>(R.id.open_browser).setOnClickListener {
             openBrowserApp(resources.getString(R.string.intent_app_web_link))
         }
-        binding.openMap.setOnClickListener {
+        binding.root.findViewById<Button>(R.id.open_map).setOnClickListener {
             openBrowserApp(resources.getString(R.string.intent_app_map_link))
         }
     }

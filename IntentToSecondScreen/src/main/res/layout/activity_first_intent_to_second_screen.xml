@@ -4,38 +4,11 @@
   ~
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.microsoft.device.dualscreen.layouts.FoldableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntentToSecondScreenFirstActivity">
-
-    <Button
-        android:id="@+id/open_second_screen"
-        style="@style/IntentButtonStyle"
-        android:text="@string/intent_app_button_text"
-        app:layout_constraintBottom_toTopOf="@+id/open_browser"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <Button
-        android:id="@+id/open_browser"
-        style="@style/IntentButtonStyle"
-        android:layout_marginTop="@dimen/intent_app_buttons_margin_top"
-        android:text="@string/intent_app_link_access_tag"
-        app:layout_constraintBottom_toTopOf="@+id/open_map"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/open_second_screen" />
-
-    <Button
-        android:id="@+id/open_map"
-        style="@style/IntentButtonStyle"
-        android:layout_marginTop="@dimen/intent_app_buttons_margin_top"
-        android:text="@string/intent_app_map_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/open_browser" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    app:dual_screen_end_layout_id="@layout/fragment_first_intent_to_second_screen_end"
+    app:dual_screen_start_layout_id="@layout/fragment_first_intent_to_second_screen_start"
+    app:single_screen_layout_id="@layout/fragment_first_intent_to_second_screen_start"
+    app:tools_screen_mode="dual_screen" />
