@@ -83,22 +83,18 @@ class DragAndDropActivity : AppCompatActivity() {
      * Setup and adds the fragments for the single screen mode
      */
     private fun setupFragmentsForSingleScreen() {
-        if (supportFragmentManager.findFragmentByTag(FRAGMENT_SINGLE_SCREEN_DRAG_SOURCE) == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.drag_source_container,
-                    DragSourceFragment.newInstance(),
-                    FRAGMENT_SINGLE_SCREEN_DRAG_SOURCE
-                ).commit()
-        }
-        if (supportFragmentManager.findFragmentByTag(FRAGMENT_SINGLE_SCREEN_DROP_TARGET) == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.drop_target_container,
-                    DropTargetFragment.newInstance(),
-                    FRAGMENT_SINGLE_SCREEN_DROP_TARGET
-                ).commit()
-        }
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.drag_source_container,
+                DragSourceFragment.newInstance(),
+                FRAGMENT_SINGLE_SCREEN_DRAG_SOURCE
+            ).commit()
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.drop_target_container,
+                DropTargetFragment.newInstance(),
+                FRAGMENT_SINGLE_SCREEN_DROP_TARGET
+            ).commit()
     }
 
     /**
