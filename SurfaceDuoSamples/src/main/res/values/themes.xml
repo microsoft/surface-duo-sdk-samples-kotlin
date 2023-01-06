@@ -9,8 +9,8 @@
     <style name="Theme.App" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorOnPrimary">@color/dark_gray</item>
-        <item name="android:textColorPrimary">@color/dark_gray</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/colorPrimary</item>
@@ -63,7 +63,7 @@
     </style>
 
     <style name="Widget.App.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid">
-        <item name="background">?android:attr/colorBackground</item>
+        <item name="background">@color/colorPrimary</item>
         <item name="titleTextAppearance">@style/Widget.App.ActionBar.Title</item>
     </style>
 
